@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>计算机网络 - Hexo</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Hexo"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Hexo"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="12345678910111213141516╔══════════════════════════════════════════╗║        Ethernet Frame (数据链路层)       ║║  ┌────────────┬────────────┬──────────┐ ║║  │ MAC Header │ IP Packet  │ CRC Tail │ ║║  │"><meta property="og:type" content="blog"><meta property="og:title" content="计算机网络"><meta property="og:url" content="http://example.com/2025/06/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"><meta property="og:site_name" content="Hexo"><meta property="og:description" content="12345678910111213141516╔══════════════════════════════════════════╗║        Ethernet Frame (数据链路层)       ║║  ┌────────────┬────────────┬──────────┐ ║║  │ MAC Header │ IP Packet  │ CRC Tail │ ║║  │"><meta property="og:locale" content="en_US"><meta property="og:image" content="http://example.com/img/og_image.png"><meta property="article:published_time" content="2025-06-03T13:27:00.000Z"><meta property="article:modified_time" content="2025-06-03T13:29:30.040Z"><meta property="article:author" content="John Doe"><meta property="article:tag" content="计算机网络"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="http://example.com/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2025/06/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"},"headline":"计算机网络","image":["http://example.com/img/og_image.png"],"datePublished":"2025-06-03T13:27:00.000Z","dateModified":"2025-06-03T13:29:30.040Z","author":{"@type":"Person","name":"John Doe"},"publisher":{"@type":"Organization","name":"Hexo","logo":{"@type":"ImageObject","url":"http://example.com/img/logo.svg"}},"description":"12345678910111213141516╔══════════════════════════════════════════╗║        Ethernet Frame (数据链路层)       ║║  ┌────────────┬────────────┬──────────┐ ║║  │ MAC Header │ IP Packet  │ CRC Tail │ ║║  │"}</script><link rel="canonical" href="http://example.com/2025/06/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link data-pjax rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Hexo" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2025-06-03T13:27:00.000Z" title="2025/6/3 21:27:00">2025-06-03</time></span><span class="level-item">Updated&nbsp;<time dateTime="2025-06-03T13:29:30.040Z" title="2025/6/3 21:29:30">2025-06-03</time></span><span class="level-item"><a class="link-muted" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/">计算机</a></span><span class="level-item">13 minutes read (About 1901 words)</span></div></div><h1 class="title is-3 is-size-4-mobile">计算机网络</h1><div class="content"><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">╔══════════════════════════════════════════╗</span><br><span class="line">║        Ethernet Frame (数据链路层)       ║</span><br><span class="line">║  ┌────────────┬────────────┬──────────┐ ║</span><br><span class="line">║  │ MAC Header │ IP Packet  │ CRC Tail │ ║</span><br><span class="line">║  │            │            │          │ ║</span><br><span class="line">║  │            │ ┌────────┬──────────┐ │ ║</span><br><span class="line">║  │            │ │ IP hdr │ TCP/UDP  │ │ ║</span><br><span class="line">║  │            │ │        │ Segment  │ │ ║</span><br><span class="line">║  │            │ │        │ ┌──────┐ │ │ ║</span><br><span class="line">║  │            │ │        │ │ App  │ │ │ ║</span><br><span class="line">║  │            │ │        │ │ Data │ │ │ ║</span><br><span class="line">║  │            │ │        │ └──────┘ │ │ ║</span><br><span class="line">║  │            │ └────────┴──────────┘ │ ║</span><br><span class="line">║  └────────────┴──────────────────────┘ ║</span><br><span class="line">╚══════════════════════════════════════════╝</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="交换机视角"><a href="#交换机视角" class="headerlink" title="交换机视角"></a>交换机视角</h1><p>描述的是交换机如何转发数据帧（主要根据 MAC 地址）：</p>
+<ol>
+<li>只处理带有目标 MAC 地址的数据帧；</li>
+<li>查找 MAC 地址表（MAC→端口）；</li>
+<li>找到就从对应端口转发；</li>
+<li>找不到就<strong>广播</strong>给所有端口（学习 MAC 表）</li>
+</ol>
+<p> 交换机负责在一个局域网内部，基于 MAC 地址，把帧“从 A 发到 B”</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">┌───────────────┐</span><br><span class="line">│ 局域网（LAN） │  ← 局部物理网络</span><br><span class="line">│ ┌───────────┐ │</span><br><span class="line">│ │ 子网 A     │ │  ← 一个LAN里可能有一个或多个子网（如通过VLAN）</span><br><span class="line">│ └───────────┘ │</span><br><span class="line">└───────────────┘</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="主机视角"><a href="#主机视角" class="headerlink" title="主机视角"></a>主机视角</h1><p>描述的是主机（如你的电脑）如何确定数据的发送方式：</p>
+<ol>
+<li><p>主机知道自己和目标的 IP 地址；</p>
+<p>  一台主机知道目标 IP 地址，通常是因为用户告诉了它（通过域名、IP输入），或者它自己去查了（DNS&#x2F;协议发现） </p>
+</li>
+<li><p>判断是否在同一个子网（通过子网掩码）；</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">192.168.1.10  &amp; 255.255.255.0  = 192.168.1.0</span><br><span class="line">192.168.1.200 &amp; 255.255.255.0  = 192.168.1.0</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="3">
+<li><strong>在同一子网</strong>：用 ARP 协议获取对方 MAC 地址，直接发送；</li>
+</ol>
+<p>ARP 是一个用于<strong>将 IP 地址解析为 MAC 地址</strong>的协议。</p>
+<p>在以太网通信中，尽管应用层用的是 IP 地址，但真正<strong>在数据链路层上传输的是 MAC 地址帧</strong>。因此，主机在发送数据时，需要知道目标设备的 <strong>MAC 地址</strong> 才能发送帧。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Who has 192.168.1.3? Tell 192.168.1.1</span><br><span class="line"></span><br><span class="line">192.168.1.3 is at 00:1C:42:2E:60:4A</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p> 你访问的所有外部网站，其实都走的是“先发给你家路由器的 MAC 地址”，然后由路由器转发出局。  </p>
+<ol start="4">
+<li><p><strong>不在同一子网</strong>：用 ARP 获取默认网关的 MAC 地址，把数据发给网关</p>
+<p>  主机存有<strong>默认网关（通常是路由器）的 IP 地址</strong></p>
+</li>
+</ol>
+<hr>
+<hr>
+<h1 id="路由器视角"><a href="#路由器视角" class="headerlink" title="路由器视角"></a>路由器视角</h1><p><strong>描述的是路由器根据 IP 地址来决定下一跳：</strong></p>
+<ol>
+<li><strong>处理目标 IP 地址的数据包；</strong></li>
+<li><strong>查找路由表（IP→下一跳）；</strong></li>
+<li><strong>查到就从指定接口发出；</strong></li>
+<li><strong>查不到就回送一个不可达 ICMP 报文。</strong></li>
+</ol>
+<hr>
+<p>你主机 IP 是：<code>192.168.1.10</code><br>目标 IP 是：<code>10.0.0.3</code><br>你发不出去 → 把包交给默认网关（比如：<code>192.168.1.1</code>）</p>
+<p><strong>路由器会查它的路由表：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Destination        Next Hop         Interface</span><br><span class="line">10.0.0.0/24        192.168.2.2      eth1</span><br><span class="line">192.168.1.0/24     Direct           eth0</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p> 发现 <code>10.0.0.0/24</code> 这个目标网段要通过 <code>eth1</code> 口发出去，下一跳是 <code>192.168.2.2</code>，于是它就把你的包从 <code>eth1</code> 发出。  </p>
+<p>整体流程回顾：主机 → 路由器 → 目标主机</p>
+<p>你是主机A（192.168.1.10），想访问主机B（10.0.0.3），它不在你的子网：</p>
+<h3 id="主机端："><a href="#主机端：" class="headerlink" title="主机端："></a>主机端：</h3><ol>
+<li>你发现 10.0.0.3 不在同一子网；</li>
+<li>你查到默认网关是 192.168.1.1；</li>
+<li>你发 ARP 问：“谁是 192.168.1.1？” → 得到 MAC 地址；</li>
+<li>把数据包（目标 IP 是 10.0.0.3）发送给 <strong>网关的 MAC</strong>。</li>
+</ol>
+<h3 id="路由器端："><a href="#路由器端：" class="headerlink" title="路由器端："></a>路由器端：</h3><ol>
+<li>路由器收到包后查看 IP 层的目标地址 → 是 <code>10.0.0.3</code>；</li>
+<li>查自己的路由表：这个 IP 要走 <code>eth1</code> 接口；</li>
+<li>看看这条路径的 <strong>下一跳（next hop）</strong> 是谁，比如 <code>10.0.0.1</code>；</li>
+<li>然后<strong>发 ARP 请求：“谁是 10.0.0.1？”</strong>；</li>
+<li>得到回应：10.0.0.1 对应 MAC 为 <code>AA:BB:CC:DD:EE:FF</code>；</li>
+<li>构造帧，<strong>目的 MAC 就是这个</strong>，然后从 <code>eth1</code> 发出。</li>
+</ol>
+<hr>
+<h1 id="场景假设："><a href="#场景假设：" class="headerlink" title="场景假设："></a>场景假设：</h1><p>你电脑（主机A，IP: <code>192.168.1.10</code>）要访问远程主机B（IP: <code>10.0.0.3</code>），它不在你的子网。现在一步步讲这个数据包是怎么走出去的，三者怎么配合。</p>
+<hr>
+<h2 id="✅-第一阶段：主机如何发送数据？"><a href="#✅-第一阶段：主机如何发送数据？" class="headerlink" title="✅ 第一阶段：主机如何发送数据？"></a>✅ 第一阶段：主机如何发送数据？</h2><h3 id="🧠-主机要解决："><a href="#🧠-主机要解决：" class="headerlink" title="🧠 主机要解决："></a>🧠 主机要解决：</h3><ul>
+<li><strong>目标 IP 是谁？</strong></li>
+<li><strong>我和它是否在同一个子网？</strong></li>
+<li><strong>我要把包发给谁？目标设备还是路由器？</strong></li>
+</ul>
+<h3 id="✅-主机操作："><a href="#✅-主机操作：" class="headerlink" title="✅ 主机操作："></a>✅ 主机操作：</h3><ol>
+<li>判断目标 IP <code>10.0.0.3</code> 不在同一子网（比如掩码 <code>/24</code>）；</li>
+<li>查到默认网关是 <code>192.168.1.1</code>；</li>
+<li>查 ARP 表：有没有 <code>192.168.1.1</code> 对应的 MAC 地址？<ul>
+<li>没有 → 发 ARP 请求：<code>Who has 192.168.1.1?</code></li>
+<li>收到回应 → 得到 MAC 地址；</li>
+</ul>
+</li>
+<li>构造数据帧：<ul>
+<li>IP 层目的地 IP &#x3D; <code>10.0.0.3</code></li>
+<li>帧目标 MAC &#x3D; <code>192.168.1.1</code> 的 MAC</li>
+</ul>
+</li>
+<li><strong>把帧发出去给交换机</strong></li>
+</ol>
+<hr>
+<h2 id="✅-第二阶段：交换机如何中继数据？"><a href="#✅-第二阶段：交换机如何中继数据？" class="headerlink" title="✅ 第二阶段：交换机如何中继数据？"></a>✅ 第二阶段：交换机如何中继数据？</h2><h3 id="🧠-交换机只看-MAC-地址（不看-IP）"><a href="#🧠-交换机只看-MAC-地址（不看-IP）" class="headerlink" title="🧠 交换机只看 MAC 地址（不看 IP）"></a>🧠 交换机只看 MAC 地址（不看 IP）</h3><ol>
+<li>收到帧，看到目标 MAC 是 <code>AA-BB-CC-DD-EE-FF</code>（路由器的 MAC）；</li>
+<li>查 MAC 地址表，发现这个 MAC 在端口 2；</li>
+<li>把帧从端口 2 转发给路由器；</li>
+<li>不修改任何内容，纯转发，像“局域网邮递员”。</li>
+</ol>
+<hr>
+<h2 id="✅-第三阶段：路由器如何转发数据？"><a href="#✅-第三阶段：路由器如何转发数据？" class="headerlink" title="✅ 第三阶段：路由器如何转发数据？"></a>✅ 第三阶段：路由器如何转发数据？</h2><h3 id="🧠-路由器要解决："><a href="#🧠-路由器要解决：" class="headerlink" title="🧠 路由器要解决："></a>🧠 路由器要解决：</h3><ul>
+<li><strong>目标 IP 是哪里？我该从哪个接口发出去？</strong></li>
+<li><strong>目标主机在哪个子网？是否直接可达？</strong></li>
+</ul>
+<h3 id="✅-路由器操作："><a href="#✅-路由器操作：" class="headerlink" title="✅ 路由器操作："></a>✅ 路由器操作：</h3><ol>
+<li>查看 IP 头，目标是 <code>10.0.0.3</code>；</li>
+<li>查自己的路由表，发现：<ul>
+<li><code>10.0.0.0/24</code> 可达，通过 <code>eth1</code> 接口；</li>
+<li>下一跳是 <code>10.0.0.1</code></li>
+</ul>
+</li>
+<li>查 ARP 表：<code>10.0.0.1</code> 对应 MAC 有吗？<ul>
+<li>没有 → 发 ARP 请求：<code>Who has 10.0.0.1?</code></li>
+<li>得到回应后，记录 MAC 地址；</li>
+</ul>
+</li>
+<li>构造新的以太网帧：<ul>
+<li>源 MAC &#x3D; 路由器接口 MAC</li>
+<li>目标 MAC &#x3D; <code>10.0.0.1</code> 的 MAC</li>
+<li>IP 层仍然是目标 IP &#x3D; <code>10.0.0.3</code></li>
+</ul>
+</li>
+<li>把帧从 <code>eth1</code> 发出去</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">┌──────────────┐</span><br><span class="line">│  主机A        │  ← 判断子网 → ARP → 发帧</span><br><span class="line">│ 192.168.1.10 │</span><br><span class="line">└──────┬───────┘</span><br><span class="line">       ↓ 发送数据帧（Dst MAC = 路由器MAC）</span><br><span class="line">┌──────┴───────┐</span><br><span class="line">│ 交换机        │  ← MAC表查表 → 端口转发</span><br><span class="line">└──────┬───────┘</span><br><span class="line">       ↓</span><br><span class="line">┌──────┴───────┐</span><br><span class="line">│ 路由器        │  ← IP路由查表 → 下一跳ARP → 转发</span><br><span class="line">│ 192.168.1.1  │</span><br><span class="line">└──────┬───────┘</span><br><span class="line">       ↓ 发往下一个子网或目标主机</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+</div><div class="article-licensing box"><div class="licensing-title"><p>计算机网络</p><p><a href="http://example.com/2025/06/03/计算机网络/">http://example.com/2025/06/03/计算机网络/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>John Doe</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2025-06-03</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2025-06-03</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a></div><div class="notification is-danger">You need to set <code>install_url</code> to use ShareThis. Please set it in <code>_config.yml</code>.</div></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">Like this article? Support the author with</h3><div class="buttons is-centered"><a class="button donate" href="/" target="_blank" rel="noopener" data-type="afdian"><span class="icon is-small"><i class="fas fa-charging-station"></i></span><span>Afdian.net</span></a><a class="button donate" data-type="alipay"><span class="icon is-small"><i class="fab fa-alipay"></i></span><span>Alipay</span><span class="qrcode"><img src="/" alt="Alipay"></span></a><a class="button donate" href="/" target="_blank" rel="noopener" data-type="buymeacoffee"><span class="icon is-small"><i class="fas fa-coffee"></i></span><span>Buy me a coffee</span></a><a class="button donate" href="/" target="_blank" rel="noopener" data-type="patreon"><span class="icon is-small"><i class="fab fa-patreon"></i></span><span>Patreon</span></a><div class="notification is-danger">You forgot to set the <code>business</code> or <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.</div><a class="button donate" data-type="wechat"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>Wechat</span><span class="qrcode"><img src="/" alt="Wechat"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2025/06/03/hello-world/"><span class="level-item">Hellow world</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">Comments</h3><div class="notification is-danger">You forgot to set the <code>shortname</code> for Disqus. Please set it in <code>_config.yml</code>.</div></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.png" alt="Your name"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Your name</p><p class="is-size-6 is-block">Your title</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Your location</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives/"><p class="title">2</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Category</p><a href="/categories/"><p class="title">1</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tag</p><a href="/tags/"><p class="title">1</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/ppoffice" target="_blank" rel="me noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Github" href="https://github.com/ppoffice"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"><span class="level-start"><span class="level-item">计算机</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"><span class="tag">计算机网络</span><span class="tag">1</span></a></div></div></div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">Subscribe for updates</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div><div class="card widget"><div class="card-content"><div class="notification is-danger">You need to set <code>client_id</code> and <code>slot_id</code> to show this AD unit. Please set it in <code>_config.yml</code>.</div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">follow.it</h3><form action="" method="post" target="_blank"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2025-06-03T13:27:00.000Z">2025-06-03</time></p><p class="title"><a href="/2025/06/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a></p><p class="categories"><a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/">计算机</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2025-06-03T13:25:00.000Z">2025-06-03</time></p><p class="title"><a href="/2025/06/03/hello-world/">Hellow world</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2025/06/"><span class="level-start"><span class="level-item">June 2025</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="Hexo" height="28"></a><p class="is-size-7"><span>&copy; 2025 John Doe</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2019</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script data-pjax src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script src="/js/pjax.js"></script><!--!--><!--!--><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script data-pjax src="/js/insight.js" defer></script><script data-pjax>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>
