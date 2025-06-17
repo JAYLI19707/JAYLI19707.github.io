@@ -6,7 +6,7 @@
   <link href="https://jayli19707.github.io/atom.xml" rel="self"/>
   
   <link href="https://jayli19707.github.io/"/>
-  <updated>2025-06-17T06:53:29.546Z</updated>
+  <updated>2025-06-17T11:26:02.983Z</updated>
   <id>https://jayli19707.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Art of linear algebra</title>
+    <link href="https://jayli19707.github.io/2025/06/17/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80%E6%A1%86%E6%9E%B6/"/>
+    <id>https://jayli19707.github.io/2025/06/17/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80%E6%A1%86%E6%9E%B6/</id>
+    <published>2025-06-17T11:00:00.000Z</published>
+    <updated>2025-06-17T11:26:02.983Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="向量乘向量："><a href="#向量乘向量：" class="headerlink" title="向量乘向量："></a>向量乘向量：</h3><p>v1:行向量乘以列向量</p><p>v2:列向量乘以行向量<br><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250617183839404.png" alt="image.png"></p><hr><h3 id="矩阵乘以向量："><a href="#矩阵乘以向量：" class="headerlink" title="矩阵乘以向量："></a>矩阵乘以向量：</h3><p>不同角度的矩阵乘以向量的方法：</p><h4 id="（左边矩阵，右边列向量）"><a href="#（左边矩阵，右边列向量）" class="headerlink" title="（左边矩阵，右边列向量）"></a>（左边矩阵，右边列向量）</h4><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250617185615027.png" alt="image.png"></p><h4 id="（左边行向量，右边矩阵）"><a href="#（左边行向量，右边矩阵）" class="headerlink" title="（左边行向量，右边矩阵）"></a>（左边行向量，右边矩阵）</h4><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250617185752333.png" alt="image.png"></p><hr><h3 id="矩阵乘矩阵："><a href="#矩阵乘矩阵：" class="headerlink" title="矩阵乘矩阵："></a>矩阵乘矩阵：</h3><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250617190152496.png" alt="image.png"></p><hr><h3 id="矩阵的分解"><a href="#矩阵的分解" class="headerlink" title="矩阵的分解"></a>矩阵的分解</h3><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250617190345814.png" alt="image.png"></p><h3 id="四个子空间："><a href="#四个子空间：" class="headerlink" title="四个子空间："></a>四个子空间：</h3><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250617190554773.png" alt="image.png"></p>]]></content>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;向量乘向量：&quot;&gt;&lt;a href=&quot;#向量乘向量：&quot; class=&quot;headerlink&quot; title=&quot;向量乘向量：&quot;&gt;&lt;/a&gt;向量乘向量：&lt;/h3&gt;&lt;p&gt;v1:行向量乘以列向量&lt;/p&gt;
+&lt;p&gt;v2:列向量乘以行向量&lt;br&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="线性代数" scheme="https://jayli19707.github.io/categories/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/"/>
+    
+    
+    <category term="矩阵乘法" scheme="https://jayli19707.github.io/tags/%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>主成次分析</title>
