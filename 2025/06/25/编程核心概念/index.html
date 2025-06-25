@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+
+
+<html theme="dark" showBanner="true" hasBanner="true" > 
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet">
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet">
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet">
+<script src="/js/color.global.min.js" ></script>
+<script src="/js/load-settings.js" ></script>
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+
+  
+  <title>编程核心概念 | Justin的技术博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+
+  <meta name="description" content="15分钟掌握编程核心概念：一份全面的速查指南编程世界看似复杂，但其核心概念却能以简洁的方式理解。 1. 变量 (Variables) 定义：变量是计算机内存中用于存储信息的命名位置。可以将其想象成一个贴有标签的盒子，用于记录和修改数据。  属性：  名称 (Name)：唯一的标识符。  类型 (Type)：存储数据的种类。  值 (Value)：实际存储的信息。  作用域 (Scope)：决定变量">
+<meta property="og:type" content="article">
+<meta property="og:title" content="编程核心概念">
+<meta property="og:url" content="https://jayli19707.github.io/2025/06/25/%E7%BC%96%E7%A8%8B%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/index.html">
+<meta property="og:site_name" content="Justin的技术博客">
+<meta property="og:description" content="15分钟掌握编程核心概念：一份全面的速查指南编程世界看似复杂，但其核心概念却能以简洁的方式理解。 1. 变量 (Variables) 定义：变量是计算机内存中用于存储信息的命名位置。可以将其想象成一个贴有标签的盒子，用于记录和修改数据。  属性：  名称 (Name)：唯一的标识符。  类型 (Type)：存储数据的种类。  值 (Value)：实际存储的信息。  作用域 (Scope)：决定变量">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-06-25T13:30:00.000Z">
+<meta property="article:modified_time" content="2025-06-25T13:16:59.876Z">
+<meta property="article:author" content="Justin">
+<meta property="article:tag" content="人工智能,机器学习,深度学习,量化交易,Python,技术博客">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Justin的技术博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-192.png" sizes="192x192">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-192.png" sizes="192x192">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 7.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+
+<body>
+  
+  
+    
+<div id="banner" class="">
+  <img src="/image/background/benjamin_background.jpg" itemprop="image">
+  <div id="banner-dim"></div>
+</div>
+ 
+   
+  <div id="main-grid" class="  ">
+    <div id="nav" class=""  >
+      <navbar id="navbar">
+  <nav id="title-nav">
+    <a href="/">
+      <div id="vivia-logo">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div>Justin的技术博客 </div>
+    </a>
+  </nav>
+  <nav id="main-nav">
+    
+      <a class="main-nav-link" href="/">Home</a>
+    
+      <a class="main-nav-link" href="/archives">Archives</a>
+    
+      <a class="main-nav-link" href="/projects">Projects</a>
+    
+      <a class="main-nav-link" href="/investment">Investment</a>
+    
+      <a class="main-nav-link" href="/photography">Photography</a>
+    
+      <a class="main-nav-link" href="/about">About</a>
+    
+  </nav>
+  <nav id="sub-nav">
+    <a id="theme-btn" class="nav-icon">
+      <span class="light-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M438.5-829.913v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-829.913Zm0 747.826v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-82.087ZM877.913-438.5h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537t29.476-12.174h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T877.913-438.5Zm-747.826 0h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T82.087-521.5h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T130.087-438.5Zm660.174-290.87-34.239 32q-12.913 12.674-29.565 12.174-16.653-.5-29.327-13.174-12.674-12.673-12.554-28.826.12-16.152 12.794-28.826l33-35q12.913-12.674 30.454-12.674t30.163 12.847q12.709 12.846 12.328 30.826-.38 17.98-13.054 30.653ZM262.63-203.978l-32 34q-12.913 12.674-30.454 12.674t-30.163-12.847q-12.709-12.846-12.328-30.826.38-17.98 13.054-30.653l33.239-31q12.913-12.674 29.565-12.174 16.653.5 29.327 13.174 12.674 12.673 12.554 28.826-.12 16.152-12.794 28.826Zm466.74 33.239-32-33.239q-12.674-12.913-12.174-29.565.5-16.653 13.174-29.327 12.673-12.674 28.826-13.054 16.152-.38 28.826 12.294l35 33q12.674 12.913 12.674 30.454t-12.847 30.163q-12.846 12.709-30.826 12.328-17.98-.38-30.653-13.054ZM203.978-697.37l-34-33q-12.674-12.913-13.174-29.945-.5-17.033 12.174-29.707t31.326-13.293q18.653-.62 31.326 13.054l32 34.239q11.674 12.913 11.174 29.565-.5 16.653-13.174 29.327-12.673 12.674-28.826 12.554-16.152-.12-28.826-12.794ZM480-240q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm-.247-82q65.703 0 111.475-46.272Q637-414.544 637-480.247t-45.525-111.228Q545.95-637 480.247-637t-111.475 45.525Q323-545.95 323-480.247t45.525 111.975Q414.05-322 479.753-322ZM481-481Z"/></svg></span>
+      <span class="dark-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M480.239-116.413q-152.63 0-258.228-105.478Q116.413-327.37 116.413-480q0-130.935 77.739-227.435t206.304-125.043q43.022-9.631 63.87 10.869t3.478 62.805q-8.891 22.043-14.315 44.463-5.424 22.42-5.424 46.689 0 91.694 64.326 155.879 64.325 64.186 156.218 64.186 24.369 0 46.978-4.946 22.609-4.945 44.413-14.076 42.826-17.369 62.967 1.142 20.142 18.511 10.511 61.054Q807.174-280 712.63-198.206q-94.543 81.793-232.391 81.793Zm0-95q79.783 0 143.337-40.217 63.554-40.218 95.793-108.283-15.608 4.044-31.097 5.326-15.49 1.283-31.859.805-123.706-4.066-210.777-90.539-87.071-86.473-91.614-212.092-.24-16.369.923-31.978 1.164-15.609 5.446-30.978-67.826 32.478-108.282 96.152Q211.652-559.543 211.652-480q0 111.929 78.329 190.258 78.329 78.329 190.258 78.329ZM466.13-465.891Z"/></svg></span>
+    </a>
+    
+      <a id="nav-rss-link" class="nav-icon mobile-hide" href="/atom.xml" title="RSS 订阅">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-120q-25.846 0-44.23-18.384-18.384-18.385-18.384-44.23 0-25.846 18.384-44.23 18.384-18.385 44.23-18.385 25.846 0 44.23 18.385 18.384 18.384 18.384 44.23 0 25.845-18.384 44.23Q223.846-120 198-120Zm538.385 0q-18.846 0-32.923-13.769-14.076-13.769-15.922-33.23-8.692-100.616-51.077-188.654-42.385-88.039-109.885-155.539-67.5-67.501-155.539-109.885Q283-663.462 182.385-672.154q-19.461-1.846-33.23-16.23-13.769-14.385-13.769-33.846t14.076-32.922q14.077-13.461 32.923-12.23 120.076 8.692 226.038 58.768 105.961 50.077 185.73 129.846 79.769 79.769 129.846 185.731 50.077 105.961 58.769 226.038 1.231 18.846-12.538 32.922Q756.461-120 736.385-120Zm-252 0q-18.231 0-32.423-13.461t-18.653-33.538Q418.155-264.23 348.886-333.5q-69.27-69.27-166.501-84.423-20.077-4.462-33.538-18.961-13.461-14.5-13.461-33.346 0-19.076 13.884-33.23 13.884-14.153 33.115-10.922 136.769 15.384 234.384 112.999 97.615 97.615 112.999 234.384 3.231 19.23-10.538 33.115Q505.461-120 484.385-120Z"/></svg>
+      </a>
+    
+    <div id="nav-menu-btn" class="nav-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M177.37-252.282q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Zm0-186.218q-17.453 0-29.477-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T177.37-521.5h605.26q17.453 0 29.477 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T782.63-438.5H177.37Zm0-186.217q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Z"/></svg>
+    </div>
+  </nav>
+</navbar>
+<div id="nav-dropdown" class="hidden">
+  <div id="dropdown-link-list">
+    
+      <a class="nav-dropdown-link" href="/">Home</a>
+    
+      <a class="nav-dropdown-link" href="/archives">Archives</a>
+    
+      <a class="nav-dropdown-link" href="/projects">Projects</a>
+    
+      <a class="nav-dropdown-link" href="/investment">Investment</a>
+    
+      <a class="nav-dropdown-link" href="/photography">Photography</a>
+    
+      <a class="nav-dropdown-link" href="/about">About</a>
+    
+    
+      <a class="nav-dropdown-link" href="/atom.xml" title="RSS 订阅">RSS</a>
+     
+    </div>
+</div>
+<script>
+  let dropdownBtn = document.getElementById("nav-menu-btn");
+  let dropdownEle = document.getElementById("nav-dropdown");
+  dropdownBtn.onclick = function() {
+    dropdownEle.classList.toggle("hidden");
+  }
+</script>
+    </div>
+    <div id="sidebar-wrapper">
+      <sidebar id="sidebar">
+  
+    <div class="widget-wrap">
+  <div class="info-card">
+    <div class="avatar">
+      
+        <image src=/image/avatar/avatar_1.png></image>
+      
+      <div class="img-dim"></div>
+    </div>
+    <div class="info">
+      <div class="username">Justin </div>
+      <div class="dot"></div>
+      <div class="subtitle">比世界先发现你发光 </div>
+      <div class="link-list">
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/JAYLI19707" title="GitHub"><i class="fa-brands fa-github"></i></a>
+        
+          <a class="link-btn" href="mailto:your.email@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
+        
+          <a class="link-btn" href="/atom.xml" title="RSS"><i class="fa-solid fa-rss"></i></a>
+         
+      </div>  
+    </div>
+  </div>
+</div>
+
+  
+  <div class="sticky">
+    
+      
+
+
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">分类</h3>
+      <div class="category-box">
+            <a class="category-link" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
+                深度学习
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">
+                开发工具
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E7%BB%9F%E8%AE%A1/">
+                统计
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                机器学习
+                <div class="category-count">3</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">
+                线性代数
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
+                计算机
+                <div class="category-count">2</div>
+            </a>
+        </div>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">标签</h3>
+      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Batch/" rel="tag">Batch</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/LSTM/" rel="tag">LSTM</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Quant/" rel="tag">Quant</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/" rel="tag">矩阵乘法</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/" rel="tag">线性回归</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%BB%9F%E8%AE%A1%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C/" rel="tag">统计假设检验</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a></li></ul>
+    </div>
+  </div>
+
+
+    
+  </div>
+</sidebar>
+    </div>
+    <div id="content-body">
+       
+
+
+<article id="post-编程核心概念" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 class="p-name article-title" itemprop="headline name">
+        编程核心概念
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2025-06-25T13:30:00.000Z" itemprop="datePublished">2025-06-25</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/">计算机</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            4.3k 词 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <h2 id="15分钟掌握编程核心概念：一份全面的速查指南"><a href="#15分钟掌握编程核心概念：一份全面的速查指南" class="headerlink" title="15分钟掌握编程核心概念：一份全面的速查指南"></a>15分钟掌握编程核心概念：一份全面的速查指南</h2><p>编程世界看似复杂，但其核心概念却能以简洁的方式理解。</p>
+<h3 id="1-变量-Variables"><a href="#1-变量-Variables" class="headerlink" title="1. 变量 (Variables)"></a>1. 变量 (Variables)</h3><ul>
+<li><p><strong>定义</strong>：变量是计算机内存中用于存储信息的命名位置。可以将其想象成一个贴有标签的盒子，用于记录和修改数据。</p>
+</li>
+<li><p><strong>属性</strong>：</p>
+<ul>
+<li><p><strong>名称 (Name)</strong>：唯一的标识符。</p>
+</li>
+<li><p><strong>类型 (Type)</strong>：存储数据的种类。</p>
+</li>
+<li><p><strong>值 (Value)</strong>：实际存储的信息。</p>
+</li>
+<li><p><strong>作用域 (Scope)</strong>：决定变量可访问的范围（局部或全局）。</p>
+</li>
+<li><p><strong>内存地址 (Memory Address)</strong>：数据在 RAM 中的存储位置。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>用途</strong>：广泛应用于存储游戏分数、计算器中的数字、用户输入等。</p>
+</li>
+</ul>
+<h3 id="2-语法-Syntax"><a href="#2-语法-Syntax" class="headerlink" title="2. 语法 (Syntax)"></a>2. 语法 (Syntax)</h3><ul>
+<li><p><strong>定义</strong>：编程语言的“语法和标点”，定义了正确的结构、符号、关键字和运算符组合。</p>
+</li>
+<li><p><strong>关键要素</strong>：</p>
+<ul>
+<li><p><strong>符号和标点</strong>：如大括号 <code>{}</code>, 小括号 <code>()</code>, 分号 <code>;</code>。</p>
+</li>
+<li><p><strong>关键字</strong>：如 <code>if</code>, <code>while</code>, <code>return</code>, <code>for</code>, <code>case</code>。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>重要性</strong>：</p>
+<ul>
+<li><p><strong>区分大小写</strong>：编程语言通常区分大小写，例如 <code>if</code> 和 <code>If</code> 是不同的。</p>
+</li>
+<li><p><strong>错误处理</strong>：不正确的语法会导致编译时或运行时错误。</p>
+</li>
+<li><p><strong>代码可读性</strong>：良好的语法有助于提高代码可读性。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>注意</strong>：不同编程语言有不同的语法规则。</p>
+</li>
+</ul>
+<h3 id="3-数据类型-Data-Types"><a href="#3-数据类型-Data-Types" class="headerlink" title="3. 数据类型 (Data Types)"></a>3. 数据类型 (Data Types)</h3><ul>
+<li><p><strong>定义</strong>：规定变量可以存储的信息种类，对内存分配、错误预防和优化至关重要。</p>
+</li>
+<li><p><strong>基本数据类型</strong>：</p>
+<ul>
+<li><p><strong>Int</strong>：存储整数。</p>
+</li>
+<li><p><strong>Float</strong>：存储实数（如小数）。</p>
+</li>
+<li><p><strong>Char</strong>：存储单个字符。</p>
+</li>
+<li><p><strong>String</strong>：存储字符列表或整个单词（本质上是字符数组）。</p>
+</li>
+<li><p><strong>Boolean</strong>：存储 <code>true</code> 或 <code>false</code>。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>复合数据类型</strong>：</p>
+<ul>
+<li><p><strong>Arrays (数组)</strong>：存储同类型多个值，通常在内存中连续存储。</p>
+</li>
+<li><p><strong>List (列表)</strong>：类似于数组，但可以存储不同类型的值。</p>
+</li>
+<li><p><strong>Class (类)</strong>：具有特定属性和行为的代码块，可以继承其他代码的属性。</p>
+</li>
+<li><p><strong>Struct (结构体)</strong>：类似于类，但不支持继承。</p>
+</li>
+<li><p><strong>Tuple (元组)</strong>：类似于列表或数组，但其中信息的顺序很重要，并且一旦创建就不可修改。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>语言分类</strong>：</p>
+<ul>
+<li><p><strong>静态类型语言 (Statically typed)</strong>：如 Java，要求开发者明确声明数据类型。</p>
+</li>
+<li><p><strong>动态类型语言 (Dynamically typed)</strong>：如 Python，会自动检测数据类型。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-循环与递归-Loops-and-Recursion"><a href="#4-循环与递归-Loops-and-Recursion" class="headerlink" title="4. 循环与递归 (Loops and Recursion)"></a>4. 循环与递归 (Loops and Recursion)</h3><ul>
+<li><p><strong>循环 (Loops)</strong>：重复执行代码块直到满足特定条件。</p>
+<ul>
+<li><p><strong>类型</strong>：For 循环、While 循环、Do-While 循环、嵌套循环。</p>
+</li>
+<li><p><strong>用途</strong>：重复执行任务，例如执行固定次数或无限次。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>递归 (Recursion)</strong>：</p>
+<ul>
+<li><p><strong>定义</strong>：函数在自身体内引用自身，常用于遍历数量未知的信息。</p>
+</li>
+<li><p><strong>原理</strong>：序列的下一个元素由前一个元素决定。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="5-函数-Functions"><a href="#5-函数-Functions" class="headerlink" title="5. 函数 (Functions)"></a>5. 函数 (Functions)</h3><ul>
+<li><p><strong>定义</strong>：旨在执行特定任务的代码块，具有模块化和可重用性。</p>
+</li>
+<li><p><strong>组成部分</strong>：</p>
+<ul>
+<li><p><strong>输入 (Input)</strong>：通常称为<strong>参数 (Parameters)</strong>。</p>
+</li>
+<li><p><strong>函数名称 (Name)</strong>。</p>
+</li>
+<li><p><strong>函数体 (Body)</strong>：实际执行工作的代码。</p>
+</li>
+<li><p><strong>输出 (Output)</strong>：通常称为<strong>返回值 (Return Value)</strong>。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>类型</strong>：</p>
+<ul>
+<li><p><strong>内置函数 (Built-in Functions)</strong>：许多编程语言自带，如 Python 的 <code>print()</code>，JavaScript 的 <code>eval()</code>，C++ 的 <code>sqrt()</code>。</p>
+</li>
+<li><p><strong>Lambda 函数 (Lambda Functions)</strong>：一种特殊的匿名函数。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>生命周期</strong>：</p>
+<ul>
+<li><p><strong>声明 (Declaring)</strong>：编写函数。</p>
+</li>
+<li><p><strong>调用 (Calling)</strong>：在代码中引用函数。</p>
+</li>
+<li><p><strong>执行 (Executing)</strong>：函数实际运行时。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>与类结合</strong>：当函数放在类中时，它们被称为<strong>方法 (Methods)</strong>。</p>
+</li>
+</ul>
+<h3 id="6-条件语句-Conditionals"><a href="#6-条件语句-Conditionals" class="headerlink" title="6. 条件语句 (Conditionals)"></a>6. 条件语句 (Conditionals)</h3><ul>
+<li><p><strong>定义</strong>：根据条件（真或假）执行不同代码块的程序。</p>
+</li>
+<li><p><strong>类型</strong>：</p>
+<ul>
+<li><p><strong>If 语句 (If statements)</strong>：判断特定条件是否为真。</p>
+</li>
+<li><p><strong>If-Else 语句 (If-else statements)</strong>：在两种路径中选择其一。</p>
+</li>
+<li><p><strong>If-Elif-Else 语句 (If-elif-else statements)</strong>：处理多个条件。</p>
+</li>
+<li><p><strong>Switch-Case 语句 (Switch case statements)</strong>：将变量与多个值或条件进行匹配。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>用途</strong>：输入验证、错误处理、游戏逻辑等。</p>
+</li>
+<li><p><strong>常用比较</strong>：相等、不相等、大于、小于、大于等于、小于等于，并使用逻辑运算符 <code>AND</code>, <code>OR</code>, <code>NOT</code>。</p>
+</li>
+</ul>
+<h3 id="7-数据结构-Data-Structures"><a href="#7-数据结构-Data-Structures" class="headerlink" title="7. 数据结构 (Data Structures)"></a>7. 数据结构 (Data Structures)</h3><ul>
+<li><p><strong>定义</strong>：组织、存储和管理数据的特定方式，旨在提高性能、内存效率和抽象能力。</p>
+</li>
+<li><p><strong>常见类型</strong>：</p>
+<ul>
+<li><p><strong>数组 (Arrays)</strong>：将信息组织成一维列表，内存中通常存储在一起。</p>
+</li>
+<li><p><strong>链表 (Linked List)</strong>：通过指针相互连接的信息序列，不要求内存连续存储。</p>
+</li>
+<li><p><strong>栈 (Stack)</strong>：遵循“后进先出 (LIFO)”原则，元素从顶部添加和移除，常用于撤销/重做功能。</p>
+</li>
+<li><p><strong>队列 (Queue)</strong>：遵循“先进先出 (FIFO)”原则，常用于任务调度和打印队列。</p>
+</li>
+<li><p><strong>哈希表 (Hash Table)</strong>：以关联方式存储数据，键值对形式，用于高效的插入、删除和搜索操作，如电话簿。</p>
+</li>
+<li><p><strong>树 (Trees)</strong>：展示层次关系，由父子元素（节点和边）组成，包含一个根节点且无循环，如文件系统、组织管理。</p>
+</li>
+<li><p><strong>图 (Graphs)</strong>：由边和节点组成，可以包含循环，常用于网络布局和 GPS 最短路径计算。</p>
+</li>
+<li><p><strong>堆 (Heap)</strong>：一种特殊的完全二叉树，按升序或降序组织元素（最大堆/最小堆），主要用于调度和优先级队列。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="8-算法-Algorithms"><a href="#8-算法-Algorithms" class="headerlink" title="8. 算法 (Algorithms)"></a>8. 算法 (Algorithms)</h3><ul>
+<li><p><strong>定义</strong>：解决特定问题或计算的循序渐进的步骤或指令集，是编程的支柱之一。</p>
+</li>
+<li><p><strong>类型</strong>：排序算法、搜索算法、图算法、分治算法、动态规划、贪婪算法等。</p>
+</li>
+<li><p><strong>时间复杂度 (Time Complexity)</strong>：衡量算法运行所需的时间。</p>
+<ul>
+<li><p><strong>大 O 符号 (Big O Notation)</strong>：衡量算法在最坏情况下的运行上限（最慢）。</p>
+</li>
+<li><p><strong>大 Omega 符号 (Big Omega Notation)</strong>：衡量算法在最好情况下的运行下限（最快）。</p>
+</li>
+<li><p><strong>大 Theta 符号 (Big Theta Notation)</strong>：衡量算法的平均运行速度。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>实际应用</strong>：Google 搜索、GPS 导航、比特币的 SHA-256 加密哈希算法等。</p>
+</li>
+</ul>
+<h3 id="9-调试-Debugging"><a href="#9-调试-Debugging" class="headerlink" title="9. 调试 (Debugging)"></a>9. 调试 (Debugging)</h3><ul>
+<li><p><strong>定义</strong>：识别和修复代码中错误的过程，是开发和测试的关键步骤，可提高性能和增强安全性。</p>
+</li>
+<li><p><strong>错误类型</strong>：</p>
+<ul>
+<li><p><strong>语法错误 (Syntax errors)</strong>：违反编程语言规则的语法或拼写错误，导致计算机无法理解。</p>
+</li>
+<li><p><strong>运行时错误 (Runtime errors)</strong>：程序运行后才出现的错误，可能导致程序停止或崩溃，如除以零。</p>
+</li>
+<li><p><strong>逻辑错误 (Logical errors)</strong>：代码逻辑上的错误导致非预期结果，如循环中忘记停止条件导致无限循环。</p>
+</li>
+<li><p><strong>资源错误 (Resource error)</strong>：程序尝试使用不可用的资源（如内存或磁盘空间）。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>调试技巧</strong>：定位问题源、分析原因、使用打印调试、使用外部调试工具或单元测试。</p>
+</li>
+</ul>
+<h3 id="10-面向对象编程-Object-Oriented-Programming-OOP"><a href="#10-面向对象编程-Object-Oriented-Programming-OOP" class="headerlink" title="10. 面向对象编程 (Object-Oriented Programming, OOP)"></a>10. 面向对象编程 (Object-Oriented Programming, OOP)</h3><ul>
+<li><p><strong>定义</strong>：一种将软件设计围绕“对象”（数据结构）而非仅函数和逻辑组织的编程范式。对象是捆绑了属性（数据）和方法（函数）的代码。</p>
+</li>
+<li><p><strong>现实生活示例</strong>：视频游戏中的玩家、敌人、武器对象；电子商务网站中的产品、购物车、用户对象。</p>
+</li>
+<li><p><strong>核心概念</strong>：</p>
+<ul>
+<li><p><strong>类 (Classes)</strong>：对象的蓝图。</p>
+</li>
+<li><p><strong>实例化 (Instantiating)</strong>：根据类创建对象。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>四大核心原则</strong>：</p>
+<ul>
+<li><p><strong>封装 (Encapsulation)</strong>：将数据和方法捆绑在类中，并控制访问权限（私有/公共）。</p>
+</li>
+<li><p><strong>抽象 (Abstraction)</strong>：隐藏对象的复杂细节，只向用户暴露必要信息。</p>
+</li>
+<li><p><strong>继承 (Inheritance)</strong>：子类可以继承父类的属性。</p>
+</li>
+<li><p><strong>多态 (Polymorphism)</strong>：不同类的对象可以被视为公共超类的对象。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>优势</strong>：使软件更模块化、可重用和可扩展。</p>
+</li>
+<li><p><strong>常见语言</strong>：Python、Java、C++、Ruby。</p>
+</li>
+</ul>
+<h3 id="11-函数式编程-Functional-Programming"><a href="#11-函数式编程-Functional-Programming" class="headerlink" title="11. 函数式编程 (Functional Programming)"></a>11. 函数式编程 (Functional Programming)</h3><ul>
+<li><p><strong>定义</strong>：一种大量使用数学函数并避免改变状态或信息的编程范式。</p>
+</li>
+<li><p><strong>特点</strong>：</p>
+<ul>
+<li><p>输出仅依赖于输入。</p>
+</li>
+<li><p>数据创建后永不改变，而是创建新的数据结构。</p>
+</li>
+<li><p>大量使用递归而非循环。</p>
+</li>
+<li><p>函数可以作为其他函数的输入。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>核心概念</strong>：</p>
+<ul>
+<li><p><strong>头等函数 (First-Class Functions)</strong>：可以像其他数据类型一样存储在变量中、作为输入传递给其他函数或存储在数据结构中。</p>
+</li>
+<li><p><strong>高阶函数 (Higher-Order Functions)</strong>：接受其他函数作为输入或返回函数作为输出的函数。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>常见用途</strong>：数学计算或数据管道。</p>
+</li>
+<li><p><strong>常见语言</strong>：Haskell、Lisp、Erlang、Closure。</p>
+</li>
+</ul>
+<h3 id="12-图灵完备性-Turing-Completeness"><a href="#12-图灵完备性-Turing-Completeness" class="headerlink" title="12. 图灵完备性 (Turing Completeness)"></a>12. 图灵完备性 (Turing Completeness)</h3><ul>
+<li><p><strong>定义</strong>：受图灵机理论装置启发的一个概念。一个编程语言如果能完成图灵机能做的所有事情，就被认为是图灵完备的。</p>
+</li>
+<li><p><strong>图灵机能力</strong>：</p>
+<ul>
+<li><p>记录和存储数据。</p>
+</li>
+<li><p>执行条件逻辑。</p>
+</li>
+<li><p>执行循环或迭代。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>例子</strong>：Lambda Calculus（数学分支）、Minecraft 的红石系统、Microsoft Excel 的公式语言。</p>
+</li>
+</ul>
+<h3 id="13-正则表达式-Regular-Expressions"><a href="#13-正则表达式-Regular-Expressions" class="headerlink" title="13. 正则表达式 (Regular Expressions)"></a>13. 正则表达式 (Regular Expressions)</h3><ul>
+<li><p><strong>定义</strong>：一种用于操作和模式匹配字符串的方法，常用于文本搜索、验证和提取。</p>
+</li>
+<li><p><strong>用途</strong>：表单验证、日期提取、查找 HTML 标签、搜索和替换功能、网页抓取。</p>
+</li>
+<li><p><strong>核心概念</strong>：语法、量词、字符类、分组和转义特殊字符。</p>
+</li>
+</ul>
+<h4 id="为什么正则表达式非常有用？"><a href="#为什么正则表达式非常有用？" class="headerlink" title="为什么正则表达式非常有用？"></a>为什么正则表达式非常有用？</h4><p>它主要解决四类问题：</p>
+<ol>
+<li><p><strong>验证 (Validation)</strong>：判断用户输入或其他数据是否符合预期的格式。</p>
+<ul>
+<li>例如：检查一个字符串是不是合法的电子邮件地址、手机号码或身份证号。</li>
+</ul>
+</li>
+<li><p><strong>查找 (Searching)</strong>：在一个巨大的文本中，找到所有符合特定模式的部分。</p>
+<ul>
+<li>例如：从一篇网页的源代码中，找出所有的链接地址（以 <code>http://</code> 或 <code>https://</code> 开头）。</li>
+</ul>
+</li>
+<li><p><strong>提取 (Extraction)</strong>：从一段文本中，只把需要的信息“揪”出来。</p>
+<ul>
+<li>例如：从 “张三的电话是 13812345678” 这句话里，只提取出电话号码 <code>13812345678</code>。</li>
+</ul>
+</li>
+<li><p><strong>替换 (Replacement)</strong>：查找所有符合模式的文本，并将其替换成新的内容。</p>
+<ul>
+<li>例如：将一篇文章中所有的 “colour” 替换成 “color”，实现英式英语到美式英语的转换。</li>
+</ul>
+</li>
+</ol>
+<h3 id="14-编译-Compiling"><a href="#14-编译-Compiling" class="headerlink" title="14. 编译 (Compiling)"></a>14. 编译 (Compiling)</h3><ul>
+<li><p><strong>定义</strong>：将人类可读的代码分解成计算机可以理解的机器代码的过程，通常生成可执行文件或二进制文件。</p>
+</li>
+<li><p><strong>编译器 (Compilers)</strong>：执行此过程的程序。</p>
+</li>
+<li><p><strong>编译 vs. 解释</strong>：</p>
+<ul>
+<li><p><strong>编译语言 (Compiled Languages)</strong>：如 C++，编译器在执行前翻译整个代码。</p>
+</li>
+<li><p><strong>解释语言 (Interpretive Languages)</strong>：如 Python，解释器在运行时逐行翻译代码。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>编译器类型</strong>：</p>
+<ul>
+<li><p><strong>AOT (Ahead of Time) 编译器</strong>：在执行前编译代码。</p>
+</li>
+<li><p><strong>JIT (Just In Time) 编译器</strong>：在执行期间编译代码。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h1><p>Flash Bytes 频道发布的《15分钟掌握编程核心概念》</p>
+
+        
+      </div>
+
+         
+    </div>
+    
+     
+  </div>
+  
+    
+<nav id="article-nav">
+  <a class="article-nav-btn left  disabled "
+     >
+    <i class="fa-solid fa-angle-left"></i>
+    <p class="title-text">
+        
+    </p>
+  </a>
+  <a class="article-nav-btn right "
+    
+      href="/2025/06/23/%E6%89%B9%E6%AC%A1%EF%BC%88Batch%EF%BC%89%E4%B8%8E%E5%8A%A8%E9%87%8F%EF%BC%88Momentum%EF%BC%89/"
+      title="机器学习--批次（Batch）与动量（Momentum）"
+     >
+
+    <p class="title-text">
+      
+        机器学习--批次（Batch）与动量（Momentum）
+        
+    </p>
+    <i class="fa-solid fa-angle-right"></i>
+  </a>
+</nav>
+
+
+  
+</article>
+
+
+
+
+
+    </div>
+    <div id="footer-wrapper">
+      <footer id="footer">
+  
+  <div id="footer-info" class="inner">
+    
+    &copy; 2025 Justin<br>
+    Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & Theme <a target="_blank" rel="noopener" href="https://github.com/saicaca/hexo-theme-vivia">Vivia</a>
+  </div>
+</footer>
+
+    </div>
+    <div class="back-to-top-wrapper">
+    <button id="back-to-top-btn" class="back-to-top-btn hide" onclick="topFunction()">
+        <i class="fa-solid fa-angle-up"></i>
+    </button>
+</div>
+
+<script>
+    function topFunction() {
+        window.scroll({ top: 0, behavior: 'smooth' });
+    }
+    let btn = document.getElementById('back-to-top-btn');
+    function scrollFunction() {
+        if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+            btn.classList.remove('hide')
+        } else {
+            btn.classList.add('hide')
+        }
+    }
+    window.onscroll = function() {
+        scrollFunction();
+    }
+</script>
+
+  </div>
+  <script src="/js/light-dark-switch.js"></script>
+</body>
+</html>
