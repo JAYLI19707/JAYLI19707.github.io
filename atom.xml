@@ -6,7 +6,7 @@
   <link href="https://jayli19707.github.io/atom.xml" rel="self"/>
   
   <link href="https://jayli19707.github.io/"/>
-  <updated>2025-07-14T12:14:00.833Z</updated>
+  <updated>2025-07-15T08:30:00.900Z</updated>
   <id>https://jayli19707.github.io/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Leetcode-238.除自身以为的数组相乘</title>
+    <link href="https://jayli19707.github.io/2025/07/15/Leetcode-238.%E9%99%A4%E8%87%AA%E8%BA%AB%E4%BB%A5%E4%B8%BA%E7%9A%84%E6%95%B0%E7%BB%84%E7%9B%B8%E4%B9%98/"/>
+    <id>https://jayli19707.github.io/2025/07/15/Leetcode-238.%E9%99%A4%E8%87%AA%E8%BA%AB%E4%BB%A5%E4%B8%BA%E7%9A%84%E6%95%B0%E7%BB%84%E7%9B%B8%E4%B9%98/</id>
+    <published>2025-07-15T08:30:00.000Z</published>
+    <updated>2025-07-15T08:30:00.900Z</updated>
+    
+    <content type="html"><![CDATA[<p>用两个prefix和suffix记录前后缀的乘积</p><span id="more"></span><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250715161324586.png" alt="image.png"></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">productExceptSelf</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line"></span><br><span class="line">        n=<span class="built_in">len</span>(nums)</span><br><span class="line"></span><br><span class="line">        answer=[<span class="number">1</span>]*n</span><br><span class="line"></span><br><span class="line">        prefix = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line"></span><br><span class="line">            answer[i]=prefix</span><br><span class="line"></span><br><span class="line">            prefix*=nums[i]</span><br><span class="line"></span><br><span class="line">        suffix = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span>  <span class="built_in">range</span>(n-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>):</span><br><span class="line"></span><br><span class="line">            answer[j]=answer[j]*suffix</span><br><span class="line"></span><br><span class="line">            suffix*=nums[j]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> answer</span><br></pre></td></tr></table></figure><p>注意：题目限制复杂度了，所以不能使用双循环，本题巧妙的地方在于，用了前缀积和后缀积储存该数组前后的乘积。注意上部分的循环和下部分循环有轻微不一样，就是下部分的循环直接乘answer即可保证了连贯。</p><h3 id="空间复杂度分析的标准约定："><a href="#空间复杂度分析的标准约定：" class="headerlink" title="空间复杂度分析的标准约定："></a>空间复杂度分析的标准约定：</h3><p>在算法分析中，<strong>空间复杂度指的是“额外使用的空间”，不包括输入和输出所占用的空间</strong>。这是因为：</p><ul><li><p>输入和输出是你<strong>无论如何都必须要有的</strong>。</p></li><li><p>空间复杂度衡量的是：<strong>你为了解决这个问题，额外用的内存</strong>是多少。</p></li></ul><p>所以：</p><ul><li><p>如果你要返回一个长度为 n 的数组 <code>answer</code>，那这个空间是题目要求必须有的，不算在“额外空间”中；</p></li><li><p>只有那些你<strong>为了计算结果</strong>而额外创建的辅助结构才算</p></li></ul>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;用两个prefix和suffix记录前后缀的乘积&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Leetcode" scheme="https://jayli19707.github.io/categories/Leetcode/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Leetcode-198.轮转数组</title>
