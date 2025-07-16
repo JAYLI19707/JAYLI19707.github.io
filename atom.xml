@@ -6,7 +6,7 @@
   <link href="https://jayli19707.github.io/atom.xml" rel="self"/>
   
   <link href="https://jayli19707.github.io/"/>
-  <updated>2025-07-15T08:30:00.900Z</updated>
+  <updated>2025-07-16T15:52:23.029Z</updated>
   <id>https://jayli19707.github.io/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Leetcode-41.缺失的第一个正数</title>
+    <link href="https://jayli19707.github.io/2025/07/16/Leetcode-41.%E7%BC%BA%E5%A4%B1%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%AD%A3%E6%95%B0/"/>
+    <id>https://jayli19707.github.io/2025/07/16/Leetcode-41.%E7%BC%BA%E5%A4%B1%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%AD%A3%E6%95%B0/</id>
+    <published>2025-07-16T15:30:00.000Z</published>
+    <updated>2025-07-16T15:52:23.029Z</updated>
+    
+    <content type="html"><![CDATA[<p>问题的本质是 “存在性查询”，而存在性查询的最优数据结构是哈希表</p><span id="more"></span><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250716231139479.png" alt="image.png"></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">firstMissingPositive</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line"></span><br><span class="line">        nums.sort()</span><br><span class="line"></span><br><span class="line">        a=<span class="built_in">set</span>(nums)</span><br><span class="line"></span><br><span class="line">        i=<span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span> :</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> i <span class="keyword">not</span> <span class="keyword">in</span> a:</span><br><span class="line"></span><br><span class="line">                <span class="keyword">return</span> i</span><br><span class="line"></span><br><span class="line">            i+=<span class="number">1</span></span><br></pre></td></tr></table></figure><p>思路很简单：直接把数组排序后，丢到set里面，如果正数的i，不在set里面，说明就是缺少它。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;问题的本质是 “存在性查询”，而存在性查询的最优数据结构是哈希表&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Leetcode" scheme="https://jayli19707.github.io/categories/Leetcode/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Leetcode-238.除自身以为的数组相乘</title>
