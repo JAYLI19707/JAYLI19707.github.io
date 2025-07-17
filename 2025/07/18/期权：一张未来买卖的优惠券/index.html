@@ -14,27 +14,24 @@
   
 
   
-  <title>LSTM金融预测的陷阱与实践 | Justin的技术博客</title>
+  <title>期权：一张未来买卖的优惠券 | Justin的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
   <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
-  <meta name="description" content="核心论点本视频的核心观点是，在使用神经网络（尤其是LSTM）进行金融时间序列（如股价）预测时，一个看似“完美”的预测结果往往具有高度的误导性。预测的真正价值不在于模型表面上的准确率，而在于是否定义了有实际意义的预测目标。 关键对比实验：两种不同的预测目标视频通过对比两种不同的预测目标，清晰地揭示了这一陷阱。 方法一：预测“下一个收盘价”（The Misleading Approach | 错误的">
+  <meta name="description" content="一、期权是什么？期权（Options）是一种金融合约，给你在未来某个时间以特定价格买入或卖出某只股票的权利，但没有义务。换句话说，期权就像一张“优惠券”，让你可以选择是否以约定的价格执行交易。 类比：想象你在商场看到一款iPhone，当前价格是1000美元。你觉得它可能会涨价，于是花10美元买了一张“未来以1000美元买iPhone的优惠券”，有效期1个月。 如果1个月后iPhone涨到1200美">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LSTM金融预测的陷阱与实践">
-<meta property="og:url" content="https://jayli19707.github.io/2025/06/08/LSTM%E9%87%91%E8%9E%8D%E9%A2%84%E6%B5%8B%E7%9A%84%E9%99%B7%E9%98%B1%E4%B8%8E%E5%AE%9E%E8%B7%B5/index.html">
+<meta property="og:title" content="期权：一张未来买卖的优惠券">
+<meta property="og:url" content="https://jayli19707.github.io/2025/07/18/%E6%9C%9F%E6%9D%83%EF%BC%9A%E4%B8%80%E5%BC%A0%E6%9C%AA%E6%9D%A5%E4%B9%B0%E5%8D%96%E7%9A%84%E4%BC%98%E6%83%A0%E5%88%B8/index.html">
 <meta property="og:site_name" content="Justin的技术博客">
-<meta property="og:description" content="核心论点本视频的核心观点是，在使用神经网络（尤其是LSTM）进行金融时间序列（如股价）预测时，一个看似“完美”的预测结果往往具有高度的误导性。预测的真正价值不在于模型表面上的准确率，而在于是否定义了有实际意义的预测目标。 关键对比实验：两种不同的预测目标视频通过对比两种不同的预测目标，清晰地揭示了这一陷阱。 方法一：预测“下一个收盘价”（The Misleading Approach | 错误的">
+<meta property="og:description" content="一、期权是什么？期权（Options）是一种金融合约，给你在未来某个时间以特定价格买入或卖出某只股票的权利，但没有义务。换句话说，期权就像一张“优惠券”，让你可以选择是否以约定的价格执行交易。 类比：想象你在商场看到一款iPhone，当前价格是1000美元。你觉得它可能会涨价，于是花10美元买了一张“未来以1000美元买iPhone的优惠券”，有效期1个月。 如果1个月后iPhone涨到1200美">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://jayli19707.github.io/image/quant/205408.png">
-<meta property="article:published_time" content="2025-06-08T12:00:00.000Z">
-<meta property="article:modified_time" content="2025-06-08T13:21:03.711Z">
+<meta property="article:published_time" content="2025-07-17T17:30:00.000Z">
+<meta property="article:modified_time" content="2025-07-17T17:18:22.128Z">
 <meta property="article:author" content="Justin">
-<meta property="article:tag" content="LSTM">
-<meta property="article:tag" content="Quant">
+<meta property="article:tag" content="期权">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://jayli19707.github.io/image/quant/205408.png">
   
     <link rel="alternate" href="/atom.xml" title="Justin的技术博客" type="application/atom+xml">
   
@@ -51,7 +48,119 @@
   
 <link rel="stylesheet" href="/css/style.css">
 
-<meta name="generator" content="Hexo 7.3.0"></head>
+<meta name="generator" content="Hexo 7.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
 
 <body>
   
@@ -250,7 +359,7 @@
        
 
 
-<article id="post-LSTM金融预测的陷阱与实践" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+<article id="post-期权：一张未来买卖的优惠券" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
     
    
@@ -263,7 +372,7 @@
   
     
       <h1 class="p-name article-title" itemprop="headline name">
-        LSTM金融预测的陷阱与实践
+        期权：一张未来买卖的优惠券
       </h1>
     
   
@@ -271,84 +380,73 @@
 
         <div class='meta-info-bar'>
           <div class="meta-info">
-  <time class="dt-published" datetime="2025-06-08T12:00:00.000Z" itemprop="datePublished">2025-06-08</time>
+  <time class="dt-published" datetime="2025-07-17T17:30:00.000Z" itemprop="datePublished">2025-07-18</time>
 </div>
           <div class="need-seperator meta-info">
             <div class="meta-cate-flex">
   
-  <a class="meta-cate-link" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>
+  <a class="meta-cate-link" href="/categories/%E9%87%91%E8%9E%8D/">金融</a>
    
 </div>
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            1.4k 词 
+            2.2k 词 
           </div>
         </div>
         
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LSTM/" rel="tag">LSTM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Quant/" rel="tag">Quant</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9C%9F%E6%9D%83/" rel="tag">期权</a></li></ul>
 
       </header>
       <div class="e-content article-entry" itemprop="articleBody">
         
-          <p><strong><img src="/image/quant/205408.png" alt="图示"></strong></p>
-<h3 id="核心论点"><a href="#核心论点" class="headerlink" title="核心论点"></a>核心论点</h3><p>本视频的核心观点是，在使用神经网络（尤其是LSTM）进行金融时间序列（如股价）预测时，一个看似“完美”的预测结果往往具有高度的误导性。<strong>预测的真正价值不在于模型表面上的准确率，而在于是否定义了有实际意义的预测目标。</strong></p>
-<h3 id="关键对比实验：两种不同的预测目标"><a href="#关键对比实验：两种不同的预测目标" class="headerlink" title="关键对比实验：两种不同的预测目标"></a>关键对比实验：两种不同的预测目标</h3><p>视频通过对比两种不同的预测目标，清晰地揭示了这一陷阱。</p>
-<h4 id="方法一：预测“下一个收盘价”（The-Misleading-Approach-错误的思路）"><a href="#方法一：预测“下一个收盘价”（The-Misleading-Approach-错误的思路）" class="headerlink" title="方法一：预测“下一个收盘价”（The Misleading Approach | 错误的思路）"></a>方法一：预测“下一个收盘价”（The Misleading Approach | 错误的思路）</h4><ul>
-<li><strong>预测目标 (Target):</strong> 直接预测下一个时间单位（如下一根K线）的<strong>收盘价格</strong>。</li>
-<li><strong>实验结果 (Result):</strong><ul>
-<li>在图表上，预测曲线与真实价格曲线几乎<strong>完美重合</strong>，误差极小。</li>
-<li>给人一种模型已经成功掌握了价格变动规律的**“假象”**。</li>
-</ul>
-</li>
-<li><strong>问题剖析 (Analysis of the Trap):</strong><ul>
-<li><strong>高自相关性</strong>：金融数据具有很强的时间连续性，即今天的收盘价与明天的收盘价本身就非常接近。</li>
-<li><strong>模型的“懒惰学习”</strong>：模型发现，要使损失函数最小化（即提高准确率），最简单的策略就是输出一个与当前输入价格非常接近的值。本质上，模型学到的是 <code>预测价(t+1) ≈ 真实价(t)</code>。</li>
-<li><strong>实际价值 &#x3D; 零</strong>：这个看似准确的预测实际上只是真实价格的一个**“滞后镜像”<strong>，它无法提供任何关于未来价格会</strong>上涨<strong>还是</strong>下跌**的有效信息，因此对交易决策毫无帮助。</li>
-</ul>
-</li>
-</ul>
-<h4 id="方法二：预测“价格的变动量”（The-Meaningful-Approach-有意义的思路）"><a href="#方法二：预测“价格的变动量”（The-Meaningful-Approach-有意义的思路）" class="headerlink" title="方法二：预测“价格的变动量”（The Meaningful Approach | 有意义的思路）"></a>方法二：预测“价格的变动量”（The Meaningful Approach | 有意义的思路）</h4><ul>
-<li><strong>预测目标 (Target):</strong> 预测下一个时间单位价格的<strong>变化量</strong>（<code>下一收盘价 - 当前收盘价</code>）。</li>
-<li><strong>实验结果 (Result):</strong><ul>
-<li>预测曲线与真实的价格变动曲线<strong>差异巨大</strong>，效果非常不理想。</li>
-<li>直观地展示了预测市场真实波动的<strong>极端困难性</strong>。</li>
-</ul>
-</li>
-<li><strong>价值剖析 (Analysis of the Value):</strong><ul>
-<li><strong>正确的方向</strong>：尽管结果不佳，但这才是<strong>真正有价值的预测方向</strong>。准确预测价格的变动方向和幅度，才能产生可执行的交易信号。</li>
-<li><strong>反映真实难度</strong>：这个不理想的结果诚实地反映了使用单一模型预测市场走向的真实挑战。</li>
-</ul>
-</li>
-</ul>
-<h3 id="模型与数据技术细节"><a href="#模型与数据技术细节" class="headerlink" title="模型与数据技术细节"></a>模型与数据技术细节</h3><ul>
-<li><strong>所用模型</strong>：<strong>LSTM</strong> (Long Short-Term Memory | 长短期记忆网络)，一种适用于处理时间序列数据的循环神经网络。</li>
-<li><strong>输入特征 (Input Features):</strong><ul>
-<li>基础价格数据：开盘价 (Open), 最高价 (High), 最低价 (Low), 收盘价 (Close)。</li>
-<li>技术指标：相对强弱指数 (RSI), 移动平均线 (Moving Averages) 等。</li>
-</ul>
-</li>
-<li><strong>数据准备流程：</strong><ul>
-<li><strong>定义回溯期 (Look-back Period)</strong>：决定用过去多少个时间单位的数据（如过去20-30天）来预测下一个时间单位。</li>
-<li><strong>数据划分</strong>：将总数据集的80%用作<strong>训练集</strong>，20%用作<strong>测试集</strong>。</li>
-<li><strong>数据缩放 (Scaling)</strong>：在将数据送入神经网络前，通常需要进行归一化或标准化处理。</li>
-</ul>
-</li>
-</ul>
-<h3 id="结论与未来改进方向"><a href="#结论与未来改进方向" class="headerlink" title="结论与未来改进方向"></a>结论与未来改进方向</h3><ul>
-<li><strong>核心结论：</strong> 在进行金融预测建模时，必须对结果保持批判性思维。模型的设置，尤其是预测目标的选择，直接决定了其是否有用。<strong>一个丑陋但诚实的结果，远比一个漂亮但虚假的结果更有价值。</strong></li>
-<li><strong>未来可行的改进方向：</strong><ol>
-<li><strong>特征工程 (Feature Engineering)</strong>：探索和筛选对预测价格“变化”更有帮助的技术指标和数据。</li>
-<li><strong>优化预测目标 (Refining the Target)</strong>：不直接预测精确的变化数值，可以简化问题，例如预测价格变化的**“方向”**（即涨、跌、平）。</li>
-<li><strong>超参数调优 (Hyperparameter Tuning)</strong>：<ul>
-<li>寻找最佳的回溯期长度。</li>
-<li>优化模型的网络结构，如层数、每层的神经元数量等。</li>
-</ul>
-</li>
-</ol>
-</li>
-</ul>
-<h2 id="在线演示"><a href="#在线演示" class="headerlink" title="在线演示"></a>在线演示</h2><p>🚀 <strong><a href="/htmls/lstm_trap.html">启动交互式演示</a></strong></p>
+          <h1 id="一、期权是什么？"><a href="#一、期权是什么？" class="headerlink" title="一、期权是什么？"></a>一、期权是什么？</h1><p>期权（Options）是一种金融合约，给你在未来某个时间以特定价格买入或卖出某只股票的<strong>权利</strong>，但<strong>没有义务</strong>。换句话说，期权就像一张“优惠券”，让你可以选择是否以约定的价格执行交易。</p>
+<p>类比：想象你在商场看到一款iPhone，当前价格是1000美元。你觉得它可能会涨价，于是花10美元买了一张“未来以1000美元买iPhone的优惠券”，有效期1个月。</p>
+<p>如果1个月后iPhone涨到1200美元，你可以用1000美元买到它，再以1200美元卖出，赚200美元利润（扣除10美元券费，净赚190美元）。</p>
+<p>如果iPhone跌到800美元，你可以选择不用这张券，损失只是10美元的券费。</p>
+<p>期权就是类似的逻辑，只不过它针对的是股票，比如苹果（AAPL）、特斯拉（TSLA）或指数ETF（如SPY）。它让你用小钱（券费）博取大收益，同时风险有限。</p>
+<h1 id="二、期权的两大类型：Call和Put"><a href="#二、期权的两大类型：Call和Put" class="headerlink" title="二、期权的两大类型：Call和Put"></a>二、期权的两大类型：Call和Put</h1><p><strong>期权（Option）是一种金融合约，它给予买方一种“权利”，但不是义务；而卖方则承担对应的“义务”。</strong></p>
+<p>期权分为两种：Call期权（看涨期权）和Put期权（看跌期权）。它们分别对应你对股价的两种预测：上涨或下跌。</p>
+<p><strong>以下均是买方视角</strong></p>
+<h2 id="1、-Call期权：押注股价上涨"><a href="#1、-Call期权：押注股价上涨" class="headerlink" title="1、 Call期权：押注股价上涨"></a>1、 Call期权：押注股价上涨</h2><p>定义：Call期权给你以特定价格（行权价）买入股票的权利。</p>
+<p>适用场景：你认为某只股票会涨。</p>
+<p>案例：</p>
+<p>假设特斯拉（TSLA）当前股价是300美元。你买了一份行权价310美元、1个月后到期的Call期权，期权费（Premium）是5美元/股。因为期权合约通常以100股为单位，所以总费用是5 × 100 = 500美元。</p>
+<p>到期时：</p>
+<p>股价涨到350美元：你可以用310美元买入TSLA，再以350美元卖出，每股赚40美元，扣除5美元期权费，净赚35美元/股（总利润3500美元）。</p>
+<p>股价跌到280美元：期权作废，你不用行权，损失期权费500美元。</p>
+<h2 id="2、Put期权：押注股价下跌"><a href="#2、Put期权：押注股价下跌" class="headerlink" title="2、Put期权：押注股价下跌"></a>2、Put期权：押注股价下跌</h2><p>定义：Put期权给你以特定价格（行权价）卖出股票的权利。</p>
+<p>适用场景：你认为某只股票会跌。</p>
+<p>案例：还是TSLA，股价300美元。你买了一份行权价290美元、1个月后到期的Put期权，期权费是4美元/股，总费用4 × 100 = 400美元。</p>
+<p>到期时：股价跌到260美元：你可以用290美元卖出TSLA（相当于以290美元卖给别人，别人再以260美元补仓），每股赚30美元，扣除4美元期权费，净赚26美元/股（总利润2600美元）。</p>
+<p>股价涨到320美元：期权作废，你损失期权费400美元。</p>
+<p>总结：Call = 看涨，赚股价上涨的钱。Put = 看跌，赚股价下跌的钱。</p>
+<p>买期权的最大风险 = 期权费，潜在收益可能很高（尤其Call）</p>
+<h1 id="三、期权的四个核心术语"><a href="#三、期权的四个核心术语" class="headerlink" title="三、期权的四个核心术语"></a>三、期权的四个核心术语</h1><p>要玩转期权，必须搞懂以下四个关键概念：</p>
+<p>行权价（Strike Price）：</p>
+<p>期权合约约定的买卖价格。例如，TSLA的310美元Call，行权价就是310美元。</p>
+<p>行权价有多种选择：高于、等于或低于当前股价，分别叫虚值（OTM）、平值（ATM）、实值（ITM）。</p>
+<p>实值：Call的行权价 &lt; 当前股价（例如，TSLA 300美元，行权价290美元）。</p>
+<p>虚值：Call的行权价 &gt; 当前股价（例如，行权价320美元）。</p>
+<p>平值：行权价 ≈ 当前股价。</p>
+<p>到期日（Expiration Date）：期权有效的时间，过了这天，期权要么行权，要么作废。</p>
+<p>常见到期日：1周、1个月、3个月，甚至1-2年。</p>
+<p>期权费（Premium）：购买期权需要支付的费用，由市场供需决定，受股价、波动率和剩余时间影响。</p>
+<p>例如，5美元/股的期权费，买1份合约（100股）就是500美元。</p>
+<p>标的股票（Underlying Stock）：期权对应的股票或ETF，例如TSLA、AAPL、SPY。</p>
+<h1 id="四、期权为什么吸引人？三大优势"><a href="#四、期权为什么吸引人？三大优势" class="headerlink" title="四、期权为什么吸引人？三大优势"></a>四、期权为什么吸引人？三大优势</h1><p>期权之所以在美股市场大受欢迎，尤其对小散户（像关注TSLA、BTC的），有以下三大魅力：</p>
+<p>低成本，高杠杆：买100股TSLA（300美元/股）需要3万美元，但买1份Call期权只需500美元，就能控制100股的收益权。</p>
+<p>如果股价涨10%，股票赚3000美元，期权可能翻倍（500美元变1000美元），杠杆放大回报。</p>
+<p>风险有限：买期权的最大损失是期权费（例如，500美元），不像股票可能亏到本金全无。这让期权适合想“以小博大”的投资者。</p>
+<p>灵活性：期权可以看涨（Call）、看跌（Put），还能组合策略（后面几集会讲）。</p>
+<p>适合各种市场环境：牛市、熊市、震荡市。</p>
+<p>案例：假设TSLA即将发布新款Cybertruck，市场预期股价大涨。你可以用500美元买Call期权，押注上涨，潜在赚几倍回报，而风险仅限500美元。</p>
+<h1 id="五、期权的风险：不是“稳赚不赔”"><a href="#五、期权的风险：不是“稳赚不赔”" class="headerlink" title="五、期权的风险：不是“稳赚不赔”"></a>五、期权的风险：不是“稳赚不赔”</h1><p>虽然期权很诱人，但它不是“印钞机”。以下是初学者要知道的三大风险：</p>
+<p>时间压力：期权有到期日，如果到期时股价没达到目标，期权可能一文不值。</p>
+<p>例如，TSLA Call（行权价310美元）到期时股价只有305美元，500美元期权费全亏。</p>
+<p>高波动性：期权价格随股价、波动率剧烈变化，可能一天涨50%或跌80%。这既是机会，也是风险。</p>
+<p>全损可能：买虚值期权（例如，TSLA 350美元Call）需要股价暴涨才赚钱，失败概率高，容易全损。</p>
+<p>建议：期权适合用“玩得起的钱”尝试，初期别All in</p>
 
         
       </div>
@@ -363,25 +461,25 @@
 <nav id="article-nav">
   <a class="article-nav-btn left "
     
-      href="/2025/06/10/Lecture%2001/"
-      title="Shell与命令行"
+      href="/2025/07/18/%E6%9C%9F%E6%9D%83%EF%BC%9A%E5%A6%82%E4%BD%95%E4%B9%B0%E5%8D%96%E6%9C%9F%E6%9D%83/"
+      title="期权：如何买卖期权"
      >
     <i class="fa-solid fa-angle-left"></i>
     <p class="title-text">
       
-        Shell与命令行
+        期权：如何买卖期权
         
     </p>
   </a>
   <a class="article-nav-btn right "
     
-      href="/2025/06/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"
-      title="计算机网络"
+      href="/2025/07/17/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%20ChatGPT/"
+      title="机器学习-深入理解 ChatGPT"
      >
 
     <p class="title-text">
       
-        计算机网络
+        机器学习-深入理解 ChatGPT
         
     </p>
     <i class="fa-solid fa-angle-right"></i>
