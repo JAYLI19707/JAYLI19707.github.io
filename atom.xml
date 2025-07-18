@@ -6,7 +6,7 @@
   <link href="https://jayli19707.github.io/atom.xml" rel="self"/>
   
   <link href="https://jayli19707.github.io/"/>
-  <updated>2025-07-18T18:37:17.901Z</updated>
+  <updated>2025-07-18T19:26:38.762Z</updated>
   <id>https://jayli19707.github.io/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Leetcode-.283移动零</title>
+    <link href="https://jayli19707.github.io/2025/07/19/Leetcode-.283%E7%A7%BB%E5%8A%A8%E9%9B%B6/"/>
+    <id>https://jayli19707.github.io/2025/07/19/Leetcode-.283%E7%A7%BB%E5%8A%A8%E9%9B%B6/</id>
+    <published>2025-07-18T19:30:00.000Z</published>
+    <updated>2025-07-18T19:26:38.762Z</updated>
+    
+    <content type="html"><![CDATA[<p>本题采用双指针来解决</p><span id="more"></span><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250719031815486.png" alt="image.png"></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">moveZeroes</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="literal">None</span>:</span><br><span class="line"></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        Do not return anything, modify nums in-place instead.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        pos=<span class="number">0</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(nums)):</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> nums[i]!=<span class="number">0</span>:</span><br><span class="line"></span><br><span class="line">                nums[pos],nums[i]=nums[i],nums[pos]</span><br><span class="line"></span><br><span class="line">                pos+=<span class="number">1</span></span><br></pre></td></tr></table></figure><p>本题运用双指针来写：一个指针用来遍历数组，一个用来记录“有效位”索引，如果遍历的时候发现元素不是0，立马就可以跟有效位置索引的数组进行交换，</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;本题采用双指针来解决&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Leetcode" scheme="https://jayli19707.github.io/categories/Leetcode/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>期权：末日期权</title>
@@ -478,33 +497,6 @@
     
     <category term="机器学习" scheme="https://jayli19707.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>Statistical Hypothesis Testing</title>
-    <link href="https://jayli19707.github.io/2025/06/14/Statistical%20Hypothesis%20Testing/"/>
-    <id>https://jayli19707.github.io/2025/06/14/Statistical%20Hypothesis%20Testing/</id>
-    <published>2025-06-14T05:04:33.000Z</published>
-    <updated>2025-06-17T07:01:47.880Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h2><h3 id="1-零假设-H-0"><a href="#1-零假设-H-0" class="headerlink" title="1. 零假设 ($H_0$)"></a>1. 零假设 ($H_0$)</h3><ul><li><strong>定义</strong>: 假设研究的组间 <strong>没有差异</strong>，即风险因素&#x2F;治疗与健康结果之间无关系。 </li><li><strong>应用</strong>: 研究中的默认立场，直到有足够证据推翻它。</li></ul><h3 id="2-备择假设-H-a-或-H-1"><a href="#2-备择假设-H-a-或-H-1" class="headerlink" title="2. 备择假设 ($H_a$ 或 $H_1$)"></a>2. 备择假设 ($H_a$ 或 $H_1$)</h3><ul><li><strong>定义</strong>: 与零假设相反，声明组间 <strong>存在差异</strong>。 </li><li><strong>目标</strong>: 研究者希望证明的目标，但无法被绝对“证实”。最接近的方法是 <strong>拒绝零假设</strong>。<br><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250615152627374.png" alt="image.png"></li></ul><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250615152757773.png" alt="image.png"></p><h3 id="3-I型错误-alpha"><a href="#3-I型错误-alpha" class="headerlink" title="3. I型错误 ($\alpha$)"></a>3. I型错误 ($\alpha$)</h3><ul><li><strong>定义</strong>: 错误地拒绝了零假设，即结论认为存在差异，而实际上没有。俗称 <strong>假阳性 (False Positive)</strong>。 </li><li><strong>概率</strong>: 犯此错误的概率为 <strong>Alpha ($\alpha$)</strong>。<br><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250615152704283.png" alt="image.png"></li></ul><h3 id="4-II型错误-beta"><a href="#4-II型错误-beta" class="headerlink" title="4. II型错误 ($\beta$)"></a>4. II型错误 ($\beta$)</h3><ul><li><strong>定义</strong>: 未能拒绝本应拒绝的零假设，即结论认为没有差异，而实际上存在。俗称 <strong>假阴性 (False Negative)</strong>。 </li><li><strong>概率</strong>: 犯此错误的概率为 <strong>Beta ($\beta$)</strong>。<br><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250615152732841.png" alt="image.png"></li></ul><h3 id="5-统计功效-Power"><a href="#5-统计功效-Power" class="headerlink" title="5. 统计功效 (Power)"></a>5. 统计功效 (Power)</h3><ul><li><strong>定义</strong>: 如果差异真实存在，研究能正确发现它的概率。 </li><li><strong>计算</strong>: $\text{Power} &#x3D; 1 - \beta$ </li><li><strong>提升方法</strong>:<ul><li>增加样本量</li><li>增加效应大小</li><li>提高精确度</li></ul></li></ul><h3 id="6-最强检验-Most-Powerful-Test-和-一致最强检验-Uniformly-Most-Powerful-Test-。"><a href="#6-最强检验-Most-Powerful-Test-和-一致最强检验-Uniformly-Most-Powerful-Test-。" class="headerlink" title="6.最强检验 (Most Powerful Test) 和 一致最强检验 (Uniformly Most Powerful Test)。"></a>6.最强检验 (Most Powerful Test) 和 一致最强检验 (Uniformly Most Powerful Test)。</h3><h4 id="最强检验-Most-Powerful-Test-MP-Test"><a href="#最强检验-Most-Powerful-Test-MP-Test" class="headerlink" title="最强检验 (Most Powerful Test, MP Test)"></a>最强检验 (Most Powerful Test, MP Test)</h4><p><strong>1. 定义</strong> 最强检验（MP Test）是在所有显著性水平为 $\alpha$ 的检验中，对于 <strong>一个特定的、简单的备择假设 ($H_1$)</strong>，具有最高效能（即最小 $\beta$）的检验</p><h4 id="一致最强检验-Uniformly-Most-Powerful-Test-UMP-Test"><a href="#一致最强检验-Uniformly-Most-Powerful-Test-UMP-Test" class="headerlink" title="一致最强检验 (Uniformly Most Powerful Test, UMP Test)"></a>一致最强检验 (Uniformly Most Powerful Test, UMP Test)</h4><p><strong>1. 定义</strong> 一致最强检验（UMP Test）是在所有显著性水平为 $\alpha$ 的检验中，对于 <strong>某一范围内的所有可能的备择假设值</strong>，其效能 <strong>始终</strong> 是最高的检验</p><h3 id="7-P值-p-Value"><a href="#7-P值-p-Value" class="headerlink" title="7. P值 (p-Value)"></a>7. P值 (p-Value)</h3><ul><li><strong>定义</strong>: 假设零假设为真时，观察到至少与当前结果一样极端的数据的概率。</li><li><strong>解读</strong>:<ul><li><strong>小P值</strong>: 强烈证据反对零假设。 </li><li><strong>大P值</strong>: 数据与零假设一致。</li></ul></li></ul><h3 id="8-统计显著性"><a href="#8-统计显著性" class="headerlink" title="8. 统计显著性"></a>8. 统计显著性</h3><ul><li><strong>判断标准</strong>: 将 <strong>P值</strong> 与预设的 <strong>Alpha ($\alpha$) 水平</strong>（通常为0.05）比较。</li><li><strong>结论</strong>: 如果 $P &lt; \alpha$，则结果具有 <strong>统计显著性</strong>，意味着观察到的差异不太可能由偶然造成。</li></ul><hr><h2 id="重要区别与注意事项"><a href="#重要区别与注意事项" class="headerlink" title="重要区别与注意事项"></a>重要区别与注意事项</h2><blockquote><p><strong>统计显著性 ≠ 临床显著性</strong><br>一个有统计学意义的发现，在临床实践中可能没有实际价值或重要影响。</p></blockquote><blockquote><p><strong>P值的正确理解</strong></p><ul><li>P值 <strong>不能</strong> 用来证明备择假设为真。</li><li>P值 <strong>不能</strong> 说明观察到的差异是由于偶然。</li><li>它只是一个评估数据与零假设吻合程度的工具。结论需结合研究设计等因素。</li></ul></blockquote><hr>]]></content>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;核心概念&quot;&gt;&lt;a href=&quot;#核心概念&quot; class=&quot;headerlink&quot; title=&quot;核心概念&quot;&gt;&lt;/a&gt;核心概念&lt;/h2&gt;&lt;h3 id=&quot;1-零假设-H-0&quot;&gt;&lt;a href=&quot;#1-零假设-H-0&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="统计" scheme="https://jayli19707.github.io/categories/%E7%BB%9F%E8%AE%A1/"/>
-    
-    
-    <category term="统计假设检验" scheme="https://jayli19707.github.io/tags/%E7%BB%9F%E8%AE%A1%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C/"/>
     
   </entry>
   
