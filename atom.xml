@@ -6,7 +6,7 @@
   <link href="https://jayli19707.github.io/atom.xml" rel="self"/>
   
   <link href="https://jayli19707.github.io/"/>
-  <updated>2025-07-21T17:06:16.093Z</updated>
+  <updated>2025-07-22T13:34:40.412Z</updated>
   <id>https://jayli19707.github.io/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Leetcode-11.盛最多水的容器</title>
+    <link href="https://jayli19707.github.io/2025/07/22/Leetcode-11.%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8/"/>
+    <id>https://jayli19707.github.io/2025/07/22/Leetcode-11.%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8/</id>
+    <published>2025-07-22T13:30:00.000Z</published>
+    <updated>2025-07-22T13:34:40.412Z</updated>
+    
+    <content type="html"><![CDATA[<p>本题采用双指针来解决<br>矩阵的面积与两个因素有关：<br>矩阵的长度：两条垂直线的距离<br>矩阵的宽度：两条垂直线其中较短一条的长度<br>因此，要矩阵面积最大化，两条垂直线的距离越远越好，两条垂直线的最短长度也要越长越好。</p><span id="more"></span><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250722192326067.png" alt="image.png"></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">maxArea</span>(<span class="params">self, height: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line"></span><br><span class="line">        i=<span class="number">0</span></span><br><span class="line"></span><br><span class="line">        j=<span class="built_in">len</span>(height)-<span class="number">1</span></span><br><span class="line"></span><br><span class="line">        maxvolume=<span class="number">0</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> i &lt; j:</span><br><span class="line"></span><br><span class="line">            left = height[i]</span><br><span class="line"></span><br><span class="line">            right= height[j]</span><br><span class="line"></span><br><span class="line">            L=j-i</span><br><span class="line"></span><br><span class="line">            currentvolume=<span class="built_in">min</span>(left,right)*L</span><br><span class="line">  </span><br><span class="line">            <span class="keyword">if</span> maxvolume&lt;currentvolume:</span><br><span class="line"></span><br><span class="line">                maxvolume=currentvolume</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> left&lt;right:</span><br><span class="line"></span><br><span class="line">                i+=<span class="number">1</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line"></span><br><span class="line">                j-=<span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> maxvolume</span><br></pre></td></tr></table></figure><p>在每个状态下，无论长板或短板向中间收窄一格，都会导致水槽 底边宽度 −1​ 变短：</p><p>若向内 移动短板 ，水槽的短板 min(h[i],h[j]) 可能变大，因此下个水槽的面积 可能增大 。<br>若向内 移动长板 ，水槽的短板 min(h[i],h[j])​ 不变或变小，因此下个水槽的面积 一定变小 。</p><p>因此，初始化双指针分列水槽左右两端，循环每轮将短板向内移动一格，并更新面积最大值，直到两指针相遇时跳出；即可获得最大面积。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;本题采用双指针来解决&lt;br&gt;矩阵的面积与两个因素有关：&lt;br&gt;矩阵的长度：两条垂直线的距离&lt;br&gt;矩阵的宽度：两条垂直线其中较短一条的长度&lt;br&gt;因此，要矩阵面积最大化，两条垂直线的距离越远越好，两条垂直线的最短长度也要越长越好。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Leetcode" scheme="https://jayli19707.github.io/categories/Leetcode/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>深度学习-超越线性，迈向深度</title>
@@ -463,34 +482,6 @@
     
     
     <category term="Batch" scheme="https://jayli19707.github.io/tags/Batch/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Art of linear algebra</title>
-    <link href="https://jayli19707.github.io/2025/06/17/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80%E6%A1%86%E6%9E%B6/"/>
-    <id>https://jayli19707.github.io/2025/06/17/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80%E6%A1%86%E6%9E%B6/</id>
-    <published>2025-06-17T11:00:00.000Z</published>
-    <updated>2025-06-17T11:26:02.983Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="向量乘向量："><a href="#向量乘向量：" class="headerlink" title="向量乘向量："></a>向量乘向量：</h3><p>v1:行向量乘以列向量</p><p>v2:列向量乘以行向量<br><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250617183839404.png" alt="image.png"></p><hr><h3 id="矩阵乘以向量："><a href="#矩阵乘以向量：" class="headerlink" title="矩阵乘以向量："></a>矩阵乘以向量：</h3><p>不同角度的矩阵乘以向量的方法：</p><h4 id="（左边矩阵，右边列向量）"><a href="#（左边矩阵，右边列向量）" class="headerlink" title="（左边矩阵，右边列向量）"></a>（左边矩阵，右边列向量）</h4><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250617185615027.png" alt="image.png"></p><h4 id="（左边行向量，右边矩阵）"><a href="#（左边行向量，右边矩阵）" class="headerlink" title="（左边行向量，右边矩阵）"></a>（左边行向量，右边矩阵）</h4><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250617185752333.png" alt="image.png"></p><hr><h3 id="矩阵乘矩阵："><a href="#矩阵乘矩阵：" class="headerlink" title="矩阵乘矩阵："></a>矩阵乘矩阵：</h3><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250617190152496.png" alt="image.png"></p><hr><h3 id="矩阵的分解"><a href="#矩阵的分解" class="headerlink" title="矩阵的分解"></a>矩阵的分解</h3><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250617190345814.png" alt="image.png"></p><h3 id="四个子空间："><a href="#四个子空间：" class="headerlink" title="四个子空间："></a>四个子空间：</h3><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250617190554773.png" alt="image.png"></p>]]></content>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;向量乘向量：&quot;&gt;&lt;a href=&quot;#向量乘向量：&quot; class=&quot;headerlink&quot; title=&quot;向量乘向量：&quot;&gt;&lt;/a&gt;向量乘向量：&lt;/h3&gt;&lt;p&gt;v1:行向量乘以列向量&lt;/p&gt;
-&lt;p&gt;v2:列向量乘以行向量&lt;br&gt;&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="线性代数" scheme="https://jayli19707.github.io/categories/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/"/>
-    
-    
-    <category term="矩阵乘法" scheme="https://jayli19707.github.io/tags/%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/"/>
     
   </entry>
   
