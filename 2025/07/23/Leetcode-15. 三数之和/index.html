@@ -14,26 +14,26 @@
   
 
   
-  <title>Leetcode-198.轮转数组 | Justin的技术博客</title>
+  <title>Leetcode-15. 三数之和 | Justin的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
   <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
-  <meta name="description" content="核心是数组切片">
+  <meta name="description" content="排序 + 双指针本题的难点在于如何去除重复解">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode-198.轮转数组">
-<meta property="og:url" content="https://jayli19707.github.io/2025/07/14/Leetcode-198.%E8%BD%AE%E8%BD%AC%E6%95%B0%E7%BB%84/index.html">
+<meta property="og:title" content="Leetcode-15. 三数之和">
+<meta property="og:url" content="https://jayli19707.github.io/2025/07/23/Leetcode-15.%20%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/index.html">
 <meta property="og:site_name" content="Justin的技术博客">
-<meta property="og:description" content="核心是数组切片">
+<meta property="og:description" content="排序 + 双指针本题的难点在于如何去除重复解">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250714201054457.png">
-<meta property="article:published_time" content="2025-07-14T12:30:00.000Z">
-<meta property="article:modified_time" content="2025-07-14T12:14:00.833Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250723173647918.png">
+<meta property="article:published_time" content="2025-07-23T09:30:00.000Z">
+<meta property="article:modified_time" content="2025-07-23T09:50:53.439Z">
 <meta property="article:author" content="Justin">
 <meta property="article:tag" content="人工智能,机器学习,深度学习,量化交易,Python,技术博客">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250714201054457.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250723173647918.png">
   
     <link rel="alternate" href="/atom.xml" title="Justin的技术博客" type="application/atom+xml">
   
@@ -361,7 +361,7 @@ mjx-container[display="true"] + br {
        
 
 
-<article id="post-Leetcode-198.轮转数组" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+<article id="post-Leetcode-15. 三数之和" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
     
    
@@ -374,7 +374,7 @@ mjx-container[display="true"] + br {
   
     
       <h1 class="p-name article-title" itemprop="headline name">
-        Leetcode-198.轮转数组
+        Leetcode-15. 三数之和
       </h1>
     
   
@@ -382,7 +382,7 @@ mjx-container[display="true"] + br {
 
         <div class='meta-info-bar'>
           <div class="meta-info">
-  <time class="dt-published" datetime="2025-07-14T12:30:00.000Z" itemprop="datePublished">2025-07-14</time>
+  <time class="dt-published" datetime="2025-07-23T09:30:00.000Z" itemprop="datePublished">2025-07-23</time>
 </div>
           <div class="need-seperator meta-info">
             <div class="meta-cate-flex">
@@ -393,19 +393,24 @@ mjx-container[display="true"] + br {
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            299 词 
+            833 词 
           </div>
         </div>
         
       </header>
       <div class="e-content article-entry" itemprop="articleBody">
         
-          <p>核心是数组切片</p>
+          <p>排序 + 双指针<br>本题的难点在于如何去除重复解</p>
 <span id="more"></span>
-<p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250714201054457.png" alt="image.png"></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">rotate</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>], k: <span class="built_in">int</span></span>) -&gt; <span class="literal">None</span>:</span><br><span class="line"></span><br><span class="line">        <span class="string">"""n=len(nums)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        for i in range(k):</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">            a=nums[-1]</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">            for j in range(n-1,0,-1):</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">                nums[j]=nums[j-1]</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">            nums[0]=a"""</span></span><br><span class="line"></span><br><span class="line">        n=<span class="built_in">len</span>(nums)</span><br><span class="line"></span><br><span class="line">        k=k%n</span><br><span class="line"></span><br><span class="line">        nums[:]=nums[-k:]+nums[:-k]</span><br></pre></td></tr></table></figure>
 
-<p>解决题目的关键是将数组切片，从第k部分切开即可，注意当k大于n时要取模。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250723173647918.png" alt="image.png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">threeSum</span>(<span class="params">self,nums</span>):</span><br><span class="line"></span><br><span class="line">        nums.sort()</span><br><span class="line"></span><br><span class="line">        a=[]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(nums)-<span class="number">2</span>):</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> nums[k]==nums[k-<span class="number">1</span>] <span class="keyword">and</span> k&gt;<span class="number">0</span>:</span><br><span class="line"></span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">            i=k+<span class="number">1</span></span><br><span class="line"></span><br><span class="line">            j=<span class="built_in">len</span>(nums)-<span class="number">1</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">while</span> i&lt;j:</span><br><span class="line"></span><br><span class="line">                left=nums[i]</span><br><span class="line"></span><br><span class="line">                right=nums[j]</span><br><span class="line"></span><br><span class="line">                total=nums[k]+left+right</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> total==<span class="number">0</span>:</span><br><span class="line"></span><br><span class="line">                    a.append([nums[k],nums[i],nums[j]])</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">while</span> i&lt;j <span class="keyword">and</span> nums[i]==nums[i+<span class="number">1</span>]:</span><br><span class="line"></span><br><span class="line">                        i+=<span class="number">1</span></span><br><span class="line"></span><br><span class="line">                    <span class="keyword">while</span> i&lt;j <span class="keyword">and</span> nums[j]==nums[j-<span class="number">1</span>]:</span><br><span class="line"></span><br><span class="line">                        j-=<span class="number">1</span></span><br><span class="line"></span><br><span class="line">                    i+=<span class="number">1</span></span><br><span class="line"></span><br><span class="line">                    j-=<span class="number">1</span></span><br><span class="line"></span><br><span class="line">                <span class="keyword">elif</span> total&lt;<span class="number">0</span>:</span><br><span class="line"></span><br><span class="line">                    i+=<span class="number">1</span></span><br><span class="line"></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line"></span><br><span class="line">                    j-=<span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> a</span><br></pre></td></tr></table></figure>
+
+<p>特判，对于数组长度 n，如果数组为 null 或者数组长度小于 3，返回 []。</p>
+<p>对数组进行排序。<br>遍历排序后数组：<br>若 nums[i]&gt;0：因为已经排序好，所以后面不可能有三个数加和等于 0，直接返回结果。</p>
+<p>对于重复元素：跳过，避免出现重复解<br>令左指针 L=i+1，右指针 R=n−1，当 L&lt;R 时，执行循环：<br>当 nums[i]+nums[L]+nums[R]== 0</p>
+<p>执行循环，判断左界和右界是否和下一位置重复，去除重复解。<br>(这一步最细，因为同一个num[i]可以配不同的num[L],num[R],即使一开始有total=0，后续也可以有一对，所以这里还有去重和检查一遍)</p>
+<p>并同时将 L,R 移到下一位置，寻找新的解<br>若和大于 0，说明 nums[R] 太大，R 左移<br>若和小于 0，说明 nums[L] 太小，L 右移</p>
 
         
       </div>
@@ -418,27 +423,22 @@ mjx-container[display="true"] + br {
   
     
 <nav id="article-nav">
-  <a class="article-nav-btn left "
-    
-      href="/2025/07/15/Leetcode-238.%E9%99%A4%E8%87%AA%E8%BA%AB%E4%BB%A5%E4%B8%BA%E7%9A%84%E6%95%B0%E7%BB%84%E7%9B%B8%E4%B9%98/"
-      title="Leetcode-238.除自身以为的数组相乘"
+  <a class="article-nav-btn left  disabled "
      >
     <i class="fa-solid fa-angle-left"></i>
     <p class="title-text">
-      
-        Leetcode-238.除自身以为的数组相乘
         
     </p>
   </a>
   <a class="article-nav-btn right "
     
-      href="/2025/07/13/Leetcode-56.%E5%90%88%E5%B9%B6%E5%8C%BA%E9%97%B4/"
-      title="leetcode-56.合并区间"
+      href="/2025/07/22/Leetcode-11.%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8/"
+      title="Leetcode-11.盛最多水的容器"
      >
 
     <p class="title-text">
       
-        leetcode-56.合并区间
+        Leetcode-11.盛最多水的容器
         
     </p>
     <i class="fa-solid fa-angle-right"></i>
