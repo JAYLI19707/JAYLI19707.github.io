@@ -14,26 +14,26 @@
   
 
   
-  <title>Leetcode-11.盛最多水的容器 | Justin的技术博客</title>
+  <title>Leetcode-206.反转链表 | Justin的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
   <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
-  <meta name="description" content="本题采用双指针来解决矩阵的面积与两个因素有关：矩阵的长度：两条垂直线的距离矩阵的宽度：两条垂直线其中较短一条的长度因此，要矩阵面积最大化，两条垂直线的距离越远越好，两条垂直线的最短长度也要越长越好。">
+  <meta name="description" content="思路概述  利用栈的 先进后出（LIFO） 特性，先顺序遍历链表，把所有节点压入栈；  弹出栈顶节点时正好是原链表的尾节点，依次连接即可得到反转链表。    具体步骤  初始化空栈 st；  遍历链表 head，将每个节点压入栈中；  栈顶弹出节点作为新链表头 new_head，并维护一个可移动尾指针 cur；  每次出栈一个节点：  先断开该节点原来的 next（防止形成环）；  接在新链">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode-11.盛最多水的容器">
-<meta property="og:url" content="https://jayli19707.github.io/2025/07/22/Leetcode-11.%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8/index.html">
+<meta property="og:title" content="Leetcode-206.反转链表">
+<meta property="og:url" content="https://jayli19707.github.io/2025/07/31/Leetcode-206.%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/index.html">
 <meta property="og:site_name" content="Justin的技术博客">
-<meta property="og:description" content="本题采用双指针来解决矩阵的面积与两个因素有关：矩阵的长度：两条垂直线的距离矩阵的宽度：两条垂直线其中较短一条的长度因此，要矩阵面积最大化，两条垂直线的距离越远越好，两条垂直线的最短长度也要越长越好。">
+<meta property="og:description" content="思路概述  利用栈的 先进后出（LIFO） 特性，先顺序遍历链表，把所有节点压入栈；  弹出栈顶节点时正好是原链表的尾节点，依次连接即可得到反转链表。    具体步骤  初始化空栈 st；  遍历链表 head，将每个节点压入栈中；  栈顶弹出节点作为新链表头 new_head，并维护一个可移动尾指针 cur；  每次出栈一个节点：  先断开该节点原来的 next（防止形成环）；  接在新链">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250722192326067.png">
-<meta property="article:published_time" content="2025-07-22T13:30:00.000Z">
-<meta property="article:modified_time" content="2025-07-22T13:34:40.412Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250731234151006.png">
+<meta property="article:published_time" content="2025-07-31T15:30:00.000Z">
+<meta property="article:modified_time" content="2025-07-31T15:44:22.380Z">
 <meta property="article:author" content="Justin">
 <meta property="article:tag" content="人工智能,机器学习,深度学习,量化交易,Python,技术博客">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250722192326067.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250731234151006.png">
   
     <link rel="alternate" href="/atom.xml" title="Justin的技术博客" type="application/atom+xml">
   
@@ -361,7 +361,7 @@ mjx-container[display="true"] + br {
        
 
 
-<article id="post-Leetcode-11.盛最多水的容器" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+<article id="post-Leetcode-206.反转链表" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
     
    
@@ -374,7 +374,7 @@ mjx-container[display="true"] + br {
   
     
       <h1 class="p-name article-title" itemprop="headline name">
-        Leetcode-11.盛最多水的容器
+        Leetcode-206.反转链表
       </h1>
     
   
@@ -382,7 +382,7 @@ mjx-container[display="true"] + br {
 
         <div class='meta-info-bar'>
           <div class="meta-info">
-  <time class="dt-published" datetime="2025-07-22T13:30:00.000Z" itemprop="datePublished">2025-07-22</time>
+  <time class="dt-published" datetime="2025-07-31T15:30:00.000Z" itemprop="datePublished">2025-07-31</time>
 </div>
           <div class="need-seperator meta-info">
             <div class="meta-cate-flex">
@@ -393,22 +393,55 @@ mjx-container[display="true"] + br {
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            607 词 
+            652 词 
           </div>
         </div>
         
       </header>
       <div class="e-content article-entry" itemprop="articleBody">
         
-          <p>本题采用双指针来解决<br>矩阵的面积与两个因素有关：<br>矩阵的长度：两条垂直线的距离<br>矩阵的宽度：两条垂直线其中较短一条的长度<br>因此，要矩阵面积最大化，两条垂直线的距离越远越好，两条垂直线的最短长度也要越长越好。</p>
-<span id="more"></span>
-<p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250722192326067.png" alt="image.png"></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">maxArea</span>(<span class="params">self, height: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line"></span><br><span class="line">        i=<span class="number">0</span></span><br><span class="line"></span><br><span class="line">        j=<span class="built_in">len</span>(height)-<span class="number">1</span></span><br><span class="line"></span><br><span class="line">        maxvolume=<span class="number">0</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> i &lt; j:</span><br><span class="line"></span><br><span class="line">            left = height[i]</span><br><span class="line"></span><br><span class="line">            right= height[j]</span><br><span class="line"></span><br><span class="line">            L=j-i</span><br><span class="line"></span><br><span class="line">            currentvolume=<span class="built_in">min</span>(left,right)*L</span><br><span class="line">  </span><br><span class="line">            <span class="keyword">if</span> maxvolume&lt;currentvolume:</span><br><span class="line"></span><br><span class="line">                maxvolume=currentvolume</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> left&lt;right:</span><br><span class="line"></span><br><span class="line">                i+=<span class="number">1</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line"></span><br><span class="line">                j-=<span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> maxvolume</span><br></pre></td></tr></table></figure>
-
-<p>在每个状态下，无论长板或短板向中间收窄一格，都会导致水槽 底边宽度 −1​ 变短：</p>
-<p>若向内 移动短板 ，水槽的短板 min(h[i],h[j]) 可能变大，因此下个水槽的面积 可能增大 。<br>若向内 移动长板 ，水槽的短板 min(h[i],h[j])​ 不变或变小，因此下个水槽的面积 一定变小 。</p>
-<p>因此，初始化双指针分列水槽左右两端，循环每轮将短板向内移动一格，并更新面积最大值，直到两指针相遇时跳出；即可获得最大面积。</p>
-
+          <span id="more"></span>
+<p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250731234151006.png" alt="image.png"></p>
+<ul>
+<li><p><strong>思路概述</strong></p>
+<ul>
+<li><p>利用栈的 <strong>先进后出（LIFO）</strong> 特性，先顺序遍历链表，把所有节点压入栈；</p>
+</li>
+<li><p>弹出栈顶节点时正好是原链表的尾节点，依次连接即可得到反转链表。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>具体步骤</strong></p>
+<ol>
+<li><p>初始化空栈 <code>st</code>；</p>
+</li>
+<li><p>遍历链表 <code>head</code>，将每个节点压入栈中；</p>
+</li>
+<li><p>栈顶弹出节点作为新链表头 <code>new_head</code>，并维护一个可移动尾指针 <code>cur</code>；</p>
+</li>
+<li><p>每次出栈一个节点：</p>
+<ul>
+<li><p>先断开该节点原来的 <code>next</code>（防止形成环）；</p>
+</li>
+<li><p>接在新链表尾部 <code>cur.next = node</code>；</p>
+</li>
+<li><p>移动尾指针 <code>cur = node</code>；</p>
+</li>
+</ul>
+</li>
+<li><p>循环结束后，<code>cur.next = None</code> 并返回 <code>new_head</code>。</p>
+</li>
+</ol>
+</li>
+</ul>
+<p><strong>复杂度分析</strong></p>
+<ul>
+<li><p>时间复杂度：O(n)，遍历一次压栈，一次出栈；</p>
+</li>
+<li><p>空间复杂度：O(n)，栈存储了全部节点引用。</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"># class ListNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, val=0, next=None):</span></span><br><span class="line"><span class="comment">#         self.val = val</span></span><br><span class="line"><span class="comment">#         self.next = next</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">reverseList</span>(<span class="params">self, head: <span class="type">Optional</span>[ListNode]</span>) -&gt; <span class="type">Optional</span>[ListNode]:</span><br><span class="line">        p=head</span><br><span class="line">        st=[]</span><br><span class="line">        <span class="keyword">while</span> p!=<span class="literal">None</span>:</span><br><span class="line">            st.append(p)</span><br><span class="line">            p=p.<span class="built_in">next</span></span><br><span class="line">        dummy = ListNode(<span class="number">0</span>)</span><br><span class="line">        tail = dummy</span><br><span class="line">        <span class="keyword">while</span> st:</span><br><span class="line">            node=st.pop()</span><br><span class="line">            tail.<span class="built_in">next</span>=node</span><br><span class="line">            tail=node</span><br><span class="line">        tail.<span class="built_in">next</span> = <span class="literal">None</span></span><br><span class="line">        <span class="keyword">return</span> dummy.<span class="built_in">next</span></span><br></pre></td></tr></table></figure>
         
       </div>
 
@@ -420,27 +453,22 @@ mjx-container[display="true"] + br {
   
     
 <nav id="article-nav">
-  <a class="article-nav-btn left "
-    
-      href="/2025/07/23/Leetcode-15.%20%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/"
-      title="Leetcode-15. 三数之和"
+  <a class="article-nav-btn left  disabled "
      >
     <i class="fa-solid fa-angle-left"></i>
     <p class="title-text">
-      
-        Leetcode-15. 三数之和
         
     </p>
   </a>
   <a class="article-nav-btn right "
     
-      href="/2025/07/22/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E8%B6%85%E8%B6%8A%E7%BA%BF%E6%80%A7%EF%BC%8C%E8%BF%88%E5%90%91%E6%B7%B1%E5%BA%A6/"
-      title="深度学习-超越线性，迈向深度"
+      href="/2025/07/31/%E4%BB%8E%E5%87%BD%E6%95%B0%E5%88%B0%E5%A4%A7%E6%A8%A1%E5%9E%8B/"
+      title="从函数到大模型"
      >
 
     <p class="title-text">
       
-        深度学习-超越线性，迈向深度
+        从函数到大模型
         
     </p>
     <i class="fa-solid fa-angle-right"></i>
