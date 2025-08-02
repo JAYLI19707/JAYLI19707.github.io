@@ -14,26 +14,26 @@
   
 
   
-  <title>leetcode-3591.频数为质数 | Justin的技术博客</title>
+  <title>Leetcode-141.环形链表 | Justin的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
   <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
-  <meta name="description" content="本题采用双循环解决数组出现频数是质数">
+  <meta name="description" content="dict和set1. 结构上的区别：   类型 键（Key） 值（Value） 示例    dict 有 有 {&#39;a&#39;: 1, &#39;b&#39;: 2}   set 有 没有 {&#39;a&#39;, &#39;b&#39;}    dict 是**键值对（key-value）**的集合。  set 是只有键（key）没有值的一组唯一元素。    2. 用途上的区别： dict 用于建立键与值的映射，例如地址到位置、用户名到ID等。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="leetcode-3591.频数为质数">
-<meta property="og:url" content="https://jayli19707.github.io/2025/07/12/leetcode-3591.%E9%A2%91%E6%95%B0%E4%B8%BA%E8%B4%A8%E6%95%B0/index.html">
+<meta property="og:title" content="Leetcode-141.环形链表">
+<meta property="og:url" content="https://jayli19707.github.io/2025/08/02/Leetcode-141.%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8/index.html">
 <meta property="og:site_name" content="Justin的技术博客">
-<meta property="og:description" content="本题采用双循环解决数组出现频数是质数">
+<meta property="og:description" content="dict和set1. 结构上的区别：   类型 键（Key） 值（Value） 示例    dict 有 有 {&#39;a&#39;: 1, &#39;b&#39;: 2}   set 有 没有 {&#39;a&#39;, &#39;b&#39;}    dict 是**键值对（key-value）**的集合。  set 是只有键（key）没有值的一组唯一元素。    2. 用途上的区别： dict 用于建立键与值的映射，例如地址到位置、用户名到ID等。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250712020532766.png">
-<meta property="article:published_time" content="2025-07-12T13:30:00.000Z">
-<meta property="article:modified_time" content="2025-07-13T08:27:01.879Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250802212208715.png">
+<meta property="article:published_time" content="2025-08-02T13:25:37.754Z">
+<meta property="article:modified_time" content="2025-08-02T13:25:30.969Z">
 <meta property="article:author" content="Justin">
 <meta property="article:tag" content="人工智能,机器学习,深度学习,量化交易,Python,技术博客">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250712020532766.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250802212208715.png">
   
     <link rel="alternate" href="/atom.xml" title="Justin的技术博客" type="application/atom+xml">
   
@@ -361,7 +361,7 @@ mjx-container[display="true"] + br {
        
 
 
-<article id="post-leetcode-3591.频数为质数" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+<article id="post-Leetcode-141.环形链表" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
     
    
@@ -374,7 +374,7 @@ mjx-container[display="true"] + br {
   
     
       <h1 class="p-name article-title" itemprop="headline name">
-        leetcode-3591.频数为质数
+        Leetcode-141.环形链表
       </h1>
     
   
@@ -382,7 +382,7 @@ mjx-container[display="true"] + br {
 
         <div class='meta-info-bar'>
           <div class="meta-info">
-  <time class="dt-published" datetime="2025-07-12T13:30:00.000Z" itemprop="datePublished">2025-07-12</time>
+  <time class="dt-published" datetime="2025-08-02T13:25:37.754Z" itemprop="datePublished">2025-08-02</time>
 </div>
           <div class="need-seperator meta-info">
             <div class="meta-cate-flex">
@@ -393,27 +393,83 @@ mjx-container[display="true"] + br {
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            651 词 
+            1.2k 词 
           </div>
         </div>
         
       </header>
       <div class="e-content article-entry" itemprop="articleBody">
         
-          <p>本题采用双循环解决数组出现频数是质数</p>
-<span id="more"></span>
+          <h1 id="dict和set"><a href="#dict和set" class="headerlink" title="dict和set"></a>dict和set</h1><h3 id="1-结构上的区别："><a href="#1-结构上的区别：" class="headerlink" title="1. 结构上的区别："></a>1. 结构上的区别：</h3><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>键（Key）</th>
+<th>值（Value）</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>dict</code></td>
+<td>有</td>
+<td>有</td>
+<td><code>{'a': 1, 'b': 2}</code></td>
+</tr>
+<tr>
+<td><code>set</code></td>
+<td>有</td>
+<td><strong>没有</strong></td>
+<td><code>{'a', 'b'}</code></td>
+</tr>
+</tbody></table>
+<ul>
+<li><p><code>dict</code> 是**键值对（key-value）**的集合。</p>
+</li>
+<li><p><code>set</code> 是<strong>只有键（key）没有值</strong>的一组唯一元素。</p>
+</li>
+</ul>
+<hr>
+<h3 id="2-用途上的区别："><a href="#2-用途上的区别：" class="headerlink" title="2. 用途上的区别："></a>2. 用途上的区别：</h3><ul>
+<li><p><code>dict</code> 用于<strong>建立键与值的映射</strong>，例如地址到位置、用户名到ID等。</p>
+</li>
+<li><p><code>set</code> 用于<strong>快速查找是否存在</strong>、<strong>去重</strong>、<strong>集合运算</strong>等，例如判断某个元素是否出现过。</p>
+</li>
+</ul>
+<hr>
+<h3 id="3-操作上的区别："><a href="#3-操作上的区别：" class="headerlink" title="3. 操作上的区别："></a>3. 操作上的区别：</h3><h4 id="dict-常见操作："><a href="#dict-常见操作：" class="headerlink" title="dict 常见操作："></a><code>dict</code> 常见操作：</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">d = {<span class="string">'x'</span>: <span class="number">1</span>, <span class="string">'y'</span>: <span class="number">2</span>}</span><br><span class="line">d[<span class="string">'z'</span>] = <span class="number">3</span>             <span class="comment"># 添加键值对</span></span><br><span class="line">value = d.get(<span class="string">'x'</span>)     <span class="comment"># 查找键对应的值</span></span><br><span class="line"><span class="keyword">del</span> d[<span class="string">'y'</span>]             <span class="comment"># 删除键值对</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250712020532766.png" alt="image.png"></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">is_prime</span>(<span class="params">self, n: <span class="built_in">int</span></span>) -&gt; <span class="built_in">bool</span>:</span><br><span class="line">        <span class="keyword">if</span> n &lt; <span class="number">2</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, <span class="built_in">int</span>(math.sqrt(n)) + <span class="number">1</span>):</span><br><span class="line">            <span class="keyword">if</span> n % i == <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">checkPrimeFrequency</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">bool</span>:</span><br><span class="line">        visited = <span class="built_in">set</span>()</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span> (<span class="built_in">len</span>(nums)):</span><br><span class="line">            a=nums[i]</span><br><span class="line">            <span class="keyword">if</span> a <span class="keyword">in</span> visited:</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            visited.add(a)</span><br><span class="line">            count = <span class="number">1</span></span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i+<span class="number">1</span>,<span class="built_in">len</span>(nums)):</span><br><span class="line">                <span class="keyword">if</span> a ==nums[j]:</span><br><span class="line">                    count+=<span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> <span class="variable language_">self</span>.is_prime(count):</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure>
+<h4 id="set-常见操作："><a href="#set-常见操作：" class="headerlink" title="set 常见操作："></a><code>set</code> 常见操作：</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">s = {<span class="string">'a'</span>, <span class="string">'b'</span>}</span><br><span class="line">s.add(<span class="string">'c'</span>)             <span class="comment"># 添加元素</span></span><br><span class="line">s.remove(<span class="string">'a'</span>)          <span class="comment"># 删除元素</span></span><br><span class="line">exists = <span class="string">'b'</span> <span class="keyword">in</span> s      <span class="comment"># 判断是否存在</span></span><br></pre></td></tr></table></figure>
 
-<p>本题解析：</p>
-<p>主要考察数组中出现的次数是否为质数，质数返回true，否则返回false</p>
-<p>第一步判断一个数是否为质数，函数可以这样写：</p>
-<ol>
-<li>小于2的都不是质数返回false</li>
-<li>利用数学公式一个数假设是n只用i从2开始检验到<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.639ex;" xmlns="http://www.w3.org/2000/svg" width="5.425ex" height="2.851ex" role="img" focusable="false" viewBox="0 -977.5 2398 1260"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msqrt"><g transform="translate(1020,0)"><g data-mml-node="mo"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g></g><g data-mml-node="mo" transform="translate(0,67.5)"><path data-c="221A" d="M263 249Q264 249 315 130T417 -108T470 -228L725 302Q981 837 982 839Q989 850 1001 850Q1008 850 1013 844T1020 832V826L741 243Q645 43 540 -176Q479 -303 469 -324T453 -348Q449 -350 436 -350L424 -349L315 -96Q206 156 205 156L171 130Q138 104 137 104L111 130L263 249Z"></path></g><rect width="389" height="60" x="1020" y="857.5"></rect></g><g data-mml-node="mi" transform="translate(1409,0)"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(2009,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container>就可以判断它是否是质数，如果除得尽就不是质数。</li>
+<hr>
+<h3 id="4-底层实现的共同点和不同点："><a href="#4-底层实现的共同点和不同点：" class="headerlink" title="4. 底层实现的共同点和不同点："></a>4. 底层实现的共同点和不同点：</h3><ul>
+<li><p>相同点：都使用<strong>哈希表</strong>，所以查找、插入、删除的时间复杂度平均为 O(1)O(1)。</p>
+</li>
+<li><p>不同点：</p>
+<ul>
+<li><p><code>dict</code> 哈希表存储的是 (key, value) 对，插入更复杂。</p>
+</li>
+<li><p><code>set</code> 只存 key，没有 value，占用空间略小，操作略快。</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250802212208715.png" alt="image.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line"># Definition for singly-linked list.</span><br><span class="line"></span><br><span class="line"># class ListNode:</span><br><span class="line"></span><br><span class="line">#     def __init__(self, x):</span><br><span class="line"></span><br><span class="line">#         self.val = x</span><br><span class="line"></span><br><span class="line">#         self.next = None</span><br><span class="line">class Solution:</span><br><span class="line"></span><br><span class="line">    def hasCycle(self, head: Optional[ListNode]) -&gt; bool:</span><br><span class="line"></span><br><span class="line">        seen=set()</span><br><span class="line"></span><br><span class="line">        while head:</span><br><span class="line"></span><br><span class="line">            if head in seen:</span><br><span class="line"></span><br><span class="line">                return True</span><br><span class="line"></span><br><span class="line">            seen.add(head)</span><br><span class="line"></span><br><span class="line">            head=head.next</span><br><span class="line"></span><br><span class="line">        return False</span><br></pre></td></tr></table></figure>
+<h3 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h3><p>利用集合 <code>seen</code> 记录遍历过程中出现过的节点引用（即内存地址）。若遍历某个节点时发现它已经在 <code>seen</code> 中，说明这个节点之前已经访问过，即链表存在环。否则，将当前节点加入集合并继续向后遍历。</p>
+<hr>
+<h3 id="🧠解题过程："><a href="#🧠解题过程：" class="headerlink" title="🧠解题过程："></a>🧠解题过程：</h3><ol>
+<li><p>创建一个空集合 <code>seen</code>；</p>
+</li>
+<li><p>从头节点 <code>head</code> 开始，逐个遍历每个节点；</p>
+</li>
+<li><p>如果当前节点 <code>head</code> 已存在于 <code>seen</code> 中，说明链表出现了环，返回 <code>True</code>；</p>
+</li>
+<li><p>否则将当前节点加入集合，继续向下一个节点遍历；</p>
+</li>
+<li><p>若遍历到 <code>None</code>，说明链表无环，返回 <code>False</code>。</p>
+</li>
 </ol>
-<p>第二步用两个循环来遍历数组，一个负责记录当前记录的数组，另一个负责记录出现的频数。注意重复出现的数组就不要再统计了，用集合来记录已经出现过的元素，一旦遇到重复的就直接跳过循环，到下一个数组。</p>
 
         
       </div>
@@ -426,27 +482,22 @@ mjx-container[display="true"] + br {
   
     
 <nav id="article-nav">
-  <a class="article-nav-btn left "
-    
-      href="/2025/07/12/Leetcode-53.%E6%9C%80%E5%A4%A7%E5%AD%90%E6%95%B0%E7%BB%84/"
-      title="leetcode-53.最大子数组之和"
+  <a class="article-nav-btn left  disabled "
      >
     <i class="fa-solid fa-angle-left"></i>
     <p class="title-text">
-      
-        leetcode-53.最大子数组之和
         
     </p>
   </a>
   <a class="article-nav-btn right "
     
-      href="/2025/07/07/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"
-      title="数学建模"
+      href="/2025/08/02/Leetcode-234.%E5%9B%9E%E6%96%87%E9%93%BE%E8%A1%A8/"
+      title="Leetcode-234.回文链表"
      >
 
     <p class="title-text">
       
-        数学建模
+        Leetcode-234.回文链表
         
     </p>
     <i class="fa-solid fa-angle-right"></i>
