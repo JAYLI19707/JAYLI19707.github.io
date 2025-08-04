@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+
+
+<html theme="dark" showBanner="true" hasBanner="true" > 
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet">
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet">
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet">
+<script src="/js/color.global.min.js" ></script>
+<script src="/js/load-settings.js" ></script>
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+
+  
+  <title>Justin的技术博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+
+  <meta name="description" content="搞懂Docker核心概念第一站：初识Cursor与开发容器(Dev Container)一切的开端，是AI为我总结了视频内容：一个名为Cursor的AI代码编辑器，可以通过自然语言，自动为一个项目配置好包含Docker的开发容器（Dev Container）。 我的第一个疑问是：“这不就是把项目打个包吗？有什么用？” 学习笔记1：为什么需要开发容器？为了解决“环境一致性” 我了解到，这“简单的一步">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Justin的技术博客">
+<meta property="og:url" content="https://jayli19707.github.io/2025/08/05/Accelerating%20Data%20Science%20with%20AI/index.html">
+<meta property="og:site_name" content="Justin的技术博客">
+<meta property="og:description" content="搞懂Docker核心概念第一站：初识Cursor与开发容器(Dev Container)一切的开端，是AI为我总结了视频内容：一个名为Cursor的AI代码编辑器，可以通过自然语言，自动为一个项目配置好包含Docker的开发容器（Dev Container）。 我的第一个疑问是：“这不就是把项目打个包吗？有什么用？” 学习笔记1：为什么需要开发容器？为了解决“环境一致性” 我了解到，这“简单的一步">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-08-04T19:51:53.671Z">
+<meta property="article:modified_time" content="2025-08-04T19:41:41.553Z">
+<meta property="article:author" content="Justin">
+<meta property="article:tag" content="人工智能,机器学习,深度学习,量化交易,Python,技术博客">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Justin的技术博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-192.png" sizes="192x192">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-192.png" sizes="192x192">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  
+  
+    
+<div id="banner" class="">
+  <img src="/image/background/benjamin_background.jpg" itemprop="image">
+  <div id="banner-dim"></div>
+</div>
+ 
+   
+  <div id="main-grid" class="  ">
+    <div id="nav" class=""  >
+      <navbar id="navbar">
+  <nav id="title-nav">
+    <a href="/">
+      <div id="vivia-logo">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div>Justin的技术博客 </div>
+    </a>
+  </nav>
+  <nav id="main-nav">
+    
+      <a class="main-nav-link" href="/">Home</a>
+    
+      <a class="main-nav-link" href="/archives">Archives</a>
+    
+      <a class="main-nav-link" href="/projects">Projects</a>
+    
+      <a class="main-nav-link" href="/investment">Investment</a>
+    
+      <a class="main-nav-link" href="/photography">Photography</a>
+    
+      <a class="main-nav-link" href="/about">About</a>
+    
+  </nav>
+  <nav id="sub-nav">
+    <a id="theme-btn" class="nav-icon">
+      <span class="light-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M438.5-829.913v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-829.913Zm0 747.826v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-82.087ZM877.913-438.5h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537t29.476-12.174h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T877.913-438.5Zm-747.826 0h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T82.087-521.5h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T130.087-438.5Zm660.174-290.87-34.239 32q-12.913 12.674-29.565 12.174-16.653-.5-29.327-13.174-12.674-12.673-12.554-28.826.12-16.152 12.794-28.826l33-35q12.913-12.674 30.454-12.674t30.163 12.847q12.709 12.846 12.328 30.826-.38 17.98-13.054 30.653ZM262.63-203.978l-32 34q-12.913 12.674-30.454 12.674t-30.163-12.847q-12.709-12.846-12.328-30.826.38-17.98 13.054-30.653l33.239-31q12.913-12.674 29.565-12.174 16.653.5 29.327 13.174 12.674 12.673 12.554 28.826-.12 16.152-12.794 28.826Zm466.74 33.239-32-33.239q-12.674-12.913-12.174-29.565.5-16.653 13.174-29.327 12.673-12.674 28.826-13.054 16.152-.38 28.826 12.294l35 33q12.674 12.913 12.674 30.454t-12.847 30.163q-12.846 12.709-30.826 12.328-17.98-.38-30.653-13.054ZM203.978-697.37l-34-33q-12.674-12.913-13.174-29.945-.5-17.033 12.174-29.707t31.326-13.293q18.653-.62 31.326 13.054l32 34.239q11.674 12.913 11.174 29.565-.5 16.653-13.174 29.327-12.673 12.674-28.826 12.554-16.152-.12-28.826-12.794ZM480-240q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm-.247-82q65.703 0 111.475-46.272Q637-414.544 637-480.247t-45.525-111.228Q545.95-637 480.247-637t-111.475 45.525Q323-545.95 323-480.247t45.525 111.975Q414.05-322 479.753-322ZM481-481Z"/></svg></span>
+      <span class="dark-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M480.239-116.413q-152.63 0-258.228-105.478Q116.413-327.37 116.413-480q0-130.935 77.739-227.435t206.304-125.043q43.022-9.631 63.87 10.869t3.478 62.805q-8.891 22.043-14.315 44.463-5.424 22.42-5.424 46.689 0 91.694 64.326 155.879 64.325 64.186 156.218 64.186 24.369 0 46.978-4.946 22.609-4.945 44.413-14.076 42.826-17.369 62.967 1.142 20.142 18.511 10.511 61.054Q807.174-280 712.63-198.206q-94.543 81.793-232.391 81.793Zm0-95q79.783 0 143.337-40.217 63.554-40.218 95.793-108.283-15.608 4.044-31.097 5.326-15.49 1.283-31.859.805-123.706-4.066-210.777-90.539-87.071-86.473-91.614-212.092-.24-16.369.923-31.978 1.164-15.609 5.446-30.978-67.826 32.478-108.282 96.152Q211.652-559.543 211.652-480q0 111.929 78.329 190.258 78.329 78.329 190.258 78.329ZM466.13-465.891Z"/></svg></span>
+    </a>
+    
+      <a id="nav-rss-link" class="nav-icon mobile-hide" href="/atom.xml" title="RSS 订阅">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-120q-25.846 0-44.23-18.384-18.384-18.385-18.384-44.23 0-25.846 18.384-44.23 18.384-18.385 44.23-18.385 25.846 0 44.23 18.385 18.384 18.384 18.384 44.23 0 25.845-18.384 44.23Q223.846-120 198-120Zm538.385 0q-18.846 0-32.923-13.769-14.076-13.769-15.922-33.23-8.692-100.616-51.077-188.654-42.385-88.039-109.885-155.539-67.5-67.501-155.539-109.885Q283-663.462 182.385-672.154q-19.461-1.846-33.23-16.23-13.769-14.385-13.769-33.846t14.076-32.922q14.077-13.461 32.923-12.23 120.076 8.692 226.038 58.768 105.961 50.077 185.73 129.846 79.769 79.769 129.846 185.731 50.077 105.961 58.769 226.038 1.231 18.846-12.538 32.922Q756.461-120 736.385-120Zm-252 0q-18.231 0-32.423-13.461t-18.653-33.538Q418.155-264.23 348.886-333.5q-69.27-69.27-166.501-84.423-20.077-4.462-33.538-18.961-13.461-14.5-13.461-33.346 0-19.076 13.884-33.23 13.884-14.153 33.115-10.922 136.769 15.384 234.384 112.999 97.615 97.615 112.999 234.384 3.231 19.23-10.538 33.115Q505.461-120 484.385-120Z"/></svg>
+      </a>
+    
+    <div id="nav-menu-btn" class="nav-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M177.37-252.282q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Zm0-186.218q-17.453 0-29.477-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T177.37-521.5h605.26q17.453 0 29.477 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T782.63-438.5H177.37Zm0-186.217q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Z"/></svg>
+    </div>
+  </nav>
+</navbar>
+<div id="nav-dropdown" class="hidden">
+  <div id="dropdown-link-list">
+    
+      <a class="nav-dropdown-link" href="/">Home</a>
+    
+      <a class="nav-dropdown-link" href="/archives">Archives</a>
+    
+      <a class="nav-dropdown-link" href="/projects">Projects</a>
+    
+      <a class="nav-dropdown-link" href="/investment">Investment</a>
+    
+      <a class="nav-dropdown-link" href="/photography">Photography</a>
+    
+      <a class="nav-dropdown-link" href="/about">About</a>
+    
+    
+      <a class="nav-dropdown-link" href="/atom.xml" title="RSS 订阅">RSS</a>
+     
+    </div>
+</div>
+<script>
+  let dropdownBtn = document.getElementById("nav-menu-btn");
+  let dropdownEle = document.getElementById("nav-dropdown");
+  dropdownBtn.onclick = function() {
+    dropdownEle.classList.toggle("hidden");
+  }
+</script>
+    </div>
+    <div id="sidebar-wrapper">
+      <sidebar id="sidebar">
+  
+    <div class="widget-wrap">
+  <div class="info-card">
+    <div class="avatar">
+      
+        <image src=/image/avatar/avatar_1.png></image>
+      
+      <div class="img-dim"></div>
+    </div>
+    <div class="info">
+      <div class="username">Justin </div>
+      <div class="dot"></div>
+      <div class="subtitle">比世界先发现你发光 </div>
+      <div class="link-list">
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/JAYLI19707" title="GitHub"><i class="fa-brands fa-github"></i></a>
+        
+          <a class="link-btn" href="mailto:your.email@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
+        
+          <a class="link-btn" href="/atom.xml" title="RSS"><i class="fa-solid fa-rss"></i></a>
+         
+      </div>  
+    </div>
+  </div>
+</div>
+
+  
+  <div class="sticky">
+    
+      
+
+
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">分类</h3>
+      <div class="category-box">
+            <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                机器学习
+                <div class="category-count">9</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">
+                开发工具
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/Leetcode/">
+                Leetcode
+                <div class="category-count">14</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
+                深度学习
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">
+                数学建模
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E7%BB%9F%E8%AE%A1/">
+                统计
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E9%87%91%E8%9E%8D/">
+                金融
+                <div class="category-count">3</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">
+                线性代数
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/">
+                统计学
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
+                计算机
+                <div class="category-count">2</div>
+            </a>
+        
+            <a class="category-link" href="/categories/Quant/">
+                Quant
+                <div class="category-count">2</div>
+            </a>
+        </div>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">标签</h3>
+      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Batch/" rel="tag">Batch</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/LSTM/" rel="tag">LSTM</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Quant/" rel="tag">Quant</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E4%B8%B4%E8%BF%91%E7%AE%97%E5%AD%90/" rel="tag">临近算子</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E4%BA%8C%E5%88%86%E7%B1%BB/" rel="tag">二分类</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%87%B8%E5%87%BD%E6%95%B0/" rel="tag">凸函数</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%9C%80%E5%A4%A7%E4%BC%BC%E7%84%B6%E4%BC%B0%E8%AE%A1/" rel="tag">最大似然估计</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%9C%9F%E6%9D%83/" rel="tag">期权</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/" rel="tag">梯度下降</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/" rel="tag">特征工程</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/" rel="tag">矩阵乘法</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/" rel="tag">线性回归</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%BB%9F%E8%AE%A1%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C/" rel="tag">统计假设检验</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E9%87%8F%E4%BB%B7%E8%B6%8B%E5%8A%BF/" rel="tag">量价趋势</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E9%87%91%E8%9E%8D%E6%95%B0%E5%AD%A6/" rel="tag">金融数学</a></li></ul>
+    </div>
+  </div>
+
+
+    
+  </div>
+</sidebar>
+    </div>
+    <div id="content-body">
+       
+
+
+<article id="post-Accelerating Data Science with AI" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 class="p-name article-title" itemprop="headline name">
+        无标题
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2025-08-04T19:51:53.671Z" itemprop="datePublished">2025-08-05</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+    未分类 
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            1.8k 词 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <h2 id="搞懂Docker核心概念"><a href="#搞懂Docker核心概念" class="headerlink" title="搞懂Docker核心概念"></a><strong>搞懂Docker核心概念</strong></h2><h4 id="第一站：初识Cursor与开发容器-Dev-Container"><a href="#第一站：初识Cursor与开发容器-Dev-Container" class="headerlink" title="第一站：初识Cursor与开发容器(Dev Container)"></a><strong>第一站：初识Cursor与开发容器(Dev Container)</strong></h4><p>一切的开端，是AI为我总结了视频内容：一个名为Cursor的AI代码编辑器，可以通过自然语言，自动为一个项目配置好包含Docker的<strong>开发容器（Dev Container）</strong>。</p>
+<p>我的第一个疑问是：“这不就是把项目打个包吗？有什么用？”</p>
+<p><strong>学习笔记1：为什么需要开发容器？为了解决“环境一致性”</strong></p>
+<p>我了解到，这“简单的一步”解决了开发者最大的噩梦之一：“在我电脑上能跑，在你电脑上就不行”。</p>
+<ul>
+<li><p><strong>传统痛点</strong>：团队成员的电脑系统、软件版本、库版本各不相同，导致代码无法统一运行，大量时间浪费在搭建和调试环境上。</p>
+</li>
+<li><p><strong>容器化解决方案</strong>：通过一个配置文件（<code>devcontainer.json</code>和<code>docker-compose.yml</code>），将项目的运行环境（操作系统、Python版本、所有依赖库、甚至数据库服务）代码化。</p>
+</li>
+<li><p><strong>最终效果</strong>：任何拿到这个项目的人，只需一键（视频中是Cursor的AI指令，传统方法是<code>docker-compose up</code>），就能在几分钟内复刻出一个与我100%一致、完全隔离的开发环境。</p>
+</li>
+</ul>
+<h4 id="第二站：深入Docker的核心——Image与Container之辨"><a href="#第二站：深入Docker的核心——Image与Container之辨" class="headerlink" title="第二站：深入Docker的核心——Image与Container之辨"></a><strong>第二站：深入Docker的核心——Image与Container之辨</strong></h4><p>为了搞清楚这一切是如何实现的，我决定深入学习Docker本身。我首先要理解最基础的两个概念：<code>Dockerfile</code>与<code>Image</code>（镜像）和<code>Container</code>（容器）的关系。</p>
+<p><strong>学习笔记2：一个绝佳的比喻——蓝图、新车与行驶的车</strong></p>
+<p>经过几轮问答，我们最终确定了一个非常清晰的比喻：</p>
+<ol>
+<li><p>Dockerfile &#x3D; 建筑蓝图&#x2F;设计图</p>
+<p> 它是一份纯文本文件，里面写满了指令，详细描述了一个应用程序的“标准运行环境”应该是什么样的。它只是一个静态的计划。</p>
+</li>
+<li><p>Image (镜像) &#x3D; 一辆根据蓝图造好的新车</p>
+<p> 当你运行docker build命令时，Docker会严格按照Dockerfile（蓝图）去构建，最终得到一个镜像。这个镜像就像一辆刚从生产线下来的、崭新的、完整的车。它是静态的、只读的、包含了所有必要部件的模板。</p>
+</li>
+<li><p>Container (容器) &#x3D; 一辆正在路上行驶的车</p>
+<p> 当你运行docker run命令时，Docker会根据Image（新车模板）创建一个容器。这个容器是动态的、活生生的、正在运行的实例。它在消耗资源（CPU&#x2F;内存），有自己的状态（日志、临时文件），并对外提供服务。你可以根据一个镜像，创建无数个互不干扰的容器，就像马路上有成千上万辆同型号的车在行驶。</p>
+</li>
+</ol>
+<h4 id="第三站：打通“次元壁”——理解端口映射-Port-Mapping"><a href="#第三站：打通“次元壁”——理解端口映射-Port-Mapping" class="headerlink" title="第三站：打通“次元壁”——理解端口映射 (Port Mapping)"></a><strong>第三站：打通“次元壁”——理解端口映射 (Port Mapping)</strong></h4><p>我很快遇到了下一个逻辑难题：“既然容器是隔离的，那我电脑上的浏览器，怎么访问到容器里运行的程序呢？”</p>
+<p><strong>学习笔记3：端口映射就是“酒店总机”或“快递代收点”</strong></p>
+<p>这里的关键在于理解两个隔离的网络世界：<strong>主机世界</strong>和<strong>容器世界</strong>。</p>
+<ul>
+<li><p><strong>目标</strong>：让主机世界的浏览器，能访问到容器世界里运行在某个端口（比如<code>8008</code>）上的程序。</p>
+</li>
+<li><p><strong>问题</strong>：两个世界默认互不相通。</p>
+</li>
+<li><p><strong>解决方案</strong>：“构建一座桥梁”，也就是<strong>端口映射</strong>。</p>
+</li>
+</ul>
+<p>通过docker run -p 12345:8008命令，我们建立了一条规则：</p>
+<p>“所有发送到主机12345端口的网络请求，请全部转交给容器的8008端口。”</p>
+<p>这个操作就像酒店前台的总机，把外部打给某个特定分机的电话，准确无误地转接给对应的房间。这样，我们就通过这个“桥梁”，打通了主机与容器之间的通信。</p>
+<h4 id="第四站：从单打独斗到团队协作——docker-compose-yml的威力"><a href="#第四站：从单打独斗到团队协作——docker-compose-yml的威力" class="headerlink" title="第四站：从单打独斗到团队协作——docker-compose.yml的威力"></a><strong>第四站：从单打独斗到团队协作——<code>docker-compose.yml</code>的威力</strong></h4><p>当我理解了如何运行一个容器后，一个实际问题浮出水面：“我把项目给同事时，难道要让他手动输入一长串复杂的<code>docker run</code>命令吗？”</p>
+<p><strong>学习笔记4：<code>docker-compose.yml</code>是标准化的“启动说明书”</strong></p>
+<p>这个问题的完美答案就是<code>docker-compose.yml</code>。</p>
+<ul>
+<li><p><strong>对于简单应用</strong>：<code>Dockerfile</code>定义了<strong>如何构建镜像</strong>。</p>
+</li>
+<li><p><strong>对于复杂应用或团队协作</strong>：<code>docker-compose.yml</code>定义了<strong>如何运行容器（或一组容器）</strong>。</p>
+</li>
+</ul>
+<p>在这个YAML文件里，我们可以把所有运行参数都固化下来，包括：</p>
+<ul>
+<li><p>要运行的服务以及它们各自的镜像。</p>
+</li>
+<li><p>端口映射规则（比如<code>ports: - &quot;12345:8008&quot;</code>）。</p>
+</li>
+<li><p>数据卷挂载。</p>
+</li>
+<li><p>容器间的网络关系和依赖。</p>
+</li>
+</ul>
+<p>最终，我的同事拿到我的项目后，不再需要知道任何复杂的<code>docker run</code>命令。他只需要在项目根目录下，运行一句<strong>永不改变的简单命令：<code>docker-compose up</code></strong>，就能得到和我一模一样的、正在运行的应用。</p>
+
+        
+      </div>
+
+         
+    </div>
+    
+     
+  </div>
+  
+    
+<nav id="article-nav">
+  <a class="article-nav-btn left "
+    
+      href="/2025/08/05/%E5%93%88%E5%B8%8C%E8%A1%A8/"
+      title=""
+     >
+    <i class="fa-solid fa-angle-left"></i>
+    <p class="title-text">
+      
+        (No Title)
+        
+    </p>
+  </a>
+  <a class="article-nav-btn right "
+    
+      href="/2025/08/02/Leetcode-141.%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8/"
+      title="Leetcode-141.环形链表"
+     >
+
+    <p class="title-text">
+      
+        Leetcode-141.环形链表
+        
+    </p>
+    <i class="fa-solid fa-angle-right"></i>
+  </a>
+</nav>
+
+
+  
+</article>
+
+
+
+
+
+    </div>
+    <div id="footer-wrapper">
+      <footer id="footer">
+  
+  <div id="footer-info" class="inner">
+    
+    &copy; 2025 Justin<br>
+    Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & Theme <a target="_blank" rel="noopener" href="https://github.com/saicaca/hexo-theme-vivia">Vivia</a>
+  </div>
+</footer>
+
+    </div>
+    <div class="back-to-top-wrapper">
+    <button id="back-to-top-btn" class="back-to-top-btn hide" onclick="topFunction()">
+        <i class="fa-solid fa-angle-up"></i>
+    </button>
+</div>
+
+<script>
+    function topFunction() {
+        window.scroll({ top: 0, behavior: 'smooth' });
+    }
+    let btn = document.getElementById('back-to-top-btn');
+    function scrollFunction() {
+        if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+            btn.classList.remove('hide')
+        } else {
+            btn.classList.add('hide')
+        }
+    }
+    window.onscroll = function() {
+        scrollFunction();
+    }
+</script>
+
+  </div>
+  <script src="/js/light-dark-switch.js"></script>
+</body>
+</html>
