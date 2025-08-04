@@ -6,7 +6,7 @@
   <link href="https://jayli19707.github.io/atom.xml" rel="self"/>
   
   <link href="https://jayli19707.github.io/"/>
-  <updated>2025-07-23T15:01:57.563Z</updated>
+  <updated>2025-07-02T03:54:59.623Z</updated>
   <id>https://jayli19707.github.io/</id>
   
   <author>
@@ -15,29 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title></title>
-    <link href="https://jayli19707.github.io/2025/08/05/%E6%A0%91%E6%A8%A1%E5%9E%8B/"/>
-    <id>https://jayli19707.github.io/2025/08/05/%E6%A0%91%E6%A8%A1%E5%9E%8B/</id>
-    <published>2025-08-04T19:51:53.683Z</published>
-    <updated>2025-07-23T15:01:57.563Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Entropy"><a href="#Entropy" class="headerlink" title="Entropy"></a>Entropy</h1><p><strong>熵（entropy）不是用来量化分类效果的</strong>，而是用来衡量<strong>信息的不确定性或纯度</strong>，它更多地用于<strong>构建分类模型</strong>中的分裂准则，比如在决策树（如 ID3、C4.5）中选择最佳特征时评估每个特征的“信息增益”。</p><p>具体地说，设一个离散随机变量 $Y$表示类别标签，若其取值为 ${c_1, c_2, \dots, c_k}$，概率分布为 $P(Y &#x3D; c_i) &#x3D; p_i$​，则熵的定义为：<br>$$<br>H(Y)&#x3D;-\sum_{i&#x3D;1}^k p_i \log_2 p_i​<br>$$<br>这个值反映了一个样本集合在类别上的混乱程度。当熵越高时，表示类别分布越不纯；熵为0表示完全纯（即所有样本属于同一类）。因此，熵用于指导模型分裂，而不是直接评估分类效果。</p><h1 id="信息增益"><a href="#信息增益" class="headerlink" title="信息增益"></a>信息增益</h1><p><strong>信息增益（Information Gain）就是在某个特征划分之后，数据集的“混乱程度”减少的那部分信息量</strong>。这种“混乱程度”是通过**信息熵（entropy）**来衡量的。</p><p>更具体地说：</p><ul><li><p>初始的熵 $H(D)$表示整个数据集中标签（例如“好瓜”与“坏瓜”）的不确定性；</p></li><li><p>当我们用某个特征（比如“色泽”）把数据集划分成若干子集后，每个子集的标签分布可能变得更“纯”（即大部分样本属于同一类），那么子集的熵会降低；</p></li><li><p>这些子集熵的加权平均值是划分后的条件熵 $H(D∣A)$；</p></li><li><p>那么信息增益就是：</p></li></ul><p>$$\text{Gain}(D, A) &#x3D; H(D) - H(D|A)$$</p><p>它表示的正是：<strong>通过特征 A 进行划分，数据集的标签混乱度（熵）减少了多少</strong>。</p><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250723225911556.png" alt="image.png"></p><h1 id="西瓜分类过程"><a href="#西瓜分类过程" class="headerlink" title="西瓜分类过程"></a>西瓜分类过程</h1><p>你有一个西瓜数据集，要判断“是否为好瓜”（是&#x2F;否）。ID3 算法的执行流程如下：</p><ol><li><p><strong>第一层（根节点）</strong>：</p><ul><li><p>对每一个候选特征（色泽、根蒂、敲声、纹理、脐部、触感等）都计算它的信息增益；</p></li><li><p>找出信息增益最大的那个特征，比如说是“纹理”，那就用“纹理”来作为根节点进行划分。</p></li></ul></li><li><p><strong>第二层（纹理的子节点）</strong>：</p><ul><li><p>每个子节点只包含一部分数据（比如纹理&#x3D;清晰的子集）；</p></li><li><p>在这个子集中，继续对剩余特征（不包括已经使用的“纹理”）计算信息增益；</p></li><li><p>选出信息增益最大的特征作为这一层的划分依据。</p></li></ul></li><li><p><strong>第三层、第四层……</strong>：</p><ul><li><p>继续递归这个过程，每次都用“最大信息增益”的特征来划分；</p></li><li><p>一直到子集中标签已经纯净（熵为0），或者特征用完为止</p></li></ul></li></ol><h1 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h1><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250723223826959.png" alt="image.png"><br>随机森林：训练多个决策树，确保稳定</p>]]></content>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;Entropy&quot;&gt;&lt;a href=&quot;#Entropy&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    
-  </entry>
   
   <entry>
     <title></title>
@@ -54,6 +31,29 @@
         
         
     <summary type="html">&lt;h1 id=&quot;数据标记&quot;&gt;&lt;a href=&quot;#数据标记&quot; class=&quot;headerlink&quot; title=&quot;数据标记&quot;&gt;&lt;/a&gt;数据标记&lt;/h1&gt;&lt;p&gt;机器学习中的“数据标记”（data</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://jayli19707.github.io/2025/08/05/%E6%A0%91%E6%A8%A1%E5%9E%8B/"/>
+    <id>https://jayli19707.github.io/2025/08/05/%E6%A0%91%E6%A8%A1%E5%9E%8B/</id>
+    <published>2025-08-04T19:51:53.683Z</published>
+    <updated>2025-07-23T15:01:57.563Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Entropy"><a href="#Entropy" class="headerlink" title="Entropy"></a>Entropy</h1><p><strong>熵（entropy）不是用来量化分类效果的</strong>，而是用来衡量<strong>信息的不确定性或纯度</strong>，它更多地用于<strong>构建分类模型</strong>中的分裂准则，比如在决策树（如 ID3、C4.5）中选择最佳特征时评估每个特征的“信息增益”。</p><p>具体地说，设一个离散随机变量 $Y$表示类别标签，若其取值为 ${c_1, c_2, \dots, c_k}$，概率分布为 $P(Y &#x3D; c_i) &#x3D; p_i$​，则熵的定义为：<br>$$<br>H(Y)&#x3D;-\sum_{i&#x3D;1}^k p_i \log_2 p_i​<br>$$<br>这个值反映了一个样本集合在类别上的混乱程度。当熵越高时，表示类别分布越不纯；熵为0表示完全纯（即所有样本属于同一类）。因此，熵用于指导模型分裂，而不是直接评估分类效果。</p><h1 id="信息增益"><a href="#信息增益" class="headerlink" title="信息增益"></a>信息增益</h1><p><strong>信息增益（Information Gain）就是在某个特征划分之后，数据集的“混乱程度”减少的那部分信息量</strong>。这种“混乱程度”是通过**信息熵（entropy）**来衡量的。</p><p>更具体地说：</p><ul><li><p>初始的熵 $H(D)$表示整个数据集中标签（例如“好瓜”与“坏瓜”）的不确定性；</p></li><li><p>当我们用某个特征（比如“色泽”）把数据集划分成若干子集后，每个子集的标签分布可能变得更“纯”（即大部分样本属于同一类），那么子集的熵会降低；</p></li><li><p>这些子集熵的加权平均值是划分后的条件熵 $H(D∣A)$；</p></li><li><p>那么信息增益就是：</p></li></ul><p>$$\text{Gain}(D, A) &#x3D; H(D) - H(D|A)$$</p><p>它表示的正是：<strong>通过特征 A 进行划分，数据集的标签混乱度（熵）减少了多少</strong>。</p><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250723225911556.png" alt="image.png"></p><h1 id="西瓜分类过程"><a href="#西瓜分类过程" class="headerlink" title="西瓜分类过程"></a>西瓜分类过程</h1><p>你有一个西瓜数据集，要判断“是否为好瓜”（是&#x2F;否）。ID3 算法的执行流程如下：</p><ol><li><p><strong>第一层（根节点）</strong>：</p><ul><li><p>对每一个候选特征（色泽、根蒂、敲声、纹理、脐部、触感等）都计算它的信息增益；</p></li><li><p>找出信息增益最大的那个特征，比如说是“纹理”，那就用“纹理”来作为根节点进行划分。</p></li></ul></li><li><p><strong>第二层（纹理的子节点）</strong>：</p><ul><li><p>每个子节点只包含一部分数据（比如纹理&#x3D;清晰的子集）；</p></li><li><p>在这个子集中，继续对剩余特征（不包括已经使用的“纹理”）计算信息增益；</p></li><li><p>选出信息增益最大的特征作为这一层的划分依据。</p></li></ul></li><li><p><strong>第三层、第四层……</strong>：</p><ul><li><p>继续递归这个过程，每次都用“最大信息增益”的特征来划分；</p></li><li><p>一直到子集中标签已经纯净（熵为0），或者特征用完为止</p></li></ul></li></ol><h1 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h1><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250723223826959.png" alt="image.png"><br>随机森林：训练多个决策树，确保稳定</p>]]></content>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Entropy&quot;&gt;&lt;a href=&quot;#Entropy&quot; class=&quot;headerlink&quot;</summary>
         
       
     
