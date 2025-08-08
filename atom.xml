@@ -6,7 +6,7 @@
   <link href="https://jayli19707.github.io/atom.xml" rel="self"/>
   
   <link href="https://jayli19707.github.io/"/>
-  <updated>2025-08-08T13:45:36.942Z</updated>
+  <updated>2025-08-08T18:39:46.316Z</updated>
   <id>https://jayli19707.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>神经网络-LossFunction</title>
+    <link href="https://jayli19707.github.io/2025/08/09/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C-LossFunction/"/>
+    <id>https://jayli19707.github.io/2025/08/09/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C-LossFunction/</id>
+    <published>2025-08-08T18:39:39.000Z</published>
+    <updated>2025-08-08T18:39:46.316Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="分类问题当作回归问题分析"><a href="#分类问题当作回归问题分析" class="headerlink" title="分类问题当作回归问题分析"></a>分类问题当作回归问题分析</h1><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250809020637001.png" alt="image.png"></p><p>回归输出的是一个数值，而分类的目的是将输入进行归类。<br>一种简单的方法是将类别视为数值标签进行回归，但如果类别之间没有内在的数值关系，这种方法可能会产生问题。</p><p>一个常见的误区是直接用<strong>回归</strong>的方法来处理分类问题。比如，给“猫”赋予标签1，“狗”赋予标签2，“猪”赋予标签3，然后用一个回归模型去预测这个数值。</p><p>这样做有什么问题呢？</p><ul><li><p><strong>隐含的顺序关系</strong>：这样做会给模型一个错误的暗示，即这些类别之间存在某种数学关系（例如，<code>狗</code>是<code>猫</code>和<code>猪</code>的平均值？<code>猪</code>比<code>狗</code>更“大”？）。这在大多数分类场景下是不成立的。</p></li><li><p><strong>多分类的局限</strong>：如果类别之间没有明确的顺序，这种方法很难扩展到多分类问题。</p></li></ul><h1 id="正确地表示分类目标：-One-Hot-编码"><a href="#正确地表示分类目标：-One-Hot-编码" class="headerlink" title="正确地表示分类目标： One-Hot 编码"></a>正确地表示分类目标： One-Hot 编码</h1><ul><li><p><strong>概念</strong>：One-Hot 编码是一种将类别变量转换为机器学习算法易于处理的形式的方法。它将每个类别表示为一个向量，向量的长度等于总类别数，其中只有一个元素是1（表示当前类别），其余所有元素都是0。</p></li><li><p><strong>举例</strong>：</p><ul><li><p>类别1: <code>[1, 0, 0]</code></p></li><li><p>类别2: <code>[0, 1, 0]</code></p></li><li><p>类别3: <code>[0, 0, 1]</code></p></li></ul></li></ul><p>这样做的好处是，类别之间是相互独立的，模型不会错误地学习到它们之间不存在的数值关系。</p><h1 id="修改输出（一个数值变成三组数组）"><a href="#修改输出（一个数值变成三组数组）" class="headerlink" title="修改输出（一个数值变成三组数组）"></a>修改输出（一个数值变成三组数组）</h1><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250809020900211.png" alt="image.png"></p><p>实际上在用深度学习解决分类问题的时候就是修改了神经网络的结构，把单一输出，变成一个向量输出，概率输出，从而达到了分类的效果</p><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250809021012406.png" alt="image.png"></p><p><strong>分类神经网络的输出</strong>：当使用 one-hot 编码作为目标时，神经网络需要输出多个值（例如，三个类别对应三个输出）。这可以通过复制输出层并应用不同的权重和偏置来实现</p><h1 id="Softmax函数："><a href="#Softmax函数：" class="headerlink" title="Softmax函数："></a>Softmax函数：</h1><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250809021438787.png" alt="image.png"><br><strong><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.464ex;" xmlns="http://www.w3.org/2000/svg" width="1.848ex" height="1.464ex" role="img" focusable="false" viewBox="0 -442 817 647"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><path data-c="1D466" d="M21 287Q21 301 36 335T84 406T158 442Q199 442 224 419T250 355Q248 336 247 334Q247 331 231 288T198 191T182 105Q182 62 196 45T238 27Q261 27 281 38T312 61T339 94Q339 95 344 114T358 173T377 247Q415 397 419 404Q432 431 462 431Q475 431 483 424T494 412T496 403Q496 390 447 193T391 -23Q363 -106 294 -155T156 -205Q111 -205 77 -183T43 -117Q43 -95 50 -80T69 -58T89 -48T106 -45Q150 -45 150 -87Q150 -107 138 -122T115 -142T102 -147L99 -148Q101 -153 118 -160T152 -167H160Q177 -167 186 -165Q219 -156 247 -127T290 -65T313 -9T321 21L315 17Q309 13 296 6T270 -6Q250 -11 231 -11Q185 -11 150 11T104 82Q103 89 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mi" transform="translate(523,-150) scale(0.707)"><path data-c="1D456" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"></path></g></g></g></g></svg></mjx-container>输入叫logit</strong></p><h2 id="模型的输出层设计与-Softmax"><a href="#模型的输出层设计与-Softmax" class="headerlink" title="模型的输出层设计与 Softmax"></a><strong>模型的输出层设计与 Softmax</strong></h2><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250809021335890.png" alt="image.png"></p><p>当我们的目标（Label）变成了 One-Hot 向量后，模型的输出（Output）也需要与之对应。</p><ul><li><p><strong>输出层设计</strong>：对于一个三分类问题，模型的输出层需要有3个神经元，分别对应三个类别的预测值。</p></li><li><p><strong>问题</strong>：这3个输出值可能是任意的实数，比如 <code>[3.1, 1.9, 0.2]</code>。我们如何将它转换成类似 <code>[0.7, 0.2, 0.1]</code> 这样，每个值都在0到1之间，且总和为1的“概率”形式呢？</p></li><li><p><strong>解决方案：Softmax 函数</strong> Softmax 函数可以看作是一个“归一化”工具，它能将一组任意实数转换成一个概率分布。它的作用是：</p><ol><li><p><strong>放大差距</strong>：通过指数运算，将大的值变得更大，小的值变得更小。</p></li><li><p><strong>归一化</strong>：将所有输出值缩放到0到1之间，并且它们的总和为1。</p></li></ol></li></ul><p>经过 Softmax 处理后，模型的输出 <code>y'</code> 就变成了一个可以和 One-Hot 标签 <code>y</code> 直接比较的概率向量了。</p><h1 id="分类常用损失函数"><a href="#分类常用损失函数" class="headerlink" title="分类常用损失函数"></a>分类常用损失函数</h1><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250809021746937.png" alt="image.png"><br>最小化交叉熵，从信息论的角度来看，等同于最大化对数似然（Maximizing Log-Likelihood），即让模型预测出真实标签的概率尽可能大。</p><h1 id="数学角度分析"><a href="#数学角度分析" class="headerlink" title="数学角度分析"></a>数学角度分析</h1><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250809022356275.png" alt="image.png"></p><h2 id="均方误差-MSE-vs-交叉熵-Cross-Entropy"><a href="#均方误差-MSE-vs-交叉熵-Cross-Entropy" class="headerlink" title="均方误差 (MSE) vs. 交叉熵 (Cross-Entropy)"></a>均方误差 (MSE) vs. 交叉熵 (Cross-Entropy)</h2><ol><li><p><strong>均方误差 (MSE)</strong></p><ul><li><p><strong>原理</strong>：直接计算模型输出概率 <code>y'</code> 和真实标签 <code>y</code> 之间每个元素的差值的平方和。</p></li><li><p><strong>问题</strong>：在分类问题中，MSE 的一个致命缺点是，当模型的预测非常糟糕时（例如，对于正确类别预测的概率接近0），它的梯度（也就是给模型的“纠错信号”）会变得非常小，几乎消失。这被称为 <strong>梯度消失</strong>。</p></li></ul></li><li><p><strong>交叉熵 (Cross-Entropy)</strong></p><ul><li><p><strong>原理</strong>：交叉熵源自信息论，它衡量的是两个概率分布之间的“差异”或“距离”。在机器学习中，它衡量的是模型预测的概率分布 <code>y'</code> 与真实的标签分布 <code>y</code> 之间的差异。</p></li><li><p><strong>优势</strong>：交叉熵的一个巨大优势是，<strong>当模型的预测错得越离谱，它计算出的损失值就越大，产生的梯度也越大</strong>。</p></li></ul></li></ol>]]></content>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;分类问题当作回归问题分析&quot;&gt;&lt;a href=&quot;#分类问题当作回归问题分析&quot; class=&quot;headerlink&quot; title=&quot;分类问题当作回归问题分析&quot;&gt;&lt;/a&gt;分类问题当作回归问题分析&lt;/h1&gt;&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="机器学习" scheme="https://jayli19707.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Leetcode-.21合并两个有序链表</title>
@@ -452,31 +477,6 @@
     <category term="二分类" scheme="https://jayli19707.github.io/tags/%E4%BA%8C%E5%88%86%E7%B1%BB/"/>
     
     <category term="特征工程" scheme="https://jayli19707.github.io/tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>机器学习-深入理解 ChatGPT</title>
-    <link href="https://jayli19707.github.io/2025/07/17/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%20ChatGPT/"/>
-    <id>https://jayli19707.github.io/2025/07/17/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%20ChatGPT/</id>
-    <published>2025-07-17T05:30:00.000Z</published>
-    <updated>2025-07-17T07:14:16.604Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="深入理解-ChatGPT：预训练（Pre-train）的奥秘"><a href="#深入理解-ChatGPT：预训练（Pre-train）的奥秘" class="headerlink" title="深入理解 ChatGPT：预训练（Pre-train）的奥秘"></a>深入理解 ChatGPT：预训练（Pre-train）的奥秘</h2><p>今天我们来深入探讨 ChatGPT 背后的核心技术之一：<strong>预训练（Pre-train）</strong>。这不仅是理解 ChatGPT 强大能力的关键，也是当前大模型领域的热门话题。</p><h3 id="什么是预训练？"><a href="#什么是预训练？" class="headerlink" title="什么是预训练？"></a>什么是预训练？</h3><p>预训练，又被称为<strong>自监督学习（Self-supervised Learning）<strong>或构建</strong>基石模型（Foundation Model）</strong>。它在 ChatGPT 的命名中占据了“P”的位置，代表着“Pre-trained”。</p><p>简单来说，ChatGPT 的核心功能是<strong>文本接龙</strong>。它是一个函数，能够根据输入生成连贯的文本。这个函数的能力并非凭空而来，而是通过以下两种方式获得的：</p><ul><li><p><strong>人类老师的教导</strong>：提供大量的输入-输出对，让模型学习正确的响应。</p></li><li><p><strong>网络上的海量数据</strong>：通过自监督学习从无标签数据中提取知识。</p></li></ul><h3 id="传统机器学习的局限性"><a href="#传统机器学习的局限性" class="headerlink" title="传统机器学习的局限性"></a>传统机器学习的局限性</h3><p>在传统的监督学习中，例如英中翻译系统，我们需要收集大量的<strong>成对的（paired）中英对照例句</strong>。人类老师需要明确告诉机器，输入“I eat an apple”应该输出“我吃苹果”。机器通过这些成对数据来学习翻译函数。</p><p>然而，这种方式存在一个显著的局限性：<strong>人类老师能够提供的成对数据是极其有限的</strong>。如果训练数据中从未出现过“喜马拉雅山”这个词，那么即使机器学会了翻译，它也无法回答“世界第一高峰是哪座山”这样的问题。这意味着，仅仅依靠人类标注的有限数据，模型的知识和能力将非常有限。</p><h3 id="预训练如何解决数据稀疏问题？"><a href="#预训练如何解决数据稀疏问题？" class="headerlink" title="预训练如何解决数据稀疏问题？"></a>预训练如何解决数据稀疏问题？</h3><p>为了克服传统监督学习的局限性，预训练技术应运而生。它的核心思想是<strong>无痛地制造大量成对数据</strong>。</p><p>具体来说，网络上的每一段文字都可以被用来训练模型进行文本接龙。例如，对于句子“世界第一高峰是喜马拉雅山”，我们可以将前半部分“世界第一高峰是”作为输入，将后半部分“喜马拉雅山”作为输出，让模型学习这种接龙关系。同样，对于“今天天气真好，我要出去玩”，模型会学习到“今天天气真好”后面应该接“逗号”。</p><p>通过这种方式，模型可以从海量的无标签文本数据中学习语言的模式和知识，而无需人工标注。</p><h3 id="GPT-系列模型的发展"><a href="#GPT-系列模型的发展" class="headerlink" title="GPT 系列模型的发展"></a>GPT 系列模型的发展</h3><p>ChatGPT 的成功离不开其前身 GPT 系列模型的发展：</p><ul><li><p><strong>GPT-1 (2018)</strong>：最初的 GPT 模型相对较小，拥有 1.17 亿参数，训练数据量为 1GB。</p></li><li><p><strong>GPT-2 (2019)</strong>：GPT-2 的规模是 GPT-1 的 10 倍，拥有 15 亿参数，训练数据量达到 40GB。GPT-2 已经展现出回答问题和文本摘要的能力，这在当时引起了学界的轰动。</p></li><li><p><strong>GPT-3 (2020)</strong>：GPT-3 的规模更是达到了 GPT-2 的 100 倍，拥有 1750 亿参数，训练数据量高达 570GB。570GB 的文本数据相当于把《哈利波特》全集读了 30 万遍。GPT-3 甚至能够生成代码，因为它在预训练过程中接触了大量的代码和注释。</p></li></ul><h3 id="预训练的巨大帮助：多语言能力"><a href="#预训练的巨大帮助：多语言能力" class="headerlink" title="预训练的巨大帮助：多语言能力"></a>预训练的巨大帮助：多语言能力</h3><p>预训练带来的一个惊人效果是模型的<strong>多语言能力</strong>。</p><p>研究发现，在多种语言上进行预训练后，模型可以展现出**零样本（Zero-shot）**的跨语言迁移能力。这意味着，你只需要在某种语言（例如英语）上训练模型完成某个任务（例如阅读理解），它就能自动在其他语言（例如中文）上执行相同的任务，而无需额外的翻译或特定语言的训练。</p><p>例如，在 DRCD 中文阅读理解数据集上，一个在 104 种语言上进行预训练的 BERT 模型，即使只在英文阅读理解任务上进行微调，其在中文阅读理解任务上的表现也与直接在中文上微调的模型相近。这表明，预训练让模型学会了将不同人类语言内化为同一种内部表示，从而实现了跨语言的知识迁移。</p><h3 id="ChatGPT-的训练流程：三步走"><a href="#ChatGPT-的训练流程：三步走" class="headerlink" title="ChatGPT 的训练流程：三步走"></a>ChatGPT 的训练流程：三步走</h3><p>ChatGPT 的强大能力是分阶段训练的结果，主要包括以下三个步骤：</p><ol><li><p><strong>预训练（Pre-train）</strong>：</p><ul><li><p>模型通过阅读海量的网络文本数据，学习文本接龙的能力。</p></li><li><p>这个阶段是<strong>自监督学习</strong>，无需人工标注，模型从数据中自动生成训练信号。</p></li><li><p>例如，GPT-3 就是通过预训练获得的基石模型。</p></li></ul></li><li><p><strong>监督学习（Supervised Learning）</strong>：</p><ul><li><p>在预训练的基础上，引入人类老师进行<strong>微调（Fine-tune）</strong>。</p></li><li><p>人类老师提供高质量的输入-输出对，纠正模型在预训练中可能学到的不符合人类意图的回答。</p></li><li><p>例如，当用户问“台湾最高的山是哪座？”，人类老师会明确告诉模型输出“玉山”。</p></li></ul></li><li><p><strong>强化学习（Reinforcement Learning, RL）</strong>：</p><ul><li><p>为了进一步提升模型的对话质量和安全性，引入强化学习。</p></li><li><p>在这个阶段，人类不再直接提供正确答案，而是对模型的回答进行<strong>好坏评价（点赞或点踩）</strong>。</p></li><li><p>这种方式更省力，也更适用于那些没有明确“正确答案”的问题，例如“请帮我写诗赞美AI”。</p></li></ul></li></ol><h3 id="预训练的“前世记忆”"><a href="#预训练的“前世记忆”" class="headerlink" title="预训练的“前世记忆”"></a>预训练的“前世记忆”</h3><p>尽管经过了监督学习和强化学习的微调，ChatGPT 有时仍然会展现出预训练阶段的**“前世记忆”**。</p><p>例如，当你输入“今天天气真不错”时，ChatGPT 可能会回复一段以逗号开头的文本，例如“，温暖的阳光照耀着大地，微风轻拂…”。这表明它仍然在执行文本接龙的任务，试图将你的输入作为某个长句的开头，并继续生成后续内容，而不是像人类一样直接开始一个新句子。这提醒我们，即使模型能力强大，其底层逻辑仍然是基于预训练阶段学到的模式。</p>]]></content>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;深入理解-ChatGPT：预训练（Pre-train）的奥秘&quot;&gt;&lt;a href=&quot;#深入理解-ChatGPT：预训练（Pre-train）的奥秘&quot; class=&quot;headerlink&quot; title=&quot;深入理解</summary>
-        
-      
-    
-    
-    
-    <category term="机器学习" scheme="https://jayli19707.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
     
   </entry>
   
