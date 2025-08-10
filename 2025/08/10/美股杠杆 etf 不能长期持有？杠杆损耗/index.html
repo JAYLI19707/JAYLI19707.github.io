@@ -14,21 +14,21 @@
   
 
   
-  <title>投资心得 | Justin的技术博客</title>
+  <title>美股杠杆 etf 不能长期持有？杠杆损耗 | Justin的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
   <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
-  <meta name="description" content="💹 投资理念与实践投资哲学我的投资原则 长期价值投资 - 关注企业基本面，寻找被低估的优质公司 量化分析辅助 - 用数据驱动决策，避免情绪化交易 风险管理第一 - 严格控制仓位，分散投资降低风险 持续学习 - 保持对市场的敬畏，不断完善投资体系  投资工具箱基本面分析 财务指标： ROE, ROA, 负债率, 现金流 估值模型： DCF, PE, PB, PEG 行业分析： 竞争格局, 成长性,">
-<meta property="og:type" content="website">
-<meta property="og:title" content="投资心得">
-<meta property="og:url" content="https://jayli19707.github.io/investment/index.html">
+  <meta name="description" content="结论：， 这类杠杆  单边市下📈超过三倍，📉不到三倍，但震荡市相反。如果对行情把握比较好，且是单边上涨，可以长期持仓，效果会超级好，否则不建议长期持有 1. 单边上涨（📈 正股持续涨） 由于杠杆ETF是每日按「目标倍数」调仓，每天涨 1% → 杠杆ETF 涨 3%。   正股连续上涨 假设：  SOXX 连续 20 天每天涨 +1%  SOXL 则每天 +3%  初始净值：100 计算：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="美股杠杆 etf 不能长期持有？杠杆损耗">
+<meta property="og:url" content="https://jayli19707.github.io/2025/08/10/%E7%BE%8E%E8%82%A1%E6%9D%A0%E6%9D%86%20etf%20%E4%B8%8D%E8%83%BD%E9%95%BF%E6%9C%9F%E6%8C%81%E6%9C%89%EF%BC%9F%E6%9D%A0%E6%9D%86%E6%8D%9F%E8%80%97/index.html">
 <meta property="og:site_name" content="Justin的技术博客">
-<meta property="og:description" content="💹 投资理念与实践投资哲学我的投资原则 长期价值投资 - 关注企业基本面，寻找被低估的优质公司 量化分析辅助 - 用数据驱动决策，避免情绪化交易 风险管理第一 - 严格控制仓位，分散投资降低风险 持续学习 - 保持对市场的敬畏，不断完善投资体系  投资工具箱基本面分析 财务指标： ROE, ROA, 负债率, 现金流 估值模型： DCF, PE, PB, PEG 行业分析： 竞争格局, 成长性,">
+<meta property="og:description" content="结论：， 这类杠杆  单边市下📈超过三倍，📉不到三倍，但震荡市相反。如果对行情把握比较好，且是单边上涨，可以长期持仓，效果会超级好，否则不建议长期持有 1. 单边上涨（📈 正股持续涨） 由于杠杆ETF是每日按「目标倍数」调仓，每天涨 1% → 杠杆ETF 涨 3%。   正股连续上涨 假设：  SOXX 连续 20 天每天涨 +1%  SOXL 则每天 +3%  初始净值：100 计算：">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-06-04T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-06-05T12:49:48.440Z">
+<meta property="article:published_time" content="2025-08-10T06:03:03.000Z">
+<meta property="article:modified_time" content="2025-08-10T06:03:10.985Z">
 <meta property="article:author" content="Justin">
 <meta property="article:tag" content="人工智能,机器学习,深度学习,量化交易,Python,技术博客">
 <meta name="twitter:card" content="summary">
@@ -48,7 +48,119 @@
   
 <link rel="stylesheet" href="/css/style.css">
 
-<meta name="generator" content="Hexo 7.3.0"></head>
+<meta name="generator" content="Hexo 7.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
 
 <body>
   
@@ -237,7 +349,9 @@
        
 
 
-<article id="page-" class="h-entry article article-type-page" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+<article id="post-美股杠杆 etf 不能长期持有？杠杆损耗" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    
    
   <div class="article-inner">
     <div class="article-main">
@@ -248,7 +362,7 @@
   
     
       <h1 class="p-name article-title" itemprop="headline name">
-        投资心得
+        美股杠杆 etf 不能长期持有？杠杆损耗
       </h1>
     
   
@@ -256,58 +370,74 @@
 
         <div class='meta-info-bar'>
           <div class="meta-info">
-  <time class="dt-published" datetime="2025-06-04T16:00:00.000Z" itemprop="datePublished">2025-06-05</time>
+  <time class="dt-published" datetime="2025-08-10T06:03:03.000Z" itemprop="datePublished">2025-08-10</time>
 </div>
           <div class="need-seperator meta-info">
             <div class="meta-cate-flex">
   
-    未分类 
+  <a class="meta-cate-link" href="/categories/%E9%87%91%E8%9E%8D/">金融</a>
    
 </div>
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            455 词 
+            1.2k 词 
           </div>
         </div>
         
       </header>
       <div class="e-content article-entry" itemprop="articleBody">
         
-          <h1 id="💹-投资理念与实践"><a href="#💹-投资理念与实践" class="headerlink" title="💹 投资理念与实践"></a>💹 投资理念与实践</h1><h2 id="投资哲学"><a href="#投资哲学" class="headerlink" title="投资哲学"></a>投资哲学</h2><h3 id="我的投资原则"><a href="#我的投资原则" class="headerlink" title="我的投资原则"></a>我的投资原则</h3><ol>
-<li><strong>长期价值投资</strong> - 关注企业基本面，寻找被低估的优质公司</li>
-<li><strong>量化分析辅助</strong> - 用数据驱动决策，避免情绪化交易</li>
-<li><strong>风险管理第一</strong> - 严格控制仓位，分散投资降低风险</li>
-<li><strong>持续学习</strong> - 保持对市场的敬畏，不断完善投资体系</li>
-</ol>
-<h2 id="投资工具箱"><a href="#投资工具箱" class="headerlink" title="投资工具箱"></a>投资工具箱</h2><h3 id="基本面分析"><a href="#基本面分析" class="headerlink" title="基本面分析"></a>基本面分析</h3><ul>
-<li><strong>财务指标：</strong> ROE, ROA, 负债率, 现金流</li>
-<li><strong>估值模型：</strong> DCF, PE, PB, PEG</li>
-<li><strong>行业分析：</strong> 竞争格局, 成长性, 政策影响</li>
-</ul>
-<h3 id="技术分析"><a href="#技术分析" class="headerlink" title="技术分析"></a>技术分析</h3><ul>
-<li><strong>趋势指标：</strong> MA, MACD, Bollinger Bands</li>
-<li><strong>动量指标：</strong> RSI, Stochastic, Williams %R</li>
-<li><strong>成交量分析：</strong> OBV, 量价关系</li>
-</ul>
-<h3 id="量化策略"><a href="#量化策略" class="headerlink" title="量化策略"></a>量化策略</h3><ul>
-<li><strong>多因子模型</strong> - 结合基本面和技术面因子</li>
-<li><strong>均值回归策略</strong> - 基于统计套利原理</li>
-<li><strong>动量策略</strong> - 追踪市场趋势和热点</li>
-</ul>
-<h2 id="投资记录"><a href="#投资记录" class="headerlink" title="投资记录"></a>投资记录</h2><h3 id="2024年投资总结"><a href="#2024年投资总结" class="headerlink" title="2024年投资总结"></a>2024年投资总结</h3><ul>
-<li><strong>总收益率：</strong> +15.2%</li>
-<li><strong>最佳投资：</strong> 某科技股 (+45%)</li>
-<li><strong>经验教训：</strong> 过度集中持股的风险</li>
-</ul>
-<h3 id="当前关注行业"><a href="#当前关注行业" class="headerlink" title="当前关注行业"></a>当前关注行业</h3><ul>
-<li>🤖 <strong>人工智能</strong> - AI应用落地加速</li>
-<li>⚡ <strong>新能源</strong> - 政策支持与技术突破</li>
-<li>🏥 <strong>医疗健康</strong> - 人口老龄化趋势</li>
-<li>💻 <strong>半导体</strong> - 国产替代机会</li>
+          <h1 id="结论："><a href="#结论：" class="headerlink" title="结论："></a>结论：</h1><p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.452ex;" xmlns="http://www.w3.org/2000/svg" width="10.328ex" height="2.149ex" role="img" focusable="false" viewBox="0 -750 4565 950"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D460" d="M131 289Q131 321 147 354T203 415T300 442Q362 442 390 415T419 355Q419 323 402 308T364 292Q351 292 340 300T328 326Q328 342 337 354T354 372T367 378Q368 378 368 379Q368 382 361 388T336 399T297 405Q249 405 227 379T204 326Q204 301 223 291T278 274T330 259Q396 230 396 163Q396 135 385 107T352 51T289 7T195 -10Q118 -10 86 19T53 87Q53 126 74 143T118 160Q133 160 146 151T160 120Q160 94 142 76T111 58Q109 57 108 57T107 55Q108 52 115 47T146 34T201 27Q237 27 263 38T301 66T318 97T323 122Q323 150 302 164T254 181T195 196T148 231Q131 256 131 289Z"></path></g><g data-mml-node="mi" transform="translate(469,0)"><path data-c="1D45C" d="M201 -11Q126 -11 80 38T34 156Q34 221 64 279T146 380Q222 441 301 441Q333 441 341 440Q354 437 367 433T402 417T438 387T464 338T476 268Q476 161 390 75T201 -11ZM121 120Q121 70 147 48T206 26Q250 26 289 58T351 142Q360 163 374 216T388 308Q388 352 370 375Q346 405 306 405Q243 405 195 347Q158 303 140 230T121 120Z"></path></g><g data-mml-node="mi" transform="translate(954,0)"><path data-c="1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path></g><g data-mml-node="mi" transform="translate(1526,0)"><path data-c="1D459" d="M117 59Q117 26 142 26Q179 26 205 131Q211 151 215 152Q217 153 225 153H229Q238 153 241 153T246 151T248 144Q247 138 245 128T234 90T214 43T183 6T137 -11Q101 -11 70 11T38 85Q38 97 39 102L104 360Q167 615 167 623Q167 626 166 628T162 632T157 634T149 635T141 636T132 637T122 637Q112 637 109 637T101 638T95 641T94 647Q94 649 96 661Q101 680 107 682T179 688Q194 689 213 690T243 693T254 694Q266 694 266 686Q266 675 193 386T118 83Q118 81 118 75T117 65V59Z"></path></g><g data-mml-node="mi" transform="translate(1824,0)"><text data-variant="italic" transform="scale(1,-1)" font-size="884px" font-family="serif" font-style="italic">，</text></g><g data-mml-node="mi" transform="translate(2824,0)"><path data-c="1D461" d="M26 385Q19 392 19 395Q19 399 22 411T27 425Q29 430 36 430T87 431H140L159 511Q162 522 166 540T173 566T179 586T187 603T197 615T211 624T229 626Q247 625 254 615T261 596Q261 589 252 549T232 470L222 433Q222 431 272 431H323Q330 424 330 420Q330 398 317 385H210L174 240Q135 80 135 68Q135 26 162 26Q197 26 230 60T283 144Q285 150 288 151T303 153H307Q322 153 322 145Q322 142 319 133Q314 117 301 95T267 48T216 6T155 -11Q125 -11 98 4T59 56Q57 64 57 83V101L92 241Q127 382 128 383Q128 385 77 385H26Z"></path></g><g data-mml-node="mi" transform="translate(3185,0)"><path data-c="1D45E" d="M33 157Q33 258 109 349T280 441Q340 441 372 389Q373 390 377 395T388 406T404 418Q438 442 450 442Q454 442 457 439T460 434Q460 425 391 149Q320 -135 320 -139Q320 -147 365 -148H390Q396 -156 396 -157T393 -175Q389 -188 383 -194H370Q339 -192 262 -192Q234 -192 211 -192T174 -192T157 -193Q143 -193 143 -185Q143 -182 145 -170Q149 -154 152 -151T172 -148Q220 -148 230 -141Q238 -136 258 -53T279 32Q279 33 272 29Q224 -10 172 -10Q117 -10 75 30T33 157ZM352 326Q329 405 277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q233 26 290 98L298 109L352 326Z"></path></g><g data-mml-node="mi" transform="translate(3645,0)"><path data-c="1D45E" d="M33 157Q33 258 109 349T280 441Q340 441 372 389Q373 390 377 395T388 406T404 418Q438 442 450 442Q454 442 457 439T460 434Q460 425 391 149Q320 -135 320 -139Q320 -147 365 -148H390Q396 -156 396 -157T393 -175Q389 -188 383 -194H370Q339 -192 262 -192Q234 -192 211 -192T174 -192T157 -193Q143 -193 143 -185Q143 -182 145 -170Q149 -154 152 -151T172 -148Q220 -148 230 -141Q238 -136 258 -53T279 32Q279 33 272 29Q224 -10 172 -10Q117 -10 75 30T33 157ZM352 326Q329 405 277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q233 26 290 98L298 109L352 326Z"></path></g><g data-mml-node="mi" transform="translate(4105,0)"><path data-c="1D45E" d="M33 157Q33 258 109 349T280 441Q340 441 372 389Q373 390 377 395T388 406T404 418Q438 442 450 442Q454 442 457 439T460 434Q460 425 391 149Q320 -135 320 -139Q320 -147 365 -148H390Q396 -156 396 -157T393 -175Q389 -188 383 -194H370Q339 -192 262 -192Q234 -192 211 -192T174 -192T157 -193Q143 -193 143 -185Q143 -182 145 -170Q149 -154 152 -151T172 -148Q220 -148 230 -141Q238 -136 258 -53T279 32Q279 33 272 29Q224 -10 172 -10Q117 -10 75 30T33 157ZM352 326Q329 405 277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q233 26 290 98L298 109L352 326Z"></path></g></g></g></svg></mjx-container> 这类杠杆 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.464ex;" xmlns="http://www.w3.org/2000/svg" width="3.115ex" height="2.059ex" role="img" focusable="false" viewBox="0 -705 1377 910"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D452" d="M39 168Q39 225 58 272T107 350T174 402T244 433T307 442H310Q355 442 388 420T421 355Q421 265 310 237Q261 224 176 223Q139 223 138 221Q138 219 132 186T125 128Q125 81 146 54T209 26T302 45T394 111Q403 121 406 121Q410 121 419 112T429 98T420 82T390 55T344 24T281 -1T205 -11Q126 -11 83 42T39 168ZM373 353Q367 405 305 405Q272 405 244 391T199 357T170 316T154 280T149 261Q149 260 169 260Q282 260 327 284T373 353Z"></path></g><g data-mml-node="mi" transform="translate(466,0)"><path data-c="1D461" d="M26 385Q19 392 19 395Q19 399 22 411T27 425Q29 430 36 430T87 431H140L159 511Q162 522 166 540T173 566T179 586T187 603T197 615T211 624T229 626Q247 625 254 615T261 596Q261 589 252 549T232 470L222 433Q222 431 272 431H323Q330 424 330 420Q330 398 317 385H210L174 240Q135 80 135 68Q135 26 162 26Q197 26 230 60T283 144Q285 150 288 151T303 153H307Q322 153 322 145Q322 142 319 133Q314 117 301 95T267 48T216 6T155 -11Q125 -11 98 4T59 56Q57 64 57 83V101L92 241Q127 382 128 383Q128 385 77 385H26Z"></path></g><g data-mml-node="mi" transform="translate(827,0)"><path data-c="1D453" d="M118 -162Q120 -162 124 -164T135 -167T147 -168Q160 -168 171 -155T187 -126Q197 -99 221 27T267 267T289 382V385H242Q195 385 192 387Q188 390 188 397L195 425Q197 430 203 430T250 431Q298 431 298 432Q298 434 307 482T319 540Q356 705 465 705Q502 703 526 683T550 630Q550 594 529 578T487 561Q443 561 443 603Q443 622 454 636T478 657L487 662Q471 668 457 668Q445 668 434 658T419 630Q412 601 403 552T387 469T380 433Q380 431 435 431Q480 431 487 430T498 424Q499 420 496 407T491 391Q489 386 482 386T428 385H372L349 263Q301 15 282 -47Q255 -132 212 -173Q175 -205 139 -205Q107 -205 81 -186T55 -132Q55 -95 76 -78T118 -61Q162 -61 162 -103Q162 -122 151 -136T127 -157L118 -162Z"></path></g></g></g></svg></mjx-container> 单边市下📈超过三倍，📉不到三倍，但震荡市相反。<br>如果对行情把握比较好，且是单边上涨，可以长期持仓，效果会超级好，否则不建议长期持有</p>
+<h1 id="1-单边上涨（📈-正股持续涨）"><a href="#1-单边上涨（📈-正股持续涨）" class="headerlink" title="1. 单边上涨（📈 正股持续涨）"></a><strong>1. 单边上涨（📈 正股持续涨）</strong></h1><ul>
+<li><p>由于杠杆ETF是每日按「目标倍数」调仓，每天涨 1% → 杠杆ETF 涨 3%。</p>
+<p>  正股连续上涨 假设：<br>  SOXX 连续 20 天每天涨 +1%<br>  SOXL 则每天 +3%<br>  初始净值：100 计算：<br>  SOXX 最终净值： 100 × (1.01)^{20} ≈ 122.0（涨幅 +22%）<br>  SOXL 最终净值： 100 × (1.03)^{20} ≈ 180.6（涨幅 +80.6%）<br><br>  SOXX 涨 22%，而 SOXL 实际涨了 80.6%。</p>
+</li>
+<li><p>复利叠加后，20天下来，实际涨幅会<strong>超过线性 3 倍</strong>。</p>
+</li>
+<li><p>原因：<strong>复利放大效应</strong>——每天在更高的净值基础上继续乘以 3% 的涨幅，结果会超出单纯的 3 倍计算。</p>
+</li>
+<li><p>结论：单边上涨时，杠杆ETF超额跑赢。</p>
+</li>
 </ul>
 <hr>
-<p>⚠️ <strong>风险提示：</strong> 投资有风险，入市需谨慎。以上内容仅为个人经验分享，不构成投资建议。</p>
+<h1 id="2-单边下跌（📉-正股持续跌）"><a href="#2-单边下跌（📉-正股持续跌）" class="headerlink" title="2. 单边下跌（📉 正股持续跌）"></a><strong>2. 单边下跌（📉 正股持续跌）</strong></h1><ul>
+<li><p>每天跌 1%，杠杆ETF 跌 3%。</p>
+<p>  正股连续下跌 假设：<br>  SOXX 连续 20 天每天跌 -1%<br>  SOXL 每天跌 -3%<br>  初始净值：100 计算：<br>  SOXX 最终净值： 100 × (0.99)^{20} ≈ 81.8（跌幅 -18.2%）<br>  SOXL 最终净值： 100 × (0.97)^{20} ≈ 54.0（跌幅 -46%）<br>  SOXX 跌 18.2%，而 SOXL 跌了 46%。</p>
+</li>
+<li><p>复利效应导致跌幅<strong>小于线性 3 倍</strong>。</p>
+</li>
+<li><p>原因：<strong>边际缓冲效应</strong>——随着净值越来越低，按百分比计算的绝对亏损金额变小，跌幅比例会被“压缩”。</p>
+</li>
+<li><p>结论：单边下跌时，杠杆ETF跌得没那么惨（但仍然是大跌）。</p>
+</li>
+</ul>
+<hr>
+<h1 id="3-横盘震荡（-5-、-5-来回）"><a href="#3-横盘震荡（-5-、-5-来回）" class="headerlink" title="3. 横盘震荡（+5%、-5% 来回）"></a><strong>3. 横盘震荡（+5%、-5% 来回）</strong></h1><ul>
+<li><p>指数波动但不走趋势，最终几乎没跌。</p>
+<p>  正股震荡横盘（+5%、-5% 来回10轮） 假设：</p>
+<p>  SOXX 每两天一个周期：+5%，-5%<br>  SOXL 对应：+15%，-15%<br>  共震荡 10轮（20天） </p>
+<p>  计算：<br>  SOXX 每轮回报：1.05 × 0.95 = 0.9975 期末净值： 100 × 0.9975^{10} ≈ 97.54（跌幅 -2.46%）<br>  SOXL 每轮回报：1.15 × 0.85 = 0.9775 期末净值： 100 × 0.9775^{10} ≈ 78.3（跌幅 -21.7%）<br>  ⚠️ 虽然指数几乎没跌，但 SOXL 已经亏掉了五分之一，这就是杠杆腐蚀效应（leverage decay）。</p>
+</li>
+<li><p>杠杆ETF因每天被强制放大波动，先涨 15%，再跌 15%，等价于不断乘以 1.15×0.85 &lt; 1。</p>
+</li>
+<li><p>反复多次后，净值显著缩水。</p>
+</li>
+<li><p>原因：<strong>波动衰减（Volatility Decay）</strong>——上涨后的跌幅比下跌后的涨幅更伤本金，杠杆放大了这种磨损。</p>
+</li>
+<li><p>结论：震荡市是杠杆ETF最大的杀手，即使指数不跌，你也亏。</p>
+</li>
+</ul>
+<hr>
+<h1 id="4-关键-takeaway"><a href="#4-关键-takeaway" class="headerlink" title="4. 关键 takeaway"></a><strong>4. 关键 takeaway</strong></h1><ul>
+<li><p>杠杆ETF（SOXL、TQQQ）<strong>适合短期单边趋势行情</strong>，能放大收益；</p>
+</li>
+<li><p><strong>不适合长期持有</strong>，特别是震荡行情，会被“磨掉本金”；</p>
+</li>
+<li><p>基金说明书已经明确警告这一点，所以不要当成“长期翻倍神器”。</p>
+</li>
+</ul>
+<hr>
 
         
       </div>
@@ -319,6 +449,29 @@
   </div>
   
     
+<nav id="article-nav">
+  <a class="article-nav-btn left  disabled "
+     >
+    <i class="fa-solid fa-angle-left"></i>
+    <p class="title-text">
+        
+    </p>
+  </a>
+  <a class="article-nav-btn right "
+    
+      href="/2025/08/09/Leetcode-19.%20%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%AC%20N%20%E4%B8%AA%E7%BB%93%E7%82%B9/"
+      title="Leetcode-19. 删除链表的倒数第 N 个结点"
+     >
+
+    <p class="title-text">
+      
+        Leetcode-19. 删除链表的倒数第 N 个结点
+        
+    </p>
+    <i class="fa-solid fa-angle-right"></i>
+  </a>
+</nav>
+
 
   
 </article>
