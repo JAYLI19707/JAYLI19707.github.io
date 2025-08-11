@@ -287,7 +287,7 @@ mjx-container[display="true"] + br {
         
             <a class="category-link" href="/categories/Leetcode/">
                 Leetcode
-                <div class="category-count">17</div>
+                <div class="category-count">18</div>
             </a>
         
             <a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">
@@ -345,6 +345,85 @@ mjx-container[display="true"] + br {
     </div>
     <div id="content-body">
       
+   
+
+
+<article id="post-Leetcode-234.回文链表" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2025/08/02/Leetcode-234.%E5%9B%9E%E6%96%87%E9%93%BE%E8%A1%A8/">Leetcode-234.回文链表</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2025-08-01T18:00:00.000Z" itemprop="datePublished">2025-08-02</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/Leetcode/">Leetcode</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            1.4k 词 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              
+
+思路判断链表是否为回文，可以通过快慢指针找到链表中点，然后反转后半部分链表，接着从头和反转后的部分逐一比较值是否相等。为了达到 O(1) 空间复杂度，我们不能使用数组或栈辅助存储值，必须在原链表上操作。
+解题过程边界判断：如果链表为空或只有一个节点，直接返回 True。
+找中点：使用快慢指针，fast 每次走两步，slow 每次走一步，slow 停下时刚好位于链表中点。
+反转后半部分：从 slow 开始反转链表，获得 reverse_head。
+比较是否相等：用两个指针，分别从 head 和 reverse_head 出发，同时遍历并比较值是否一致。
+返回结果：只要有任意一组值不一致，就返回 False；否则返回 True。
+复杂度分析时间复杂度：O(n)找中点：O(n)反转链表：O(n)比较两半链表：O(n)空间复杂度：O(1)只用了若干指针变量，无额外数据结构
+实现链表翻转功能双指针解法：定义好一个cur和一个pre的指针cur=headpre=none现在的目的是把链表的指向改变。先考虑第一个元素时在链没断之前，先用temp指针保存好第二个节点。修改第一个节点的指向。直...
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2025/08/02/Leetcode-234.%E5%9B%9E%E6%96%87%E9%93%BE%E8%A1%A8/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
    
 
 
@@ -1000,72 +1079,6 @@ mjx-container[display="true"] + br {
     <a class="right-panel  non-pic  "
       
       href="/2025/07/22/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E8%B6%85%E8%B6%8A%E7%BA%BF%E6%80%A7%EF%BC%8C%E8%BF%88%E5%90%91%E6%B7%B1%E5%BA%A6/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-   
-
-
-<article id="post-Leetcode-.283移动零" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/07/19/Leetcode-.283%E7%A7%BB%E5%8A%A8%E9%9B%B6/">Leetcode-.283移动零</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2025-07-18T19:30:00.000Z" itemprop="datePublished">2025-07-19</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/Leetcode/">Leetcode</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            329 词 
-          </div>
-        </div>
-        
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <p>本题采用双指针来解决</p>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2025/07/19/Leetcode-.283%E7%A7%BB%E5%8A%A8%E9%9B%B6/" 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>

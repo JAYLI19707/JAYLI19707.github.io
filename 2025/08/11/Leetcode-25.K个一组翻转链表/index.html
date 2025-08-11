@@ -14,26 +14,26 @@
   
 
   
-  <title>Leetcode-19. 删除链表的倒数第 N 个结点 | Justin的技术博客</title>
+  <title>Leetcode-25.K个一组翻转链表 | Justin的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
   <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
-  <meta name="description" content="这里采用 计算链表长度法：  第一次遍历链表，得到链表长度 length。  计算要删除节点的正序位置：length - n + 1。  用一个虚拟头节点 dummy 来统一处理删除头结点的情况。  第二次遍历，将要删除的节点跳过，即让前驱节点指向要删除节点的下一个节点。     解题过程  遍历一次链表，用 length 记录节点总数。  计算要删除的节点前一个节点的位置，也就是 length">
+  <meta name="description" content="核心还是掌握链表的反转">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode-19. 删除链表的倒数第 N 个结点">
-<meta property="og:url" content="https://jayli19707.github.io/2025/08/09/Leetcode-19.%20%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%AC%20N%20%E4%B8%AA%E7%BB%93%E7%82%B9/index.html">
+<meta property="og:title" content="Leetcode-25.K个一组翻转链表">
+<meta property="og:url" content="https://jayli19707.github.io/2025/08/11/Leetcode-25.K%E4%B8%AA%E4%B8%80%E7%BB%84%E7%BF%BB%E8%BD%AC%E9%93%BE%E8%A1%A8/index.html">
 <meta property="og:site_name" content="Justin的技术博客">
-<meta property="og:description" content="这里采用 计算链表长度法：  第一次遍历链表，得到链表长度 length。  计算要删除节点的正序位置：length - n + 1。  用一个虚拟头节点 dummy 来统一处理删除头结点的情况。  第二次遍历，将要删除的节点跳过，即让前驱节点指向要删除节点的下一个节点。     解题过程  遍历一次链表，用 length 记录节点总数。  计算要删除的节点前一个节点的位置，也就是 length">
+<meta property="og:description" content="核心还是掌握链表的反转">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250809213543370.png">
-<meta property="article:published_time" content="2025-08-09T13:36:14.000Z">
-<meta property="article:modified_time" content="2025-08-09T13:38:53.111Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250811193745262.png">
+<meta property="article:published_time" content="2025-08-11T11:42:03.000Z">
+<meta property="article:modified_time" content="2025-08-11T11:44:56.807Z">
 <meta property="article:author" content="Justin">
 <meta property="article:tag" content="人工智能,机器学习,深度学习,量化交易,Python,技术博客">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250809213543370.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250811193745262.png">
   
     <link rel="alternate" href="/atom.xml" title="Justin的技术博客" type="application/atom+xml">
   
@@ -351,7 +351,7 @@ mjx-container[display="true"] + br {
        
 
 
-<article id="post-Leetcode-19. 删除链表的倒数第 N 个结点" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+<article id="post-Leetcode-25.K个一组翻转链表" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
     
    
@@ -364,7 +364,7 @@ mjx-container[display="true"] + br {
   
     
       <h1 class="p-name article-title" itemprop="headline name">
-        Leetcode-19. 删除链表的倒数第 N 个结点
+        Leetcode-25.K个一组翻转链表
       </h1>
     
   
@@ -372,51 +372,82 @@ mjx-container[display="true"] + br {
 
         <div class='meta-info-bar'>
           <div class="meta-info">
-  <time class="dt-published" datetime="2025-08-09T13:36:14.000Z" itemprop="datePublished">2025-08-09</time>
+  <time class="dt-published" datetime="2025-08-11T11:42:03.000Z" itemprop="datePublished">2025-08-11</time>
 </div>
           <div class="need-seperator meta-info">
             <div class="meta-cate-flex">
   
-    未分类 
+  <a class="meta-cate-link" href="/categories/Leetcode/">Leetcode</a>
    
 </div>
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            698 词 
+            1.2k 词 
           </div>
         </div>
         
       </header>
       <div class="e-content article-entry" itemprop="articleBody">
         
-          <p>这里采用 <strong>计算链表长度法</strong>：</p>
+          <p>核心还是掌握链表的反转</p>
+<span id="more"></span>
+<p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250811193745262.png" alt="image.png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for singly-linked list.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># class ListNode:</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#     def __init__(self, val=0, next=None):</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#         self.val = val</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#         self.next = next</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">reverseKGroup</span>(<span class="params">self, head: <span class="type">Optional</span>[ListNode], k: <span class="built_in">int</span></span>) -&gt; <span class="type">Optional</span>[ListNode]:</span><br><span class="line"></span><br><span class="line">        dummy=ListNode(<span class="number">0</span>,head)</span><br><span class="line"></span><br><span class="line">        pre=dummy</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line"></span><br><span class="line">            end =pre</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(k):</span><br><span class="line"></span><br><span class="line">                end=end.<span class="built_in">next</span></span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> <span class="keyword">not</span> end:</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">return</span> dummy.<span class="built_in">next</span></span><br><span class="line"></span><br><span class="line">            start=pre.<span class="built_in">next</span></span><br><span class="line"></span><br><span class="line">            next_group=end.<span class="built_in">next</span></span><br><span class="line"></span><br><span class="line">            cur=start</span><br><span class="line"></span><br><span class="line">            prev=next_group</span><br><span class="line"></span><br><span class="line">            <span class="keyword">while</span> cur!=next_group:</span><br><span class="line"></span><br><span class="line">                nxt=cur.<span class="built_in">next</span></span><br><span class="line"></span><br><span class="line">                cur.<span class="built_in">next</span>=prev</span><br><span class="line"></span><br><span class="line">                prev=cur</span><br><span class="line"></span><br><span class="line">                cur=nxt</span><br><span class="line"></span><br><span class="line">            pre.<span class="built_in">next</span>=end</span><br><span class="line"></span><br><span class="line">            pre=start</span><br><span class="line">  </span><br><span class="line">        <span class="keyword">return</span> dummy.<span class="built_in">next</span></span><br></pre></td></tr></table></figure>
+<h2 id="1-整条链表反转（一次性从头到尾）"><a href="#1-整条链表反转（一次性从头到尾）" class="headerlink" title="1. 整条链表反转（一次性从头到尾）"></a>1. <strong>整条链表反转</strong>（一次性从头到尾）</h2><p>经典的三指针法：</p>
 <ul>
-<li><p>第一次遍历链表，得到链表长度 <code>length</code>。</p>
+<li><p><strong><code>prev</code></strong>：保存反转后部分的头（初始为 <code>None</code>）</p>
 </li>
-<li><p>计算要删除节点的<strong>正序位置</strong>：<code>length - n + 1</code>。</p>
+<li><p><strong><code>curr</code></strong>：当前正在处理的节点</p>
 </li>
-<li><p>用一个虚拟头节点 <code>dummy</code> 来统一处理删除头结点的情况。</p>
-</li>
-<li><p>第二次遍历，将要删除的节点跳过，即让前驱节点指向要删除节点的下一个节点。</p>
+<li><p><strong><code>next</code></strong>（或 <code>nxt</code>）：提前保存 <code>curr.next</code>，防止链表断开</p>
 </li>
 </ul>
+<p>反转过程：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">prev = <span class="literal">None</span> </span><br><span class="line"></span><br><span class="line">curr = head </span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> curr:     </span><br><span class="line">	nxt = curr.<span class="built_in">next</span></span><br><span class="line">	</span><br><span class="line">	curr.<span class="built_in">next</span> = prev  </span><br><span class="line">	   </span><br><span class="line">	prev = curr    </span><br><span class="line">	 </span><br><span class="line">	curr = nxt</span><br></pre></td></tr></table></figure>
+
+<p>✅ 只要 <strong>3 个指针</strong> 就够，空间 O(1)。</p>
 <hr>
-<p> <strong>解题过程</strong></p>
+<h2 id="2-反转一段子链（已知子链的首尾）"><a href="#2-反转一段子链（已知子链的首尾）" class="headerlink" title="2. 反转一段子链（已知子链的首尾）"></a>2. <strong>反转一段子链</strong>（已知子链的首尾）</h2><p>除了 <code>prev/curr/nxt</code> 三个工作指针，还要<strong>额外 2 个锚点</strong>：</p>
+<ul>
+<li><p><strong><code>sub_prev</code></strong>：子链前驱（前一段的尾）</p>
+</li>
+<li><p><strong><code>sub_next</code></strong>：子链后继（后一段的头）</p>
+</li>
+</ul>
+<p>反转步骤：</p>
 <ol>
-<li><p><strong>遍历一次链表</strong>，用 <code>length</code> 记录节点总数。</p>
+<li><p>用 <code>sub_prev</code> 和 <code>sub_next</code> 把子链分离出来</p>
 </li>
-<li><p><strong>计算要删除的节点前一个节点的位置</strong>，也就是 <code>length - n</code>。</p>
+<li><p>用 <code>prev/curr/nxt</code> 反转子链</p>
 </li>
-<li><p>使用一个 <strong>dummy 节点</strong> 指向 <code>head</code>，用 <code>tail</code> 指针遍历到该位置。</p>
-</li>
-<li><p>直接跳过目标节点：<code>tail.next = tail.next.next</code>。</p>
-</li>
-<li><p>返回 <code>dummy.next</code> 作为新链表头。</p>
+<li><p>反转完接回 <code>sub_prev → 新头</code>，<code>新尾 → sub_next</code></p>
 </li>
 </ol>
-<p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250809213543370.png" alt="image.png"></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for singly-linked list.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># class ListNode:</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#     def __init__(self, val=0, next=None):</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#         self.val = val</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#         self.next = next</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">removeNthFromEnd</span>(<span class="params">self, head: <span class="type">Optional</span>[ListNode], n: <span class="built_in">int</span></span>) -&gt; <span class="type">Optional</span>[ListNode]:</span><br><span class="line"></span><br><span class="line">        num=head</span><br><span class="line"></span><br><span class="line">        i=<span class="number">0</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> num:</span><br><span class="line"></span><br><span class="line">            i+=<span class="number">1</span></span><br><span class="line"></span><br><span class="line">            num=num.<span class="built_in">next</span></span><br><span class="line"></span><br><span class="line">        p=head</span><br><span class="line"></span><br><span class="line">        dummy=ListNode()</span><br><span class="line"></span><br><span class="line">        tail=dummy</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i-n):</span><br><span class="line"></span><br><span class="line">            tail.<span class="built_in">next</span>=p</span><br><span class="line"></span><br><span class="line">            p=p.<span class="built_in">next</span></span><br><span class="line"></span><br><span class="line">            tail=tail.<span class="built_in">next</span></span><br><span class="line"></span><br><span class="line">        temp=p.<span class="built_in">next</span></span><br><span class="line"></span><br><span class="line">        tail.<span class="built_in">next</span>=temp</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> dummy.<span class="built_in">next</span></span><br></pre></td></tr></table></figure>
+<p>✅ 这里需要 <strong>3 个工作指针 + 2 个锚点 = 5 个指针</strong>。</p>
+<hr>
+<h2 id="3-K-个一组反转"><a href="#3-K-个一组反转" class="headerlink" title="3. K 个一组反转"></a>3. <strong>K 个一组反转</strong></h2><p>这是你现在问的情况，步骤是：</p>
+<ol>
+<li><p>用 <code>pre</code> 找到本组前驱</p>
+</li>
+<li><p>用 <code>end</code> 找到本组尾巴（走 k 步）</p>
+</li>
+<li><p>用 <code>next_group = end.next</code> 保存下一组的起点</p>
+</li>
+<li><p>用 <code>prev/curr/nxt</code> 反转 <code>[start, end]</code></p>
+</li>
+<li><p>反转完接回并让 <code>pre</code> 移到新尾（原来的 start）</p>
+</li>
+</ol>
+<p>常用指针：</p>
+<ul>
+<li><p>跨组锚点：<code>pre</code>、<code>end</code>、<code>next_group</code>（3 个）</p>
+</li>
+<li><p>反转工作：<code>prev</code>、<code>curr</code>、<code>nxt</code>（3 个）</p>
+</li>
+</ul>
+<p>✅ 总共 <strong>固定 6 个指针</strong>，不随 k 增加而增加。</p>
+
         
       </div>
 
@@ -428,27 +459,22 @@ mjx-container[display="true"] + br {
   
     
 <nav id="article-nav">
-  <a class="article-nav-btn left "
-    
-      href="/2025/08/10/%E7%BE%8E%E8%82%A1%E6%9D%A0%E6%9D%86%20etf%20%E4%B8%8D%E8%83%BD%E9%95%BF%E6%9C%9F%E6%8C%81%E6%9C%89%EF%BC%9F%E6%9D%A0%E6%9D%86%E6%8D%9F%E8%80%97/"
-      title="美股杠杆 etf 不能长期持有？杠杆损耗"
+  <a class="article-nav-btn left  disabled "
      >
     <i class="fa-solid fa-angle-left"></i>
     <p class="title-text">
-      
-        美股杠杆 etf 不能长期持有？杠杆损耗
         
     </p>
   </a>
   <a class="article-nav-btn right "
     
-      href="/2025/08/09/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C-local%20minima%20and%20saddle%20point/"
-      title="神经网络-local minima and saddle point"
+      href="/2025/08/10/Leetcode-24.%E4%B8%A4%E4%B8%A4%E4%BA%A4%E6%8D%A2%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E8%8A%82%E7%82%B9/"
+      title="Leetcode-24.两两交换链表中的节点"
      >
 
     <p class="title-text">
       
-        神经网络-local minima and saddle point
+        Leetcode-24.两两交换链表中的节点
         
     </p>
     <i class="fa-solid fa-angle-right"></i>
