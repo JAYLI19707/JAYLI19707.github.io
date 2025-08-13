@@ -282,7 +282,7 @@ mjx-container[display="true"] + br {
       <div class="category-box">
             <a class="category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
                 计算机
-                <div class="category-count">3</div>
+                <div class="category-count">4</div>
             </a>
         
             <a class="category-link" href="/categories/Leetcode/">
@@ -345,6 +345,102 @@ mjx-container[display="true"] + br {
     </div>
     <div id="content-body">
       
+   
+
+
+<article id="post-SQL" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2025/08/14/SQL/">SQL</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2025-08-13T22:57:00.000Z" itemprop="datePublished">2025-08-14</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/">计算机</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            11k 词 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              数据库管理系统
+Selecting literals SQL 中 用 SELECT 直接选取字面值（literals）并用 AS 起列别名，然后用 UNION 把多条 SELECT 的结果合并成一个表。具体解析如下：
+
+基本语法
+
+SELECT [表达式] AS [列名], [表达式] AS [列名]  这里 [表达式] 可以是字面值（如字符串 "daisy"）、列名或计算式。
+
+如果你直接选字面值，不是从已有表里取数据，那么结果就是**一行一列（或多列）**的临时表。
+
+在这个场景里，expression 就是你“写进去”的值，而 AS name 就是告诉 SQL：把这个值放到结果表里并命名这一列为 name。
+
+
+
+
+举个对应的直观解释：
+1SELECT "daisy" AS parent, "hank" AS child
+
+也就是说：
+
+"daisy" → 写入到 parent 列
+
+"hank" → 写入到 child 列
+
+如果后面有 UNION，就会把下一条 SELECT 的行追加到这个结果表中
+
+
+不过要注意，它并不是向数据库的物理表“插入”数据（那是 INSERT...
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2025/08/14/SQL/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
    
 
 
@@ -1044,72 +1140,6 @@ TTM 净利润=280+270+300+260=1110 亿美元
     <a class="right-panel  non-pic  "
       
       href="/2025/08/08/Leetcode-.21%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-   
-
-
-<article id="post-Leetcode-3477. 水果成篮 II" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/08/05/Leetcode-3477.%20%E6%B0%B4%E6%9E%9C%E6%88%90%E7%AF%AE%20II/">Leetcode-3477. 水果成篮 II</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2025-08-04T20:21:22.000Z" itemprop="datePublished">2025-08-05</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/Leetcode/">Leetcode</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            447 词 
-          </div>
-        </div>
-        
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <p>常规使用哈希表既可以解决</p>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2025/08/05/Leetcode-3477.%20%E6%B0%B4%E6%9E%9C%E6%88%90%E7%AF%AE%20II/" 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>
