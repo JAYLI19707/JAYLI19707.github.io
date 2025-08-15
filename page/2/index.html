@@ -282,7 +282,7 @@ mjx-container[display="true"] + br {
       <div class="category-box">
             <a class="category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
                 计算机
-                <div class="category-count">4</div>
+                <div class="category-count">5</div>
             </a>
         
             <a class="category-link" href="/categories/Leetcode/">
@@ -345,6 +345,100 @@ mjx-container[display="true"] + br {
     </div>
     <div id="content-body">
       
+   
+
+
+<article id="post-神经网络-LossFunction" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2025/08/09/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C-LossFunction/">神经网络-LossFunction</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2025-08-08T18:39:39.000Z" itemprop="datePublished">2025-08-09</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            1.4k 词 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              分类问题当作回归问题分析
+回归输出的是一个数值，而分类的目的是将输入进行归类。一种简单的方法是将类别视为数值标签进行回归，但如果类别之间没有内在的数值关系，这种方法可能会产生问题。
+一个常见的误区是直接用回归的方法来处理分类问题。比如，给“猫”赋予标签1，“狗”赋予标签2，“猪”赋予标签3，然后用一个回归模型去预测这个数值。
+这样做有什么问题呢？
+
+隐含的顺序关系：这样做会给模型一个错误的暗示，即这些类别之间存在某种数学关系（例如，狗是猫和猪的平均值？猪比狗更“大”？）。这在大多数分类场景下是不成立的。
+
+多分类的局限：如果类别之间没有明确的顺序，这种方法很难扩展到多分类问题。
+
+
+正确地表示分类目标： One-Hot 编码
+概念：One-Hot 编码是一种将类别变量转换为机器学习算法易于处理的形式的方法。它将每个类别表示为一个向量，向量的长度等于总类别数，其中只有一个元素是1（表示当前类别），其余所有元素都是0。
+
+举例：
+
+类别1: [1, 0, 0]
+
+类别2: [0, 1, 0]
+
+类别3: [0, 0, 1]
+
+
+
+
+这样做的好处是，类别之间是相互独立的，模型不会错误地...
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2025/08/09/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C-LossFunction/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
    
 
 
@@ -1085,72 +1179,6 @@ set 常见操作：1234s = {'a', 'b'}s.add('c')             # 添加元素s.remo
 
 
 
-   
-
-
-<article id="post-Leetcode-.42接雨水" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/07/24/Leetcode-.42%E6%8E%A5%E9%9B%A8%E6%B0%B4/">Leetcode-.42接雨水</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2025-07-24T11:30:00.000Z" itemprop="datePublished">2025-07-24</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/Leetcode/">Leetcode</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            646 词 
-          </div>
-        </div>
-        
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <p>动态规划，记录i数组前后缀的最大值</p>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2025/07/24/Leetcode-.42%E6%8E%A5%E9%9B%A8%E6%B0%B4/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
 
   <nav id="page-nav">
     <!-- 在第二页时 page.prev_link 不知为何无法返回正确的链接 -->
@@ -1158,7 +1186,7 @@ set 常见操作：1234s = {'a', 'b'}s.add('c')             # 添加元素s.remo
       <i class="fa-solid fa-angle-left"></i>
     </a>
     <div id="num-bar">
-      <a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a>  
+      <a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a>  
     </div>
     <a id="next-btn" class="page-nav-btn " href="/page/3/">
       <i class="fa-solid fa-angle-right"></i>
