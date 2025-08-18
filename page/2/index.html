@@ -297,7 +297,7 @@ mjx-container[display="true"] + br {
         
             <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
                 机器学习
-                <div class="category-count">12</div>
+                <div class="category-count">13</div>
             </a>
         
             <a class="category-link" href="/categories/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">
@@ -345,6 +345,82 @@ mjx-container[display="true"] + br {
     </div>
     <div id="content-body">
       
+   
+
+
+<article id="post-神经网络-local minima and saddle point" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2025/08/09/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C-local%20minima%20and%20saddle%20point/">神经网络-local minima and saddle point</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2025-08-09T09:45:51.000Z" itemprop="datePublished">2025-08-09</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            1.7k 词 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              当损失函数（Loss）不再下降时
+训练模型时最常遇到的问题：当损失函数（Loss）不再下降时，我们该怎么办？
+通常，我们的第一反应是认为模型走到了一个“临界点”（Critical Point），比如局部最小值（Local Minima）或鞍点（Saddle Point），在这些点上梯度为零，模型无法再更新。
+然而，老师指出，这其实是一种误解。在实际的高维复杂模型中，Loss不再下降，但梯度（Gradient）的模长（Norm）可能依然非常大。这意味着参数的更新步伐并没有停止，模型并非“卡”在一个点上。真正的原因更可能是在一个狭长的“山谷”地带，模型在谷底的两侧来回震荡，虽然每一步都在更新，但宏观上Loss值却无法有效下降
+优化失败：不只是局部最小值当模型训练停滞，梯度下降算法无法继续更新参数时，我们通常会假设梯度（Gradient）已经接近于零。梯度为零的点被称为“关键点”（Critical Point），它主要分为两类：
+
+局部最小值 (Local Minima)：这是一个大家都很熟悉的概念。当模型走到一个点，其周围所有方向的损失都比当前点高时，这个点就是局部最小值。此时，模型...
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2025/08/09/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C-local%20minima%20and%20saddle%20point/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
    
 
 
@@ -1098,72 +1174,6 @@ set 常见操作：1234s = {'a', 'b'}s.add('c')             # 添加元素s.remo
     <a class="right-panel  non-pic  "
       
       href="/2025/07/31/%E4%BB%8E%E5%87%BD%E6%95%B0%E5%88%B0%E5%A4%A7%E6%A8%A1%E5%9E%8B/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-   
-
-
-<article id="post-LeetCode 160：相交链表" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/07/30/LeetCode%20160%EF%BC%9A%E7%9B%B8%E4%BA%A4%E9%93%BE%E8%A1%A8/">LeetCode 160：相交链表</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2025-07-30T15:30:00.000Z" itemprop="datePublished">2025-07-30</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/Leetcode/">Leetcode</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            1.3k 词 
-          </div>
-        </div>
-        
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <p>先补充数组和动态数组的区别，再比较动态数组和链表的区别，最后讲解本题题解。</p>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2025/07/30/LeetCode%20160%EF%BC%9A%E7%9B%B8%E4%BA%A4%E9%93%BE%E8%A1%A8/" 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>
