@@ -297,7 +297,7 @@ mjx-container[display="true"] + br {
         
             <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
                 机器学习
-                <div class="category-count">13</div>
+                <div class="category-count">14</div>
             </a>
         
             <a class="category-link" href="/categories/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">
@@ -345,6 +345,102 @@ mjx-container[display="true"] + br {
     </div>
     <div id="content-body">
       
+   
+
+
+<article id="post-Leetcode-19. 删除链表的倒数第 N 个结点" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2025/08/09/Leetcode-19.%20%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%AC%20N%20%E4%B8%AA%E7%BB%93%E7%82%B9/">Leetcode-19. 删除链表的倒数第 N 个结点</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2025-08-09T13:36:14.000Z" itemprop="datePublished">2025-08-09</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+    未分类 
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            698 词 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              这里采用 计算链表长度法：
+
+第一次遍历链表，得到链表长度 length。
+
+计算要删除节点的正序位置：length - n + 1。
+
+用一个虚拟头节点 dummy 来统一处理删除头结点的情况。
+
+第二次遍历，将要删除的节点跳过，即让前驱节点指向要删除节点的下一个节点。
+
+
+
+ 解题过程
+
+遍历一次链表，用 length 记录节点总数。
+
+计算要删除的节点前一个节点的位置，也就是 length - n。
+
+使用一个 dummy 节点 指向 head，用 tail 指针遍历到该位置。
+
+直接跳过目标节点：tail.next = tail.next.next。
+
+返回 dummy.next 作为新链表头。
+
+
+
+12345678910111213141516171819202122232425262728293031323334353637383940414243# Definition for singly-linked list.# class ListNode:#     def __init__(self, val=0, next=None):#         self....
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2025/08/09/Leetcode-19.%20%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%AC%20N%20%E4%B8%AA%E7%BB%93%E7%82%B9/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
    
 
 
@@ -1100,80 +1196,6 @@ set 常见操作：1234s = {'a', 'b'}s.add('c')             # 添加元素s.remo
     <a class="right-panel  non-pic  "
       
       href="/2025/07/31/Leetcode-206.%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-   
-
-
-<article id="post-从函数到大模型" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/07/31/%E4%BB%8E%E5%87%BD%E6%95%B0%E5%88%B0%E5%A4%A7%E6%A8%A1%E5%9E%8B/">从函数到大模型</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2025-07-30T18:30:00.000Z" itemprop="datePublished">2025-07-31</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            2.3k 词 
-          </div>
-        </div>
-        
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            
-              深度学习与人工智能的核心原理解析引言人工智能的本质是什么？从早期的符号主义到现代的大规模神经网络，人工智能的发展经历了诸多变革。本文以一个函数为起点，带领读者逐步理解人工智能背后的核心思想，包括神经网络的构建、训练方法，及其在自然语言处理中的应用。通过深入浅出的讲解，你将掌握深度学习如何通过不断调整参数，实现对复杂现实世界的有效建模，为理解当下大模型技术打下坚实基础。
-背景人工智能早期的思路是符号主义，试图用精确的函数描述世界的所有规律。然而，现实世界的复杂性远超人类编写明确函数的能力，例如图像识别中简单的“猫”与“母”的判别，对计算机来说却是难题。为此，人们转向连接主义，通过构造近似函数模型来处理复杂问题。这一思路催生了神经网络，通过层层非线性变换实现对复杂数据的拟合。训练神经网络的核心在于寻找最佳参数，使得模型输出与真实数据误差最小。随着技术进步，深度学习模型逐渐发展出多种结构以适应不同类型数据，如卷积神经网络（CNN）处理图像，循环神经网络（RNN）处理序列数据，进而到Transformer架引领的自然语言处理革命。
-主要观点1. 连接主义与函数拟合的基本思想
-
-传统符号主...
-            
-          </div>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2025/07/31/%E4%BB%8E%E5%87%BD%E6%95%B0%E5%88%B0%E5%A4%A7%E6%A8%A1%E5%9E%8B/" 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>
