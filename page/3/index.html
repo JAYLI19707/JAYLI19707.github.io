@@ -297,7 +297,7 @@ mjx-container[display="true"] + br {
         
             <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
                 机器学习
-                <div class="category-count">14</div>
+                <div class="category-count">15</div>
             </a>
         
             <a class="category-link" href="/categories/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">
@@ -307,7 +307,7 @@ mjx-container[display="true"] + br {
         
             <a class="category-link" href="/categories/%E9%87%91%E8%9E%8D/">
                 金融
-                <div class="category-count">6</div>
+                <div class="category-count">7</div>
             </a>
         
             <a class="category-link" href="/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/">
@@ -345,6 +345,204 @@ mjx-container[display="true"] + br {
     </div>
     <div id="content-body">
       
+   
+
+
+<article id="post-机器学习环境配置" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2025/08/01/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">机器学习环境配置</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2025-07-31T17:30:00.000Z" itemprop="datePublished">2025-08-01</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            2.2k 词 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              
+【终极指南】吃透机器学习环境配置：从Conda、CUDA到Docker容器化大家好！在机器学习的旅程中，一个稳定、可复现的环境是成功的基石。
+第一部分：核心理念——为何环境配置如此重要？任何机器学习模型的运行，都离不开一个精确配置的环境 。一个好的环境配置实践，能为您带来以下核心优势：
+
+隔离性：确保不同项目间的依赖库互不干扰，避免版本冲突 。
+
+可复现性：让您的代码在任何机器上都能得到相同的结果，这在学术研究和工业生产中至关重要 。
+
+易于迁移：方便地将整个工作环境打包、迁移，实现快速部署 。
+
+
+
+第二部分：入门必备——包管理工具 (Conda &amp; Pipenv)包管理工具是环境配置的第一步，它们帮助我们创建独立的虚拟环境并管理项目所需的各种软件包。
+1. CondaConda是一个开源、跨平台的包和环境管理系统，功能强大且社区支持广泛 。
+
+创建环境: conda create -n test_env
+
+安装包 (以PyTorch为例): conda install -n test_env pytorch torchvision torchaudio cudato...
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2025/08/01/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
+   
+
+
+<article id="post-Leetcode-206.反转链表" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2025/07/31/Leetcode-206.%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/">Leetcode-206.反转链表</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2025-07-31T15:30:00.000Z" itemprop="datePublished">2025-07-31</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/Leetcode/">Leetcode</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            652 词 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              
+
+
+思路概述
+
+利用栈的 先进后出（LIFO） 特性，先顺序遍历链表，把所有节点压入栈；
+
+弹出栈顶节点时正好是原链表的尾节点，依次连接即可得到反转链表。
+
+
+
+具体步骤
+
+初始化空栈 st；
+
+遍历链表 head，将每个节点压入栈中；
+
+栈顶弹出节点作为新链表头 new_head，并维护一个可移动尾指针 cur；
+
+每次出栈一个节点：
+
+先断开该节点原来的 next（防止形成环）；
+
+接在新链表尾部 cur.next = node；
+
+移动尾指针 cur = node；
+
+
+
+循环结束后，cur.next = None 并返回 new_head。
+
+
+
+
+复杂度分析
+
+时间复杂度：O(n)，遍历一次压栈，一次出栈；
+
+空间复杂度：O(n)，栈存储了全部节点引用。
+
+
+123456789101112131415161718192021# Definition for singly-linked list.# class ListNode:#     def __init__(self, val=0, next=None):#         self.val = val#   ...
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2025/07/31/Leetcode-206.%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
    
 
 
@@ -868,185 +1066,6 @@ mjx-container[display="true"] + br {
     <a class="right-panel  non-pic  "
       
       href="/2025/07/19/Leetcode-.283%E7%A7%BB%E5%8A%A8%E9%9B%B6/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-   
-
-
-<article id="post-期权：末日期权" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/07/19/%E6%9C%9F%E6%9D%83%EF%BC%9A%E6%9C%AB%E6%97%A5%E6%9C%9F%E6%9D%83/">期权：末日期权</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2025-07-18T18:30:00.000Z" itemprop="datePublished">2025-07-19</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E9%87%91%E8%9E%8D/">金融</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            4.5k 词 
-          </div>
-        </div>
-        
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9C%9F%E6%9D%83/" rel="tag">期权</a></li></ul>
-
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            
-              
-期权到期日标准期权到期日
-月度期权（Standard Monthly Options）：通常在每月的第三个星期五到期。
-
-周度期权（Weekly Options）：到期日通常是每周五。
-
-季度期权（Quarterly Options）：在每个季度末的特定星期五到期。
-
-
-但也有非周五到期的期权：
-日内到期（0DTE）期权：例如 SPX 指数现在几乎每天都有期权到期（包括周一到周五）。
-
-部分ETF或指数（如SPY、QQQ）：提供周一、周三、周五到期的期权。
-
-特殊事件驱动期权（如并购、分红后期权）：可能设定非常规到期日，但较少见
-
-
-什么是末日期权末日期权（Zero Days To Expiration，简称0DTE）是指在交易日当天购买的期权合约，当天收盘后即到期失效。它们属于超短期期权，与传统期权（如每周、每月到期）相比，时间价值（theta）的衰减速度极快，也非常便宜。这种特性使得末日期权比较适合希望从当日市场波动中获利的短线交易者。
-末日期权的兴起始于2022年，芝加哥期权交易所（CBOE）宣布推出每周期权，并把到期日扩展到每个工作日（周一至周五）。最初，SPX是首批提...
-            
-          </div>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2025/07/19/%E6%9C%9F%E6%9D%83%EF%BC%9A%E6%9C%AB%E6%97%A5%E6%9C%9F%E6%9D%83/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-   
-
-
-<article id="post-期权：如何买卖期权" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/07/18/%E6%9C%9F%E6%9D%83%EF%BC%9A%E5%A6%82%E4%BD%95%E4%B9%B0%E5%8D%96%E6%9C%9F%E6%9D%83/">期权：如何买卖期权</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2025-07-17T18:30:00.000Z" itemprop="datePublished">2025-07-18</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E9%87%91%E8%9E%8D/">金融</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            2.7k 词 
-          </div>
-        </div>
-        
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9C%9F%E6%9D%83/" rel="tag">期权</a></li></ul>
-
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            
-              期权链：你的“期权菜单”期权链（Option Chain）是期权交易的核心工具，列出了某只股票的所有期权合约，类似于餐厅的“菜单”。它显示了行权价、到期日和期权费等信息。以下是如何阅读期权链：
-
-期权链的组成
-
-标的股票：期权对应的股票，例如NVDA（英伟达）。
-Call和Put：分别列在期权链两侧，Call看涨，Put看跌。
-行权价（Strike Price）：期权约定的买卖价格，例如200美元。
-到期日（Expiration Date）：期权有效的截止日期，例如2025年5月25日。
-期权费（Premium）：购买期权的价格，例如3美元/股。
-买卖价差（Bid-Ask Spread）：买价（Bid）和卖价（Ask）的差额，反映流动性。
-成交量（Volume）和未平仓合约（Open Interest）：显示期权活跃度。
-
-如何阅读期权链
-
-实值（ITM）、虚值（OTM）、平值（ATM）：
-Call期权：行权价 &lt; 当前股价 = 实值；行权价 &gt; 股价 = 虚值；约等于股价 = 平值。
-Put期权：行权价 &gt; 股价 = 实值；行权价 &lt; 股价 = 虚值。
-...
-            
-          </div>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2025/07/18/%E6%9C%9F%E6%9D%83%EF%BC%9A%E5%A6%82%E4%BD%95%E4%B9%B0%E5%8D%96%E6%9C%9F%E6%9D%83/" 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>
