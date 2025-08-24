@@ -14,24 +14,33 @@
   
 
   
-  <title>量价趋势策略 | Justin的技术博客</title>
+  <title>Why Some Software Is Written in Multiple Languages | Justin的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
   <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
-  <meta name="description" content="核心思想量价趋势策略（Volume Price Trend，简称VPT）的核心思想是通过成交量和价格变动的协同关系来判断市场趋势的有效性和持续性。该策略 基于这样一个基本原则：真实的、可持续的价格趋势应当由相应的成交量变化来支撑。 具体来说：  价格上涨伴随成交量增加，表明买方力量强劲，上涨趋势更可靠 价格下跌伴随成交量增加，表明卖方占据优势，下跌趋势更可靠 价格变动但成交量不足，则趋势可能不可持">
+  <meta name="description" content="为什么有些软件会用多种编程语言开发？你是否曾好奇，为什么一个软件项目有时会“混搭”使用多种编程语言？这背后其实蕴含着现代软件工程中关于性能、协作与代码复用的深刻智慧。本文将带你深入了解这背后的技术原理。 前端与后端：天然的“多语言”环境对于我们熟悉的网站和应用，例如使用Django这类全栈框架构建的项目，其本身就是多语言协作的典型。后端逻辑可能由Python处理，而用户直接交互的前端界面则由HTM">
 <meta property="og:type" content="article">
-<meta property="og:title" content="量价趋势策略">
-<meta property="og:url" content="https://jayli19707.github.io/2025/06/28/%E9%87%8F%E4%BB%B7%E8%B6%8B%E5%8A%BF%E7%AD%96%E7%95%A5%EF%BC%88VPT%EF%BC%89/index.html">
+<meta property="og:title" content="Why Some Software Is Written in Multiple Languages">
+<meta property="og:url" content="https://jayli19707.github.io/2025/08/25/Why%20Some%20Software%20Is%20Written%20in%20Multiple%20Languages/index.html">
 <meta property="og:site_name" content="Justin的技术博客">
-<meta property="og:description" content="核心思想量价趋势策略（Volume Price Trend，简称VPT）的核心思想是通过成交量和价格变动的协同关系来判断市场趋势的有效性和持续性。该策略 基于这样一个基本原则：真实的、可持续的价格趋势应当由相应的成交量变化来支撑。 具体来说：  价格上涨伴随成交量增加，表明买方力量强劲，上涨趋势更可靠 价格下跌伴随成交量增加，表明卖方占据优势，下跌趋势更可靠 价格变动但成交量不足，则趋势可能不可持">
+<meta property="og:description" content="为什么有些软件会用多种编程语言开发？你是否曾好奇，为什么一个软件项目有时会“混搭”使用多种编程语言？这背后其实蕴含着现代软件工程中关于性能、协作与代码复用的深刻智慧。本文将带你深入了解这背后的技术原理。 前端与后端：天然的“多语言”环境对于我们熟悉的网站和应用，例如使用Django这类全栈框架构建的项目，其本身就是多语言协作的典型。后端逻辑可能由Python处理，而用户直接交互的前端界面则由HTM">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-06-28T07:30:00.000Z">
-<meta property="article:modified_time" content="2025-06-28T07:41:33.913Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250825064425671.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250825064507066.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250825064555549.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250825064749099.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250825064716089.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250825064911716.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250825065504629.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250825065035647.png">
+<meta property="article:published_time" content="2025-08-24T22:43:31.000Z">
+<meta property="article:modified_time" content="2025-08-24T22:56:50.562Z">
 <meta property="article:author" content="Justin">
-<meta property="article:tag" content="量价趋势">
+<meta property="article:tag" content="人工智能,机器学习,深度学习,量化交易,Python,技术博客">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250825064425671.png">
   
     <link rel="alternate" href="/atom.xml" title="Justin的技术博客" type="application/atom+xml">
   
@@ -349,7 +358,7 @@ mjx-container[display="true"] + br {
        
 
 
-<article id="post-量价趋势策略（VPT）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+<article id="post-Why Some Software Is Written in Multiple Languages" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
     
    
@@ -362,7 +371,7 @@ mjx-container[display="true"] + br {
   
     
       <h1 class="p-name article-title" itemprop="headline name">
-        量价趋势策略
+        Why Some Software Is Written in Multiple Languages
       </h1>
     
   
@@ -370,100 +379,87 @@ mjx-container[display="true"] + br {
 
         <div class='meta-info-bar'>
           <div class="meta-info">
-  <time class="dt-published" datetime="2025-06-28T07:30:00.000Z" itemprop="datePublished">2025-06-28</time>
+  <time class="dt-published" datetime="2025-08-24T22:43:31.000Z" itemprop="datePublished">2025-08-25</time>
 </div>
           <div class="need-seperator meta-info">
             <div class="meta-cate-flex">
   
-  <a class="meta-cate-link" href="/categories/Quant/">Quant</a>
+  <a class="meta-cate-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/">计算机</a>
    
 </div>
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            2.1k 词 
+            2.7k 词 
           </div>
         </div>
         
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%87%8F%E4%BB%B7%E8%B6%8B%E5%8A%BF/" rel="tag">量价趋势</a></li></ul>
-
       </header>
       <div class="e-content article-entry" itemprop="articleBody">
         
-          <h1 id="核心思想"><a href="#核心思想" class="headerlink" title="核心思想"></a>核心思想</h1><p>量价趋势策略（Volume Price Trend，简称VPT）的核心思想是通过成交量和价格变动的协同关系来判断市场趋势的有效性和持续性。该策略 基于这样一个基本原则：真实的、可持续的价格趋势应当由相应的成交量变化来支撑。</p>
-<p>具体来说：</p>
-<ul>
-<li>价格上涨伴随成交量增加，表明买方力量强劲，上涨趋势更可靠</li>
-<li>价格下跌伴随成交量增加，表明卖方占据优势，下跌趋势更可靠</li>
-<li>价格变动但成交量不足，则趋势可能不可持续，或即将出现反转</li>
-</ul>
-<p>该策略通过VPT指标量化这种关系，指标值随着价格与成交量的协同变化而累积增长或降低，从而反映市场内在力量的变化。</p>
-<h1 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h1><p>VPT策略的理论基础来源于市场技术分析的基本原理和市场微观结构理论：</p>
-<ul>
-<li><p>道氏理论：道氏理论强调市场趋势需要成交量的确认，”成交量应该随趋势增长”的原则被广泛应用于技术分析。</p>
-</li>
-<li><p>供需关系：金融市场本质上反映了供需关系，成交量增加时价格上涨表明需求增加；成交量增加时价格下跌则表明供应增加。</p>
-</li>
-<li><p>市场参与度 成交量代表市场参与度，高成交量表明更多投资者认同当前价格走向，使趋势更可靠。</p>
-</li>
-<li><p>资金流向理论：VPT实际上是在追踪资金流向，通过价格和成交量的乘积累计来量化资金流入或流出的强度。</p>
-</li>
-</ul>
-<p>研究表明，价格变动与成交量的协同关系在大部分成熟市场中都存在明显的统计显著性，尤其在商品期货和股票市场中表现尤为明显</p>
-<p><strong>VPT 指标的基本计算公式：</strong></p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">VPT = 前一期VPT + 当期成交量 × (当期收盘价 - 前期收盘价) / 前期收盘价</span><br></pre></td></tr></table></figure>
-
-<p>或简化为：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">VPT = 前一期VPT + 当期成交量 × 价格变化百分比</span><br></pre></td></tr></table></figure>
-
-<p>初始VPT值通常设为首个交易日的成交量。该指标通过累加每个周期内价格百分比变化与成交量的乘积，形成一条反映量价协同关系的曲线。</p>
-<p>在本策略中，我们进一步计算了VPT的移动平均线（<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.345ex;" xmlns="http://www.w3.org/2000/svg" width="7.829ex" height="1.891ex" role="img" focusable="false" viewBox="0 -683 3460.5 835.7"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D449" d="M52 648Q52 670 65 683H76Q118 680 181 680Q299 680 320 683H330Q336 677 336 674T334 656Q329 641 325 637H304Q282 635 274 635Q245 630 242 620Q242 618 271 369T301 118L374 235Q447 352 520 471T595 594Q599 601 599 609Q599 633 555 637Q537 637 537 648Q537 649 539 661Q542 675 545 679T558 683Q560 683 570 683T604 682T668 681Q737 681 755 683H762Q769 676 769 672Q769 655 760 640Q757 637 743 637Q730 636 719 635T698 630T682 623T670 615T660 608T652 599T645 592L452 282Q272 -9 266 -16Q263 -18 259 -21L241 -22H234Q216 -22 216 -15Q213 -9 177 305Q139 623 138 626Q133 637 76 637H59Q52 642 52 648Z"></path></g><g data-mml-node="mi" transform="translate(769,0)"><path data-c="1D443" d="M287 628Q287 635 230 637Q206 637 199 638T192 648Q192 649 194 659Q200 679 203 681T397 683Q587 682 600 680Q664 669 707 631T751 530Q751 453 685 389Q616 321 507 303Q500 302 402 301H307L277 182Q247 66 247 59Q247 55 248 54T255 50T272 48T305 46H336Q342 37 342 35Q342 19 335 5Q330 0 319 0Q316 0 282 1T182 2Q120 2 87 2T51 1Q33 1 33 11Q33 13 36 25Q40 41 44 43T67 46Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628ZM645 554Q645 567 643 575T634 597T609 619T560 635Q553 636 480 637Q463 637 445 637T416 636T404 636Q391 635 386 627Q384 621 367 550T332 412T314 344Q314 342 395 342H407H430Q542 342 590 392Q617 419 631 471T645 554Z"></path></g><g data-mml-node="msub" transform="translate(1520,0)"><g data-mml-node="mi"><path data-c="1D447" d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z"></path></g><g data-mml-node="TeXAtom" transform="translate(617,-152.7) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mi"><path data-c="1D440" d="M289 629Q289 635 232 637Q208 637 201 638T194 648Q194 649 196 659Q197 662 198 666T199 671T201 676T203 679T207 681T212 683T220 683T232 684Q238 684 262 684T307 683Q386 683 398 683T414 678Q415 674 451 396L487 117L510 154Q534 190 574 254T662 394Q837 673 839 675Q840 676 842 678T846 681L852 683H948Q965 683 988 683T1017 684Q1051 684 1051 673Q1051 668 1048 656T1045 643Q1041 637 1008 637Q968 636 957 634T939 623Q936 618 867 340T797 59Q797 55 798 54T805 50T822 48T855 46H886Q892 37 892 35Q892 19 885 5Q880 0 869 0Q864 0 828 1T736 2Q675 2 644 2T609 1Q592 1 592 11Q592 13 594 25Q598 41 602 43T625 46Q652 46 685 49Q699 52 704 61Q706 65 742 207T813 490T848 631L654 322Q458 10 453 5Q451 4 449 3Q444 0 433 0Q418 0 415 7Q413 11 374 317L335 624L267 354Q200 88 200 79Q206 46 272 46H282Q288 41 289 37T286 19Q282 3 278 1Q274 0 267 0Q265 0 255 0T221 1T157 2Q127 2 95 1T58 0Q43 0 39 2T35 11Q35 13 38 25T43 40Q45 46 65 46Q135 46 154 86Q158 92 223 354T289 629Z"></path></g><g data-mml-node="mi" transform="translate(1051,0)"><path data-c="1D434" d="M208 74Q208 50 254 46Q272 46 272 35Q272 34 270 22Q267 8 264 4T251 0Q249 0 239 0T205 1T141 2Q70 2 50 0H42Q35 7 35 11Q37 38 48 46H62Q132 49 164 96Q170 102 345 401T523 704Q530 716 547 716H555H572Q578 707 578 706L606 383Q634 60 636 57Q641 46 701 46Q726 46 726 36Q726 34 723 22Q720 7 718 4T704 0Q701 0 690 0T651 1T578 2Q484 2 455 0H443Q437 6 437 9T439 27Q443 40 445 43L449 46H469Q523 49 533 63L521 213H283L249 155Q208 86 208 74ZM516 260Q516 271 504 416T490 562L463 519Q447 492 400 412L310 260L413 259Q516 259 516 260Z"></path></g></g></g></g></g></svg></mjx-container>）作为参考基准，用于生成交易信号：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">VPT_MA = VPT的N周期简单移动平均线</span><br></pre></td></tr></table></figure>
-
-<p>我们还引入了成交量放大的概念，通过比较当前成交量与过去N个周期平均成交量的比值，判断成交量是否显著增加：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 成交量放大倍数 = 当前成交量 / N周期平均成交量</span><br></pre></td></tr></table></figure>
-
-<h1 id="交易逻辑"><a href="#交易逻辑" class="headerlink" title="交易逻辑"></a>交易逻辑</h1><h2 id="策略原理：什么是VPT-Volume-Price-Trend"><a href="#策略原理：什么是VPT-Volume-Price-Trend" class="headerlink" title="策略原理：什么是VPT (Volume Price Trend)?"></a>策略原理：什么是VPT (Volume Price Trend)?</h2><p>VPT（量价趋势）指标的核心思想是**”量是价的先行指标”**。它通过巧妙地结合价格的涨跌幅度和成交量的大小，来衡量市场的”买卖动能”或”资金流向”。</p>
-<p>其计算公式为：</p>
-<p><code>VPT = 前期VPT + 成交量 * (当前收盘价 - 前期收盘价) / 前期收盘价</code></p>
-<ul>
-<li><p>  当价格上涨时，VPT会加上一个正值（成交量 * 涨幅），推动VPT线上升，代表着<strong>买方力量</strong>的增强。</p>
-</li>
-<li><p>  当价格下跌时，VPT会加上一个负值（成交量 * 跌幅），拉动VPT线下降，代表着<strong>卖方力量</strong>的增强。</p>
-</li>
-</ul>
-<p>因此，VPT指标的持续上升或下降，可以被解读为市场主力资金在持续买入或卖出，从而揭示了价格背后隐藏的趋势力量。</p>
-<h2 id="信号生成逻辑：如何判断买入与卖出"><a href="#信号生成逻辑：如何判断买入与卖出" class="headerlink" title="信号生成逻辑：如何判断买入与卖出?"></a>信号生成逻辑：如何判断买入与卖出?</h2><p>本策略并非简单地依赖VPT指标，而是建立了一套多条件验证的交易系统，以提高信号的可靠性。</p>
-<h4 id="1-开仓信号-Entry-Signal"><a href="#1-开仓信号-Entry-Signal" class="headerlink" title="1. 开仓信号 (Entry Signal)"></a>1. 开仓信号 (Entry Signal)</h4><p>开仓决策基于三个关键信息的共振：<strong>趋势、能量、方向</strong>。</p>
-<ul>
-<li>  <strong>买入开仓 (开多)</strong> 的判断依据：</li>
-</ul>
-<p>    1.  <strong>趋势确认</strong>: <code>VPT</code> 数值 &gt; <code>VPT移动平均线</code> (<code>vpt_ma</code>)。这表明短期市场动能强于中期动能，趋势向上。</p>
-<p>    2.  <strong>能量确认</strong>: 当前 <code>成交量</code> &gt; <code>成交量移动平均线</code> (<code>volume_ma</code>) × <code>成交量阈值</code> (<code>volume_threshold</code>)。这要求必须有显著放大的成交量来支持趋势，过滤掉无量空涨的假信号。</p>
-<p>    3.  <strong>方向确认</strong>: 当前 <code>收盘价</code> &gt; <code>昨日收盘价</code>。确保在K线收涨的当天入场，顺应短期走势。</p>
-<ul>
-<li>  <strong>卖出开仓 (开空)</strong> 的判断依据：</li>
-</ul>
-<p>    1.  <strong>趋势确认</strong>: <code>VPT</code> 数值 &lt; <code>VPT移动平均线</code> (<code>vpt_ma</code>)。短期市场动能转弱，趋势向下。</p>
-<p>    2.  <strong>能量确认</strong>: 成交量显著放大（同上）。这要求下跌同样有成交量的配合，避免缩量回调的误判。</p>
-<p>    3.  <strong>方向确认</strong>: 当前 <code>收盘价</code> &lt; <code>昨日收盘价</code>。确保在K线收跌的当天入场。</p>
-<h4 id="2-平仓信号-Exit-Signal"><a href="#2-平仓信号-Exit-Signal" class="headerlink" title="2. 平仓信号 (Exit Signal)"></a>2. 平仓信号 (Exit Signal)</h4><p>平仓决策相对更简单，主要依据<strong>趋势反转</strong>的早期信号，以及时锁定利润或控制亏损。</p>
-<ul>
-<li>  <strong>买入平仓 (平多)</strong> 的判断依据：</li>
-</ul>
-<p>    -   <code>VPT</code> 向下穿越 <code>VPT移动平均线</code>，并且成交量显著放大。这被视为上升趋势衰竭，下跌风险加大的信号，因此选择离场。</p>
-<ul>
-<li>  <strong>卖出平仓 (平空)</strong> 的判断依据：</li>
-</ul>
-<p>    -   <code>VPT</code> 向上穿越 <code>VPT移动平均线</code>，并且成交量显著放大。这被视为空头力量减弱，市场可能反弹的信号，因此平掉空头仓位。</p>
-<h2 id="策略可行性分析：为什么这个策略可能有效？"><a href="#策略可行性分析：为什么这个策略可能有效？" class="headerlink" title="策略可行性分析：为什么这个策略可能有效？"></a>策略可行性分析：为什么这个策略可能有效？</h2><p>本策略的有效性建立在两个经典的金融市场理论之上：</p>
+          <h1 id="为什么有些软件会用多种编程语言开发？"><a href="#为什么有些软件会用多种编程语言开发？" class="headerlink" title="为什么有些软件会用多种编程语言开发？"></a><strong>为什么有些软件会用多种编程语言开发？</strong></h1><p>你是否曾好奇，为什么一个软件项目有时会“混搭”使用多种编程语言？这背后其实蕴含着现代软件工程中关于性能、协作与代码复用的深刻智慧。本文将带你深入了解这背后的技术原理。<br><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250825064425671.png" alt="image.png"></p>
+<h1 id="前端与后端：天然的“多语言”环境"><a href="#前端与后端：天然的“多语言”环境" class="headerlink" title="前端与后端：天然的“多语言”环境"></a><strong>前端与后端：天然的“多语言”环境</strong></h1><p>对于我们熟悉的网站和应用，例如使用Django这类全栈框架构建的项目，其本身就是多语言协作的典型。后端逻辑可能由Python处理，而用户直接交互的前端界面则由HTML、CSS和JavaScript构建。这两部分作为独立的进程，通过网络请求等方式进行通信，各自安好。<br><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250825064507066.png" alt="image.png"></p>
+<p>然而，当我们需要将不同语言编写的代码编译成一个单一、高效的可执行文件时，事情就变得复杂起来。这正是本次探讨的核心。</p>
+<h1 id="从源代码到可执行文件：编译的艺术"><a href="#从源代码到可执行文件：编译的艺术" class="headerlink" title="从源代码到可执行文件：编译的艺术"></a><strong>从源代码到可执行文件：编译的艺术</strong></h1><p>要理解多语言如何“融合”，我们首先需要了解代码是如何从人类可读的文本，转变为机器可以执行的指令的。以经典的C语言为例，我们熟知的GCC编译器实际上经历了一个四步流程：<img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250825064555549.png" alt="image.png"></p>
 <ol>
-<li><p> <strong>动量效应 (Momentum)</strong>：一个正在上涨（或下跌）的资产，在短期内有继续上涨（或下跌）的趋势。VPT指标本身就是对价格动量的一种衡量。</p>
+<li><p><strong>预处理 (Preprocessing):</strong> 处理宏定义、头文件等。</p>
 </li>
-<li><p> <strong>成交量确认 (Volume Confirmation)</strong>：一个健康、可持续的趋势，通常需要成交量的配合。无量上涨可能是散户行为，而放量上涨则更有可能是机构资金入场，趋势的可靠性更高。</p>
+<li><p><strong>编译 (Compilation):</strong> 将预处理后的代码转换成汇编语言。这是一个关键的中间步骤，并非直接生成机器码。</p>
+</li>
+<li><p><strong>汇编 (Assembly):</strong> 汇编器将汇编代码转换成机器可以理解的二进制指令，生成 sogenannten“目标文件”（object file）。</p>
+</li>
+<li><p><strong>链接 (Linking):</strong> 这是魔法发生的地方。链接器将项目中的所有目标文件，以及所需的外部库文件，整合成一个最终的可执行文件。</p>
 </li>
 </ol>
-<p>本策略通过 <strong><code>VPT &gt; vpt_ma</code></strong> 来捕捉”动量”，再通过 <strong><code>volume &gt; volume_ma * threshold</code></strong> 来进行”确认”，形成了一个”<strong>动量+确认</strong>“的双重过滤模型。这种设计旨在过滤掉市场中的随机波动和虚假突破，抓住由真实资金流推动的主升浪或主跌浪，从而提高策略的胜率和盈亏比。</p>
+<h1 id="链接的两种方式：静态与动态"><a href="#链接的两种方式：静态与动态" class="headerlink" title="链接的两种方式：静态与动态"></a><strong>链接的两种方式：静态与动态</strong></h1><p>链接是实现代码复用和模块化的核心，它主要有两种方式：</p>
+<ul>
+<li><p><strong>静态链接 (Static Linking):</strong> 想象一下，你把所有需要的工具都打包放进一个工具箱。静态链接就是将所有库函数的代码完整地复制到最终的可执行文件中。这样做的好处是程序可以独立运行，不依赖外部环境；缺点是文件体积大，且库更新时需要重新编译整个程序。</p>
+</li>
+<li><p><strong>动态链接 (Dynamic Linking):</strong> 这更像是你只带了一张工具清单，需要时再去仓库取。程序在编译时只记录需要哪些库（在Unix系统中是<code>.so</code>文件，Windows中是<code>.dll</code>文件），在运行时由操作系统负责加载。这种方式极大地节省了磁盘空间和内存，并且库可以独立更新，无需重新编译主程序。</p>
+</li>
+</ul>
+<h1 id="GCC：不止是C语言编译器"><a href="#GCC：不止是C语言编译器" class="headerlink" title="GCC：不止是C语言编译器"></a><strong>GCC：不止是C语言编译器</strong></h1><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250825064749099.png" alt="image.png"></p>
+<p>GCC的全称是GNU编译器集合（GNU Compiler Collection），它是一个强大的工具链，天生支持多种语言，如C、C++、Fortran，甚至汇编。正是因为这个特性，开发者可以将不同语言编写的模块，只要它们能被编译成兼容的“目标文件”，就可以通过链接器组合在一起。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250825064716089.png" alt="image.png"></p>
+<p>例如，为了追求极致的性能，像Linux内核或ffmpeg这样的项目，会把性能最敏感、最核心的部分用汇编语言编写，而其他部分则用C语言实现。这种混合编程的模式，让开发者可以在代码的可读性和运行效率之间找到最佳平衡点。</p>
+<h1 id="跨语言调用的秘密：ABI"><a href="#跨语言调用的秘密：ABI" class="headerlink" title="跨语言调用的秘密：ABI"></a><strong>跨语言调用的秘密：ABI</strong></h1><p>然而，仅仅能生成目标文件还不够。不同语言对于如何传递数据（例如函数参数是放在哪个寄存器里）有着不同的“约定”。如果这些约定不匹配，就像两个说不同方言的人对话，会导致程序崩溃或出现无法预料的错误。</p>
+<p>这个底层的通信规则，被称为<strong>应用程序二进制接口（Application Binary Interface, ABI）</strong>。为了让不同语言能够顺利“对话”，至少有一方需要遵循另一方的ABI。幸运的是，现代编程语言都提供了相应的工具来解决这个问题，例如：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250825064911716.png" alt="image.png"></p>
+<ul>
+<li><p>C语言的 <code>extern</code> 关键字</p>
+</li>
+<li><p>Rust的 <code>extern</code> 和 <code>no_mangle</code> 属性</p>
+</li>
+<li><p>Fortran的 <code>bind</code></p>
+</li>
+<li><p>Go语言的 <code>import "C"</code></p>
+</li>
+</ul>
+<p>通过这些工具，我们可以明确告诉编译器：“嘿，这段代码将来要和C语言的代码一起工作，请按照C语言的ABI来生成代码。”这样，链接器就能正确地将它们“粘合”在一起。</p>
+<h1 id="数据存放的位置和函数预期的位置不一致"><a href="#数据存放的位置和函数预期的位置不一致" class="headerlink" title="数据存放的位置和函数预期的位置不一致"></a>数据存放的位置和函数预期的位置不一致</h1><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250825065504629.png" alt="image.png"></p>
+<p><strong>“数据存放的位置和函数预期的位置不一致”的问题。</strong></p>
+<p>函数A把数据存放在了寄存器 R1 和 R2，但函数B却以为数据应该在 R3 和 R4。当函数B去 R3 和 R4 取数据时，取到的是之前留下的、毫无意义的“垃圾数据”，这就会导致程序计算错误、崩溃或者出现无法预测的行为。</p>
+<p>**应用程序二进制接口（ABI)<strong>和</strong>调用约定（Calling Convention)**如此重要的原因。它就像一份统一的“交接手册”，强制规定了小明和小红必须使用同样的方式传递苹果（比如，统一规定第一个苹果必须放右手口袋，第二个必须放左手口袋），这样才能保证协作顺利进行。像<code>extern "C"</code>这样的关键字，作用就是告诉编译器：“请遵守C语言那本通用的交接手册来办事！”</p>
+<h1 id="同一个项目中使用多种编程语言"><a href="#同一个项目中使用多种编程语言" class="headerlink" title="同一个项目中使用多种编程语言"></a>同一个项目中使用多种编程语言</h1><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250825065035647.png" alt="image.png"></p>
+<p>同一个项目中使用多种编程语言的原因和好处。</p>
+<p>以下是每一点的详细说明：</p>
+<ul>
+<li><p><strong>性能优化 (Performance Optimization):</strong> 对于性能要求极高的代码部分（例如，数值计算、图形处理、信号处理），可以使用C/C++或Rust等以速度著称的语言来实现。</p>
+</li>
+<li><p><strong>利用现有库或代码库 (Leverage Existing Libraries or Codebases):</strong> 可以方便地接入并使用其他语言写成的、经过长期考验的成熟库，而不必重新“造轮子”。</p>
+</li>
+<li><p><strong>利用系统级访问权限 (Leverage System-Level Access):</strong> 当需要与硬件、内存、操作系统底层API交互，或者有实时性要求时，某些语言能提供更底层的访问能力。</p>
+</li>
+<li><p><strong>加速非核心组件的开发 (Faster Development for Non-Critical Components):</strong> 使用高级语言（如Python, JavaScript）来开发用户界面（UI）、编写脚本或“胶水逻辑”，可以大大加快开发速度。</p>
+</li>
+<li><p><strong>团队专业分工 (Team Expertise and Division of Labor):</strong> 允许拥有不同技术专长的团队，使用他们最擅长的编程语言在同一个项目上协同工作。</p>
+</li>
+<li><p><strong>跨平台支持 (Cross-Platform Support):</strong> 不同的语言对不同平台（如Windows, macOS, iOS, Android）的支持度不同，选择最适合目标平台的语言可以简化开发。</p>
+</li>
+<li><p><strong>渐进式迁移或旧系统集成 (Gradual Migration or Legacy Integration):</strong> 可以逐步地迁移旧代码，而不是一次性重写整个系统，从而降低风险。</p>
+</li>
+</ul>
+<h1 id="总结"><a href="#总结" class="headerlink" title="*总结"></a>*<em>总结</em></h1><p>软件开发采用多种语言并非偶然，而是出于对性能、代码复用和利用现有生态的综合考量。通过编译器和链接器这个强大的工具链，以及统一的ABI约定，开发者可以将不同语言的优势结合起来，构建出高效、强大且可维护的复杂系统。</p>
 
         
       </div>
@@ -476,27 +472,22 @@ mjx-container[display="true"] + br {
   
     
 <nav id="article-nav">
-  <a class="article-nav-btn left "
-    
-      href="/2025/06/29/%E9%87%91%E8%9E%8D%E6%95%B0%E5%AD%A6/"
-      title="Financial Mathematics"
+  <a class="article-nav-btn left  disabled "
      >
     <i class="fa-solid fa-angle-left"></i>
     <p class="title-text">
-      
-        Financial Mathematics
         
     </p>
   </a>
   <a class="article-nav-btn right "
     
-      href="/2025/06/25/%E7%BC%96%E7%A8%8B%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/"
-      title="编程核心概念"
+      href="/2025/08/20/%E6%80%BB%E4%B9%B0%E5%9C%A8%E9%A1%B6%E7%82%B9/"
+      title="总买在顶点"
      >
 
     <p class="title-text">
       
-        编程核心概念
+        总买在顶点
         
     </p>
     <i class="fa-solid fa-angle-right"></i>
