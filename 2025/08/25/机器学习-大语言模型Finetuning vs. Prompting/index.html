@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+
+
+<html theme="dark" showBanner="true" hasBanner="true" > 
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet">
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet">
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet">
+<script src="/js/color.global.min.js" ></script>
+<script src="/js/load-settings.js" ></script>
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+
+  
+  <title>机器学习-大语言模型Finetuning vs. Prompting | Justin的技术博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+
+  <meta name="description" content="微调（Finetuning） vs. 提示（Prompting）：大型语言模型的两种方法探讨了使用大型语言模型（LLM）的两种主要历史期望和由此产生的技术方法：微调（Finetuning） 和 提示（Prompting）。这两种方法会导致大型语言模型的结果和应用截然不同。 对大型语言模型的两种期望人类历史上对大型语言模型有两种不同的期望：  成为专家（微调）：第一个期望是让大型语言模型成为解决特定">
+<meta property="og:type" content="article">
+<meta property="og:title" content="机器学习-大语言模型Finetuning vs. Prompting">
+<meta property="og:url" content="https://jayli19707.github.io/2025/08/25/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8BFinetuning%20vs.%20Prompting/index.html">
+<meta property="og:site_name" content="Justin的技术博客">
+<meta property="og:description" content="微调（Finetuning） vs. 提示（Prompting）：大型语言模型的两种方法探讨了使用大型语言模型（LLM）的两种主要历史期望和由此产生的技术方法：微调（Finetuning） 和 提示（Prompting）。这两种方法会导致大型语言模型的结果和应用截然不同。 对大型语言模型的两种期望人类历史上对大型语言模型有两种不同的期望：  成为专家（微调）：第一个期望是让大型语言模型成为解决特定">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250825093506135.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250825093545754.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250825093625246.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250825093716376.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250825093808337.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250825094109613.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250825093851009.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250717030428867.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250825103837980.png">
+<meta property="article:published_time" content="2025-08-25T02:39:49.000Z">
+<meta property="article:modified_time" content="2025-08-25T02:40:06.387Z">
+<meta property="article:author" content="Justin">
+<meta property="article:tag" content="人工智能,机器学习,深度学习,量化交易,Python,技术博客">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250825093506135.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Justin的技术博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-192.png" sizes="192x192">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-192.png" sizes="192x192">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 7.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+
+<body>
+  
+  
+    
+<div id="banner" class="">
+  <img src="/image/background/benjamin_background.jpg" itemprop="image">
+  <div id="banner-dim"></div>
+</div>
+ 
+   
+  <div id="main-grid" class="  ">
+    <div id="nav" class=""  >
+      <navbar id="navbar">
+  <nav id="title-nav">
+    <a href="/">
+      <div id="vivia-logo">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div>Justin的技术博客 </div>
+    </a>
+  </nav>
+  <nav id="main-nav">
+    
+      <a class="main-nav-link" href="/">Home</a>
+    
+      <a class="main-nav-link" href="/archives">Archives</a>
+    
+      <a class="main-nav-link" href="/projects">Projects</a>
+    
+      <a class="main-nav-link" href="/investment">Investment</a>
+    
+      <a class="main-nav-link" href="/photography">Photography</a>
+    
+      <a class="main-nav-link" href="/about">About</a>
+    
+  </nav>
+  <nav id="sub-nav">
+    <a id="theme-btn" class="nav-icon">
+      <span class="light-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M438.5-829.913v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-829.913Zm0 747.826v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-82.087ZM877.913-438.5h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537t29.476-12.174h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T877.913-438.5Zm-747.826 0h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T82.087-521.5h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T130.087-438.5Zm660.174-290.87-34.239 32q-12.913 12.674-29.565 12.174-16.653-.5-29.327-13.174-12.674-12.673-12.554-28.826.12-16.152 12.794-28.826l33-35q12.913-12.674 30.454-12.674t30.163 12.847q12.709 12.846 12.328 30.826-.38 17.98-13.054 30.653ZM262.63-203.978l-32 34q-12.913 12.674-30.454 12.674t-30.163-12.847q-12.709-12.846-12.328-30.826.38-17.98 13.054-30.653l33.239-31q12.913-12.674 29.565-12.174 16.653.5 29.327 13.174 12.674 12.673 12.554 28.826-.12 16.152-12.794 28.826Zm466.74 33.239-32-33.239q-12.674-12.913-12.174-29.565.5-16.653 13.174-29.327 12.673-12.674 28.826-13.054 16.152-.38 28.826 12.294l35 33q12.674 12.913 12.674 30.454t-12.847 30.163q-12.846 12.709-30.826 12.328-17.98-.38-30.653-13.054ZM203.978-697.37l-34-33q-12.674-12.913-13.174-29.945-.5-17.033 12.174-29.707t31.326-13.293q18.653-.62 31.326 13.054l32 34.239q11.674 12.913 11.174 29.565-.5 16.653-13.174 29.327-12.673 12.674-28.826 12.554-16.152-.12-28.826-12.794ZM480-240q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm-.247-82q65.703 0 111.475-46.272Q637-414.544 637-480.247t-45.525-111.228Q545.95-637 480.247-637t-111.475 45.525Q323-545.95 323-480.247t45.525 111.975Q414.05-322 479.753-322ZM481-481Z"/></svg></span>
+      <span class="dark-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M480.239-116.413q-152.63 0-258.228-105.478Q116.413-327.37 116.413-480q0-130.935 77.739-227.435t206.304-125.043q43.022-9.631 63.87 10.869t3.478 62.805q-8.891 22.043-14.315 44.463-5.424 22.42-5.424 46.689 0 91.694 64.326 155.879 64.325 64.186 156.218 64.186 24.369 0 46.978-4.946 22.609-4.945 44.413-14.076 42.826-17.369 62.967 1.142 20.142 18.511 10.511 61.054Q807.174-280 712.63-198.206q-94.543 81.793-232.391 81.793Zm0-95q79.783 0 143.337-40.217 63.554-40.218 95.793-108.283-15.608 4.044-31.097 5.326-15.49 1.283-31.859.805-123.706-4.066-210.777-90.539-87.071-86.473-91.614-212.092-.24-16.369.923-31.978 1.164-15.609 5.446-30.978-67.826 32.478-108.282 96.152Q211.652-559.543 211.652-480q0 111.929 78.329 190.258 78.329 78.329 190.258 78.329ZM466.13-465.891Z"/></svg></span>
+    </a>
+    
+      <a id="nav-rss-link" class="nav-icon mobile-hide" href="/atom.xml" title="RSS 订阅">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-120q-25.846 0-44.23-18.384-18.384-18.385-18.384-44.23 0-25.846 18.384-44.23 18.384-18.385 44.23-18.385 25.846 0 44.23 18.385 18.384 18.384 18.384 44.23 0 25.845-18.384 44.23Q223.846-120 198-120Zm538.385 0q-18.846 0-32.923-13.769-14.076-13.769-15.922-33.23-8.692-100.616-51.077-188.654-42.385-88.039-109.885-155.539-67.5-67.501-155.539-109.885Q283-663.462 182.385-672.154q-19.461-1.846-33.23-16.23-13.769-14.385-13.769-33.846t14.076-32.922q14.077-13.461 32.923-12.23 120.076 8.692 226.038 58.768 105.961 50.077 185.73 129.846 79.769 79.769 129.846 185.731 50.077 105.961 58.769 226.038 1.231 18.846-12.538 32.922Q756.461-120 736.385-120Zm-252 0q-18.231 0-32.423-13.461t-18.653-33.538Q418.155-264.23 348.886-333.5q-69.27-69.27-166.501-84.423-20.077-4.462-33.538-18.961-13.461-14.5-13.461-33.346 0-19.076 13.884-33.23 13.884-14.153 33.115-10.922 136.769 15.384 234.384 112.999 97.615 97.615 112.999 234.384 3.231 19.23-10.538 33.115Q505.461-120 484.385-120Z"/></svg>
+      </a>
+    
+    <div id="nav-menu-btn" class="nav-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M177.37-252.282q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Zm0-186.218q-17.453 0-29.477-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T177.37-521.5h605.26q17.453 0 29.477 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T782.63-438.5H177.37Zm0-186.217q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Z"/></svg>
+    </div>
+  </nav>
+</navbar>
+<div id="nav-dropdown" class="hidden">
+  <div id="dropdown-link-list">
+    
+      <a class="nav-dropdown-link" href="/">Home</a>
+    
+      <a class="nav-dropdown-link" href="/archives">Archives</a>
+    
+      <a class="nav-dropdown-link" href="/projects">Projects</a>
+    
+      <a class="nav-dropdown-link" href="/investment">Investment</a>
+    
+      <a class="nav-dropdown-link" href="/photography">Photography</a>
+    
+      <a class="nav-dropdown-link" href="/about">About</a>
+    
+    
+      <a class="nav-dropdown-link" href="/atom.xml" title="RSS 订阅">RSS</a>
+     
+    </div>
+</div>
+<script>
+  let dropdownBtn = document.getElementById("nav-menu-btn");
+  let dropdownEle = document.getElementById("nav-dropdown");
+  dropdownBtn.onclick = function() {
+    dropdownEle.classList.toggle("hidden");
+  }
+</script>
+    </div>
+    <div id="sidebar-wrapper">
+      <sidebar id="sidebar">
+  
+    <div class="widget-wrap">
+  <div class="info-card">
+    <div class="avatar">
+      
+        <image src=/image/avatar/avatar_1.png></image>
+      
+      <div class="img-dim"></div>
+    </div>
+    <div class="info">
+      <div class="username">Justin </div>
+      <div class="dot"></div>
+      <div class="subtitle">比世界先发现你发光 </div>
+      <div class="link-list">
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/JAYLI19707" title="GitHub"><i class="fa-brands fa-github"></i></a>
+        
+          <a class="link-btn" href="mailto:your.email@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
+        
+          <a class="link-btn" href="/atom.xml" title="RSS"><i class="fa-solid fa-rss"></i></a>
+         
+      </div>  
+    </div>
+  </div>
+</div>
+
+  
+  <div class="sticky">
+    
+      
+
+
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">分类</h3>
+      <div class="category-box">
+            <a class="category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
+                计算机
+                <div class="category-count">6</div>
+            </a>
+        
+            <a class="category-link" href="/categories/Leetcode/">
+                Leetcode
+                <div class="category-count">19</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">
+                开发工具
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                机器学习
+                <div class="category-count">16</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">
+                数学建模
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E9%87%91%E8%9E%8D/">
+                金融
+                <div class="category-count">7</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/">
+                统计学
+                <div class="category-count">2</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">
+                线性代数
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/Quant/">
+                Quant
+                <div class="category-count">2</div>
+            </a>
+        </div>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">标签</h3>
+      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Batch/" rel="tag">Batch</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/LSTM/" rel="tag">LSTM</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Quant/" rel="tag">Quant</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E4%B8%B4%E8%BF%91%E7%AE%97%E5%AD%90/" rel="tag">临近算子</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E4%BA%8C%E5%88%86%E7%B1%BB/" rel="tag">二分类</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%87%B8%E5%87%BD%E6%95%B0/" rel="tag">凸函数</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%9C%80%E5%A4%A7%E4%BC%BC%E7%84%B6%E4%BC%B0%E8%AE%A1/" rel="tag">最大似然估计</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%9C%9F%E6%9D%83/" rel="tag">期权</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/" rel="tag">梯度下降</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/" rel="tag">特征工程</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/" rel="tag">矩阵乘法</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/" rel="tag">线性回归</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%BB%9F%E8%AE%A1%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C/" rel="tag">统计假设检验</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E9%87%8F%E4%BB%B7%E8%B6%8B%E5%8A%BF/" rel="tag">量价趋势</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E9%87%91%E8%9E%8D%E6%95%B0%E5%AD%A6/" rel="tag">金融数学</a></li></ul>
+    </div>
+  </div>
+
+
+    
+  </div>
+</sidebar>
+    </div>
+    <div id="content-body">
+       
+
+
+<article id="post-机器学习-大语言模型Finetuning vs. Prompting" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 class="p-name article-title" itemprop="headline name">
+        机器学习-大语言模型Finetuning vs. Prompting
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2025-08-25T02:39:49.000Z" itemprop="datePublished">2025-08-25</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+    未分类 
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            7.1k 词 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <h1 id="微调（Finetuning）-vs-提示（Prompting）：大型语言模型的两种方法"><a href="#微调（Finetuning）-vs-提示（Prompting）：大型语言模型的两种方法" class="headerlink" title="微调（Finetuning） vs. 提示（Prompting）：大型语言模型的两种方法"></a>微调（Finetuning） vs. 提示（Prompting）：大型语言模型的两种方法</h1><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250825093506135.png" alt="image.png"><br>探讨了使用大型语言模型（LLM）的两种主要历史期望和由此产生的技术方法：<strong>微调（Finetuning）</strong> 和 <strong>提示（Prompting）</strong>。这两种方法会导致大型语言模型的结果和应用截然不同。</p>
+<h2 id="对大型语言模型的两种期望"><a href="#对大型语言模型的两种期望" class="headerlink" title="对大型语言模型的两种期望"></a>对大型语言模型的两种期望</h2><p>人类历史上对大型语言模型有两种不同的期望：</p>
+<ol>
+<li><p><strong>成为专家（微调）</strong>：第一个期望是让大型语言模型成为解决特定类型问题的专家，尤其是在自然语言处理（NLP）任务中。<br><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250825093545754.png" alt="image.png"></p>
+<ul>
+<li><p><strong>范例</strong>：调整大型语言模型以专门从事翻译（例如，中文到英文）或摘要（缩短文章）。</p>
+</li>
+<li><p><strong>比喻</strong>：这就像训练一头大象（大型语言模型）以高精度执行单一、特定的任务。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>成为通才（提示）</strong>：第二个期望是让大型语言模型成为一个多才多艺的“万事通”，能够做任何事情。<br><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250825093625246.png" alt="image.png"></p>
+<ul>
+<li><p><strong>范例</strong>：给大型语言模型一个句子，然后提供一个人类可读的指令（“提示”），告诉它要翻译还是摘要该句子。</p>
+</li>
+<li><p><strong>比喻</strong>：这就像一头知道很多事情的大象（大型语言模型），但需要一只小老鼠（人类用户）用简单的指令来指导它该做什么。ChatGPT就是这种方法的典型例子。</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="通才思想的历史背景"><a href="#通才思想的历史背景" class="headerlink" title="通才思想的历史背景"></a>通才思想的历史背景</h2><p>将大型语言模型视为通才的想法并不新鲜：</p>
+<ul>
+<li><p><strong>自然语言十项全能（2018）</strong>：这篇论文提出，所有自然语言处理问题都可以被视为问答任务。我们现在所说的“提示”在当时被称为“问题”。</p>
+</li>
+<li><p><strong>问我任何事（2015）</strong>：更早之前，这篇论文表达了一个雄心勃勃的信念，即单一模型可以回答任何问题，这个概念在当时似乎是科幻小说，但现在却与ChatGPT相似。</p>
+</li>
+</ul>
+<h2 id="每种方法的优点"><a href="#每种方法的优点" class="headerlink" title="每种方法的优点"></a>每种方法的优点</h2><p>专家和通才方法各有优劣：</p>
+<ul>
+<li><p><strong>专家（微调）的优点</strong>：</p>
+<ul>
+<li><p><strong>在特定任务上表现更佳</strong>：专注于单一任务的模型在该特定领域的表现更有可能超越通才模型。</p>
+</li>
+<li><p><strong>实证</strong>：腾讯和微软的研究表明，虽然ChatGPT可以翻译，但其表现通常不如专门的商业翻译系统，如Google翻译或DeepL，这些系统是专门为翻译而设计的。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>通才（提示）的优点</strong>：</p>
+<ul>
+<li><p><strong>符合对AI的想象</strong>：这种方法很“时髦”，能吸引公众的注意力，满足了人类对AI应有样貌的想象。</p>
+</li>
+<li><p><strong>快速开发新功能</strong>：开发新的自然语言处理任务变得更快。用户不再需要编写代码，而是可以简单地使用人类语言来指示现有的通才模型。例如，要获得更短的摘要，您只需将提示修改为“用100个字摘要”，而无需更改代码。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="技术方法：微调-vs-提示"><a href="#技术方法：微调-vs-提示" class="headerlink" title="技术方法：微调 vs. 提示"></a>技术方法：微调 vs. 提示</h2><p>这两种期望导致了两种截然不同的大型语言模型使用方式：</p>
+<ol>
+<li><p><strong>微调（用于专家）</strong>：<br> <img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250825093716376.png" alt="image.png"></p>
+<ul>
+<li><p><strong>以BERT为例</strong>：像BERT这样执行“填空”任务的模型，通常在专家情境中使用。</p>
+</li>
+<li><p><strong>需要修改</strong>：要让BERT成为专家，需要进行两项主要修改：<br>  <img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250825093808337.png" alt="image.png"></p>
+<ul>
+<li><p><strong>增加外部模块（插件）</strong>：BERT本身无法生成完整的句子，因此需要“插件”或“外部模块”来使其能够产生完整的答案或执行翻译等任务。</p>
+</li>
+<li><p><strong>参数微调</strong>：这涉及调整语言模型的内部参数。它基本上是运行梯度下降，使用预训练的大型语言模型参数作为初始点，然后用特定于任务的数据（例如，翻译配对）对其进行微调。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>适配器（Adapters）</strong>：一种更有效的微调方法是使用“适配器”。<br>  <img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250825094109613.png" alt="image.png"></p>
+<ul>
+<li><p><strong>概念</strong>：不是修改所有大型语言模型参数，而是在模型中插入小型的附加模块（适配器）。</p>
+</li>
+<li><p><strong>训练</strong>：在微调期间，只调整这些小型适配器模块内的参数，而主要的大型语言模型参数保持不变。</p>
+</li>
+<li><p><strong>优点</strong>：这显著减少了存储需求。不需要为每个任务存储大型语言模型的完整副本，每个任务只需要存储小型适配器参数，这使得管理数百或数千个专门任务变得可行。适配器有多种类型，例如Bitfit、Houlsby、AdapterBias、Prefix tuning和LoRA。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>提示（用于通才）</strong>：</p>
+<ul>
+<li>这种方法专注于使用人类语言指令（提示）来引导像ChatGPT这样的通才模型执行各种任务，而无需为每个特定任务微调其内部参数。</li>
+<li>从技术上讲，一个“Prompt”（提示词）确实<strong>没有改变模型本身的内部参数</strong>。模型的代码和训练好的权重（weights）在您发送提示词时是固定不变的。</li>
+</ul>
+</li>
+</ol>
+<h2 id="核心区别：是“改造模型”还是“调用能力”？"><a href="#核心区别：是“改造模型”还是“调用能力”？" class="headerlink" title="核心区别：是“改造模型”还是“调用能力”？"></a>核心区别：是“改造模型”还是“调用能力”？</h2><ul>
+<li><p><strong>专家做法 (Finetuning - 微调)</strong>：这就像是把一个大学毕业生（预训练好的LLM）送去医学院深造，经过几年的专门训练，让他成为一名心脏外科医生。他的知识结构被<strong>深度改造</strong>了，变得非常擅长做心脏手术，但你如果让他去写诗或做财务分析，他可能已经不那么擅长了。这就是**“改造模型以适应任务”**。</p>
+</li>
+<li><p>  <img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250825093851009.png" alt="image.png"></p>
+</li>
+<li><p><strong>通才做法 (Prompting - 提示)</strong>：这就像是面对一位知识渊博、博览群书的通才学者（比如一个巨大的、预训练好的LLM，像GPT-4）。他本身就懂历史、会写作、能计算、也了解编程。</p>
+<ul>
+<li><p>你不需要“改造”他。</p>
+</li>
+<li><p>你只需要通过<strong>清晰的指令（Prompt）<strong>来告诉他，你希望他</strong>调用</strong>他大脑里的哪一部分知识来为你服务。</p>
+</li>
+<li><p>当你给他一篇经济学文章说“<strong>请总结这篇文章</strong>”，他调用的是他的阅读理解和归纳能力。</p>
+</li>
+<li><p>当你给他一行代码说“<strong>请解释这段代码的作用</strong>”，他调用的是他的编程知识。</p>
+</li>
+<li><p>当你对他说“<strong>写一首关于月亮的诗</strong>”，他又调用了他的文学创作能力。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>这位学者（模型）本身没有变，但他能完成<strong>各种各样</strong>的任务。这种**“用一个模型应对多种任务”的使用方式**，就是所谓的“通才做法”。</p>
+<hr>
+<h3 id="总结一下："><a href="#总结一下：" class="headerlink" title="总结一下："></a>总结一下：</h3><ul>
+<li><p><strong>“通才”不是指Prompt把模型变成了通才，而是指模型本身已经被训练成了一个“通才”</strong>。它在海量数据中学习了语言、逻辑、知识和多种技能的潜在模式。</p>
+</li>
+<li><p><strong>Prompt的作用是“激活”和“引导”</strong>。它像一个开关或一个指令，告诉这个强大的通才模型：“嘿，现在请启动你的‘翻译’技能”或者“现在请启动你的‘创意写作’技能”。</p>
+</li>
+</ul>
+<hr>
+<h1 id="解构大型语言模型：从“专才”到“通才”的进化之路"><a href="#解构大型语言模型：从“专才”到“通才”的进化之路" class="headerlink" title="解构大型语言模型：从“专才”到“通才”的进化之路"></a>解构大型语言模型：从“专才”到“通才”的进化之路</h1><p>深入探讨了大型语言模型（LLM）一个激动人心的进化方向：它们如何从只能执行特定任务的“专才”，演变为能够处理多种任务、更具通用性的“通才”人工智能。我们主要探索了两个核心概念：<strong>指令学习（Instruction Learning）<strong>和</strong>情境学习（In-context Learning）</strong>，以及它们如何让机器像人类一样，根据描述和范例来理解并执行任务。</p>
+<h4 id="指令学习-vs-情境学习"><a href="#指令学习-vs-情境学习" class="headerlink" title="指令学习 vs. 情境学习"></a>指令学习 vs. 情境学习</h4><ul>
+<li><p><strong>指令学习 (Instruction Learning)</strong>：指机器根据任务的文字描述来做出回应的能力。</p>
+</li>
+<li><p><strong>情境学习 (In-context Learning)</strong>：指机器根据提供给它的具体范例来做出回应的能力。</p>
+</li>
+</ul>
+<h4 id="“情境学习”的神秘之处"><a href="#“情境学习”的神秘之处" class="headerlink" title="“情境学习”的神秘之处"></a>“情境学习”的神秘之处</h4><ul>
+<li><p><strong>它是如何工作的</strong>：要执行一项任务（如情感分析），你只需给模型提供几个范例（例如：“今天天气真好，正面情绪；我好累，负面情绪”），然后附上你真正想分析的句子。模型会根据范例，预测新句子的情感。</p>
+</li>
+<li><p><strong>学界的怀疑</strong>：一个关键问题是：机器真的能仅凭这些输入就学会新知识，而不需要经过梯度下降（gradient descent）这样的训练过程吗？</p>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250717030428867.png" alt="image.png"></p>
+<ul>
+<li><p><strong>矛盾的研究结果</strong>：</p>
+<ul>
+<li><p>一篇早期的研究论文《Rethinking the Role of Demonstration: What Makes In-Context Learning Work?》发现，即使在范例中提供错误的标签（比如把正面情绪标为负面），模型的准确率也不会大幅下降。这引出一个假说：范例的主要作用可能只是“激活”模型去执行某个特定类型的任务（比如情感分析），而不是真的在教它新知识。范例的数量似乎超过几个之后，效果也无明显提升。</p>
+</li>
+<li><p>然而，一篇更新的谷歌论文得出了截然不同的结论。研究发现，对于更大规模的模型（如拥有5400亿参数的PaLM），错误的范例会显著影响其表现，错误范例越多，表现越差。这表明，<strong>超大型模型确实能从提供的范例中进行学习</strong>。</p>
+</li>
+<li><p>更进一步，这些大模型甚至能从<strong>错误的</strong>数据中学习。例如，如果在范例中持续地将正面句子标记为负面，模型会学会这种“反向逻辑”，并在预测时应用它。这证明了它是在真实地从上下文中学习，而非简单激活。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>LLM作为分类器</strong>：令人惊讶的是，大型语言模型甚至可以充当分类器。只需将特征和标签作为纯文本喂给它，它就能为新的输入预测标签。虽然其性能不如专门的SVM等分类算法，但它仅凭文本就能学习分类任务的能力，本身就非常“神秘”。</p>
+</li>
+</ul>
+<h4 id="指令微调：教会机器理解命令"><a href="#指令微调：教会机器理解命令" class="headerlink" title="指令微调：教会机器理解命令"></a>指令微调：教会机器理解命令</h4><p>虽然情境学习很强大，但对人类来说，直接下达指令是更自然的方式。这就引出了<strong>指令微调（Instruction Tuning）</strong>。</p>
+<ul>
+<li><p><strong>核心概念</strong>：在训练阶段，给模型提供各种各样的指令（例如，“请翻译”、“请总结”）以及对应的正确输出。目标是让模型能够理解它从未见过的新指令，并做出正确的回应。</p>
+</li>
+<li><p><strong>开创性模型</strong>：大约在2021年，由Hugging Face开发的T0模型和由谷歌开发的FLAN模型，是指令微调领域的早期先驱。</p>
+</li>
+<li><p><strong>实现过程</strong>：</p>
+<ol>
+<li><p>收集大量不同的自然语言处理（NLP）任务和数据集。</p>
+</li>
+<li><p>将这些任务用多种不同的人类语言风格改写成指令。例如，对于自然语言推理任务，可能会创造出十种不同的提问方式。</p>
+</li>
+</ol>
+</li>
+<li><p><strong>惊人成果</strong>：指令微调显著提升了模型对未知指令的泛化能力。经过指令微调的FLAN模型，在理解和执行新指令方面的表现，远超未经此项训练的GPT-3。</p>
+</li>
+</ul>
+<h1 id="机器潜在地学习了构成“情感”的模式和知识"><a href="#机器潜在地学习了构成“情感”的模式和知识" class="headerlink" title="机器潜在地学习了构成“情感”的模式和知识**"></a>机器潜在地学习了构成“情感”的模式和知识**</h1><h3 id="1-潜在能力的获得（预训练阶段）"><a href="#1-潜在能力的获得（预训练阶段）" class="headerlink" title="1. 潜在能力的获得（预训练阶段）"></a>1. 潜在能力的获得（预训练阶段）</h3><p>在大型语言模型（比如GPT）的训练过程中，它阅读了几乎整个互联网的文本和海量书籍。在这个过程中，它并没有一个叫做“情感分析”的特定目标，但它通过统计规律，学到了：</p>
+<ul>
+<li><p><strong>词语关联性</strong>：它发现“开心”、“很棒”、“推荐”这些词经常和积极的语境一起出现。而“失望”、“糟糕”、“再也不会”这些词经常和负面的语境一起出现。</p>
+</li>
+<li><p><strong>上下文模式</strong>：它理解了“我本以为会很好，<strong>结果</strong>……”这种句式通常会引出负面评价。</p>
+</li>
+</ul>
+<p>所以，模型内部已经建立了一张巨大的、复杂的“概念关联网络”。它<strong>不知道这叫“情感分析”</strong>，但它“知道”不同词语和句子所蕴含的正面或负面倾向。这是一种<strong>潜藏在模型深处的能力</strong>。</p>
+<h3 id="2-特定能力的激活（提示阶段）"><a href="#2-特定能力的激活（提示阶段）" class="headerlink" title="2. 特定能力的激活（提示阶段）"></a>2. 特定能力的激活（提示阶段）</h3><p>当您向它提问时，发生了两件事，这呼应了我们之前视频笔记的内容：</p>
+<ul>
+<li><p><strong>指令激活（Instruction）</strong>：您通过“请分析这句话的情感”这样的指令，告诉模型：“嘿，请调用你脑中所有关于正面和负面语言模式的知识。” 这就像是给一个知识渊博的学者一个具体的课题，让他聚焦思考。</p>
+</li>
+<li><p><strong>范例引导（In-context Learning）</strong>：当您给出“今天天气真好 -&gt; 正面”这样的范例时，您在做一件更重要的事情：</p>
+<ul>
+<li><p><strong>明确任务</strong>：您在告诉它，您不只是想聊天，而是要它做一个“输入-&gt;输出”的分类任务。</p>
+</li>
+<li><p><strong>定义格式</strong>：您在告诉它，您希望的答案是“正面”或“负面”这两个词，而不是长篇大论的解释。</p>
+</li>
+<li><p><strong>校准逻辑</strong>：正如视频中提到的，对于更强大的模型，它会从您的范例中学习具体的判断逻辑。如果您把所有正面例子都标为“A类”，负面例子标为“B类”，它就会学会用“A类”和“B类”来回答您。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>更精确的回答是：机器本身具备了进行情感分析所需要的全部“原材料”（对语言的深刻理解），但它需要您的“指令”和“范例”作为“菜谱”，才能将这些原材料烹饪成一道叫做“情感分析”的菜。</strong></p>
+<h1 id="提示词工程"><a href="#提示词工程" class="headerlink" title="提示词工程"></a>提示词工程</h1><h2 id="提示工程的高级技术"><a href="#提示工程的高级技术" class="headerlink" title="提示工程的高级技术"></a><strong>提示工程的高级技术</strong></h2><ul>
+<li><p><strong>思维链提示（Chain of Thought Prompting, CoT）</strong>：在提示中加入推理过程，引导模型一步步思考，从而解决复杂问题。</p>
+</li>
+<li><p><strong>零样本思维链提示（Zero-shot CoT）</strong>：在提示中加入“Let’s think step by step”等指令，模型就能自动进行推理，无需提供任何示例。</p>
+</li>
+<li><p><strong>自洽性（Self-consistency）</strong>：让模型生成多个不同的推理路径和答案，然后通过多数投票或结合置信度分数来选择最终答案，进一步提高准确性。</p>
+</li>
+<li><p><strong>列表到多数提示（List-to-most Prompting）</strong>：将复杂问题分解为更简单的子问题，逐步解决，最终得出答案。</p>
+</li>
+</ul>
+<h2 id="机器自动生成提示"><a href="#机器自动生成提示" class="headerlink" title="机器自动生成提示"></a><strong>机器自动生成提示</strong></h2><ul>
+<li><p><strong>硬提示（Hard Prompt）</strong>：人类用自然语言编写的离散文本提示。</p>
+</li>
+<li><p><strong>软提示（Soft Prompt）</strong>：模型通过训练自动生成的连续向量，可以作为模型输入的一部分，并能通过任务特定的标注数据进行调整。</p>
+</li>
+<li><p><strong>通过强化学习寻找提示</strong>：训练一个生成器来自动生成提示，通过评估大型语言模型的输出效果来给予奖励，从而优化生成器。</p>
+</li>
+<li><p><strong>通过大型语言模型自身寻找提示</strong>：利用大型语言模型本身来“思考”并生成最佳提示。</p>
+</li>
+</ul>
+<h1 id="Chain-of-Thought-CoT-Prompting"><a href="#Chain-of-Thought-CoT-Prompting" class="headerlink" title="Chain of Thought (CoT) Prompting"></a><strong>Chain of Thought (CoT) Prompting</strong></h1><ul>
+<li><p><strong>传统Prompt的局限性</strong>：在处理需要推理的问题，例如数学问题时，仅通过提供问题描述和答案（in-context learning）往往效果不佳。例如，直接给一个应用题和它的答案，模型很难在新的问题上得出正确答案。</p>
+</li>
+<li><p><strong>Chain of Thought (CoT) 的概念</strong>：CoT是一种更详细的Prompt方法。在提供示例时，除了问题和答案，还会附带解题的推理过程。这样做的目的是让模型在遇到新问题时，能够自己生成推理过程，从而更容易得出正确答案。</p>
+</li>
+<li><p><strong>CoT的有效性</strong>：根据文献资料，CoT在数学应用题上表现出色。例如，使用GPT-3进行微调（Fine-tuned GPT-3 175B）的正确率是33%，而使用更大型的PaLM 540B模型进行标准Prompting的正确率仅为18%。但如果使用Chain of Thought Prompting，PaLM 540B的正确率能提升到57%，甚至超越了微调的GPT-3。这表明，通过提供解题过程，即使是大型模型也能突然获得一定的推理能力。</p>
+</li>
+</ul>
+<h1 id="CoT的变体：Zero-shot-CoT和Self-consistency"><a href="#CoT的变体：Zero-shot-CoT和Self-consistency" class="headerlink" title="CoT的变体：Zero-shot CoT和Self-consistency"></a><strong>CoT的变体：Zero-shot CoT和Self-consistency</strong></h1><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250825103837980.png" alt="image.png"></p>
+<ul>
+<li><p><strong>Zero-shot CoT</strong>：这是一种更神奇的CoT变体。在某些情况下，即使不提供任何示例，仅仅在Prompt中加入“Let’s think step by step”（让我们一步步思考）这样的指令，模型也能显著提升性能，因为这会促使模型进行内部推理。</p>
+</li>
+<li><p><strong>Self-consistency (自我一致性)</strong>：由于大型语言模型（如ChatGPT）在每次回答时都可能因随机性而产生不同的结果，Self-consistency方法可以利用这一点。它建议让模型对同一个问题生成多次答案，每次的推理过程和答案可能不同。如果不同的推理过程都导向相同的答案，那么该答案的可靠性就会更高。通过对多个答案进行多数投票（majority vote），可以有效提高答案的准确率。虽然也可以为每个答案计算置信度并进行加权投票，但研究表明，直接进行多数投票通常已经足够有效。</p>
+</li>
+<li><p><strong>CoT与Self-consistency的结合</strong>：CoT可以增加模型输出的多样性。如果不使用CoT，模型可能每次都给出相似的错误答案。但如果结合CoT，模型会生成多样化的推理过程和答案，这时Self-consistency才能发挥其最大作用，通过多轮推理和投票，筛选出更可能正确的答案。这解释了为什么CoT通常是Self-consistency的前提。</p>
+</li>
+<li><p><strong>应用实例</strong>：作者用一个鸡鸭兔同笼的数学问题在ChatGPT上进行实测。</p>
+<ul>
+<li><p>直接告诉ChatGPT只给答案，不列计算过程（模仿标准Prompting），结果发现多次运行都得到相同的错误答案（18只）。</p>
+</li>
+<li><p>当指示ChatGPT列出详细计算过程（CoT），它能够正确地设置方程，但偶尔在解方程时出错，导致五次运行得到不同的错误答案（18, 8, 12, 7, 2）。这反而为Self-consistency提供了更多不同的结果进行选择。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="List-to-most-Prompting"><a href="#List-to-most-Prompting" class="headerlink" title="List-to-most Prompting"></a><strong>List-to-most Prompting</strong></h1><ul>
+<li><p><strong>概念</strong>：对于复杂的数学问题，List-to-most Prompting方法建议将大问题拆解成多个小问题。例如，在处理一道涉及爬滑水道时间、游乐园关门时间等复杂的应用题时，模型会被引导先解决“玩一次滑水道需要多长时间”这样的子问题。</p>
+</li>
+<li><p><strong>实现方式</strong>：这种方法依然需要In-context Learning，即通过提供一些难度较大的数学问题及其分解为子问题的示例，来训练模型学习如何自动进行问题拆解。模型会将简化后的问题与原始问题结合，并逐步解决。</p>
+</li>
+</ul>
+<h1 id="机器自动生成Prompt"><a href="#机器自动生成Prompt" class="headerlink" title="机器自动生成Prompt"></a><strong>机器自动生成Prompt</strong></h1><ul>
+<li><p><strong>Hard Prompt vs. Soft Prompt</strong>：</p>
+<ul>
+<li><p><strong>Hard Prompt</strong>：指我们通常使用的，由人类编写的文本指令，它是离散的。</p>
+</li>
+<li><p><strong>Soft Prompt</strong>：是模型接收的额外输入，通常是一组连续的向量。这些向量不是人类可读的语言，但可以像模型参数一样进行训练和调整。这类似于将适配器（Adapter）放置在模型的输入端。Soft Prompt可以使模型更像一个“通才”，能够灵活适应各种任务。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>强化学习（Reinforcement Learning）寻找Prompt</strong>：一种自动生成Prompt的方法是使用强化学习。训练一个Generator模型来生成Prompt，这个Prompt会作为大型语言模型（如GPT-3）的输入。通过评估大型语言模型输出的好坏（Reward Function），Generator模型会不断学习如何生成更有效的Prompt，从而引导大型语言模型给出我们期望的答案。</p>
+</li>
+<li><p><strong>大型语言模型自我生成Prompt</strong>：更先进的方法甚至不需要强化学习，直接让大型语言模型自己思考并生成Prompt。其原理是：向模型提供一系列输入和输出的示例，然后询问模型为了产生这些输出，它应该接收什么样的指令。模型会尝试推理出最合适的指令。</p>
+<ul>
+<li><p><strong>例子</strong>：如果你给模型输入“今天天气真好”并输出“正面”，输入“今天运气真差”并输出“负面”，然后问它什么指令能产生这些结果，它可能会回答“请判断这句话是正面还是负面”。</p>
+</li>
+<li><p><strong>实践</strong>：研究发现，通过这种方式，机器能够生成非常强大的Prompt。例如，在一个数学问题上，机器生成了一个比人类设计的Prompt（“Let’s think step by step”，正确率78%）更优的Prompt（“Let’s work this out in a step-by-step way to be sure we have the right answer”，正确率82%），从而显著提高了模型性能。这甚至意味着人类可能不再需要担任“Prompt工程师”的角色，机器可以自己“催眠”自己。</p>
+</li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+
+         
+    </div>
+    
+     
+  </div>
+  
+    
+<nav id="article-nav">
+  <a class="article-nav-btn left "
+    
+      href="/2025/08/26/MLP/"
+      title="MLP"
+     >
+    <i class="fa-solid fa-angle-left"></i>
+    <p class="title-text">
+      
+        MLP
+        
+    </p>
+  </a>
+  <a class="article-nav-btn right "
+    
+      href="/2025/08/25/Why%20Some%20Software%20Is%20Written%20in%20Multiple%20Languages/"
+      title="Why Some Software Is Written in Multiple Languages"
+     >
+
+    <p class="title-text">
+      
+        Why Some Software Is Written in Multiple Languages
+        
+    </p>
+    <i class="fa-solid fa-angle-right"></i>
+  </a>
+</nav>
+
+
+  
+</article>
+
+
+
+
+
+    </div>
+    <div id="footer-wrapper">
+      <footer id="footer">
+  
+  <div id="footer-info" class="inner">
+    
+    &copy; 2025 Justin<br>
+    Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & Theme <a target="_blank" rel="noopener" href="https://github.com/saicaca/hexo-theme-vivia">Vivia</a>
+  </div>
+</footer>
+
+    </div>
+    <div class="back-to-top-wrapper">
+    <button id="back-to-top-btn" class="back-to-top-btn hide" onclick="topFunction()">
+        <i class="fa-solid fa-angle-up"></i>
+    </button>
+</div>
+
+<script>
+    function topFunction() {
+        window.scroll({ top: 0, behavior: 'smooth' });
+    }
+    let btn = document.getElementById('back-to-top-btn');
+    function scrollFunction() {
+        if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+            btn.classList.remove('hide')
+        } else {
+            btn.classList.add('hide')
+        }
+    }
+    window.onscroll = function() {
+        scrollFunction();
+    }
+</script>
+
+  </div>
+  <script src="/js/light-dark-switch.js"></script>
+</body>
+</html>
