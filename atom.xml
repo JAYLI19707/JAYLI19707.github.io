@@ -6,7 +6,7 @@
   <link href="https://jayli19707.github.io/atom.xml" rel="self"/>
   
   <link href="https://jayli19707.github.io/"/>
-  <updated>2025-08-26T00:29:19.044Z</updated>
+  <updated>2025-08-28T02:10:22.688Z</updated>
   <id>https://jayli19707.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>gemini 2.5 flash Image -preview</title>
+    <link href="https://jayli19707.github.io/2025/08/28/gemini%202.5%20flash%20Image%20-preview/"/>
+    <id>https://jayli19707.github.io/2025/08/28/gemini%202.5%20flash%20Image%20-preview/</id>
+    <published>2025-08-28T01:41:39.000Z</published>
+    <updated>2025-08-28T02:10:22.688Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="AI模型画图体验：速度、细节与画质的权衡"><a href="#AI模型画图体验：速度、细节与画质的权衡" class="headerlink" title="AI模型画图体验：速度、细节与画质的权衡"></a>AI模型画图体验：速度、细节与画质的权衡</h3><p>使用gemini 2.5 flash Image -preview生成模型，整体体验让人印象深刻，尤其是在<strong>速度</strong>和<strong>细节处理</strong>方面。</p><p>首先，最直观的感受是生成速度<strong>非常快</strong>，比之前用过的GPT-5感觉要迅捷不少，几乎是瞬间出图，大大提升了创作效率。</p><p>其次，在图像质量上，这款模型对<strong>脸部和阴影等细节的处理</strong>尤为出色。它能精准捕捉复杂的光影变化，让人物面部和环境阴影看起来非常自然且富有层次感，大大增强了图像的真实感和艺术性。</p><p>在不同平台的使用体验上，无论是AI Studio还是Web端，我感觉<strong>两者之间并没有明显的区别</strong>。这说明模型的核心算法和性能在不同端口都保持了高度的一致性，确保了用户无论在哪里创作，都能得到稳定的高质量输出。</p><p>不过，也有一些可以改进的地方。首先是<strong>画质</strong>，感觉图像整体的清晰度还有提升空间，有时候会显得不够锐利。其次，目前模型<strong>缺少微调工具</strong>。如果能提供类似“局部修补”或“定向调整”的功能，允许用户对不满意的地方（比如某个眼神、某个手势）进行精确修改，那将是极大的进步。</p><p>总的来说，这款模型在速度和细节表现上非常突出，但在画质和后期微调的灵活性上还有待完善。期待未来能有更多工具加入，让AI创作变得更加得心应手。</p><h1 id="作品展示："><a href="#作品展示：" class="headerlink" title="作品展示："></a>作品展示：</h1><h2 id="原图："><a href="#原图：" class="headerlink" title="原图："></a>原图：</h2><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250828093502976.png" alt="image.png"></p><h2 id="prompt"><a href="#prompt" class="headerlink" title="prompt"></a>prompt</h2><p>引用来自guizang</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">在电脑桌上放置一个1/7比例的商业化人物手办，风格和环境都要求真实。</span><br><span class="line"></span><br><span class="line">- 人物手办的底座为圆形透明亚克力，上面不带任何文字。</span><br><span class="line">    </span><br><span class="line">- 电脑屏幕上显示该人物手办的ZBrush建模过程。</span><br><span class="line">    </span><br><span class="line">- 电脑旁边放置一个万代风格的玩具包装盒，盒子上印有该人物的原始插画。</span><br></pre></td></tr></table></figure><h2 id="gemini生成"><a href="#gemini生成" class="headerlink" title="gemini生成"></a>gemini生成</h2><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250828093814985.png" alt="image.png"></p><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250828093909041.png" alt="image.png"></p><h2 id="GPT-5"><a href="#GPT-5" class="headerlink" title="GPT-5"></a>GPT-5</h2><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250828094029173.png" alt="image.png"></p><h2 id="把GPT的丢进Gemini"><a href="#把GPT的丢进Gemini" class="headerlink" title="把GPT的丢进Gemini"></a>把GPT的丢进Gemini</h2><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250828094120263.png" alt="image.png"></p>]]></content>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;AI模型画图体验：速度、细节与画质的权衡&quot;&gt;&lt;a href=&quot;#AI模型画图体验：速度、细节与画质的权衡&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="AI" scheme="https://jayli19707.github.io/categories/AI/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>机器学习-Regression</title>
@@ -470,25 +495,6 @@
     
     
     <category term="机器学习" scheme="https://jayli19707.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode-.21合并两个有序链表</title>
-    <link href="https://jayli19707.github.io/2025/08/08/Leetcode-.21%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8/"/>
-    <id>https://jayli19707.github.io/2025/08/08/Leetcode-.21%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8/</id>
-    <published>2025-08-08T13:45:04.000Z</published>
-    <updated>2025-08-08T13:45:36.942Z</updated>
-    
-    <content type="html"><![CDATA[<p>迭代法是最直观、空间效率最高的方法。它的核心思想是创建一个新的链表，然后同时遍历 <code>list1</code> 和 <code>list2</code>，逐个比较节点的值，将较小的节点依次链接到新链表的末尾。</p><span id="more"></span><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250808213443917.png" alt="image.png"></p><h3 id="迭代法-Iteration"><a href="#迭代法-Iteration" class="headerlink" title="迭代法 (Iteration)"></a><strong>迭代法 (Iteration)</strong></h3><p>迭代法是最直观、空间效率最高的方法。它的核心思想是创建一个新的链表，然后同时遍历 <code>list1</code> 和 <code>list2</code>，逐个比较节点的值，将较小的节点依次链接到新链表的末尾。</p><p><strong>关键技巧：哨兵节点 (Sentinel Node)</strong></p><p>为了简化在空链表上添加第一个节点的操作，我们通常会创建一个“哨兵节点”（也叫虚拟头节点 <code>dummy</code>）。它不存储任何有效数据，只是作为新链表的临时头部。我们同时用一个 <code>tail</code> 指针来追踪新链表的最后一个节点，方便我们进行添加操作。</p><p><strong>算法步骤：</strong></p><ol><li><p><strong>初始化</strong>：</p><ul><li><p>创建一个哨兵节点 <code>dummy = ListNode()</code>。</p></li><li><p>创建一个指针 <code>tail = dummy</code>，<code>tail</code> 将永远指向新链表的尾部。</p></li></ul></li><li><p><strong>主循环</strong>：当 <code>list1</code> 和 <code>list2</code> 都不为空时，进行循环：</p><ul><li><p>比较 <code>list1.val</code> 和 <code>list2.val</code> 的大小。</p></li><li><p>如果 <code>list1.val</code> 更小，就将 <code>list1</code> 的当前节点链接到 <code>tail.next</code>，然后将 <code>list1</code> 指针后移一位。</p></li><li><p>否则，将 <code>list2</code> 的当前节点链接到 <code>tail.next</code>，然后将 <code>list2</code> 指针后移一位。</p></li><li><p>无论链接了哪个节点，都必须将 <code>tail</code> 指针后移一位 (<code>tail = tail.next</code>)，以确保它始终指向新链表的末尾。</p></li></ul></li><li><p><strong>处理剩余部分</strong>：循环结束后，<code>list1</code> 和 <code>list2</code> 最多只有一个还不为空。我们直接将这个非空的链表剩余的所有部分链接到 <code>tail.next</code> 即可。</p></li><li><p><strong>返回结果</strong>：合并后的新链表的真正头节点是哨兵节点的下一个节点，即 <code>dummy.next</code>。</p></li></ol><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for singly-linked list.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># class ListNode:</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#     def __init__(self, val=0, next=None):</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#         self.val = val</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#         self.next = next</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">mergeTwoLists</span>(<span class="params">self, list1: <span class="type">Optional</span>[ListNode], list2: <span class="type">Optional</span>[ListNode]</span>) -&gt; <span class="type">Optional</span>[ListNode]:</span><br><span class="line"></span><br><span class="line">        dummy=ListNode()</span><br><span class="line"></span><br><span class="line">        tail=dummy</span><br><span class="line"></span><br><span class="line">        p=list1</span><br><span class="line"></span><br><span class="line">        q=list2</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> p <span class="keyword">and</span> q:</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> p.val&gt;=q.val:</span><br><span class="line"></span><br><span class="line">                tail.<span class="built_in">next</span>=q</span><br><span class="line"></span><br><span class="line">                q=q.<span class="built_in">next</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line"></span><br><span class="line">                tail.<span class="built_in">next</span>=p</span><br><span class="line"></span><br><span class="line">                p=p.<span class="built_in">next</span></span><br><span class="line"></span><br><span class="line">            tail=tail.<span class="built_in">next</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> p==<span class="literal">None</span>:</span><br><span class="line"></span><br><span class="line">            tail.<span class="built_in">next</span>=q</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> q==<span class="literal">None</span>:</span><br><span class="line"></span><br><span class="line">            tail.<span class="built_in">next</span>=p</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> dummy.<span class="built_in">next</span></span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;迭代法是最直观、空间效率最高的方法。它的核心思想是创建一个新的链表，然后同时遍历 &lt;code&gt;list1&lt;/code&gt; 和 &lt;code&gt;list2&lt;/code&gt;，逐个比较节点的值，将较小的节点依次链接到新链表的末尾。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Leetcode" scheme="https://jayli19707.github.io/categories/Leetcode/"/>
     
     
   </entry>
