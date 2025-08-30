@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+
+
+<html theme="dark" showBanner="true" hasBanner="true" > 
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet">
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet">
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet">
+<script src="/js/color.global.min.js" ></script>
+<script src="/js/load-settings.js" ></script>
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+
+  
+  <title>进程和线程的区别是什么？ | Justin的技术博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+
+  <meta name="description" content="进程和线程的区别是什么（面试题）？  本质区别：进程是操作系统资源分配的基本单位，而线程是任务调度和执行的基本单位（CPU调度的最小单位）  在开销方面：每个进程都有独立的代码和数据空间（程序上下文），程序之间的切换会有较大的开销；线程可以看做轻量级的进程，同一类线程共享代码和数据空间，每个线程都有自己独立的运行栈和程序计数器（PC），线程之间切换的开销小  稳定性方面：进程中某个线程如果崩溃了，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="进程和线程的区别是什么？">
+<meta property="og:url" content="https://jayli19707.github.io/2025/08/31/%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%8C%BA%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F/index.html">
+<meta property="og:site_name" content="Justin的技术博客">
+<meta property="og:description" content="进程和线程的区别是什么（面试题）？  本质区别：进程是操作系统资源分配的基本单位，而线程是任务调度和执行的基本单位（CPU调度的最小单位）  在开销方面：每个进程都有独立的代码和数据空间（程序上下文），程序之间的切换会有较大的开销；线程可以看做轻量级的进程，同一类线程共享代码和数据空间，每个线程都有自己独立的运行栈和程序计数器（PC），线程之间切换的开销小  稳定性方面：进程中某个线程如果崩溃了，">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250831020421089.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250831015921224.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250831021229813.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250831021644310.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250831021737679.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250831021012423.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250831021121642.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250831022725451.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250831022258533.png">
+<meta property="article:published_time" content="2025-08-30T18:03:00.000Z">
+<meta property="article:modified_time" content="2025-08-30T18:32:20.033Z">
+<meta property="article:author" content="Justin">
+<meta property="article:tag" content="面试题">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250831020421089.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Justin的技术博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-192.png" sizes="192x192">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-192.png" sizes="192x192">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 7.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+
+<body>
+  
+  
+    
+<div id="banner" class="">
+  <img src="/image/background/benjamin_background.jpg" itemprop="image">
+  <div id="banner-dim"></div>
+</div>
+ 
+   
+  <div id="main-grid" class="  ">
+    <div id="nav" class=""  >
+      <navbar id="navbar">
+  <nav id="title-nav">
+    <a href="/">
+      <div id="vivia-logo">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div>Justin的技术博客 </div>
+    </a>
+  </nav>
+  <nav id="main-nav">
+    
+      <a class="main-nav-link" href="/">Home</a>
+    
+      <a class="main-nav-link" href="/archives">Archives</a>
+    
+      <a class="main-nav-link" href="/projects">Projects</a>
+    
+      <a class="main-nav-link" href="/investment">Investment</a>
+    
+      <a class="main-nav-link" href="/photography">Photography</a>
+    
+      <a class="main-nav-link" href="/about">About</a>
+    
+  </nav>
+  <nav id="sub-nav">
+    <a id="theme-btn" class="nav-icon">
+      <span class="light-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M438.5-829.913v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-829.913Zm0 747.826v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-82.087ZM877.913-438.5h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537t29.476-12.174h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T877.913-438.5Zm-747.826 0h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T82.087-521.5h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T130.087-438.5Zm660.174-290.87-34.239 32q-12.913 12.674-29.565 12.174-16.653-.5-29.327-13.174-12.674-12.673-12.554-28.826.12-16.152 12.794-28.826l33-35q12.913-12.674 30.454-12.674t30.163 12.847q12.709 12.846 12.328 30.826-.38 17.98-13.054 30.653ZM262.63-203.978l-32 34q-12.913 12.674-30.454 12.674t-30.163-12.847q-12.709-12.846-12.328-30.826.38-17.98 13.054-30.653l33.239-31q12.913-12.674 29.565-12.174 16.653.5 29.327 13.174 12.674 12.673 12.554 28.826-.12 16.152-12.794 28.826Zm466.74 33.239-32-33.239q-12.674-12.913-12.174-29.565.5-16.653 13.174-29.327 12.673-12.674 28.826-13.054 16.152-.38 28.826 12.294l35 33q12.674 12.913 12.674 30.454t-12.847 30.163q-12.846 12.709-30.826 12.328-17.98-.38-30.653-13.054ZM203.978-697.37l-34-33q-12.674-12.913-13.174-29.945-.5-17.033 12.174-29.707t31.326-13.293q18.653-.62 31.326 13.054l32 34.239q11.674 12.913 11.174 29.565-.5 16.653-13.174 29.327-12.673 12.674-28.826 12.554-16.152-.12-28.826-12.794ZM480-240q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm-.247-82q65.703 0 111.475-46.272Q637-414.544 637-480.247t-45.525-111.228Q545.95-637 480.247-637t-111.475 45.525Q323-545.95 323-480.247t45.525 111.975Q414.05-322 479.753-322ZM481-481Z"/></svg></span>
+      <span class="dark-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M480.239-116.413q-152.63 0-258.228-105.478Q116.413-327.37 116.413-480q0-130.935 77.739-227.435t206.304-125.043q43.022-9.631 63.87 10.869t3.478 62.805q-8.891 22.043-14.315 44.463-5.424 22.42-5.424 46.689 0 91.694 64.326 155.879 64.325 64.186 156.218 64.186 24.369 0 46.978-4.946 22.609-4.945 44.413-14.076 42.826-17.369 62.967 1.142 20.142 18.511 10.511 61.054Q807.174-280 712.63-198.206q-94.543 81.793-232.391 81.793Zm0-95q79.783 0 143.337-40.217 63.554-40.218 95.793-108.283-15.608 4.044-31.097 5.326-15.49 1.283-31.859.805-123.706-4.066-210.777-90.539-87.071-86.473-91.614-212.092-.24-16.369.923-31.978 1.164-15.609 5.446-30.978-67.826 32.478-108.282 96.152Q211.652-559.543 211.652-480q0 111.929 78.329 190.258 78.329 78.329 190.258 78.329ZM466.13-465.891Z"/></svg></span>
+    </a>
+    
+      <a id="nav-rss-link" class="nav-icon mobile-hide" href="/atom.xml" title="RSS 订阅">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-120q-25.846 0-44.23-18.384-18.384-18.385-18.384-44.23 0-25.846 18.384-44.23 18.384-18.385 44.23-18.385 25.846 0 44.23 18.385 18.384 18.384 18.384 44.23 0 25.845-18.384 44.23Q223.846-120 198-120Zm538.385 0q-18.846 0-32.923-13.769-14.076-13.769-15.922-33.23-8.692-100.616-51.077-188.654-42.385-88.039-109.885-155.539-67.5-67.501-155.539-109.885Q283-663.462 182.385-672.154q-19.461-1.846-33.23-16.23-13.769-14.385-13.769-33.846t14.076-32.922q14.077-13.461 32.923-12.23 120.076 8.692 226.038 58.768 105.961 50.077 185.73 129.846 79.769 79.769 129.846 185.731 50.077 105.961 58.769 226.038 1.231 18.846-12.538 32.922Q756.461-120 736.385-120Zm-252 0q-18.231 0-32.423-13.461t-18.653-33.538Q418.155-264.23 348.886-333.5q-69.27-69.27-166.501-84.423-20.077-4.462-33.538-18.961-13.461-14.5-13.461-33.346 0-19.076 13.884-33.23 13.884-14.153 33.115-10.922 136.769 15.384 234.384 112.999 97.615 97.615 112.999 234.384 3.231 19.23-10.538 33.115Q505.461-120 484.385-120Z"/></svg>
+      </a>
+    
+    <div id="nav-menu-btn" class="nav-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M177.37-252.282q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Zm0-186.218q-17.453 0-29.477-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T177.37-521.5h605.26q17.453 0 29.477 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T782.63-438.5H177.37Zm0-186.217q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Z"/></svg>
+    </div>
+  </nav>
+</navbar>
+<div id="nav-dropdown" class="hidden">
+  <div id="dropdown-link-list">
+    
+      <a class="nav-dropdown-link" href="/">Home</a>
+    
+      <a class="nav-dropdown-link" href="/archives">Archives</a>
+    
+      <a class="nav-dropdown-link" href="/projects">Projects</a>
+    
+      <a class="nav-dropdown-link" href="/investment">Investment</a>
+    
+      <a class="nav-dropdown-link" href="/photography">Photography</a>
+    
+      <a class="nav-dropdown-link" href="/about">About</a>
+    
+    
+      <a class="nav-dropdown-link" href="/atom.xml" title="RSS 订阅">RSS</a>
+     
+    </div>
+</div>
+<script>
+  let dropdownBtn = document.getElementById("nav-menu-btn");
+  let dropdownEle = document.getElementById("nav-dropdown");
+  dropdownBtn.onclick = function() {
+    dropdownEle.classList.toggle("hidden");
+  }
+</script>
+    </div>
+    <div id="sidebar-wrapper">
+      <sidebar id="sidebar">
+  
+    <div class="widget-wrap">
+  <div class="info-card">
+    <div class="avatar">
+      
+        <image src=/image/avatar/avatar_1.png></image>
+      
+      <div class="img-dim"></div>
+    </div>
+    <div class="info">
+      <div class="username">Justin </div>
+      <div class="dot"></div>
+      <div class="subtitle">比世界先发现你发光 </div>
+      <div class="link-list">
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/JAYLI19707" title="GitHub"><i class="fa-brands fa-github"></i></a>
+        
+          <a class="link-btn" href="mailto:your.email@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
+        
+          <a class="link-btn" href="/atom.xml" title="RSS"><i class="fa-solid fa-rss"></i></a>
+         
+      </div>  
+    </div>
+  </div>
+</div>
+
+  
+  <div class="sticky">
+    
+      
+
+
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">分类</h3>
+      <div class="category-box">
+            <a class="category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
+                计算机
+                <div class="category-count">3</div>
+            </a>
+        
+            <a class="category-link" href="/categories/Leetcode/">
+                Leetcode
+                <div class="category-count">19</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">
+                开发工具
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                机器学习
+                <div class="category-count">18</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E9%87%91%E8%9E%8D/">
+                金融
+                <div class="category-count">7</div>
+            </a>
+        
+            <a class="category-link" href="/categories/Quant/">
+                Quant
+                <div class="category-count">2</div>
+            </a>
+        
+            <a class="category-link" href="/categories/AI/">
+                AI
+                <div class="category-count">3</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                操作系统
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E6%95%B0%E5%AD%A6/">
+                数学
+                <div class="category-count">3</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                计算机网络
+                <div class="category-count">1</div>
+            </a>
+        </div>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">标签</h3>
+      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Batch/" rel="tag">Batch</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/LSTM/" rel="tag">LSTM</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Quant/" rel="tag">Quant</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E4%B8%B4%E8%BF%91%E7%AE%97%E5%AD%90/" rel="tag">临近算子</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E4%BA%8C%E5%88%86%E7%B1%BB/" rel="tag">二分类</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%87%B8%E5%87%BD%E6%95%B0/" rel="tag">凸函数</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%9C%80%E5%A4%A7%E4%BC%BC%E7%84%B6%E4%BC%B0%E8%AE%A1/" rel="tag">最大似然估计</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%9C%9F%E6%9D%83/" rel="tag">期权</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/" rel="tag">梯度下降</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/" rel="tag">特征工程</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/" rel="tag">矩阵乘法</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/" rel="tag">线性回归</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%BB%9F%E8%AE%A1%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C/" rel="tag">统计假设检验</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E9%87%8F%E4%BB%B7%E8%B6%8B%E5%8A%BF/" rel="tag">量价趋势</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E9%87%91%E8%9E%8D%E6%95%B0%E5%AD%A6/" rel="tag">金融数学</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag">面试题</a></li></ul>
+    </div>
+  </div>
+
+
+    
+  </div>
+</sidebar>
+    </div>
+    <div id="content-body">
+       
+
+
+<article id="post-进程和线程的区别是什么？" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 class="p-name article-title" itemprop="headline name">
+        进程和线程的区别是什么？
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2025-08-30T18:03:00.000Z" itemprop="datePublished">2025-08-31</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            3.2k 词 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag">面试题</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <h1 id="进程和线程的区别是什么（面试题）？"><a href="#进程和线程的区别是什么（面试题）？" class="headerlink" title="进程和线程的区别是什么（面试题）？"></a>进程和线程的区别是什么（面试题）？</h1><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250831020421089.png" alt="image.png"></p>
+<ul>
+<li><p><strong>本质区别</strong>：<strong>进程</strong>是操作系统资源分配的基本单位，而<strong>线程</strong>是任务调度和执行的基本单位（CPU调度的最小单位）</p>
+</li>
+<li><p><strong>在开销方面</strong>：每个进程都有独立的代码和数据空间（程序上下文），程序之间的切换会有较大的开销；线程可以看做轻量级的进程，同一类线程共享代码和数据空间，每个线程都有自己独立的运行栈和程序计数器（PC），线程之间切换的开销小</p>
+</li>
+<li><p><strong>稳定性方面</strong>：进程中某个线程如果崩溃了，可能会导致整个进程都崩溃。而进程中的子进程崩溃，并不会影响其他进程。</p>
+</li>
+<li><p><strong>内存分配方面</strong>：系统在运行的时候会为每个进程分配不同的内存空间；而对线程而言，除了CPU外，系统不会为线程分配内存（线程所使用的资源来自其所属进程的资源），线程组之间只能共享资源</p>
+</li>
+<li><p><strong>包含关系</strong>：没有线程的进程可以看做是单线程的，如果一个进程内有多个线程，则执行过程不是一条线的，而是多条线</p>
+</li>
+</ul>
+<h1 id="程序的执行过程与进程的诞生"><a href="#程序的执行过程与进程的诞生" class="headerlink" title="程序的执行过程与进程的诞生"></a>程序的执行过程与进程的诞生</h1><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250831015921224.png" alt="image.png"></p>
+<p>我们用高级语言（如 C++ 或 Java）编写的程序，在编译后会成为机器可以理解的二进制代码，但此时它仍是一个被动的文件。只有当它被加载到内存并开始执行时，才成为一个“进程”。</p>
+<ul>
+<li><p><strong>核心观点</strong>: 程序在被执行前只是一个文件，不占用系统资源。它被加载到内存并开始执行后，才变为一个“进程”。</p>
+</li>
+<li><p><strong>重要细节</strong>: 操作系统在这一过程中起着关键作用，负责将程序加载到内存，并分配 CPU 时间、内存空间等资源。</p>
+</li>
+<li><p><strong>执行流程</strong>:</p>
+<ol>
+<li><p><strong>编写代码</strong>: 使用高级语言编写程序。</p>
+</li>
+<li><p><strong>编译</strong>: 将高级语言代码转换为机器码。</p>
+</li>
+<li><p><strong>加载到内存</strong>: 操作系统将程序加载到内存中。</p>
+</li>
+<li><p><strong>执行</strong>: 程序开始执行，成为“进程”。</p>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="进程与线程的定义与区别"><a href="#进程与线程的定义与区别" class="headerlink" title="进程与线程的定义与区别"></a>进程与线程的定义与区别</h2><ul>
+<li><strong>核心观点</strong>:</li>
+</ul>
+<p> <strong>进程（Process）</strong>: 是正在执行的程序。一个程序在运行时可以包含一个或多个进程。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250831021229813.png" alt="image.png"></p>
+<p><strong>线程（Thread）</strong>: 是进程中的一个执行单元。一个进程可以包含一个或多个线程，这些线程共享进程的资源。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250831021644310.png" alt="image.png"></p>
+<ul>
+<li><p><strong>重要细节</strong>:</p>
+<ul>
+<li><p><strong>类比关系</strong>: 通过图示形象地展示了进程和线程的关系：进程像一个大的容器，而线程是容器内部独立运行的单位。</p>
+</li>
+<li><p><strong>多线程</strong>: 现代操作系统支持多线程，这使得一个进程可以同时执行多个任务，从而提高效率。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250831021737679.png" alt="image.png"></p>
+<ul>
+<li><strong>实际应用</strong>:</li>
+</ul>
+<p> <strong>任务管理器</strong>: 通过 Windows 的任务管理器，我们可以看到系统中正在运行的程序和相关的进程。例如，一个浏览器程序（如 Chrome）在运行时可能会有多个进程。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250831021012423.png" alt="image.png"> </p>
+<p><strong>Process Explorer</strong>: 使用“Process Explorer”工具，通过它可以看到每个进程下具体有哪些线程在运行，这对于理解程序的内部工作机制非常有帮助。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250831021121642.png" alt="image.png"></p>
+<h1 id="每个进程之所以会“以为自己占着独一份内存”"><a href="#每个进程之所以会“以为自己占着独一份内存”" class="headerlink" title="每个进程之所以会“以为自己占着独一份内存”"></a>每个进程之所以会“以为自己占着独一份内存”</h1><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250831022725451.png" alt="image.png"></p>
+<p>这是一个非常好的问题，它触及了操作系统中一个非常核心且巧妙的设计：<strong>虚拟内存（Virtual Memory）</strong>。</p>
+<h2 id="为什么需要虚拟内存？"><a href="#为什么需要虚拟内存？" class="headerlink" title="为什么需要虚拟内存？"></a>为什么需要虚拟内存？</h2><p>想象一下，你的电脑内存（物理内存，也就是 RAM）是有限的，上面同时跑着几十个甚至上百个进程。如果没有隔离，会发生什么？</p>
+<ul>
+<li><p><strong>混乱和崩溃</strong>: 两个进程可能会不小心读写到同一块内存区域，一个进程的数据可能会被另一个进程意外修改，导致整个系统崩溃。</p>
+</li>
+<li><p><strong>不安全</strong>: 恶意程序可以轻易地访问和窃取其他程序的敏感数据。</p>
+</li>
+</ul>
+<p>为了解决这些问题，操作系统引入了虚拟内存的概念，它提供了两个主要的好处：</p>
+<ol>
+<li><p><strong>安全隔离</strong>: 每个进程都生活在自己独立的“虚拟世界”里，无法直接看到或访问其他进程的内存。这极大地提高了系统的稳定性和安全性。</p>
+</li>
+<li><p><strong>简化编程</strong>: 程序员在写程序时，不用关心内存的实际物理地址，也不用担心和其他程序产生冲突。他们可以假定自己的程序拥有一个巨大、连续且独立的内存空间。</p>
+</li>
+</ol>
+<hr>
+<h2 id="它是如何实现的？"><a href="#它是如何实现的？" class="headerlink" title="它是如何实现的？"></a>它是如何实现的？</h2><p>操作系统就像一个非常聪明的“内存管理员”，它在硬件的帮助下完成了这个魔术：</p>
+<ol>
+<li><p><strong>分配虚拟地址</strong>: 当一个进程启动时，操作系统会给它分配一个巨大的<strong>虚拟地址空间</strong>。这个空间是<strong>独有</strong>的，每个进程的虚拟地址都是从 0 开始的。</p>
+</li>
+<li><p><strong>地址映射</strong>: 操作系统和内存管理单元（MMU）一起，在后台维护一个叫做**页表（Page Table）**的映射表。这个表的作用就像一本字典，记录了进程虚拟地址和物理内存地址之间的对应关系。</p>
+</li>
+<li><p><strong>按需转换</strong>: 每当进程要访问一个虚拟地址时，硬件会自动查阅页表，将这个虚拟地址<strong>实时地</strong>转换成物理内存中的实际地址。</p>
+</li>
+</ol>
+<h1 id="CPU与线程之间的关系"><a href="#CPU与线程之间的关系" class="headerlink" title="CPU与线程之间的关系"></a>CPU与线程之间的关系</h1><p>操作系统通过极快的“切换”速度，让线程误以为自己一直在独占 CPU，但实际上，CPU 在不断地在不同的线程之间进行高速切换。</p>
+<p>这里涉及到两个非常重要的概念：<strong>时间片（Time Slice）<strong>和</strong>上下文切换（Context Switching）</strong>。</p>
+<h2 id="1-时间片（Time-Slice）"><a href="#1-时间片（Time-Slice）" class="headerlink" title="1. 时间片（Time Slice）"></a>1. 时间片（Time Slice）</h2><p>计算机中的 CPU 运行速度非常快，以毫秒（ms）甚至微秒（µs）为单位。操作系统给每个“就绪”的线程分配一个很短的 CPU 使用时间，这个时间段就叫做<strong>时间片</strong>。</p>
+<ul>
+<li><p>当一个线程的时间片用完后，操作系统就会中断它。</p>
+</li>
+<li><p>然后，操作系统会立即将 CPU 的控制权交给下一个等待运行的线程，让它开始执行。</p>
+</li>
+<li><p>这个过程周而复始，在极短的时间内不断重复。</p>
+</li>
+</ul>
+<h2 id="2-上下文切换（Context-Switching）"><a href="#2-上下文切换（Context-Switching）" class="headerlink" title="2. 上下文切换（Context Switching）"></a>2. 上下文切换（Context Switching）</h2><p>“上下文切换”就是指操作系统在中断一个线程的执行，并转而执行另一个线程时所做的工作。</p>
+<p>这个过程包括：</p>
+<ul>
+<li><p><strong>保存</strong>当前正在运行线程的状态（例如，它执行到哪一步了，寄存器里的数据是什么等等）。</p>
+</li>
+<li><p><strong>加载</strong>下一个要执行的线程的状态。</p>
+</li>
+</ul>
+<p>这个保存和加载的过程非常迅速，通常只需要几微秒。</p>
+<h2 id="并行（Parallelism）与并发（Concurrency）"><a href="#并行（Parallelism）与并发（Concurrency）" class="headerlink" title="并行（Parallelism）与并发（Concurrency）"></a>并行（Parallelism）与并发（Concurrency）</h2><ul>
+<li><p><strong>并发（Concurrency）</strong>: 是指一个<strong>单核CPU</strong>通过时间片轮转，在不同线程之间高速切换，从而在<strong>宏观上</strong>看起来像是在同时执行多个任务。这是一种“伪同时”。</p>
+</li>
+<li><p><strong>并行（Parallelism）</strong>: 是指在<strong>多核CPU</strong>上，不同的核心<strong>真正地在同一时刻</strong>同时执行不同的线程。这是一种<strong>真正的同时</strong>执行。</p>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250831022258533.png" alt="image.png"></p>
+<p>那张图画了多个独立的 CPU 方框，这代表了一个拥有**多个核心（Multi-core）**的处理器系统。</p>
+<p>在这种多核系统中：</p>
+<ol>
+<li><p><strong>操作系统内核</strong>可以将不同的线程同时分配给不同的 CPU 核心去执行。</p>
+</li>
+<li><p>比如，在同一瞬间，<strong>线程1</strong>在<strong>CPU核心1</strong>上运行，而<strong>线程2</strong>在<strong>CPU核心2</strong>上运行。这两个线程就是<strong>并行</strong>地在执行。</p>
+</li>
+<li><p>如果还有更多的线程（比如线程3、线程4），而核心都已经被占用了，那么内核就会在每个核心上，利用我们之前说的<strong>时间片轮转</strong>来切换线程，从而实现<strong>并发</strong>。</p>
+</li>
+</ol>
+<h1 id="IPC（进程间通信）"><a href="#IPC（进程间通信）" class="headerlink" title="IPC（进程间通信）"></a>IPC（<strong>进程间通信</strong>）</h1><p><strong>IPC</strong> 是 <strong>Inter-Process Communication</strong> 的缩写</p>
+<p>简单来说，IPC 是指在计算机操作系统中，不同<strong>进程</strong>之间进行数据交换和通信的机制。</p>
+<h3 id="为什么需要-IPC？"><a href="#为什么需要-IPC？" class="headerlink" title="为什么需要 IPC？"></a>为什么需要 IPC？</h3><p>为了系统的安全和稳定，操作系统会为每个正在运行的进程分配独立的内存空间。这意味着一个进程无法直接访问另一个进程的数据，这就像是住在不同公寓的两个人无法直接进入对方的房间。</p>
+<p>然而，在许多应用场景中，不同的进程需要相互协作、共享信息或同步状态，才能完成复杂的任务。IPC 机制就是为了解决这个问题而存在的，它提供了多种“交流渠道”，让这些彼此隔离的进程能够安全、有序地进行通信。</p>
+<h3 id="常见的-IPC-机制"><a href="#常见的-IPC-机制" class="headerlink" title="常见的 IPC 机制"></a>常见的 IPC 机制</h3><p>IPC 提供了多种方法，每种方法都有其特定的用途和优缺点。以下是一些最常见的方式：</p>
+<ul>
+<li><p>管道（Pipes）</p>
+<p>  这是最古老、也最简单的通信方式之一，就像一个单向的水管。数据只能从一端流入，从另一端流出。它通常用于亲缘关系进程（如父子进程）之间的通信。</p>
+</li>
+<li><p>消息队列（Message Queues）</p>
+<p>  这是一种比管道更灵活的通信方式。进程可以将数据格式化为一条条消息，放入队列中；另一个进程则可以按需从队列中读取消息。消息队列可以像邮箱一样存储消息，直到接收进程准备好处理为止。</p>
+</li>
+<li><p>共享内存（Shared Memory）</p>
+<p>  这是最快、最高效的 IPC 方式。多个进程可以访问同一块内存区域。这就像是多个同事共同使用一块白板，可以同时读写上面的信息，因此数据交换速度极快。但需要注意的是，由于多个进程可以同时读写，必须配合信号量等同步机制，以避免数据混乱。</p>
+</li>
+<li><p>套接字（Sockets）</p>
+<p>  套接字是一种更通用的通信机制，它不仅可以用于同一台机器上不同进程之间的通信，还可以用于网络上不同机器之间的通信。它是构建分布式应用的基础，例如我们日常使用的网络浏览器和服务器就是通过套接字进行通信的。</p>
+</li>
+</ul>
+
+        
+      </div>
+
+         
+    </div>
+    
+     
+  </div>
+  
+    
+<nav id="article-nav">
+  <a class="article-nav-btn left  disabled "
+     >
+    <i class="fa-solid fa-angle-left"></i>
+    <p class="title-text">
+        
+    </p>
+  </a>
+  <a class="article-nav-btn right "
+    
+      href="/2025/08/28/gemini%202.5%20flash%20Image%20-preview/"
+      title="gemini 2.5 flash Image -preview"
+     >
+
+    <p class="title-text">
+      
+        gemini 2.5 flash Image -preview
+        
+    </p>
+    <i class="fa-solid fa-angle-right"></i>
+  </a>
+</nav>
+
+
+  
+</article>
+
+
+
+
+
+    </div>
+    <div id="footer-wrapper">
+      <footer id="footer">
+  
+  <div id="footer-info" class="inner">
+    
+    &copy; 2025 Justin<br>
+    Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & Theme <a target="_blank" rel="noopener" href="https://github.com/saicaca/hexo-theme-vivia">Vivia</a>
+  </div>
+</footer>
+
+    </div>
+    <div class="back-to-top-wrapper">
+    <button id="back-to-top-btn" class="back-to-top-btn hide" onclick="topFunction()">
+        <i class="fa-solid fa-angle-up"></i>
+    </button>
+</div>
+
+<script>
+    function topFunction() {
+        window.scroll({ top: 0, behavior: 'smooth' });
+    }
+    let btn = document.getElementById('back-to-top-btn');
+    function scrollFunction() {
+        if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+            btn.classList.remove('hide')
+        } else {
+            btn.classList.add('hide')
+        }
+    }
+    window.onscroll = function() {
+        scrollFunction();
+    }
+</script>
+
+  </div>
+  <script src="/js/light-dark-switch.js"></script>
+</body>
+</html>
