@@ -14,22 +14,27 @@
   
 
   
-  <title>目录: 机器学习 | Justin的技术博客</title>
+  <title>Pandas-SeriesDataFrame | Justin的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
   <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
-  <meta name="description" content="专注AI&#x2F;ML&#x2F;DL、量化交易、技术分享的个人博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Justin的技术博客">
-<meta property="og:url" content="https://jayli19707.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/page/2/index.html">
+  <meta name="description" content="Panel datapandas &#x3D; “Panel data” (面板数据)。 它指的是：对多个研究对象（如个人、公司、国家等）在多个时间点上进行观测的数据集合。换句话说，面板数据同时具有 横截面维度（不同个体）和 时间序列维度（不同时间），因此也称 纵向数据（longitudinal data）。 Series在 pandas 里，Series 对象确实支持 布尔索引（boolean inde">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Pandas-SeriesDataFrame">
+<meta property="og:url" content="https://jayli19707.github.io/2025/09/08/Pandas-SeriesDataFrame/index.html">
 <meta property="og:site_name" content="Justin的技术博客">
-<meta property="og:description" content="专注AI&#x2F;ML&#x2F;DL、量化交易、技术分享的个人博客">
+<meta property="og:description" content="Panel datapandas &#x3D; “Panel data” (面板数据)。 它指的是：对多个研究对象（如个人、公司、国家等）在多个时间点上进行观测的数据集合。换句话说，面板数据同时具有 横截面维度（不同个体）和 时间序列维度（不同时间），因此也称 纵向数据（longitudinal data）。 Series在 pandas 里，Series 对象确实支持 布尔索引（boolean inde">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250908174236531.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250908174024325.png">
+<meta property="article:published_time" content="2025-09-08T09:43:21.000Z">
+<meta property="article:modified_time" content="2025-09-08T09:43:32.210Z">
 <meta property="article:author" content="Justin">
 <meta property="article:tag" content="人工智能,机器学习,深度学习,量化交易,Python,技术博客">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250908174236531.png">
   
     <link rel="alternate" href="/atom.xml" title="Justin的技术博客" type="application/atom+xml">
   
@@ -46,7 +51,119 @@
   
 <link rel="stylesheet" href="/css/style.css">
 
-<meta name="generator" content="Hexo 7.3.0"></head>
+<meta name="generator" content="Hexo 7.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
 
 <body>
   
@@ -239,177 +356,194 @@
     <div id="content-body">
        
 
-<div class="archive-main-card">
-    <div class="archive-top">
-      <div class="main-title-bar">
-        <div class="main-title-dot"></div>
-        <h1 class="article-title">归档</h1>
-      </div>    
+
+<article id="post-Pandas-SeriesDataFrame" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 class="p-name article-title" itemprop="headline name">
+        Pandas-SeriesDataFrame
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2025-09-08T09:43:21.000Z" itemprop="datePublished">2025-09-08</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/">计算机</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            1.9k 词 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250908174236531.png" alt="image.png"></p>
+<h1 id="Panel-data"><a href="#Panel-data" class="headerlink" title="Panel data"></a>Panel data</h1><p>pandas = “Panel data” (<strong>面板数据</strong>)。</p>
+<p>它指的是：对多个研究对象（如个人、公司、国家等）在多个时间点上进行观测的数据集合。换句话说，面板数据同时具有 <strong>横截面维度</strong>（不同个体）和 <strong>时间序列维度</strong>（不同时间），因此也称 <strong>纵向数据（longitudinal data）</strong>。</p>
+<h1 id="Series"><a href="#Series" class="headerlink" title="Series"></a>Series</h1><p>在 <strong>pandas</strong> 里，<code>Series</code> 对象确实支持 <strong>布尔索引（boolean indexing）</strong>。原理是：当你对 <code>Series</code> 执行一个逻辑判断（例如 <code>&lt; 2000</code>），它会返回一个与该 <code>Series</code> 等长的布尔序列（<code>True/False</code>），然后你可以用这个布尔序列去筛选数据。</p>
+<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="comment"># 构造一个 Series</span></span><br><span class="line">s = pd.Series([<span class="number">1500</span>, <span class="number">1800</span>, <span class="number">2100</span>, <span class="number">2500</span>, <span class="number">3000</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 比较操作：小于2000</span></span><br><span class="line">mask = s &lt; <span class="number">2000</span></span><br><span class="line"><span class="built_in">print</span>(mask)</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">0     True</span><br><span class="line">1     True</span><br><span class="line">2    False</span><br><span class="line">3    False</span><br><span class="line">4    False</span><br><span class="line">dtype: bool</span><br></pre></td></tr></table></figure>
+
+<p>此时 <code>mask</code> 就是一个布尔 <code>Series</code>。</p>
+<p>再把它作为索引传回去：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">filtered = s[mask]</span><br><span class="line"><span class="built_in">print</span>(filtered)</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">0    1500</span><br><span class="line">1    1800</span><br><span class="line">dtype: int64</span><br></pre></td></tr></table></figure>
+
+<h3 id="一步到位写法"><a href="#一步到位写法" class="headerlink" title="一步到位写法"></a>一步到位写法</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">filtered = s[s &lt; <span class="number">2000</span>]</span><br></pre></td></tr></table></figure>
+
+<p>结果同上，直接返回所有小于 2000 的元素。</p>
+<h1 id="DataFrame"><a href="#DataFrame" class="headerlink" title="DataFrame"></a>DataFrame</h1><h2 id="1-加行（row-wise-append）"><a href="#1-加行（row-wise-append）" class="headerlink" title="1. 加行（row-wise append）"></a>1. 加行（row-wise append）</h2><ul>
+<li><p><strong>本质</strong>：在 <strong>纵向（index 方向）</strong> 增加数据。</p>
+</li>
+<li><p><strong>索引扩展</strong>：新行会有一个新的 <strong>index</strong>，需要与现有列的数量和顺序保持一致。</p>
+</li>
+<li><p><strong>常用方法</strong>：</p>
+<ul>
+<li><p><code>df.loc[new_index] = [value1, value2, ...]</code></p>
+</li>
+<li><p><code>df.append(new_row, ignore_index=True)</code>（新版本推荐 <code>pd.concat</code>）</p>
+</li>
+</ul>
+</li>
+<li><p><strong>场景</strong>：比如你要往学生成绩表里加一个新同学的数据。</p>
+</li>
+</ul>
+<p><strong>例子</strong>：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">df = pd.DataFrame({<span class="string">"Name"</span>: [<span class="string">"Alice"</span>, <span class="string">"Bob"</span>], <span class="string">"Score"</span>: [<span class="number">85</span>, <span class="number">90</span>]})</span><br><span class="line"><span class="built_in">print</span>(df)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加行</span></span><br><span class="line">df.loc[<span class="number">2</span>] = [<span class="string">"Charlie"</span>, <span class="number">88</span>]</span><br><span class="line"><span class="built_in">print</span>(df)</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250908174024325.png" alt="image.png"></p>
+<hr>
+<h2 id="2-加列（column-wise-add）"><a href="#2-加列（column-wise-add）" class="headerlink" title="2. 加列（column-wise add）"></a>2. 加列（column-wise add）</h2><ul>
+<li><p><strong>本质</strong>：在 <strong>横向（columns 方向）</strong> 增加数据。</p>
+</li>
+<li><p><strong>列名扩展</strong>：新列会有一个新的 <strong>column name</strong>，其长度必须与行数相同（或是一个标量自动广播）。</p>
+</li>
+<li><p><strong>常用方法</strong>：</p>
+<ul>
+<li><p><code>df["NewCol"] = [...]</code></p>
+</li>
+<li><p><code>df.insert(position, "NewCol", data)</code></p>
+</li>
+</ul>
+</li>
+<li><p><strong>场景</strong>：比如在成绩表里加一列 “班级”。</p>
+</li>
+</ul>
+<p><strong>例子</strong>：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 加列</span></span><br><span class="line">df[<span class="string">"Class"</span>] = [<span class="string">"A"</span>, <span class="string">"A"</span>, <span class="string">"B"</span>]</span><br><span class="line"><span class="built_in">print</span>(df)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="3-区别总结"><a href="#3-区别总结" class="headerlink" title="3. 区别总结"></a>3. 区别总结</h2><ul>
+<li><strong>方向不同</strong>：加行 → 扩展 <strong>index</strong>；加列 → 扩展 <strong>columns</strong>。</li>
+</ul>
+<h1 id="Selection"><a href="#Selection" class="headerlink" title="Selection"></a>Selection</h1><p>在 <strong>Pandas</strong> 中，数据选择方式主要有以下几类，可以根据需求灵活使用：</p>
+<ol>
+<li><p><strong>按列名选择</strong></p>
+<ul>
+<li><p>直接通过列名索引：<code>df["col"]</code> 或 <code>df[["col1", "col2"]]</code></p>
+</li>
+<li><p>适合快速获取某一列或多列数据。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>按行标签选择（<code>.loc</code>）</strong></p>
+<ul>
+<li><p>用法：<code>df.loc[行标签, 列标签]</code></p>
+</li>
+<li><p>可以通过 <strong>行/列的名称</strong> 来选取数据。</p>
+</li>
+<li><p>例子：</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df.loc[<span class="string">"row1"</span>, <span class="string">"col1"</span>]       <span class="comment"># 取单个元素</span></span><br><span class="line">df.loc[<span class="string">"row1"</span>, [<span class="string">"col1"</span>,<span class="string">"col2"</span>]]  <span class="comment"># 取一行的多个列</span></span><br><span class="line">df.loc[[<span class="string">"row1"</span>,<span class="string">"row2"</span>], :]   <span class="comment"># 取多行所有列</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><strong>按整数位置选择（<code>.iloc</code>）</strong></p>
+<ul>
+<li><p>用法：<code>df.iloc[行位置, 列位置]</code></p>
+</li>
+<li><p>完全基于 <strong>行号/列号的整数下标</strong>。</p>
+</li>
+<li><p>例子：</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df.iloc[<span class="number">0</span>, <span class="number">1</span>]        <span class="comment"># 第一行第二列</span></span><br><span class="line">df.iloc[<span class="number">0</span>:<span class="number">3</span>, :]      <span class="comment"># 前三行所有列</span></span><br><span class="line">df.iloc[:, [<span class="number">0</span>, <span class="number">2</span>]]   <span class="comment"># 所有行的第1和第3列</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><strong>布尔索引</strong></p>
+<ul>
+<li><p>用条件筛选：<code>df[df["col"] &gt; 2000]</code></p>
+</li>
+<li><p>可以与 <code>.loc</code> 结合：<code>df.loc[df["score"] &gt; 90, "name"]</code></p>
+</li>
+</ul>
+</li>
+<li><p><strong>混合选择</strong></p>
+<ul>
+<li><code>.loc</code> 和 <code>.iloc</code> 可以和布尔条件/切片组合使用，非常灵活。</li>
+</ul>
+</li>
+</ol>
+
+        
+      </div>
+
+         
     </div>
     
-    
-      
-      
-        
-        <div class="year-line">
-            <div class="year-num">2025</div>
-            <div class="dot-wrapper">
-                <div class="dot"></div>
-            </div>
-            <div class="article-count">8 篇文章</div>
-        </div>
-      
-      <a class="archive-article-link" href="/2025/07/22/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E8%B6%85%E8%B6%8A%E7%BA%BF%E6%80%A7%EF%BC%8C%E8%BF%88%E5%90%91%E6%B7%B1%E5%BA%A6/" title="深度学习-超越线性，迈向深度">
-        <div class="date">07-22</div>
-        <div class="line">
-            <div class="dot"></div>
-        </div>
-        <div class="title">
-            <div class="title-inner">
-                
-                    深度学习-超越线性，迈向深度
-                
-            </div>
-        </div>
-        <div class="tags">
-            
-        </div>
-      </a>
-    
-      
-      
-      <a class="archive-article-link" href="/2025/07/17/Datawhale-%E4%BA%8C%E5%88%86%E7%B1%BB%E4%BB%BB%E5%8A%A1/" title="Datawhale-二分类任务">
-        <div class="date">07-17</div>
-        <div class="line">
-            <div class="dot"></div>
-        </div>
-        <div class="title">
-            <div class="title-inner">
-                
-                    Datawhale-二分类任务
-                
-            </div>
-        </div>
-        <div class="tags">
-            #二分类 #特征工程
-        </div>
-      </a>
-    
-      
-      
-      <a class="archive-article-link" href="/2025/07/17/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%20ChatGPT/" title="机器学习-深入理解 ChatGPT">
-        <div class="date">07-17</div>
-        <div class="line">
-            <div class="dot"></div>
-        </div>
-        <div class="title">
-            <div class="title-inner">
-                
-                    机器学习-深入理解 ChatGPT
-                
-            </div>
-        </div>
-        <div class="tags">
-            
-        </div>
-      </a>
-    
-      
-      
-      <a class="archive-article-link" href="/2025/07/07/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" title="数学建模">
-        <div class="date">07-07</div>
-        <div class="line">
-            <div class="dot"></div>
-        </div>
-        <div class="title">
-            <div class="title-inner">
-                
-                    数学建模
-                
-            </div>
-        </div>
-        <div class="tags">
-            #临近算子 #凸函数
-        </div>
-      </a>
-    
-      
-      
-      <a class="archive-article-link" href="/2025/06/23/%E6%89%B9%E6%AC%A1%EF%BC%88Batch%EF%BC%89%E4%B8%8E%E5%8A%A8%E9%87%8F%EF%BC%88Momentum%EF%BC%89/" title="机器学习--批次（Batch）与动量（Momentum）">
-        <div class="date">06-23</div>
-        <div class="line">
-            <div class="dot"></div>
-        </div>
-        <div class="title">
-            <div class="title-inner">
-                
-                    机器学习--批次（Batch）与动量（Momentum）
-                
-            </div>
-        </div>
-        <div class="tags">
-            #Batch
-        </div>
-      </a>
-    
-      
-      
-      <a class="archive-article-link" href="/2025/06/16/%E5%A4%9A%E9%87%8D%E5%85%B1%E7%BA%BF%E6%80%A7/" title="主成次分析">
-        <div class="date">06-16</div>
-        <div class="line">
-            <div class="dot"></div>
-        </div>
-        <div class="title">
-            <div class="title-inner">
-                
-                    主成次分析
-                
-            </div>
-        </div>
-        <div class="tags">
-            
-        </div>
-      </a>
-    
-      
-      
-      <a class="archive-article-link" href="/2025/06/12/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/" title="线性回归">
-        <div class="date">06-12</div>
-        <div class="line">
-            <div class="dot"></div>
-        </div>
-        <div class="title">
-            <div class="title-inner">
-                
-                    线性回归
-                
-            </div>
-        </div>
-        <div class="tags">
-            #线性回归
-        </div>
-      </a>
-    
-      
-      
-      <a class="archive-article-link" href="/2025/06/08/LSTM%E9%87%91%E8%9E%8D%E9%A2%84%E6%B5%8B%E7%9A%84%E9%99%B7%E9%98%B1%E4%B8%8E%E5%AE%9E%E8%B7%B5/" title="LSTM金融预测的陷阱与实践">
-        <div class="date">06-08</div>
-        <div class="line">
-            <div class="dot"></div>
-        </div>
-        <div class="title">
-            <div class="title-inner">
-                
-                    LSTM金融预测的陷阱与实践
-                
-            </div>
-        </div>
-        <div class="tags">
-            #LSTM #Quant
-        </div>
-      </a>
-    
+     
   </div>
+  
+    
+<nav id="article-nav">
+  <a class="article-nav-btn left  disabled "
+     >
+    <i class="fa-solid fa-angle-left"></i>
+    <p class="title-text">
+        
+    </p>
+  </a>
+  <a class="article-nav-btn right "
+    
+      href="/2025/09/08/SME-Econometrics/"
+      title="SME-Econometrics"
+     >
+
+    <p class="title-text">
+      
+        SME-Econometrics
+        
+    </p>
+    <i class="fa-solid fa-angle-right"></i>
+  </a>
+</nav>
+
+
+  
+</article>
+
+
+
+
+
     </div>
     <div id="footer-wrapper">
       <footer id="footer">

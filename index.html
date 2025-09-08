@@ -282,7 +282,7 @@ mjx-container[display="true"] + br {
       <div class="category-box">
             <a class="category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
                 计算机
-                <div class="category-count">3</div>
+                <div class="category-count">4</div>
             </a>
         
             <a class="category-link" href="/categories/Leetcode/">
@@ -350,6 +350,83 @@ mjx-container[display="true"] + br {
     </div>
     <div id="content-body">
       
+   
+
+
+<article id="post-Pandas-SeriesDataFrame" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2025/09/08/Pandas-SeriesDataFrame/">Pandas-SeriesDataFrame</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2025-09-08T09:43:21.000Z" itemprop="datePublished">2025-09-08</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/">计算机</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            1.9k 词 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              
+Panel datapandas = “Panel data” (面板数据)。
+它指的是：对多个研究对象（如个人、公司、国家等）在多个时间点上进行观测的数据集合。换句话说，面板数据同时具有 横截面维度（不同个体）和 时间序列维度（不同时间），因此也称 纵向数据（longitudinal data）。
+Series在 pandas 里，Series 对象确实支持 布尔索引（boolean indexing）。原理是：当你对 Series 执行一个逻辑判断（例如 &lt; 2000），它会返回一个与该 Series 等长的布尔序列（True/False），然后你可以用这个布尔序列去筛选数据。
+例子12345678import pandas as pd# 构造一个 Seriess = pd.Series([1500, 1800, 2100, 2500, 3000])# 比较操作：小于2000mask = s &lt; 2000print(mask)
+
+输出：
+1234560     True1     True2    False3    False4    Falsedtype: ...
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2025/09/08/Pandas-SeriesDataFrame/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
    
 
 
@@ -1130,94 +1207,6 @@ x 是序列里的元素。
     <a class="right-panel  non-pic  "
       
       href="/2025/08/20/Makemore%E9%A1%B9%E7%9B%AE%E6%8B%86%E8%A7%A3/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-   
-
-
-<article id="post-机器学习概念(面试题库)" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/08/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5(%E9%9D%A2%E8%AF%95%E9%A2%98%E5%BA%93)/">机器学习概念(面试题库)</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2025-08-19T10:48:31.000Z" itemprop="datePublished">2025-08-19</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            9.2k 词 
-          </div>
-        </div>
-        
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            
-              
-问题1：机器学习的基本分类有哪些？监督学习、无监督学习、半监督学习与强化学习有何区别。机器学习的基本分类主要有 监督学习、无监督学习、半监督学习和强化学习。它们的区别可以从 是否有标注数据、学习目标、训练方式 三个角度理解：
-1. 监督学习（Supervised Learning）- **数据特点**：训练数据包含输入 $X$ 和对应的**输出标签 $Y$**。
-    
-- **目标**：学习一个映射函数 $f:X→Y$，使得预测值尽可能接近真实标签。
-    
-- **典型任务**：分类（如垃圾邮件识别）、回归（如房价预测）。
-    
-- **核心思想**：通过大量“输入-输出”示例来学习规律。
-    
-
-2. 无监督学习（Unsupervised Learning）- **数据特点**：只有输入数据 $X$，没有标签 $Y$。
-    
-- **目标**：发现数据内部的结构或模式。
-    
-- **典型任务**：聚类（如用户分群）、降维（如主成分分析 PCA）。
-    
-- **核心思想**：通过**数据自身的相似性或分布规律来理解结构**，而不依赖标签。
-   ...
-            
-          </div>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2025/08/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5(%E9%9D%A2%E8%AF%95%E9%A2%98%E5%BA%93)/" 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>
