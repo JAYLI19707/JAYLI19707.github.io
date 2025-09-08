@@ -322,7 +322,7 @@ mjx-container[display="true"] + br {
         
             <a class="category-link" href="/categories/%E6%95%B0%E5%AD%A6/">
                 数学
-                <div class="category-count">3</div>
+                <div class="category-count">4</div>
             </a>
         
             <a class="category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
@@ -350,6 +350,103 @@ mjx-container[display="true"] + br {
     </div>
     <div id="content-body">
       
+   
+
+
+<article id="post-SME-Econometrics" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2025/09/08/SME-Econometrics/">SME-Econometrics</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2025-09-08T03:48:47.000Z" itemprop="datePublished">2025-09-08</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E6%95%B0%E5%AD%A6/">数学</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            1.3k 词 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              数据的来源
+Experimental data and non-experimental data实验数据（experimental data）
+非实验数据（non-experimental / observational data）
+1. 数据获取方式
+实验数据：研究者可以主动操控自变量（比如设置不同的处理组/对照组），然后观察因变量的反应。
+
+例子：在实验室里控制肥料用量，比较作物产量差异。
+
+
+非实验数据：研究者不能操控自变量，只能记录现实中自然发生的数据。
+
+例子：统计不同收入家庭的消费水平，但无法人为随机分配“收入高低”。
+
+
+
+2. 可重复性
+实验数据：可以在相同条件下反复试验，保证结果的可验证性。
+
+非实验数据：条件不可控，通常不可重复，只能依赖统计方法去控制偏差。
+
+
+Regression 来源（种子）
+the offspring of larger than average size parents tended to be smaller than their parents
+
+翻译：比平均值更大的父母的后代，往往比父母小一些。
+
+
+the offspring...
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2025/09/08/SME-Econometrics/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
    
 
 
@@ -1121,99 +1218,6 @@ x 是序列里的元素。
     <a class="right-panel  non-pic  "
       
       href="/2025/08/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5(%E9%9D%A2%E8%AF%95%E9%A2%98%E5%BA%93)/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-   
-
-
-<article id="post-反向传播" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/08/18/%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD/">反向传播</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2025-08-17T21:01:52.000Z" itemprop="datePublished">2025-08-18</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            7.7k 词 
-          </div>
-        </div>
-        
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            
-              通过从零构建一个名为micrograd的微型自动求导引擎，来深入、直观地理解神经网络的训练核心——反向传播算法。
-第一阶段：核心概念与导数直观理解
-Micrograd 简介:
-
-它是一个自动梯度（Autograd）引擎，其核心功能是实现反向传播（Backpropagation）。
-
-反向传播是高效计算损失函数相对于神经网络所有权重和偏置的梯度（Derivatives）的算法。梯度指明了调整参数以减小损失的方向。
-
-这是 PyTorch、JAX 等现代深度学习框架的数学核心。
-
-
-
-核心演示:
-
-Value对象：micrograd中的基本数据单元，可以构建数学表达式图。
-
-前向传播 (Forward Pass)：从输入开始，通过计算图计算出最终的输出值。
-
-反向传播 (Backward Pass)：在最终输出上调用.backward()，micrograd会自动、递归地应用链式法则（Chain Rule），计算出最终输出对每一个输入和中间变量的梯度。
-
-
-
-
-12345678910111213141516171819202122232425262728293031323334353...
-            
-          </div>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2025/08/18/%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD/" 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>

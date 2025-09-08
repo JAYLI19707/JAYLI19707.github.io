@@ -322,7 +322,7 @@ mjx-container[display="true"] + br {
         
             <a class="category-link" href="/categories/%E6%95%B0%E5%AD%A6/">
                 数学
-                <div class="category-count">3</div>
+                <div class="category-count">4</div>
             </a>
         
             <a class="category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
@@ -350,6 +350,99 @@ mjx-container[display="true"] + br {
     </div>
     <div id="content-body">
       
+   
+
+
+<article id="post-反向传播" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2025/08/18/%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD/">反向传播</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2025-08-17T21:01:52.000Z" itemprop="datePublished">2025-08-18</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            7.7k 词 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              通过从零构建一个名为micrograd的微型自动求导引擎，来深入、直观地理解神经网络的训练核心——反向传播算法。
+第一阶段：核心概念与导数直观理解
+Micrograd 简介:
+
+它是一个自动梯度（Autograd）引擎，其核心功能是实现反向传播（Backpropagation）。
+
+反向传播是高效计算损失函数相对于神经网络所有权重和偏置的梯度（Derivatives）的算法。梯度指明了调整参数以减小损失的方向。
+
+这是 PyTorch、JAX 等现代深度学习框架的数学核心。
+
+
+
+核心演示:
+
+Value对象：micrograd中的基本数据单元，可以构建数学表达式图。
+
+前向传播 (Forward Pass)：从输入开始，通过计算图计算出最终的输出值。
+
+反向传播 (Backward Pass)：在最终输出上调用.backward()，micrograd会自动、递归地应用链式法则（Chain Rule），计算出最终输出对每一个输入和中间变量的梯度。
+
+
+
+
+12345678910111213141516171819202122232425262728293031323334353...
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2025/08/18/%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
    
 
 
@@ -1072,82 +1165,6 @@ TTM 净利润=280+270+300+260=1110 亿美元
     <a class="right-panel  non-pic  "
       
       href="/2025/08/09/Leetcode-19.%20%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%AC%20N%20%E4%B8%AA%E7%BB%93%E7%82%B9/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-   
-
-
-<article id="post-神经网络-local minima and saddle point" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/08/09/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C-local%20minima%20and%20saddle%20point/">神经网络-local minima and saddle point</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2025-08-09T09:45:51.000Z" itemprop="datePublished">2025-08-09</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            1.7k 词 
-          </div>
-        </div>
-        
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            
-              当损失函数（Loss）不再下降时
-训练模型时最常遇到的问题：当损失函数（Loss）不再下降时，我们该怎么办？
-通常，我们的第一反应是认为模型走到了一个“临界点”（Critical Point），比如局部最小值（Local Minima）或鞍点（Saddle Point），在这些点上梯度为零，模型无法再更新。
-然而，老师指出，这其实是一种误解。在实际的高维复杂模型中，Loss不再下降，但梯度（Gradient）的模长（Norm）可能依然非常大。这意味着参数的更新步伐并没有停止，模型并非“卡”在一个点上。真正的原因更可能是在一个狭长的“山谷”地带，模型在谷底的两侧来回震荡，虽然每一步都在更新，但宏观上Loss值却无法有效下降
-优化失败：不只是局部最小值当模型训练停滞，梯度下降算法无法继续更新参数时，我们通常会假设梯度（Gradient）已经接近于零。梯度为零的点被称为“关键点”（Critical Point），它主要分为两类：
-
-局部最小值 (Local Minima)：这是一个大家都很熟悉的概念。当模型走到一个点，其周围所有方向的损失都比当前点高时，这个点就是局部最小值。此时，模型...
-            
-          </div>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2025/08/09/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C-local%20minima%20and%20saddle%20point/" 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>
