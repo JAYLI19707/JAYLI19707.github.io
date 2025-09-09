@@ -322,7 +322,7 @@ mjx-container[display="true"] + br {
         
             <a class="category-link" href="/categories/%E6%95%B0%E5%AD%A6/">
                 数学
-                <div class="category-count">4</div>
+                <div class="category-count">5</div>
             </a>
         
             <a class="category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
@@ -350,6 +350,132 @@ mjx-container[display="true"] + br {
     </div>
     <div id="content-body">
       
+   
+
+
+<article id="post-SME-OLS" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2025/09/09/SME-OLS/">SME-OLS</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2025-09-09T09:36:00.000Z" itemprop="datePublished">2025-09-09</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E6%95%B0%E5%AD%A6/">数学</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            2.9k 词 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              OLS 三个式子真实值与残差 (residual)
+定义：
+  
+
+：第 i 个样本的真实观测值；
+
+：回归模型给出的预测值；
+
+：残差（residual），是“真实值 - 预测值”。
+
+
+
+
+总体模型（理论模型）
+形式：  
+：总体的真实参数（未知）；
+
+：随机误差项，捕捉未观测因素和随机性。
+
+
+
+
+这是 理想中的经济学/统计学关系，但参数和误差分布我们不知道。
+样本估计模型（回归方程）
+形式：
+  
+
+：由样本数据计算出来的 OLS 估计量（估计）；
+
+：预测值（fitted value）。
+
+
+
+
+ 在样本数据上估计出来的拟合直线。
+三者关系梳理
+总体模型（理论层面） 
+ ——描述数据的真实生成机制。
+
+样本模型（估计层面） 
+ ——用 OLS 得到的估计直线，代替未知的真实直线。
+
+残差（误差的样本体现） 
+ ——衡量预测值与观测值的差距。
+
+
+b和之间的联系二者的关系
+在统计学上,​ 和 是 ​ 的 无偏估计量：
+  
+
+这意味着：如果我们无限次重复抽样并每次计算​，它们的平均值会等于真实参数 。
+
+
+直观理解
+β：真理（总体直线），但我们看不见；
+
+b：猜测（样本直...
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2025/09/09/SME-OLS/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
    
 
 
@@ -1108,105 +1234,6 @@ C[X] 的运算
     <a class="right-panel  non-pic  "
       
       href="/2025/08/20/%E6%80%BB%E4%B9%B0%E5%9C%A8%E9%A1%B6%E7%82%B9/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-   
-
-
-<article id="post-Makemore项目拆解" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/08/20/Makemore%E9%A1%B9%E7%9B%AE%E6%8B%86%E8%A7%A3/">Makemore项目拆解</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2025-08-20T12:55:13.000Z" itemprop="datePublished">2025-08-20</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            8.5k 词 
-          </div>
-        </div>
-        
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            
-              Python与Pytorch1. enumerate作用：在 遍历一个序列 时，额外提供 元素的索引。
-语法：
-12for i, x in enumerate(sequence, start=0):    ...
-
-
-i 是索引（默认从 0 开始，可以用 start 改起始值）；
-
-x 是序列里的元素。
-
-
-例子：
-123chars = ['a', 'b', 'c']for i, ch in enumerate(chars):    print(i, ch)
-
-输出：
-1230 a1 b2 c
-
-用途：常用于 建立索引表（比如你代码里的 stoi），或者当你需要同时知道 位置 和 值 时。
-
-2. zip作用：把 多个可迭代对象（list/tuple/string等）里的元素 一一配对，返回元组。
-语法：
-12for x, y in zip(seq1, seq2):    ...
-
-
-第一个序列的第 k 个元素和第二个序列的第 k 个元素配成一对 (x, y)。
-
-会在最短的序列结束时停下。
-
-
-例子：
-1234a = [1, 2, 3]b = ['x', 'y', 'z']fo...
-            
-          </div>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2025/08/20/Makemore%E9%A1%B9%E7%9B%AE%E6%8B%86%E8%A7%A3/" 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>
