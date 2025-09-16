@@ -297,7 +297,7 @@ mjx-container[display="true"] + br {
         
             <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
                 机器学习
-                <div class="category-count">18</div>
+                <div class="category-count">19</div>
             </a>
         
             <a class="category-link" href="/categories/%E9%87%91%E8%9E%8D/">
@@ -355,6 +355,113 @@ mjx-container[display="true"] + br {
     </div>
     <div id="content-body">
       
+   
+
+
+<article id="post-MLP" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2025/08/26/MLP/">MLP</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2025-08-26T00:20:54.000Z" itemprop="datePublished">2025-08-26</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            9k 词 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              在 Embedding 里 dim 的意思dim 表示你操作的 维度索引。张量有很多维度（axis），dim 决定了你在哪个维度上做操作。
+举例：  
+1emb.shape = (32, 3, 2)
+
+这里 3 个维度的含义分别是：
+
+dim=0 → batch 维度（32 个样本）
+
+dim=1 → 序列长度（每个样本 3 个索引）
+
+dim=2 → embedding 向量维度（每个索引是 2 维）
+
+
+
+Embedding 查表 (Embedding Lookup)思路拆解
+X 的形状
+
+X.shape = (32, 3)
+
+含义：一共有 32 个样本（batch），每个样本里面有 3 个索引。
+
+
+
+C 的形状
+
+C.shape = (27, 2)
+
+含义：这是一个查找表（embedding table），一共有 27 行，每行是 2 维向量。
+
+
+
+C[X] 的运算
+
+对每个 X[i, j]，用它作为索引，去 C 里取对应的那一行（形状 (2,)）。
+
+所以一行 X [a, b, c] 会变成 C[[a, b, c]]，形状 (3, 2)。
+
+整个 32 个样本就堆叠起...
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2025/08/26/MLP/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
    
 
 
@@ -1123,72 +1230,6 @@ SELECT [表达式] AS [列名], [表达式] AS [列名]  这里 [表达式] 可�
     <a class="right-panel  non-pic  "
       
       href="/2025/08/14/SQL/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-   
-
-
-<article id="post-Leetcode-138. 复制带随机指针的链表" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/08/12/Leetcode-138.%20%E5%A4%8D%E5%88%B6%E5%B8%A6%E9%9A%8F%E6%9C%BA%E6%8C%87%E9%92%88%E7%9A%84%E9%93%BE%E8%A1%A8/">Leetcode-138. 复制带随机指针的链表</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2025-08-12T14:34:26.000Z" itemprop="datePublished">2025-08-12</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/Leetcode/">Leetcode</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            1.2k 词 
-          </div>
-        </div>
-        
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <p>我们用哈希表来解决这个问题<br>首先创建一个哈希表，再遍历原链表，遍历的同时再不断创建新节点<br>我们将原节点作为<strong>key</strong>，新节点作为<strong>value</strong>放入哈希表中</p>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2025/08/12/Leetcode-138.%20%E5%A4%8D%E5%88%B6%E5%B8%A6%E9%9A%8F%E6%9C%BA%E6%8C%87%E9%92%88%E7%9A%84%E9%93%BE%E8%A1%A8/" 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>

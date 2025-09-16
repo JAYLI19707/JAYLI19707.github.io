@@ -6,7 +6,7 @@
   <link href="https://jayli19707.github.io/atom.xml" rel="self"/>
   
   <link href="https://jayli19707.github.io/"/>
-  <updated>2025-09-15T08:53:21.970Z</updated>
+  <updated>2025-09-16T08:14:12.785Z</updated>
   <id>https://jayli19707.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Explainable ML</title>
+    <link href="https://jayli19707.github.io/2025/09/16/Explainable%20ML/"/>
+    <id>https://jayli19707.github.io/2025/09/16/Explainable%20ML/</id>
+    <published>2025-09-16T08:14:08.000Z</published>
+    <updated>2025-09-16T08:14:12.785Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Explainable与Interpretable"><a href="#Explainable与Interpretable" class="headerlink" title="Explainable与Interpretable"></a>Explainable与Interpretable</h1><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250908202709006.png" alt="image.png"></p><h1 id="心理学：解读解释性的理由"><a href="#心理学：解读解释性的理由" class="headerlink" title="心理学：解读解释性的理由"></a>心理学：解读解释性的理由</h1><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250908203307992.png" alt="image.png"></p><h1 id="两大类问题"><a href="#两大类问题" class="headerlink" title="两大类问题"></a>两大类问题</h1><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250908203441429.png" alt="image.png"></p><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250908203733609.png" alt="image.png"><br>蓝色表示判断正确的概率越低</p><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250908203905239.png" alt="image.png"><br>白色证明比值越大</p><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250908205354616.png" alt="image.png"></p>]]></content>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Explainable与Interpretable&quot;&gt;&lt;a href=&quot;#Explainable与Interpretable&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="机器学习" scheme="https://jayli19707.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Hypothesis testing and Least squares prediction</title>
@@ -491,25 +516,6 @@
     
     
     <category term="计算机" scheme="https://jayli19707.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode-138. 复制带随机指针的链表</title>
-    <link href="https://jayli19707.github.io/2025/08/12/Leetcode-138.%20%E5%A4%8D%E5%88%B6%E5%B8%A6%E9%9A%8F%E6%9C%BA%E6%8C%87%E9%92%88%E7%9A%84%E9%93%BE%E8%A1%A8/"/>
-    <id>https://jayli19707.github.io/2025/08/12/Leetcode-138.%20%E5%A4%8D%E5%88%B6%E5%B8%A6%E9%9A%8F%E6%9C%BA%E6%8C%87%E9%92%88%E7%9A%84%E9%93%BE%E8%A1%A8/</id>
-    <published>2025-08-12T14:34:26.000Z</published>
-    <updated>2025-08-12T14:35:05.014Z</updated>
-    
-    <content type="html"><![CDATA[<p>我们用哈希表来解决这个问题<br>首先创建一个哈希表，再遍历原链表，遍历的同时再不断创建新节点<br>我们将原节点作为<strong>key</strong>，新节点作为<strong>value</strong>放入哈希表中</p><span id="more"></span><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250812223352301.png" alt="image.png"></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># Definition for a Node.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">class Node:</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    def __init__(self, x: int, next: 'Node' = None, random: 'Node' = None):</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        self.val = int(x)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        self.next = next</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        self.random = random</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">copyRandomList</span>(<span class="params">self, head: <span class="string">'Optional[Node]'</span></span>) -&gt; <span class="string">'Optional[Node]'</span>:</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> head:  <span class="comment"># 关键补充</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">        d=<span class="built_in">dict</span>()</span><br><span class="line"></span><br><span class="line">        p=head</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> p:</span><br><span class="line"></span><br><span class="line">            new_node=Node(p.val,<span class="literal">None</span>,<span class="literal">None</span>)</span><br><span class="line"></span><br><span class="line">            d[p]=new_node</span><br><span class="line"></span><br><span class="line">            p=p.<span class="built_in">next</span></span><br><span class="line"></span><br><span class="line">        p=head</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> p:</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> p.<span class="built_in">next</span>:</span><br><span class="line"></span><br><span class="line">                d[p].<span class="built_in">next</span>=d[p.<span class="built_in">next</span>]</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> p.random:    </span><br><span class="line"></span><br><span class="line">                d[p].random=d[p.random]</span><br><span class="line"></span><br><span class="line">            p=p.<span class="built_in">next</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> d[head]</span><br></pre></td></tr></table></figure><h3 id="第一次循环（建映射，创建“影子节点”）"><a href="#第一次循环（建映射，创建“影子节点”）" class="headerlink" title="第一次循环（建映射，创建“影子节点”）"></a><strong>第一次循环（建映射，创建“影子节点”）</strong></h3><ul><li><p><strong>p</strong> 是原链表的当前节点（原节点对象）</p></li><li><p>在字典 <code>d</code> 中：</p><ul><li><p><strong>key</strong> = <code>p</code>（原节点的引用）</p></li><li><p><strong>value</strong> = <code>Node(p.val, None, None)</code>（一个新建节点对象的引用）</p></li></ul></li><li><p>此时新建节点的 <code>next</code> 和 <code>random</code> 都是 <code>None</code>，所以这些新节点是“孤立点”</p></li></ul><p><strong>例子：</strong><br>原链表： <code>A → B → C</code><br>哈希表：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">d[A] = A'(next=None, random=None)</span><br><span class="line">d[B] = B'(next=None, random=None)</span><br><span class="line">d[C] = C'(next=None, random=None)</span><br></pre></td></tr></table></figure><hr><h3 id="第二次循环（接指针，补全结构）"><a href="#第二次循环（接指针，补全结构）" class="headerlink" title="第二次循环（接指针，补全结构）"></a><strong>第二次循环（接指针，补全结构）</strong></h3><ul><li><p>目的：把 <code>d[p]</code>（新节点）内部的 <code>next</code> / <code>random</code> 指针补好</p></li><li><p><strong>补 next：</strong></p><ul><li><p>原链表： <code>p.next</code> 是原节点的下一个</p></li><li><p>新链表： <code>d[p].next</code> 应该指向 <code>d[p.next]</code>（下一个原节点对应的新节点）</p></li></ul></li><li><p><strong>补 random：</strong></p><ul><li><p>原链表： <code>p.random</code> 是原节点的随机指向</p></li><li><p>新链表： <code>d[p].random</code> 应该指向 <code>d[p.random]</code>（原节点随机指向对应的新节点）</p></li></ul></li></ul><p><strong>例子（假设 A.random → C）：</strong><br>第二次循环后：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A'.next = B'</span><br><span class="line">B'.next = C'</span><br><span class="line">A'.random = C'</span><br></pre></td></tr></table></figure><p>这样，新链表的节点之间关系和原链表完全一致，但对象是全新的。</p><hr>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;我们用哈希表来解决这个问题&lt;br&gt;首先创建一个哈希表，再遍历原链表，遍历的同时再不断创建新节点&lt;br&gt;我们将原节点作为&lt;strong&gt;key&lt;/strong&gt;，新节点作为&lt;strong&gt;value&lt;/strong&gt;放入哈希表中&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Leetcode" scheme="https://jayli19707.github.io/categories/Leetcode/"/>
     
     
   </entry>

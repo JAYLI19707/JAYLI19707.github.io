@@ -14,26 +14,31 @@
   
 
   
-  <title>Leetcode-41.缺失的第一个正数 | Justin的技术博客</title>
+  <title>Explainable ML | Justin的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
   <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
-  <meta name="description" content="问题的本质是 “存在性查询”，而存在性查询的最优数据结构是哈希表">
+  <meta name="description" content="Explainable与Interpretable 心理学：解读解释性的理由 两大类问题 蓝色表示判断正确的概率越低 白色证明比值越大">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode-41.缺失的第一个正数">
-<meta property="og:url" content="https://jayli19707.github.io/2025/07/16/Leetcode-41.%E7%BC%BA%E5%A4%B1%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%AD%A3%E6%95%B0/index.html">
+<meta property="og:title" content="Explainable ML">
+<meta property="og:url" content="https://jayli19707.github.io/2025/09/16/Explainable%20ML/index.html">
 <meta property="og:site_name" content="Justin的技术博客">
-<meta property="og:description" content="问题的本质是 “存在性查询”，而存在性查询的最优数据结构是哈希表">
+<meta property="og:description" content="Explainable与Interpretable 心理学：解读解释性的理由 两大类问题 蓝色表示判断正确的概率越低 白色证明比值越大">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250716231139479.png">
-<meta property="article:published_time" content="2025-07-16T15:30:00.000Z">
-<meta property="article:modified_time" content="2025-07-16T15:52:23.029Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250908202709006.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250908203307992.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250908203441429.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250908203733609.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250908203905239.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250908205354616.png">
+<meta property="article:published_time" content="2025-09-16T08:14:08.000Z">
+<meta property="article:modified_time" content="2025-09-16T08:14:12.785Z">
 <meta property="article:author" content="Justin">
 <meta property="article:tag" content="人工智能,机器学习,深度学习,量化交易,Python,技术博客">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250716231139479.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250908202709006.png">
   
     <link rel="alternate" href="/atom.xml" title="Justin的技术博客" type="application/atom+xml">
   
@@ -361,7 +366,7 @@ mjx-container[display="true"] + br {
        
 
 
-<article id="post-Leetcode-41.缺失的第一个正数" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+<article id="post-Explainable ML" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
     
    
@@ -374,7 +379,7 @@ mjx-container[display="true"] + br {
   
     
       <h1 class="p-name article-title" itemprop="headline name">
-        Leetcode-41.缺失的第一个正数
+        Explainable ML
       </h1>
     
   
@@ -382,30 +387,30 @@ mjx-container[display="true"] + br {
 
         <div class='meta-info-bar'>
           <div class="meta-info">
-  <time class="dt-published" datetime="2025-07-16T15:30:00.000Z" itemprop="datePublished">2025-07-16</time>
+  <time class="dt-published" datetime="2025-09-16T08:14:08.000Z" itemprop="datePublished">2025-09-16</time>
 </div>
           <div class="need-seperator meta-info">
             <div class="meta-cate-flex">
   
-  <a class="meta-cate-link" href="/categories/Leetcode/">Leetcode</a>
+  <a class="meta-cate-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
    
 </div>
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            225 词 
+            63 词 
           </div>
         </div>
         
       </header>
       <div class="e-content article-entry" itemprop="articleBody">
         
-          <p>问题的本质是 “存在性查询”，而存在性查询的最优数据结构是哈希表</p>
-<span id="more"></span>
-<p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250716231139479.png" alt="image.png"></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">firstMissingPositive</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line"></span><br><span class="line">        nums.sort()</span><br><span class="line"></span><br><span class="line">        a=<span class="built_in">set</span>(nums)</span><br><span class="line"></span><br><span class="line">        i=<span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span> :</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> i <span class="keyword">not</span> <span class="keyword">in</span> a:</span><br><span class="line"></span><br><span class="line">                <span class="keyword">return</span> i</span><br><span class="line"></span><br><span class="line">            i+=<span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-<p>思路很简单：直接把数组排序后，丢到set里面，如果正数的i，不在set里面，说明就是缺少它。</p>
+          <h1 id="Explainable与Interpretable"><a href="#Explainable与Interpretable" class="headerlink" title="Explainable与Interpretable"></a>Explainable与Interpretable</h1><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250908202709006.png" alt="image.png"></p>
+<h1 id="心理学：解读解释性的理由"><a href="#心理学：解读解释性的理由" class="headerlink" title="心理学：解读解释性的理由"></a>心理学：解读解释性的理由</h1><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250908203307992.png" alt="image.png"></p>
+<h1 id="两大类问题"><a href="#两大类问题" class="headerlink" title="两大类问题"></a>两大类问题</h1><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250908203441429.png" alt="image.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250908203733609.png" alt="image.png"><br>蓝色表示判断正确的概率越低</p>
+<p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250908203905239.png" alt="image.png"><br>白色证明比值越大</p>
+<p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20250908205354616.png" alt="image.png"></p>
 
         
       </div>
@@ -418,27 +423,22 @@ mjx-container[display="true"] + br {
   
     
 <nav id="article-nav">
-  <a class="article-nav-btn left "
-    
-      href="/2025/07/17/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%20ChatGPT/"
-      title="机器学习-深入理解 ChatGPT"
+  <a class="article-nav-btn left  disabled "
      >
     <i class="fa-solid fa-angle-left"></i>
     <p class="title-text">
-      
-        机器学习-深入理解 ChatGPT
         
     </p>
   </a>
   <a class="article-nav-btn right "
     
-      href="/2025/07/15/Leetcode-238.%E9%99%A4%E8%87%AA%E8%BA%AB%E4%BB%A5%E4%B8%BA%E7%9A%84%E6%95%B0%E7%BB%84%E7%9B%B8%E4%B9%98/"
-      title="Leetcode-238.除自身以为的数组相乘"
+      href="/2025/09/15/Hypothesis%20testing%20and%20Least%20squares%20prediction/"
+      title="Hypothesis testing and Least squares prediction"
      >
 
     <p class="title-text">
       
-        Leetcode-238.除自身以为的数组相乘
+        Hypothesis testing and Least squares prediction
         
     </p>
     <i class="fa-solid fa-angle-right"></i>
