@@ -280,9 +280,29 @@ mjx-container[display="true"] + br {
     <div class="widget">
       <h3 class="widget-title">分类</h3>
       <div class="category-box">
-            <a class="category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                计算机
-                <div class="category-count">4</div>
+            <a class="category-link" href="/categories/%E7%AE%97%E6%B3%95/">
+                算法
+                <div class="category-count">2</div>
+            </a>
+        
+            <a class="category-link" href="/categories/NLP/">
+                NLP
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E6%95%B0%E5%AD%A6/">
+                数学
+                <div class="category-count">22</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                机器学习
+                <div class="category-count">19</div>
+            </a>
+        
+            <a class="category-link" href="/categories/AI/">
+                AI
+                <div class="category-count">3</div>
             </a>
         
             <a class="category-link" href="/categories/Leetcode/">
@@ -295,24 +315,19 @@ mjx-container[display="true"] + br {
                 <div class="category-count">1</div>
             </a>
         
-            <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                机器学习
-                <div class="category-count">19</div>
+            <a class="category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
+                计算机
+                <div class="category-count">4</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E8%AE%BF%E8%B0%88/">
+                访谈
+                <div class="category-count">1</div>
             </a>
         
             <a class="category-link" href="/categories/%E9%87%91%E8%9E%8D/">
                 金融
-                <div class="category-count">8</div>
-            </a>
-        
-            <a class="category-link" href="/categories/Quant/">
-                Quant
-                <div class="category-count">2</div>
-            </a>
-        
-            <a class="category-link" href="/categories/AI/">
-                AI
-                <div class="category-count">3</div>
+                <div class="category-count">13</div>
             </a>
         
             <a class="category-link" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
@@ -320,19 +335,14 @@ mjx-container[display="true"] + br {
                 <div class="category-count">1</div>
             </a>
         
-            <a class="category-link" href="/categories/%E6%95%B0%E5%AD%A6/">
-                数学
-                <div class="category-count">8</div>
-            </a>
-        
             <a class="category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
                 计算机网络
                 <div class="category-count">1</div>
             </a>
         
-            <a class="category-link" href="/categories/%E7%AE%97%E6%B3%95/">
-                算法
-                <div class="category-count">1</div>
+            <a class="category-link" href="/categories/Quant/">
+                Quant
+                <div class="category-count">2</div>
             </a>
         </div>
     </div>
@@ -358,7 +368,7 @@ mjx-container[display="true"] + br {
    
 
 
-<article id="post-梯度下降" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+<article id="post-Makemore项目拆解" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
    
   <div class="article-inner">
     <div class="article-main">
@@ -369,7 +379,7 @@ mjx-container[display="true"] + br {
   
     
       <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/07/24/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/">梯度下降</a>
+        <a class="p-name article-title" href="/2025/08/20/Makemore%E9%A1%B9%E7%9B%AE%E6%8B%86%E8%A7%A3/">Makemore项目拆解</a>
       </h1>
     
   
@@ -377,7 +387,7 @@ mjx-container[display="true"] + br {
 
         <div class='meta-info-bar'>
           <div class="meta-info">
-  <time class="dt-published" datetime="2025-07-24T06:30:00.000Z" itemprop="datePublished">2025-07-24</time>
+  <time class="dt-published" datetime="2025-08-20T12:55:13.000Z" itemprop="datePublished">2025-08-20</time>
 </div>
           <div class="need-seperator meta-info">
             <div class="meta-cate-flex">
@@ -388,16 +398,47 @@ mjx-container[display="true"] + br {
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            3.7k 词 
+            8.5k 词 
           </div>
         </div>
         
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/" rel="tag">梯度下降</a></li></ul>
-
       </header>
       <div class="e-content article-entry" itemprop="articleBody">
         
-          <p>Gradient Descent ，Stochastic Gradient Descent 和Adaptive Moment Estimation</p>
+          <div class="truncate-text">
+            
+              Python与Pytorch1. enumerate作用：在 遍历一个序列 时，额外提供 元素的索引。
+语法：
+12for i, x in enumerate(sequence, start=0):    ...
+
+
+i 是索引（默认从 0 开始，可以用 start 改起始值）；
+
+x 是序列里的元素。
+
+
+例子：
+123chars = ['a', 'b', 'c']for i, ch in enumerate(chars):    print(i, ch)
+
+输出：
+1230 a1 b2 c
+
+用途：常用于 建立索引表（比如你代码里的 stoi），或者当你需要同时知道 位置 和 值 时。
+
+2. zip作用：把 多个可迭代对象（list/tuple/string等）里的元素 一一配对，返回元组。
+语法：
+12for x, y in zip(seq1, seq2):    ...
+
+
+第一个序列的第 k 个元素和第二个序列的第 k 个元素配成一对 (x, y)。
+
+会在最短的序列结束时停下。
+
+
+例子：
+1234a = [1, 2, 3]b = ['x', 'y', 'z']fo...
+            
+          </div>
         
       </div>
 
@@ -407,7 +448,7 @@ mjx-container[display="true"] + br {
      
     <a class="right-panel  non-pic  "
       
-      href="/2025/07/24/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/" 
+      href="/2025/08/20/Makemore%E9%A1%B9%E7%9B%AE%E6%8B%86%E8%A7%A3/" 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>
@@ -426,7 +467,7 @@ mjx-container[display="true"] + br {
    
 
 
-<article id="post-Leetcode-15. 三数之和" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+<article id="post-机器学习概念(面试题库)" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
    
   <div class="article-inner">
     <div class="article-main">
@@ -437,7 +478,7 @@ mjx-container[display="true"] + br {
   
     
       <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/07/23/Leetcode-15.%20%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/">Leetcode-15. 三数之和</a>
+        <a class="p-name article-title" href="/2025/08/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5(%E9%9D%A2%E8%AF%95%E9%A2%98%E5%BA%93)/">机器学习概念(面试题库)</a>
       </h1>
     
   
@@ -445,139 +486,7 @@ mjx-container[display="true"] + br {
 
         <div class='meta-info-bar'>
           <div class="meta-info">
-  <time class="dt-published" datetime="2025-07-23T09:30:00.000Z" itemprop="datePublished">2025-07-23</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/Leetcode/">Leetcode</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            833 词 
-          </div>
-        </div>
-        
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <p>排序 + 双指针<br>本题的难点在于如何去除重复解</p>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2025/07/23/Leetcode-15.%20%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-   
-
-
-<article id="post-Leetcode-11.盛最多水的容器" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/07/22/Leetcode-11.%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8/">Leetcode-11.盛最多水的容器</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2025-07-22T13:30:00.000Z" itemprop="datePublished">2025-07-22</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/Leetcode/">Leetcode</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            607 词 
-          </div>
-        </div>
-        
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <p>本题采用双指针来解决<br>矩阵的面积与两个因素有关：<br>矩阵的长度：两条垂直线的距离<br>矩阵的宽度：两条垂直线其中较短一条的长度<br>因此，要矩阵面积最大化，两条垂直线的距离越远越好，两条垂直线的最短长度也要越长越好。</p>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2025/07/22/Leetcode-11.%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-   
-
-
-<article id="post-深度学习-超越线性，迈向深度" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/07/22/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E8%B6%85%E8%B6%8A%E7%BA%BF%E6%80%A7%EF%BC%8C%E8%BF%88%E5%90%91%E6%B7%B1%E5%BA%A6/">深度学习-超越线性，迈向深度</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2025-07-21T17:30:00.000Z" itemprop="datePublished">2025-07-22</time>
+  <time class="dt-published" datetime="2025-08-19T10:48:31.000Z" itemprop="datePublished">2025-08-19</time>
 </div>
           <div class="need-seperator meta-info">
             <div class="meta-cate-flex">
@@ -588,168 +497,34 @@ mjx-container[display="true"] + br {
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            1.9k 词 
+            9.2k 词 
           </div>
         </div>
         
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <p>我们了解了机器学习的基本三部曲。然而，简单的线性模型在面对复杂现实世界问题时，往往会显得力不从心。我们将打破线性模型的局限，正式迈向更强大、更灵活的“深度学习”世界。</p>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2025/07/22/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E8%B6%85%E8%B6%8A%E7%BA%BF%E6%80%A7%EF%BC%8C%E8%BF%88%E5%90%91%E6%B7%B1%E5%BA%A6/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-   
-
-
-<article id="post-Leetcode-.283移动零" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/07/19/Leetcode-.283%E7%A7%BB%E5%8A%A8%E9%9B%B6/">Leetcode-.283移动零</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2025-07-18T19:30:00.000Z" itemprop="datePublished">2025-07-19</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/Leetcode/">Leetcode</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            329 词 
-          </div>
-        </div>
-        
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <p>本题采用双指针来解决</p>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2025/07/19/Leetcode-.283%E7%A7%BB%E5%8A%A8%E9%9B%B6/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-   
-
-
-<article id="post-期权：末日期权" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/07/19/%E6%9C%9F%E6%9D%83%EF%BC%9A%E6%9C%AB%E6%97%A5%E6%9C%9F%E6%9D%83/">期权：末日期权</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2025-07-18T18:30:00.000Z" itemprop="datePublished">2025-07-19</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E9%87%91%E8%9E%8D/">金融</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            4.5k 词 
-          </div>
-        </div>
-        
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9C%9F%E6%9D%83/" rel="tag">期权</a></li></ul>
-
       </header>
       <div class="e-content article-entry" itemprop="articleBody">
         
           <div class="truncate-text">
             
               
-期权到期日标准期权到期日
-月度期权（Standard Monthly Options）：通常在每月的第三个星期五到期。
+问题1：机器学习的基本分类有哪些？监督学习、无监督学习、半监督学习与强化学习有何区别。机器学习的基本分类主要有 监督学习、无监督学习、半监督学习和强化学习。它们的区别可以从 是否有标注数据、学习目标、训练方式 三个角度理解：
+1. 监督学习（Supervised Learning）- **数据特点**：训练数据包含输入 $X$ 和对应的**输出标签 $Y$**。
+    
+- **目标**：学习一个映射函数 $f:X→Y$，使得预测值尽可能接近真实标签。
+    
+- **典型任务**：分类（如垃圾邮件识别）、回归（如房价预测）。
+    
+- **核心思想**：通过大量“输入-输出”示例来学习规律。
+    
 
-周度期权（Weekly Options）：到期日通常是每周五。
-
-季度期权（Quarterly Options）：在每个季度末的特定星期五到期。
-
-
-但也有非周五到期的期权：
-日内到期（0DTE）期权：例如 SPX 指数现在几乎每天都有期权到期（包括周一到周五）。
-
-部分ETF或指数（如SPY、QQQ）：提供周一、周三、周五到期的期权。
-
-特殊事件驱动期权（如并购、分红后期权）：可能设定非常规到期日，但较少见
-
-
-什么是末日期权末日期权（Zero Days To Expiration，简称0DTE）是指在交易日当天购买的期权合约，当天收盘后即到期失效。它们属于超短期期权，与传统期权（如每周、每月到期）相比，时间价值（theta）的衰减速度极快，也非常便宜。这种特性使得末日期权比较适合希望从当日市场波动中获利的短线交易者。
-末日期权的兴起始于2022年，芝加哥期权交易所（CBOE）宣布推出每周期权，并把到期日扩展到每个工作日（周一至周五）。最初，SPX是首批提...
+2. 无监督学习（Unsupervised Learning）- **数据特点**：只有输入数据 $X$，没有标签 $Y$。
+    
+- **目标**：发现数据内部的结构或模式。
+    
+- **典型任务**：聚类（如用户分群）、降维（如主成分分析 PCA）。
+    
+- **核心思想**：通过**数据自身的相似性或分布规律来理解结构**，而不依赖标签。
+   ...
             
           </div>
         
@@ -761,7 +536,7 @@ mjx-container[display="true"] + br {
      
     <a class="right-panel  non-pic  "
       
-      href="/2025/07/19/%E6%9C%9F%E6%9D%83%EF%BC%9A%E6%9C%AB%E6%97%A5%E6%9C%9F%E6%9D%83/" 
+      href="/2025/08/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5(%E9%9D%A2%E8%AF%95%E9%A2%98%E5%BA%93)/" 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>
@@ -780,7 +555,7 @@ mjx-container[display="true"] + br {
    
 
 
-<article id="post-期权：如何买卖期权" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+<article id="post-反向传播" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
    
   <div class="article-inner">
     <div class="article-main">
@@ -791,7 +566,7 @@ mjx-container[display="true"] + br {
   
     
       <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/07/18/%E6%9C%9F%E6%9D%83%EF%BC%9A%E5%A6%82%E4%BD%95%E4%B9%B0%E5%8D%96%E6%9C%9F%E6%9D%83/">期权：如何买卖期权</a>
+        <a class="p-name article-title" href="/2025/08/18/%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD/">反向传播</a>
       </h1>
     
   
@@ -799,175 +574,7 @@ mjx-container[display="true"] + br {
 
         <div class='meta-info-bar'>
           <div class="meta-info">
-  <time class="dt-published" datetime="2025-07-17T18:30:00.000Z" itemprop="datePublished">2025-07-18</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E9%87%91%E8%9E%8D/">金融</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            2.7k 词 
-          </div>
-        </div>
-        
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9C%9F%E6%9D%83/" rel="tag">期权</a></li></ul>
-
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            
-              期权链：你的“期权菜单”期权链（Option Chain）是期权交易的核心工具，列出了某只股票的所有期权合约，类似于餐厅的“菜单”。它显示了行权价、到期日和期权费等信息。以下是如何阅读期权链：
-
-期权链的组成
-
-标的股票：期权对应的股票，例如NVDA（英伟达）。
-Call和Put：分别列在期权链两侧，Call看涨，Put看跌。
-行权价（Strike Price）：期权约定的买卖价格，例如200美元。
-到期日（Expiration Date）：期权有效的截止日期，例如2025年5月25日。
-期权费（Premium）：购买期权的价格，例如3美元/股。
-买卖价差（Bid-Ask Spread）：买价（Bid）和卖价（Ask）的差额，反映流动性。
-成交量（Volume）和未平仓合约（Open Interest）：显示期权活跃度。
-
-如何阅读期权链
-
-实值（ITM）、虚值（OTM）、平值（ATM）：
-Call期权：行权价 &lt; 当前股价 = 实值；行权价 &gt; 股价 = 虚值；约等于股价 = 平值。
-Put期权：行权价 &gt; 股价 = 实值；行权价 &lt; 股价 = 虚值。
-...
-            
-          </div>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2025/07/18/%E6%9C%9F%E6%9D%83%EF%BC%9A%E5%A6%82%E4%BD%95%E4%B9%B0%E5%8D%96%E6%9C%9F%E6%9D%83/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-   
-
-
-<article id="post-期权：一张未来买卖的优惠券" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/07/18/%E6%9C%9F%E6%9D%83%EF%BC%9A%E4%B8%80%E5%BC%A0%E6%9C%AA%E6%9D%A5%E4%B9%B0%E5%8D%96%E7%9A%84%E4%BC%98%E6%83%A0%E5%88%B8/">期权：一张未来买卖的优惠券</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2025-07-17T17:30:00.000Z" itemprop="datePublished">2025-07-18</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E9%87%91%E8%9E%8D/">金融</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            2.2k 词 
-          </div>
-        </div>
-        
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9C%9F%E6%9D%83/" rel="tag">期权</a></li></ul>
-
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            
-              一、期权是什么？期权（Options）是一种金融合约，给你在未来某个时间以特定价格买入或卖出某只股票的权利，但没有义务。换句话说，期权就像一张“优惠券”，让你可以选择是否以约定的价格执行交易。
-类比：想象你在商场看到一款iPhone，当前价格是1000美元。你觉得它可能会涨价，于是花10美元买了一张“未来以1000美元买iPhone的优惠券”，有效期1个月。
-如果1个月后iPhone涨到1200美元，你可以用1000美元买到它，再以1200美元卖出，赚200美元利润（扣除10美元券费，净赚190美元）。
-如果iPhone跌到800美元，你可以选择不用这张券，损失只是10美元的券费。
-期权就是类似的逻辑，只不过它针对的是股票，比如苹果（AAPL）、特斯拉（TSLA）或指数ETF（如SPY）。它让你用小钱（券费）博取大收益，同时风险有限。
-二、期权的两大类型：Call和Put期权（Option）是一种金融合约，它给予买方一种“权利”，但不是义务；而卖方则承担对应的“义务”。
-期权分为两种：Call期权（看涨期权）和Put期权（看跌期权）。它们分别对应你对股价的两种预测：上涨或下跌。
-...
-            
-          </div>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2025/07/18/%E6%9C%9F%E6%9D%83%EF%BC%9A%E4%B8%80%E5%BC%A0%E6%9C%AA%E6%9D%A5%E4%B9%B0%E5%8D%96%E7%9A%84%E4%BC%98%E6%83%A0%E5%88%B8/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-   
-
-
-<article id="post-Datawhale-二分类任务" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/07/17/Datawhale-%E4%BA%8C%E5%88%86%E7%B1%BB%E4%BB%BB%E5%8A%A1/">Datawhale-二分类任务</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2025-07-17T05:54:00.347Z" itemprop="datePublished">2025-07-17</time>
+  <time class="dt-published" datetime="2025-08-17T21:01:52.000Z" itemprop="datePublished">2025-08-18</time>
 </div>
           <div class="need-seperator meta-info">
             <div class="meta-cate-flex">
@@ -978,52 +585,39 @@ Put期权：行权价 &gt; 股价 = 实值；行权价 &lt; 股价 = 虚值。
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            12k 词 
+            7.7k 词 
           </div>
         </div>
         
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%8C%E5%88%86%E7%B1%BB/" rel="tag">二分类</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/" rel="tag">特征工程</a></li></ul>
-
       </header>
       <div class="e-content article-entry" itemprop="articleBody">
         
           <div class="truncate-text">
             
-              比赛简介「用户新增预测挑战赛」是由科大讯飞主办的一项数据科学竞赛，旨在通过机器学习方法预测用户是否为新增用户
-比赛属于二分类任务，评价指标采用F1分数，分数越高表示模型性能越好。
-如果你有一份带标签的表格型数据，只要目标是分类、回归或排序，那么 LightGBM 都是最强机器学习模型之一，默认首选。
-赛题建模的价值用户新增预测是分析 用户使用场景 以及 预测用户增长情况 的关键步骤，有助于进行其后续产品和应用的迭代升级，主要有对行业和技术有如下价值：
-行业价值：
+              通过从零构建一个名为micrograd的微型自动求导引擎，来深入、直观地理解神经网络的训练核心——反向传播算法。
+第一阶段：核心概念与导数直观理解
+Micrograd 简介:
 
-精准预测用户增长趋势，优化产品迭代方向
+它是一个自动梯度（Autograd）引擎，其核心功能是实现反向传播（Backpropagation）。
 
-降低用户获取成本，提高营销转化率
+反向传播是高效计算损失函数相对于神经网络所有权重和偏置的梯度（Derivatives）的算法。梯度指明了调整参数以减小损失的方向。
 
-为AI能力落地提供量化评估依据
+这是 PyTorch、JAX 等现代深度学习框架的数学核心。
 
 
-技术价值：
 
-解决实际业务场景中的用户增长预测问题
+核心演示:
 
-验证AI在用户行为分析领域的有效性
+Value对象：micrograd中的基本数据单元，可以构建数学表达式图。
 
-建立可复用的用户增长预测方法论
+前向传播 (Forward Pass)：从输入开始，通过计算图计算出最终的输出值。
 
-
-赛题要求：参与算法赛事，一定要仔细理解赛事的 输入-输出 究竟是什么，尤其是提交的格式
-输入数据：
-
-用户行为事件记录
-
-15个原始特征字段
-
-关键字段： udmap (JSON)、 common_ts (时间戳)
+反向传播 (Backward Pass)：在最终输出上调用.backward()，micrograd会自动、递归地应用链式法则（Chain Rule），计算出最终输出对每一个输入和中间变量的梯度。
 
 
-输出要求：
 
-预测用户是否为新增 ( is_new_did )...
+
+12345678910111213141516171819202122232425262728293031323334353...
             
           </div>
         
@@ -1035,7 +629,7 @@ Put期权：行权价 &gt; 股价 = 实值；行权价 &lt; 股价 = 虚值。
      
     <a class="right-panel  non-pic  "
       
-      href="/2025/07/17/Datawhale-%E4%BA%8C%E5%88%86%E7%B1%BB%E4%BB%BB%E5%8A%A1/" 
+      href="/2025/08/18/%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD/" 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>
@@ -1054,7 +648,7 @@ Put期权：行权价 &gt; 股价 = 实值；行权价 &lt; 股价 = 虚值。
    
 
 
-<article id="post-机器学习-深入理解 ChatGPT" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+<article id="post-上下文工程（Context Engineering）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
    
   <div class="article-inner">
     <div class="article-main">
@@ -1065,7 +659,7 @@ Put期权：行权价 &gt; 股价 = 实值；行权价 &lt; 股价 = 虚值。
   
     
       <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/07/17/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%20ChatGPT/">机器学习-深入理解 ChatGPT</a>
+        <a class="p-name article-title" href="/2025/08/16/%E4%B8%8A%E4%B8%8B%E6%96%87%E5%B7%A5%E7%A8%8B%EF%BC%88Context%20Engineering%EF%BC%89/">上下文工程（Context Engineering）</a>
       </h1>
     
   
@@ -1073,18 +667,18 @@ Put期权：行权价 &gt; 股价 = 实值；行权价 &lt; 股价 = 虚值。
 
         <div class='meta-info-bar'>
           <div class="meta-info">
-  <time class="dt-published" datetime="2025-07-17T05:30:00.000Z" itemprop="datePublished">2025-07-17</time>
+  <time class="dt-published" datetime="2025-08-15T20:48:46.000Z" itemprop="datePublished">2025-08-16</time>
 </div>
           <div class="need-seperator meta-info">
             <div class="meta-cate-flex">
   
-  <a class="meta-cate-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+  <a class="meta-cate-link" href="/categories/AI/">AI</a>
    
 </div>
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            2.1k 词 
+            1.7k 词 
           </div>
         </div>
         
@@ -1093,17 +687,12 @@ Put期权：行权价 &gt; 股价 = 实值；行权价 &lt; 股价 = 虚值。
         
           <div class="truncate-text">
             
-              深入理解 ChatGPT：预训练（Pre-train）的奥秘今天我们来深入探讨 ChatGPT 背后的核心技术之一：预训练（Pre-train）。这不仅是理解 ChatGPT 强大能力的关键，也是当前大模型领域的热门话题。
-什么是预训练？预训练，又被称为自监督学习（Self-supervised Learning）或构建基石模型（Foundation Model）。它在 ChatGPT 的命名中占据了“P”的位置，代表着“Pre-trained”。
-简单来说，ChatGPT 的核心功能是文本接龙。它是一个函数，能够根据输入生成连贯的文本。这个函数的能力并非凭空而来，而是通过以下两种方式获得的：
+              超越提示词：深入理解AI应用的核心——上下文工程当我们与AI大语言模型（LLM）互动时，常常会遇到一个瓶颈：为什么有时AI Agent在处理复杂任务时显得力不从心？答案可能并非模型本身的能力不足，而在于一个常被忽视的关键环节——**上下文工程（Context Engineering）**的失败。这篇笔记将带您深入探讨这一核心概念，理解它如何成为驱动AI Agent高效工作的“内存管理器”。
+什么是“上下文”？它远不止聊天记录首先，我们需要重新定义“上下文”。它并非简单指代我们与AI的对话历史，而是指提供给模型用于推理和生成下一步任务的“全部信息集合”。一个设计良好的上下文，通常包含三大核心类别：
 
-人类老师的教导：提供大量的输入-输出对，让模型学习正确的响应。
+指导性上下文 (Guidance Context)：这是我们最熟悉的领域，主要通过提示词工程（Prompt Engineering）来实现。它负责告诉模型“做什么”和“怎么做”，为任务设定框架、目标和规则，例如系统提示、任务描述和输出格式定义。
 
-网络上的海量数据：通过自监督学习从无标签数据中提取知识。
-
-
-传统机器学习的局限性在传统的监督学习中，例如英中翻译系统，我们需要收集大量的成对的（paired）中英对照例句。人类老师需要明确告诉机器，输入“I eat an apple”应该输出“我吃苹果”。机器通过这些成对数据来学习翻译函数。
-然而，这种方式存在一个显著的...
+信息性上下文 (Informative Context)：这部分内容旨在告诉模型“需要知道什么”，为它提供解决问题所需的关键事实与数据。它涵...
             
           </div>
         
@@ -1115,7 +704,488 @@ Put期权：行权价 &gt; 股价 = 实值；行权价 &lt; 股价 = 虚值。
      
     <a class="right-panel  non-pic  "
       
-      href="/2025/07/17/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%20ChatGPT/" 
+      href="/2025/08/16/%E4%B8%8A%E4%B8%8B%E6%96%87%E5%B7%A5%E7%A8%8B%EF%BC%88Context%20Engineering%EF%BC%89/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
+   
+
+
+<article id="post-期权策略" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2025/08/15/%E6%9C%9F%E6%9D%83%E7%AD%96%E7%95%A5/">期权策略</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2025-08-15T10:02:31.000Z" itemprop="datePublished">2025-08-15</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E9%87%91%E8%9E%8D/">金融</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            2.5k 词 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              解锁期权的力量：量化分析师的战略交易指南**第一部分：期权的基础了股票期权的概念，认为它是构建与量化预测相符的收益的强大工具。概述了四种基本的期权头寸：
+
+
+买入看涨期权：赋予在设***格购买股票的权利，无需预先购买即可从股价上涨中获利。
+
+买入看跌期权：赋予在设***格出售股票的权利，适用于预期股价下跌或作为防范下跌的保险。
+
+卖出看涨期权：出售购买股票的权利，收取权利金，但如果股价上涨，则有义务出售股票。
+
+卖出看跌期权：出售出售股票的权利，收取权利金，如果股价下跌，则有义务购买股票。
+
+
+随后，探讨了如何将这些基本头寸结合起来，创造出更精细的策略，并指出虽然单一期权可能足以应对简单的观点，但复杂的市场预测则受益于期权的组合。
+介绍了两种关键策略：
+
+
+跨式组合：涉及购买具有相同行使价和到期日的看涨和看跌期权。该策略押注于高波动性，从任一方向（上涨或下跌）的显著波动中获利。其收益图呈V形，如果股价保持在行使价，损失仅限于支付的权利金。一个关键细节是，股价必须波动足够大，以覆盖两种权利金，才能实现盈利。
+
+扼式组合：与跨式组合类似，但看涨和看跌期权均为虚值，因此成本更低。这降低...
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2025/08/15/%E6%9C%9F%E6%9D%83%E7%AD%96%E7%95%A5/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
+   
+
+
+<article id="post-SQL" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2025/08/14/SQL/">SQL</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2025-08-13T22:57:00.000Z" itemprop="datePublished">2025-08-14</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/">计算机</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            11k 词 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              数据库管理系统
+Selecting literals SQL 中 用 SELECT 直接选取字面值（literals）并用 AS 起列别名，然后用 UNION 把多条 SELECT 的结果合并成一个表。具体解析如下：
+
+基本语法
+
+SELECT [表达式] AS [列名], [表达式] AS [列名]  这里 [表达式] 可以是字面值（如字符串 "daisy"）、列名或计算式。
+
+如果你直接选字面值，不是从已有表里取数据，那么结果就是**一行一列（或多列）**的临时表。
+
+在这个场景里，expression 就是你“写进去”的值，而 AS name 就是告诉 SQL：把这个值放到结果表里并命名这一列为 name。
+
+
+
+
+举个对应的直观解释：
+1SELECT "daisy" AS parent, "hank" AS child
+
+也就是说：
+
+"daisy" → 写入到 parent 列
+
+"hank" → 写入到 child 列
+
+如果后面有 UNION，就会把下一条 SELECT 的行追加到这个结果表中
+
+
+不过要注意，它并不是向数据库的物理表“插入”数据（那是 INSERT...
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2025/08/14/SQL/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
+   
+
+
+<article id="post-Leetcode-138. 复制带随机指针的链表" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2025/08/12/Leetcode-138.%20%E5%A4%8D%E5%88%B6%E5%B8%A6%E9%9A%8F%E6%9C%BA%E6%8C%87%E9%92%88%E7%9A%84%E9%93%BE%E8%A1%A8/">Leetcode-138. 复制带随机指针的链表</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2025-08-12T14:34:26.000Z" itemprop="datePublished">2025-08-12</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/Leetcode/">Leetcode</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            1.2k 词 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <p>我们用哈希表来解决这个问题<br>首先创建一个哈希表，再遍历原链表，遍历的同时再不断创建新节点<br>我们将原节点作为<strong>key</strong>，新节点作为<strong>value</strong>放入哈希表中</p>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2025/08/12/Leetcode-138.%20%E5%A4%8D%E5%88%B6%E5%B8%A6%E9%9A%8F%E6%9C%BA%E6%8C%87%E9%92%88%E7%9A%84%E9%93%BE%E8%A1%A8/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
+   
+
+
+<article id="post-基本面分析" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2025/08/12/%E5%9F%BA%E6%9C%AC%E9%9D%A2%E5%88%86%E6%9E%90/">基本面分析</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2025-08-12T11:17:02.000Z" itemprop="datePublished">2025-08-12</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E9%87%91%E8%9E%8D/">金融</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            2.4k 词 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              TTMTTM 是 Trailing Twelve Months 的缩写，意思是过去连续 12 个月
+1. 计算方法TTM 不是按自然年（1 月到 12 月），而是取最近连续的四个季度的数据相加。
+数值最近最近最近最近
+其中 Q表示季度数据，可以是净利润、营收、EPS 等。
+2. 为什么用 TTM
+最新性：比上一完整财年更及时，反映公司最近 12 个月的实际表现。
+
+去季节性影响：比如零售业第四季度旺季，TTM 结合四个季度消除了单季波动影响。
+
+可比性：投资分析中常用 TTM 数据来比较不同公司的盈利能力，因为它都是“滚动 12 个月”的概念。
+
+
+3. 例子假设今天是 2025 年 8 月，某公司最近四个季度净利润分别是：
+
+2025 Q2：280 亿美元
+
+2025 Q1：270 亿美元
+
+2024 Q4：300 亿美元
+
+2024 Q3：260 亿美元
+
+
+则：
+TTM 净利润=280+270+300+260=1110 亿美元
+
+每股收益（EPS, Earnings Per Share）
+公式净利润流通在外普通股股数
+
+其中净利润用过去 12 个月（TTM）或预计未来 12...
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2025/08/12/%E5%9F%BA%E6%9C%AC%E9%9D%A2%E5%88%86%E6%9E%90/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
+   
+
+
+<article id="post-Leetcode-25.K个一组翻转链表" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2025/08/11/Leetcode-25.K%E4%B8%AA%E4%B8%80%E7%BB%84%E7%BF%BB%E8%BD%AC%E9%93%BE%E8%A1%A8/">Leetcode-25.K个一组翻转链表</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2025-08-11T11:42:03.000Z" itemprop="datePublished">2025-08-11</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/Leetcode/">Leetcode</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            1.2k 词 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <p>核心还是掌握链表的反转</p>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2025/08/11/Leetcode-25.K%E4%B8%AA%E4%B8%80%E7%BB%84%E7%BF%BB%E8%BD%AC%E9%93%BE%E8%A1%A8/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
+   
+
+
+<article id="post-Leetcode-24.两两交换链表中的节点" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2025/08/10/Leetcode-24.%E4%B8%A4%E4%B8%A4%E4%BA%A4%E6%8D%A2%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E8%8A%82%E7%82%B9/">Leetcode-24.两两交换链表中的节点</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2025-08-10T15:51:17.000Z" itemprop="datePublished">2025-08-10</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/Leetcode/">Leetcode</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            725 词 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <p>设置好虚拟头节点，想好断开的位置的时候，前后连的节点怎么处理。</p>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2025/08/10/Leetcode-24.%E4%B8%A4%E4%B8%A4%E4%BA%A4%E6%8D%A2%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E8%8A%82%E7%82%B9/" 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>
@@ -1138,7 +1208,7 @@ Put期权：行权价 &gt; 股价 = 实值；行权价 &lt; 股价 = 虚值。
       <i class="fa-solid fa-angle-left"></i>
     </a>
     <div id="num-bar">
-      <a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a>  
+      <a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a>  
     </div>
     <a id="next-btn" class="page-nav-btn " href="/page/6/">
       <i class="fa-solid fa-angle-right"></i>
@@ -1152,7 +1222,7 @@ Put期权：行权价 &gt; 股价 = 实值；行权价 &lt; 股价 = 虚值。
   
   <div id="footer-info" class="inner">
     
-    &copy; 2025 Justin<br>
+    &copy; 2026 Justin<br>
     Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & Theme <a target="_blank" rel="noopener" href="https://github.com/saicaca/hexo-theme-vivia">Vivia</a>
   </div>
 </footer>

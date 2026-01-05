@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+
+
+<html theme="dark" showBanner="true" hasBanner="true" > 
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet">
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet">
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet">
+<script src="/js/color.global.min.js" ></script>
+<script src="/js/load-settings.js" ></script>
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+
+  
+  <title>价格行为学-复盘训练 | Justin的技术博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+
+  <meta name="description" content="模块一：为什么复盘是必要的？（尽管它不等于实盘） 开篇明义，指出了复盘与实盘的三个核心区别：  上帝视角： 复盘时，你看到了完整的K线图全貌。  静态图表： K线是静止的，你有充足的时间分析。  零情绪压力： 你没有资金跳动带来的心理压力和恐惧。   而在实盘中，K线是动态变化的（可能在收盘前几秒钟形态完全走坏），并且你的情绪会随着账户资金的波动而剧烈起伏，导致不理性的决策。 那么，复盘的意义何在">
+<meta property="og:type" content="article">
+<meta property="og:title" content="价格行为学-复盘训练">
+<meta property="og:url" content="https://jayli19707.github.io/2025/11/02/%E4%BB%B7%E6%A0%BC%E8%A1%8C%E4%B8%BA%E5%AD%A6-%E5%A4%8D%E7%9B%98%E8%AE%AD%E7%BB%83/index.html">
+<meta property="og:site_name" content="Justin的技术博客">
+<meta property="og:description" content="模块一：为什么复盘是必要的？（尽管它不等于实盘） 开篇明义，指出了复盘与实盘的三个核心区别：  上帝视角： 复盘时，你看到了完整的K线图全貌。  静态图表： K线是静止的，你有充足的时间分析。  零情绪压力： 你没有资金跳动带来的心理压力和恐惧。   而在实盘中，K线是动态变化的（可能在收盘前几秒钟形态完全走坏），并且你的情绪会随着账户资金的波动而剧烈起伏，导致不理性的决策。 那么，复盘的意义何在">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20251102015744522.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20251102020037380.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20251102020235201.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20251102020323114.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20251102020445763.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20251102020622022.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20251102020644931.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20251102020729578.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20251102020758838.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20251102020940921.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20251102021054020.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20251102021113519.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20251102020150975.png">
+<meta property="article:published_time" content="2025-11-02T12:47:39.000Z">
+<meta property="article:modified_time" content="2025-11-02T12:47:43.416Z">
+<meta property="article:author" content="Justin">
+<meta property="article:tag" content="人工智能,机器学习,深度学习,量化交易,Python,技术博客">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20251102015744522.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Justin的技术博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-192.png" sizes="192x192">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-192.png" sizes="192x192">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 7.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+
+<body>
+  
+  
+    
+<div id="banner" class="">
+  <img src="/image/background/benjamin_background.jpg" itemprop="image">
+  <div id="banner-dim"></div>
+</div>
+ 
+   
+  <div id="main-grid" class="  ">
+    <div id="nav" class=""  >
+      <navbar id="navbar">
+  <nav id="title-nav">
+    <a href="/">
+      <div id="vivia-logo">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div>Justin的技术博客 </div>
+    </a>
+  </nav>
+  <nav id="main-nav">
+    
+      <a class="main-nav-link" href="/">Home</a>
+    
+      <a class="main-nav-link" href="/archives">Archives</a>
+    
+      <a class="main-nav-link" href="/projects">Projects</a>
+    
+      <a class="main-nav-link" href="/investment">Investment</a>
+    
+      <a class="main-nav-link" href="/photography">Photography</a>
+    
+      <a class="main-nav-link" href="/about">About</a>
+    
+  </nav>
+  <nav id="sub-nav">
+    <a id="theme-btn" class="nav-icon">
+      <span class="light-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M438.5-829.913v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-829.913Zm0 747.826v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-82.087ZM877.913-438.5h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537t29.476-12.174h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T877.913-438.5Zm-747.826 0h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T82.087-521.5h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T130.087-438.5Zm660.174-290.87-34.239 32q-12.913 12.674-29.565 12.174-16.653-.5-29.327-13.174-12.674-12.673-12.554-28.826.12-16.152 12.794-28.826l33-35q12.913-12.674 30.454-12.674t30.163 12.847q12.709 12.846 12.328 30.826-.38 17.98-13.054 30.653ZM262.63-203.978l-32 34q-12.913 12.674-30.454 12.674t-30.163-12.847q-12.709-12.846-12.328-30.826.38-17.98 13.054-30.653l33.239-31q12.913-12.674 29.565-12.174 16.653.5 29.327 13.174 12.674 12.673 12.554 28.826-.12 16.152-12.794 28.826Zm466.74 33.239-32-33.239q-12.674-12.913-12.174-29.565.5-16.653 13.174-29.327 12.673-12.674 28.826-13.054 16.152-.38 28.826 12.294l35 33q12.674 12.913 12.674 30.454t-12.847 30.163q-12.846 12.709-30.826 12.328-17.98-.38-30.653-13.054ZM203.978-697.37l-34-33q-12.674-12.913-13.174-29.945-.5-17.033 12.174-29.707t31.326-13.293q18.653-.62 31.326 13.054l32 34.239q11.674 12.913 11.174 29.565-.5 16.653-13.174 29.327-12.673 12.674-28.826 12.554-16.152-.12-28.826-12.794ZM480-240q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm-.247-82q65.703 0 111.475-46.272Q637-414.544 637-480.247t-45.525-111.228Q545.95-637 480.247-637t-111.475 45.525Q323-545.95 323-480.247t45.525 111.975Q414.05-322 479.753-322ZM481-481Z"/></svg></span>
+      <span class="dark-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M480.239-116.413q-152.63 0-258.228-105.478Q116.413-327.37 116.413-480q0-130.935 77.739-227.435t206.304-125.043q43.022-9.631 63.87 10.869t3.478 62.805q-8.891 22.043-14.315 44.463-5.424 22.42-5.424 46.689 0 91.694 64.326 155.879 64.325 64.186 156.218 64.186 24.369 0 46.978-4.946 22.609-4.945 44.413-14.076 42.826-17.369 62.967 1.142 20.142 18.511 10.511 61.054Q807.174-280 712.63-198.206q-94.543 81.793-232.391 81.793Zm0-95q79.783 0 143.337-40.217 63.554-40.218 95.793-108.283-15.608 4.044-31.097 5.326-15.49 1.283-31.859.805-123.706-4.066-210.777-90.539-87.071-86.473-91.614-212.092-.24-16.369.923-31.978 1.164-15.609 5.446-30.978-67.826 32.478-108.282 96.152Q211.652-559.543 211.652-480q0 111.929 78.329 190.258 78.329 78.329 190.258 78.329ZM466.13-465.891Z"/></svg></span>
+    </a>
+    
+      <a id="nav-rss-link" class="nav-icon mobile-hide" href="/atom.xml" title="RSS 订阅">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-120q-25.846 0-44.23-18.384-18.384-18.385-18.384-44.23 0-25.846 18.384-44.23 18.384-18.385 44.23-18.385 25.846 0 44.23 18.385 18.384 18.384 18.384 44.23 0 25.845-18.384 44.23Q223.846-120 198-120Zm538.385 0q-18.846 0-32.923-13.769-14.076-13.769-15.922-33.23-8.692-100.616-51.077-188.654-42.385-88.039-109.885-155.539-67.5-67.501-155.539-109.885Q283-663.462 182.385-672.154q-19.461-1.846-33.23-16.23-13.769-14.385-13.769-33.846t14.076-32.922q14.077-13.461 32.923-12.23 120.076 8.692 226.038 58.768 105.961 50.077 185.73 129.846 79.769 79.769 129.846 185.731 50.077 105.961 58.769 226.038 1.231 18.846-12.538 32.922Q756.461-120 736.385-120Zm-252 0q-18.231 0-32.423-13.461t-18.653-33.538Q418.155-264.23 348.886-333.5q-69.27-69.27-166.501-84.423-20.077-4.462-33.538-18.961-13.461-14.5-13.461-33.346 0-19.076 13.884-33.23 13.884-14.153 33.115-10.922 136.769 15.384 234.384 112.999 97.615 97.615 112.999 234.384 3.231 19.23-10.538 33.115Q505.461-120 484.385-120Z"/></svg>
+      </a>
+    
+    <div id="nav-menu-btn" class="nav-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M177.37-252.282q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Zm0-186.218q-17.453 0-29.477-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T177.37-521.5h605.26q17.453 0 29.477 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T782.63-438.5H177.37Zm0-186.217q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Z"/></svg>
+    </div>
+  </nav>
+</navbar>
+<div id="nav-dropdown" class="hidden">
+  <div id="dropdown-link-list">
+    
+      <a class="nav-dropdown-link" href="/">Home</a>
+    
+      <a class="nav-dropdown-link" href="/archives">Archives</a>
+    
+      <a class="nav-dropdown-link" href="/projects">Projects</a>
+    
+      <a class="nav-dropdown-link" href="/investment">Investment</a>
+    
+      <a class="nav-dropdown-link" href="/photography">Photography</a>
+    
+      <a class="nav-dropdown-link" href="/about">About</a>
+    
+    
+      <a class="nav-dropdown-link" href="/atom.xml" title="RSS 订阅">RSS</a>
+     
+    </div>
+</div>
+<script>
+  let dropdownBtn = document.getElementById("nav-menu-btn");
+  let dropdownEle = document.getElementById("nav-dropdown");
+  dropdownBtn.onclick = function() {
+    dropdownEle.classList.toggle("hidden");
+  }
+</script>
+    </div>
+    <div id="sidebar-wrapper">
+      <sidebar id="sidebar">
+  
+    <div class="widget-wrap">
+  <div class="info-card">
+    <div class="avatar">
+      
+        <image src=/image/avatar/avatar_1.png></image>
+      
+      <div class="img-dim"></div>
+    </div>
+    <div class="info">
+      <div class="username">Justin </div>
+      <div class="dot"></div>
+      <div class="subtitle">比世界先发现你发光 </div>
+      <div class="link-list">
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/JAYLI19707" title="GitHub"><i class="fa-brands fa-github"></i></a>
+        
+          <a class="link-btn" href="mailto:your.email@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
+        
+          <a class="link-btn" href="/atom.xml" title="RSS"><i class="fa-solid fa-rss"></i></a>
+         
+      </div>  
+    </div>
+  </div>
+</div>
+
+  
+  <div class="sticky">
+    
+      
+
+
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">分类</h3>
+      <div class="category-box">
+            <a class="category-link" href="/categories/%E7%AE%97%E6%B3%95/">
+                算法
+                <div class="category-count">2</div>
+            </a>
+        
+            <a class="category-link" href="/categories/NLP/">
+                NLP
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E6%95%B0%E5%AD%A6/">
+                数学
+                <div class="category-count">22</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                机器学习
+                <div class="category-count">19</div>
+            </a>
+        
+            <a class="category-link" href="/categories/AI/">
+                AI
+                <div class="category-count">3</div>
+            </a>
+        
+            <a class="category-link" href="/categories/Leetcode/">
+                Leetcode
+                <div class="category-count">19</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">
+                开发工具
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
+                计算机
+                <div class="category-count">4</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E8%AE%BF%E8%B0%88/">
+                访谈
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E9%87%91%E8%9E%8D/">
+                金融
+                <div class="category-count">13</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                操作系统
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                计算机网络
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/Quant/">
+                Quant
+                <div class="category-count">2</div>
+            </a>
+        </div>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">标签</h3>
+      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Batch/" rel="tag">Batch</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/LSTM/" rel="tag">LSTM</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Quant/" rel="tag">Quant</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E4%B8%B4%E8%BF%91%E7%AE%97%E5%AD%90/" rel="tag">临近算子</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E4%BA%8C%E5%88%86%E7%B1%BB/" rel="tag">二分类</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%87%B8%E5%87%BD%E6%95%B0/" rel="tag">凸函数</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%9C%80%E5%A4%A7%E4%BC%BC%E7%84%B6%E4%BC%B0%E8%AE%A1/" rel="tag">最大似然估计</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%9C%9F%E6%9D%83/" rel="tag">期权</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/" rel="tag">梯度下降</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/" rel="tag">特征工程</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/" rel="tag">矩阵乘法</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/" rel="tag">线性回归</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%BB%9F%E8%AE%A1%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C/" rel="tag">统计假设检验</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E9%87%8F%E4%BB%B7%E8%B6%8B%E5%8A%BF/" rel="tag">量价趋势</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E9%87%91%E8%9E%8D%E6%95%B0%E5%AD%A6/" rel="tag">金融数学</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag">面试题</a></li></ul>
+    </div>
+  </div>
+
+
+    
+  </div>
+</sidebar>
+    </div>
+    <div id="content-body">
+       
+
+
+<article id="post-价格行为学-复盘训练" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 class="p-name article-title" itemprop="headline name">
+        价格行为学-复盘训练
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2025-11-02T12:47:39.000Z" itemprop="datePublished">2025-11-02</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E9%87%91%E8%9E%8D/">金融</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            2.9k 词 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <h1 id="模块一：为什么复盘是必要的？（尽管它不等于实盘）"><a href="#模块一：为什么复盘是必要的？（尽管它不等于实盘）" class="headerlink" title="模块一：为什么复盘是必要的？（尽管它不等于实盘）"></a>模块一：为什么复盘是必要的？（尽管它不等于实盘）</h1><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20251102015744522.png" alt="image.png"></p>
+<p>开篇明义，指出了复盘与实盘的三个核心区别：</p>
+<ol>
+<li><p><strong>上帝视角：</strong> 复盘时，你看到了完整的K线图全貌。</p>
+</li>
+<li><p><strong>静态图表：</strong> K线是静止的，你有充足的时间分析。</p>
+</li>
+<li><p><strong>零情绪压力：</strong> 你没有资金跳动带来的心理压力和恐惧。</p>
+</li>
+</ol>
+<p>而在实盘中，K线是动态变化的（可能在收盘前几秒钟形态完全走坏），并且你的情绪会随着账户资金的波动而剧烈起伏，导致不理性的决策。</p>
+<p><strong>那么，复盘的意义何在？</strong></p>
+<p>复盘是一种刻意练习，就像篮球运动员在场下进行大量的投篮训练。虽然训练中的命中率远高于赛场（因为没有对手防守和比赛压力），但没有这种高强度的基础训练，赛场上的表现根本无从谈起。</p>
+<p>交易也是如此。两个传奇案例：</p>
+<ul>
+<li><p><strong>Al Brooks（价格行为学大师）：</strong> 本身是年入百万美金的眼科医生，靠交易退休。他坚持30多年每天复盘，积累了超过8000张图表的“百科全书”。</p>
+</li>
+<li><p><strong>马丁·舒华兹（交易冠军）：</strong> 每天工作14个小时，每周7天，甚至在功成名就后依然坚持手动画K线图和计算均线。</p>
+</li>
+</ul>
+<p><strong>核心观点：</strong> 连最顶尖的交易员都在坚持做复盘练习，我们更没有理由跳过这一步。复盘都看不明白，实盘盈利更是天方夜谭。</p>
+<h1 id="模块二：价格行为的普适性（适用于所有市场）"><a href="#模块二：价格行为的普适性（适用于所有市场）" class="headerlink" title="模块二：价格行为的普适性（适用于所有市场）"></a>模块二：价格行为的普适性（适用于所有市场）</h1><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20251102020037380.png" alt="image.png"></p>
+<p>在开始复盘方法论之前，一个重要前提：<strong>价格行为适用于所有品种和所有时间周期。</strong></p>
+<p>无论是股票（如特斯拉）、股指期货（如标普）、黄金、比特币还是外汇；无论你是看1分钟线、5分钟线、日线还是周线，K线图表背后的逻辑都是相通的。</p>
+<p>为什么？因为所有主流市场的背后都是由人或电脑程序（基于数学、概率和盈亏比）来驱动的。理性的行为会体现在图表上，导致相同的结构和形态（如趋势、震荡区间、楔形反转等）在不同市场中反复出现。Al Brooks本人也验证了这一点：遮住图表的名字和时间，你根本无法分辨它们。</p>
+<h1 id="模块三：复盘实战拆解（上）：识别市场周期"><a href="#模块三：复盘实战拆解（上）：识别市场周期" class="headerlink" title="模块三：复盘实战拆解（上）：识别市场周期"></a>模块三：复盘实战拆解（上）：识别市场周期</h1><p>标普5分钟K线图为例，手把手演示了复盘的步骤。</p>
+<p><strong>工具准备：</strong> TradingView软件、EMA20（20周期指数移动平均线）、K线计数器。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20251102020235201.png" alt="image.png"></p>
+<p>复盘第一步：搞清楚市场处于哪个周期（Market Cycle）。</p>
+<p>市场总是在四种周期中切换：突破（Spike）、窄通道（Narrow Channel）、宽通道（Broad Channel）和震荡区间（Trading Range）。</p>
+<ol>
+<li><strong>开盘阶段：宽下降通道 (Broad Bear Channel)</strong></li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20251102020323114.png" alt="image.png"></p>
+<pre><code>- **特征：** 这是一个**弱趋势**。高低点在降低，但K线重叠度非常高，每一次创新低都会被迅速拉起。
+    
+- **信号：** 逆势方（多头）竟然可以“逢低做多”来赚钱，这本身就说明了空头趋势很弱。
+    
+- **规律：** 宽通道有75%的概率会**被反向突破**（即向上突破）。
+    
+- **策略：** 此时不适合做波段，更适合高抛低吸（Scalp），或者（更推荐）**等待突破**。
+</code></pre>
+<ol start="2">
+<li><strong>转变阶段：向上突破，进入窄上涨通道 (Narrow Bull Channel)</strong></li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20251102020445763.png" alt="image.png"></p>
+<pre><code>- **特征：** 这是一个**强趋势**。K线紧贴趋势线运行，回调非常浅（通常只有1-3根K线）。
+    
+- **信号：** 市场用连续的、实体饱满的阳线（如第27, 28, 29根K线）明确告诉你，环境变了。
+    
+- **策略：** 这是“永远做多”（Always In Long）的行情，**绝对不能做空**，只能在回调时买入。
+    
+</code></pre>
+<p>复盘思考点：</p>
+<p>在实盘中，当第27根K线（大阳线）出现时，你无法100%确定这是真突破还是像之前的假突破。因此，合理的做法是：</p>
+<ol>
+<li><p>用<strong>小仓位</strong>试探性入场。</p>
+</li>
+<li><p>在下方（如EMA均线附近）挂好Limit Order（限价单），等待回调时加仓。</p>
+</li>
+</ol>
+<h1 id="模块四：复盘实战拆解（下）：强突破与恐慌高潮"><a href="#模块四：复盘实战拆解（下）：强突破与恐慌高潮" class="headerlink" title="模块四：复盘实战拆解（下）：强突破与恐慌高潮"></a>模块四：复盘实战拆解（下）：强突破与恐慌高潮</h1><ol>
+<li><strong>盘中阶段：窄震荡区间 (Narrow Trading Range)</strong></li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20251102020622022.png" alt="image.png"></p>
+<pre><code>- **特征：** 经过一轮上涨后，市场进入了非常狭窄的横盘。波动幅度可能只有一根K线那么大。
+    
+- **策略：** 盈亏比极差。**停止交易，等待突破**。
+    
+</code></pre>
+<ol start="2">
+<li><strong>午后阶段：强力向下突破 (Strong Bear Breakout)</strong></li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20251102020644931.png" alt="image.png"></p>
+<pre><code>- **特征：** 在第40根K线（日内关键时间点）附近，市场突然以连续三根巨大的阴线（41, 42, 43）向下强力突破，且全部收在最低点。
+    
+- **策略：** 这是“永远做空”（Always In Short）的行情。**绝对不能做多**，不要去猜底，也不要认为这会是“假突破”。市场信号非常明确。
+    
+</code></pre>
+<ol start="3">
+<li><strong>下跌尾声：恐慌抛售高潮 (Sell Climax)</strong></li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20251102020729578.png" alt="image.png"></p>
+<pre><code>- **特征：** 在经历了长时间、大幅度的下跌后，市场在第53根K线突然出现了一根全天最大的阴线，加速下跌。
+    
+- **信号：** 这种“抛物线式”的加速赶底，有80%-90%的概率是**恐慌抛售高潮**，意味着空头力量的最后衰竭。
+    
+- **规律：** 这种走势不可持续，通常会伴随强力反弹或转为震荡。同时，这个位置也打到了关键的“Measured Move”（量度跌幅）目标位，大量空头会在此处获利了结。
+    
+- **转折点：** 随后的第54根K线是一根强劲的阳线，它是**全天第一个值得信赖的做多信号**。
+    
+</code></pre>
+<ol start="4">
+<li><strong>尾盘阶段：无尽的回调 (Endless Pullback)</strong></li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20251102020758838.png" alt="image.png"></p>
+<pre><code>- **特征：** 市场在见底后，进入了一个“无尽的回调”（形态上是一个窄上行通道）。
+    
+- **策略：** 此时只能做多或观望。不要因为“趋势是空的”就去尝试做空第二波下跌，因为市场并没有给出任何做空信号。
+    
+</code></pre>
+<h1 id="模块五：复盘的核心（如何模拟实盘）"><a href="#模块五：复盘的核心（如何模拟实盘）" class="headerlink" title="模块五：复盘的核心（如何模拟实盘）"></a>模块五：复盘的核心（如何模拟实盘）</h1><p>完成了上述的周期划分后，复盘才真正进入核心：</p>
+<ul>
+<li><strong>第二步：标记你熟悉的形态。</strong></li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20251102020940921.png" alt="image.png"></p>
+<pre><code>- 例如，开盘的“宽下降通道”同时也是一个“三推楔形底部”，这加强了它向上突破的概率。
+    
+- 早盘的小双顶（第9和18根K线）在通道上沿提供了做空信号。
+    
+</code></pre>
+<ul>
+<li><strong>第三步：标记关键的“信号K线”和“入场K线”。</strong></li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20251102021054020.png" alt="image.png"></p>
+<pre><code>- 例如，第41根大阴线是“突破信号K”，入场点应该在它**下方**一个Tick（最小变动单位）。
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20251102021113519.png" alt="image.png"></p>
+<pre><code>- 第54根大阳线是“反转信号K”，入场点应该在它**上方**一个Tick。
+    
+</code></pre>
+<ul>
+<li><p><strong>第四步：模拟交易，思考盈亏比和止损。</strong></p>
+<ul>
+<li><p>如果我在这里（如41）做空，我的止损应该放在哪里？（例如，窄震荡区间的上方）。</p>
+</li>
+<li><p>我的盈利目标在哪里？（例如，至少1:1或2:1的盈亏比）。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>第五步（最重要）：像实盘一样思考，避免“事后诸葛亮”。</strong></p>
+<ul>
+<li><p><strong>情景模拟：</strong> 假设你在上涨中途做多了，当看到第41根大阴线时，你该怎么办？你的入场前提（上涨）已经不成立了，你<strong>必须</strong>止损离场。</p>
+</li>
+<li><p><strong>反思错误：</strong> 新手最常犯的错误，就是在这里不止损，幻想“万一弹回来呢”，结果导致巨亏；或者在第53根K线（最低点）时终于忍不住恐惧而割肉，结果卖在了地板上。</p>
+</li>
+<li><p><strong>复盘的精髓：</strong> 就是要训练自己，在看到“前提不成立”的信号时，能<strong>立刻</strong>、<strong>坚决</strong>地执行止损。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="总结：你的复盘五步法"><a href="#总结：你的复盘五步法" class="headerlink" title="总结：你的复盘五步法"></a><strong>总结：你的复盘五步法</strong></h1><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20251102020150975.png" alt="image.png"></p>
+<ol>
+<li><p><strong>识别市场周期：</strong> 划分出宽/窄通道、震荡区间、突破，并找到它们转换的信号。</p>
+</li>
+<li><p><strong>标记关键形态：</strong> 找到你熟悉的顶部、底部、反转或持续形态。</p>
+</li>
+<li><p><strong>标记关键K线：</strong> 标出信号K线和入场K线。</p>
+</li>
+<li><p><strong>模拟交易设置：</strong> 思考合理的入场、止损、止盈位置。</p>
+</li>
+<li><p><strong>代入实盘情景：</strong> 思考“如果我入场了，什么信号代表我错了？”并训练自己坚决离场。</p>
+</li>
+</ol>
+<p>结语：</p>
+<p>复盘的真正目的，不是找到完美的交易机会，而是训练自己在实盘中识别市场环境变化、发现高概率机会、并最重要的是——在前提失效时，能果断止损离场的能力。</p>
+
+        
+      </div>
+
+         
+    </div>
+    
+     
+  </div>
+  
+    
+<nav id="article-nav">
+  <a class="article-nav-btn left "
+    
+      href="/2025/11/02/%E5%88%A4%E6%96%AD%E4%B8%80%E5%8F%AA%E6%9D%A0%E6%9D%86%20ETF%20%E6%98%AF%E5%90%A6%E5%80%BC%E5%BE%97%E7%A2%B0/"
+      title="判断一只杠杆 ETF 是否值得碰"
+     >
+    <i class="fa-solid fa-angle-left"></i>
+    <p class="title-text">
+      
+        判断一只杠杆 ETF 是否值得碰
+        
+    </p>
+  </a>
+  <a class="article-nav-btn right "
+    
+      href="/2025/11/02/%E5%A4%8F%E6%99%AE%E6%AF%94%E7%8E%87%EF%BC%88Sharpe%20Ratio%EF%BC%89/"
+      title="夏普比率（Sharpe Ratio）"
+     >
+
+    <p class="title-text">
+      
+        夏普比率（Sharpe Ratio）
+        
+    </p>
+    <i class="fa-solid fa-angle-right"></i>
+  </a>
+</nav>
+
+
+  
+</article>
+
+
+
+
+
+    </div>
+    <div id="footer-wrapper">
+      <footer id="footer">
+  
+  <div id="footer-info" class="inner">
+    
+    &copy; 2026 Justin<br>
+    Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & Theme <a target="_blank" rel="noopener" href="https://github.com/saicaca/hexo-theme-vivia">Vivia</a>
+  </div>
+</footer>
+
+    </div>
+    <div class="back-to-top-wrapper">
+    <button id="back-to-top-btn" class="back-to-top-btn hide" onclick="topFunction()">
+        <i class="fa-solid fa-angle-up"></i>
+    </button>
+</div>
+
+<script>
+    function topFunction() {
+        window.scroll({ top: 0, behavior: 'smooth' });
+    }
+    let btn = document.getElementById('back-to-top-btn');
+    function scrollFunction() {
+        if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+            btn.classList.remove('hide')
+        } else {
+            btn.classList.add('hide')
+        }
+    }
+    window.onscroll = function() {
+        scrollFunction();
+    }
+</script>
+
+  </div>
+  <script src="/js/light-dark-switch.js"></script>
+</body>
+</html>

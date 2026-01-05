@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+
+
+<html theme="dark" showBanner="true" hasBanner="true" > 
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet">
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet">
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet">
+<script src="/js/color.global.min.js" ></script>
+<script src="/js/load-settings.js" ></script>
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+
+  
+  <title>价格行为学-止损（上） | Justin的技术博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+
+  <meta name="description" content="“会卖的才是师傅”？ 深入理解止损的本质**大家好，今天我们来深入探讨一个交易中老生常谈但又极其重要的话题：止损。 许多人进入市场，都被反复告诫“一定要止损”，但实际执行起来却发现异常困难。从“价格行为学”的角度，重新解构“止损”这一概念。作者指出，止损不仅仅是“停止亏损”，它更是一种综合性的“交易管理”艺术。  交易的核心难题：从“入场”到“管理”人们常说“会买的是徒弟，会卖的才是师傅”。作者将">
+<meta property="og:type" content="article">
+<meta property="og:title" content="价格行为学-止损（上）">
+<meta property="og:url" content="https://jayli19707.github.io/2025/11/08/%E4%BB%B7%E6%A0%BC%E8%A1%8C%E4%B8%BA%E5%AD%A6-%E6%AD%A2%E6%8D%9F%EF%BC%88%E4%B8%8A%EF%BC%89/index.html">
+<meta property="og:site_name" content="Justin的技术博客">
+<meta property="og:description" content="“会卖的才是师傅”？ 深入理解止损的本质**大家好，今天我们来深入探讨一个交易中老生常谈但又极其重要的话题：止损。 许多人进入市场，都被反复告诫“一定要止损”，但实际执行起来却发现异常困难。从“价格行为学”的角度，重新解构“止损”这一概念。作者指出，止损不仅仅是“停止亏损”，它更是一种综合性的“交易管理”艺术。  交易的核心难题：从“入场”到“管理”人们常说“会买的是徒弟，会卖的才是师傅”。作者将">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20251108151806517.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20251108152133179.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20251108152223337.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20251108152708650.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20251108152822235.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20251108160538441.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20251108154853455.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20251108160332305.png">
+<meta property="article:published_time" content="2025-11-08T08:06:29.000Z">
+<meta property="article:modified_time" content="2025-11-08T08:06:34.402Z">
+<meta property="article:author" content="Justin">
+<meta property="article:tag" content="人工智能,机器学习,深度学习,量化交易,Python,技术博客">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20251108151806517.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Justin的技术博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-192.png" sizes="192x192">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-192.png" sizes="192x192">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 7.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+
+<body>
+  
+  
+    
+<div id="banner" class="">
+  <img src="/image/background/benjamin_background.jpg" itemprop="image">
+  <div id="banner-dim"></div>
+</div>
+ 
+   
+  <div id="main-grid" class="  ">
+    <div id="nav" class=""  >
+      <navbar id="navbar">
+  <nav id="title-nav">
+    <a href="/">
+      <div id="vivia-logo">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div>Justin的技术博客 </div>
+    </a>
+  </nav>
+  <nav id="main-nav">
+    
+      <a class="main-nav-link" href="/">Home</a>
+    
+      <a class="main-nav-link" href="/archives">Archives</a>
+    
+      <a class="main-nav-link" href="/projects">Projects</a>
+    
+      <a class="main-nav-link" href="/investment">Investment</a>
+    
+      <a class="main-nav-link" href="/photography">Photography</a>
+    
+      <a class="main-nav-link" href="/about">About</a>
+    
+  </nav>
+  <nav id="sub-nav">
+    <a id="theme-btn" class="nav-icon">
+      <span class="light-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M438.5-829.913v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-829.913Zm0 747.826v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-82.087ZM877.913-438.5h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537t29.476-12.174h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T877.913-438.5Zm-747.826 0h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T82.087-521.5h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T130.087-438.5Zm660.174-290.87-34.239 32q-12.913 12.674-29.565 12.174-16.653-.5-29.327-13.174-12.674-12.673-12.554-28.826.12-16.152 12.794-28.826l33-35q12.913-12.674 30.454-12.674t30.163 12.847q12.709 12.846 12.328 30.826-.38 17.98-13.054 30.653ZM262.63-203.978l-32 34q-12.913 12.674-30.454 12.674t-30.163-12.847q-12.709-12.846-12.328-30.826.38-17.98 13.054-30.653l33.239-31q12.913-12.674 29.565-12.174 16.653.5 29.327 13.174 12.674 12.673 12.554 28.826-.12 16.152-12.794 28.826Zm466.74 33.239-32-33.239q-12.674-12.913-12.174-29.565.5-16.653 13.174-29.327 12.673-12.674 28.826-13.054 16.152-.38 28.826 12.294l35 33q12.674 12.913 12.674 30.454t-12.847 30.163q-12.846 12.709-30.826 12.328-17.98-.38-30.653-13.054ZM203.978-697.37l-34-33q-12.674-12.913-13.174-29.945-.5-17.033 12.174-29.707t31.326-13.293q18.653-.62 31.326 13.054l32 34.239q11.674 12.913 11.174 29.565-.5 16.653-13.174 29.327-12.673 12.674-28.826 12.554-16.152-.12-28.826-12.794ZM480-240q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm-.247-82q65.703 0 111.475-46.272Q637-414.544 637-480.247t-45.525-111.228Q545.95-637 480.247-637t-111.475 45.525Q323-545.95 323-480.247t45.525 111.975Q414.05-322 479.753-322ZM481-481Z"/></svg></span>
+      <span class="dark-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M480.239-116.413q-152.63 0-258.228-105.478Q116.413-327.37 116.413-480q0-130.935 77.739-227.435t206.304-125.043q43.022-9.631 63.87 10.869t3.478 62.805q-8.891 22.043-14.315 44.463-5.424 22.42-5.424 46.689 0 91.694 64.326 155.879 64.325 64.186 156.218 64.186 24.369 0 46.978-4.946 22.609-4.945 44.413-14.076 42.826-17.369 62.967 1.142 20.142 18.511 10.511 61.054Q807.174-280 712.63-198.206q-94.543 81.793-232.391 81.793Zm0-95q79.783 0 143.337-40.217 63.554-40.218 95.793-108.283-15.608 4.044-31.097 5.326-15.49 1.283-31.859.805-123.706-4.066-210.777-90.539-87.071-86.473-91.614-212.092-.24-16.369.923-31.978 1.164-15.609 5.446-30.978-67.826 32.478-108.282 96.152Q211.652-559.543 211.652-480q0 111.929 78.329 190.258 78.329 78.329 190.258 78.329ZM466.13-465.891Z"/></svg></span>
+    </a>
+    
+      <a id="nav-rss-link" class="nav-icon mobile-hide" href="/atom.xml" title="RSS 订阅">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-120q-25.846 0-44.23-18.384-18.384-18.385-18.384-44.23 0-25.846 18.384-44.23 18.384-18.385 44.23-18.385 25.846 0 44.23 18.385 18.384 18.384 18.384 44.23 0 25.845-18.384 44.23Q223.846-120 198-120Zm538.385 0q-18.846 0-32.923-13.769-14.076-13.769-15.922-33.23-8.692-100.616-51.077-188.654-42.385-88.039-109.885-155.539-67.5-67.501-155.539-109.885Q283-663.462 182.385-672.154q-19.461-1.846-33.23-16.23-13.769-14.385-13.769-33.846t14.076-32.922q14.077-13.461 32.923-12.23 120.076 8.692 226.038 58.768 105.961 50.077 185.73 129.846 79.769 79.769 129.846 185.731 50.077 105.961 58.769 226.038 1.231 18.846-12.538 32.922Q756.461-120 736.385-120Zm-252 0q-18.231 0-32.423-13.461t-18.653-33.538Q418.155-264.23 348.886-333.5q-69.27-69.27-166.501-84.423-20.077-4.462-33.538-18.961-13.461-14.5-13.461-33.346 0-19.076 13.884-33.23 13.884-14.153 33.115-10.922 136.769 15.384 234.384 112.999 97.615 97.615 112.999 234.384 3.231 19.23-10.538 33.115Q505.461-120 484.385-120Z"/></svg>
+      </a>
+    
+    <div id="nav-menu-btn" class="nav-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M177.37-252.282q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Zm0-186.218q-17.453 0-29.477-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T177.37-521.5h605.26q17.453 0 29.477 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T782.63-438.5H177.37Zm0-186.217q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Z"/></svg>
+    </div>
+  </nav>
+</navbar>
+<div id="nav-dropdown" class="hidden">
+  <div id="dropdown-link-list">
+    
+      <a class="nav-dropdown-link" href="/">Home</a>
+    
+      <a class="nav-dropdown-link" href="/archives">Archives</a>
+    
+      <a class="nav-dropdown-link" href="/projects">Projects</a>
+    
+      <a class="nav-dropdown-link" href="/investment">Investment</a>
+    
+      <a class="nav-dropdown-link" href="/photography">Photography</a>
+    
+      <a class="nav-dropdown-link" href="/about">About</a>
+    
+    
+      <a class="nav-dropdown-link" href="/atom.xml" title="RSS 订阅">RSS</a>
+     
+    </div>
+</div>
+<script>
+  let dropdownBtn = document.getElementById("nav-menu-btn");
+  let dropdownEle = document.getElementById("nav-dropdown");
+  dropdownBtn.onclick = function() {
+    dropdownEle.classList.toggle("hidden");
+  }
+</script>
+    </div>
+    <div id="sidebar-wrapper">
+      <sidebar id="sidebar">
+  
+    <div class="widget-wrap">
+  <div class="info-card">
+    <div class="avatar">
+      
+        <image src=/image/avatar/avatar_1.png></image>
+      
+      <div class="img-dim"></div>
+    </div>
+    <div class="info">
+      <div class="username">Justin </div>
+      <div class="dot"></div>
+      <div class="subtitle">比世界先发现你发光 </div>
+      <div class="link-list">
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/JAYLI19707" title="GitHub"><i class="fa-brands fa-github"></i></a>
+        
+          <a class="link-btn" href="mailto:your.email@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
+        
+          <a class="link-btn" href="/atom.xml" title="RSS"><i class="fa-solid fa-rss"></i></a>
+         
+      </div>  
+    </div>
+  </div>
+</div>
+
+  
+  <div class="sticky">
+    
+      
+
+
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">分类</h3>
+      <div class="category-box">
+            <a class="category-link" href="/categories/%E7%AE%97%E6%B3%95/">
+                算法
+                <div class="category-count">2</div>
+            </a>
+        
+            <a class="category-link" href="/categories/NLP/">
+                NLP
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E6%95%B0%E5%AD%A6/">
+                数学
+                <div class="category-count">22</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                机器学习
+                <div class="category-count">19</div>
+            </a>
+        
+            <a class="category-link" href="/categories/AI/">
+                AI
+                <div class="category-count">3</div>
+            </a>
+        
+            <a class="category-link" href="/categories/Leetcode/">
+                Leetcode
+                <div class="category-count">19</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">
+                开发工具
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
+                计算机
+                <div class="category-count">4</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E8%AE%BF%E8%B0%88/">
+                访谈
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E9%87%91%E8%9E%8D/">
+                金融
+                <div class="category-count">13</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                操作系统
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                计算机网络
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/Quant/">
+                Quant
+                <div class="category-count">2</div>
+            </a>
+        </div>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">标签</h3>
+      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Batch/" rel="tag">Batch</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/LSTM/" rel="tag">LSTM</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Quant/" rel="tag">Quant</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E4%B8%B4%E8%BF%91%E7%AE%97%E5%AD%90/" rel="tag">临近算子</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E4%BA%8C%E5%88%86%E7%B1%BB/" rel="tag">二分类</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%87%B8%E5%87%BD%E6%95%B0/" rel="tag">凸函数</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%9C%80%E5%A4%A7%E4%BC%BC%E7%84%B6%E4%BC%B0%E8%AE%A1/" rel="tag">最大似然估计</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%9C%9F%E6%9D%83/" rel="tag">期权</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/" rel="tag">梯度下降</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/" rel="tag">特征工程</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/" rel="tag">矩阵乘法</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/" rel="tag">线性回归</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%BB%9F%E8%AE%A1%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C/" rel="tag">统计假设检验</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E9%87%8F%E4%BB%B7%E8%B6%8B%E5%8A%BF/" rel="tag">量价趋势</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E9%87%91%E8%9E%8D%E6%95%B0%E5%AD%A6/" rel="tag">金融数学</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag">面试题</a></li></ul>
+    </div>
+  </div>
+
+
+    
+  </div>
+</sidebar>
+    </div>
+    <div id="content-body">
+       
+
+
+<article id="post-价格行为学-止损（上）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 class="p-name article-title" itemprop="headline name">
+        价格行为学-止损（上）
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2025-11-08T08:06:29.000Z" itemprop="datePublished">2025-11-08</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E9%87%91%E8%9E%8D/">金融</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            2.9k 词 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <h1 id="“会卖的才是师傅”？-深入理解止损的本质"><a href="#“会卖的才是师傅”？-深入理解止损的本质" class="headerlink" title="“会卖的才是师傅”？ 深入理解止损的本质**"></a>“会卖的才是师傅”？ 深入理解止损的本质**</h1><p>大家好，今天我们来深入探讨一个交易中老生常谈但又极其重要的话题：<strong>止损</strong>。</p>
+<p>许多人进入市场，都被反复告诫“一定要止损”，但实际执行起来却发现异常困难。从“价格行为学”的角度，重新解构“止损”这一概念。作者指出，止损不仅仅是“停止亏损”，它更是一种综合性的“交易管理”艺术。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20251108151806517.png" alt="image.png"></p>
+<h1 id="交易的核心难题：从“入场”到“管理”"><a href="#交易的核心难题：从“入场”到“管理”" class="headerlink" title="交易的核心难题：从“入场”到“管理”"></a>交易的核心难题：从“入场”到“管理”</h1><p>人们常说“会买的是徒弟，会卖的才是师傅”。作者将其扩展为：“会入场的是徒弟，知道入场以后怎么管理的才是师傅。”</p>
+<p>交易的核心决策只有两个：何时入场，何时离场。但无论入场还是离场，其结果都是不确定的。尤其是离场带来的不确定性，往往会造成更大的痛苦——比如你刚卖出，它就大涨，感觉本该属于你的幸福瞬间消失了。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20251108152133179.png" alt="image.png"></p>
+<p>作者提出了一个交易员需要具备的四种能力框架：</p>
+<ol>
+<li><p><strong>理解市场周期</strong>：知道市场在做什么，接下来可能做什么（趋势、震荡）。</p>
+</li>
+<li><p><strong>入场</strong>：何时以及如何入场。</p>
+</li>
+<li><p><strong>头寸管理</strong>：入场后如何处理手中的单子，止损是其中的关键一环。</p>
+</li>
+<li><p><strong>软实力</strong>：情绪控制、纪律等。</p>
+</li>
+</ol>
+<p>作者坦言，在这四项中，“入场”反而是最简单的，真正的难点在于“管理”。</p>
+<h1 id="新手的“最优解”：从简单开始"><a href="#新手的“最优解”：从简单开始" class="headerlink" title="新手的“最优解”：从简单开始"></a><strong>新手的“最优解”：从简单开始</strong></h1><p>对于新手而言，交易管理越简单越好。作者给出的建议是：<strong>忘掉“加仓”</strong>，因为管理一笔交易已经足够困难，增加更多决策只会更复杂。</p>
+<p>新手的最佳练习方式是<strong>做波段交易</strong>：</p>
+<ul>
+<li><p>入场后，设置一个明确的目标位和一个明确的止损位。</p>
+</li>
+<li><p>然后，什么也不做。等待市场触及你的目标（止盈）或你的止损（离场）。</p>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20251108152223337.png" alt="image.png"></p>
+<p>这就像学数学，先学“4-1=3”，暂时不用去理解“1-4=-3”。先用最简单、最机械的规则在市场中练习，当你对价格行为的理解加深后，自然会知道什么时候可以“提前止盈”（比如行情明显到不了目标位），什么时候可以“提前止损”（比如行情明显不对劲，没必要傻等止损被打）。这是一个循序渐进的成长过程。</p>
+<h1 id="止损的必要性：救命与新生"><a href="#止损的必要性：救命与新生" class="headerlink" title="止损的必要性：救命与新生"></a>止损的必要性：救命与新生</h1><p>我们为什么要止损？作者从两个核心层面阐述了其重要性：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20251108152708650.png" alt="image.png"></p>
+<ol>
+<li><p>止损是“救命”</p>
+<p> 作者引用丹麦交易员Tom Hogard的书《Best Loser Wins》（最会亏钱的人才能赚钱）来说明，交易员的账户就像生命一样重要。止损，就是在你“流血”时“止血”。钱是赚不完的，但如果你不懂得控制亏损，无论赚多少，都可能很快亏完。</p>
+</li>
+<li><p>止损是“旧的不去，新的不来”</p>
+<p> 这是一个非常重要的观点。如果你在一笔错误的交易上“死扛”（比如逆势抄底失败），你不仅要承受不断扩大的亏损，更重要的是，你的资金和精力被牢牢套住，从而错过了市场上出现的、本该属于你的新机会（比如那个本该去做的空头波段）。果断止损，才能让你抽身出来，去寻找下一个高概率的机会。</p>
+</li>
+</ol>
+<h1 id="破除执念：不存在“完美的止损”"><a href="#破除执念：不存在“完美的止损”" class="headerlink" title="破除执念：不存在“完美的止损”"></a><strong>破除执念：不存在“完美的止损”</strong></h1><p>很多交易者最痛苦的经历是：价格刚好跌破你的止损点，然后立刻反转大涨。这让人感觉自己被市场“玩弄”了。于是，下一次他们决定不止损，结果迎来的却是一去不复返的暴跌。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20251108152822235.png" alt="image.png"></p>
+<p>作者一针见血地指出：<strong>正如不存在完美的入场，也不存在完美的止损。</strong></p>
+<p>试想一下，如果存在一个“完美的止损点”（即价格一旦跌破，就必定会一路下跌），那这不就意味着，这个点对于空头来说，是一个“100%胜率的完美入场点”吗？这在市场中是不可能的。</p>
+<p>交易，本质上是在面对“双重随机性”（入场和离场皆不确定）。我们必须接受这种不完美。</p>
+<hr>
+<h1 id="为什么我们不愿止损？-深入的心理剖析"><a href="#为什么我们不愿止损？-深入的心理剖析" class="headerlink" title="为什么我们不愿止损？ 深入的心理剖析"></a>为什么我们不愿止损？ 深入的心理剖析</h1><p>人们发自内心地抗拒止损，背后有深刻的心理动因：</p>
+<ol>
+<li><p>不愿承认自己错了</p>
+<p> 大脑天生厌恶“承认错误”带来的痛苦。为了规避这种痛苦，大脑会自动寻找理由，将自己的错误“正当化”。比如，有些人会说“读书无用论”，是因为他们不愿承认自己“当初不读书是错的”。</p>
+</li>
+<li><p>推卸责任（例如：怪机构）</p>
+<p> 交易中，最常见的理由就是“机构在针对我”。作者反问：散户的成交量占比极低，机构没必要为了你这点钱“饿死”自己。退一步讲，就算你“知道”机构在针对你，你为什么还不跑呢？这本质上是一种推卸责任、不愿承认自己犯错的防御机制。</p>
+</li>
+<li><p>寻找“正当化”的理由</p>
+<p> 当头寸出现亏损时，人们会疯狂地去寻找“不该止损”的理由。比如查看新闻面、等待财报、去论坛看别人是否也看多……以此来正当化自己“继续持有”的行为。</p>
+</li>
+<li><p>害怕“连续两次犯错”</p>
+<p> 入场后价格下跌，这已经错了“一次”。交易者害怕的是，如果刚止损，价格就涨回去，那自己就等于“连续犯错两次”，这种“双重打脸”的痛苦是难以承受的。因此，他们宁愿“一错到底”（承受巨额亏损），也不愿面对“可能被二次打脸”的风险。</p>
+</li>
+</ol>
+<hr>
+<h1 id="希望的悖论与信心的缺失"><a href="#希望的悖论与信心的缺失" class="headerlink" title="希望的悖论与信心的缺失"></a>希望的悖论与信心的缺失</h1><ol>
+<li><p>寄希望于小概率事件（“万一”效应）</p>
+<p> “万一我刚止损，它就涨回去了怎么办？” 当人说出“万一”时，内心是知道这是小概率事件的。但这源于“频率错觉”——那几次V型反转的戏剧性场面给你留下了太深刻的印象，导致你高估了它发生的频率。</p>
+</li>
+<li><p>逻辑的错配</p>
+<p> 交易者在犯错亏损时（本该害怕），反而充满了“希望”；在赚钱盈利时（本该充满希望），反而充满了“害怕”（怕利润回吐）。这是完全不合逻辑的。</p>
+</li>
+<li><p>最核心的原因：对自已没有信心</p>
+<p> 作者认为，不愿意止损的根本，在于你不相信自己能把这笔钱再赚回来。你只能寄希望于“这一笔交易”能回本。如果你确信自己有能力在市场上找到下一个好机会，那么你会毫不犹豫地砍掉这笔糟糕的交易。</p>
+</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20251108160538441.png"></p>
+<h1 id="上漲趨勢中的止损策略：如何区分“重要低点”"><a href="#上漲趨勢中的止损策略：如何区分“重要低点”" class="headerlink" title="上漲趨勢中的止损策略：如何区分“重要低点”"></a>上漲趨勢中的止损策略：如何区分“重要低点”</h1><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20251108154853455.png" alt="image.png"></p>
+<ul>
+<li><p><strong>上涨趋势的定义</strong>：高点和低点都在不断抬高。</p>
+</li>
+<li><p><strong>关注低点</strong>：对于多头来说，止损总是放在某个低点的下方。</p>
+</li>
+<li><p><strong>核心概念：重要低点 vs. 次要低点</strong></p>
+<ul>
+<li><p><strong>重要低点 (Important Low)</strong>：一个低点形成后，随之而来的价格<strong>强势突破了前期高点（创出新高）</strong>。这个低点才被确认为“重要的”。</p>
+</li>
+<li><p><strong>次要低点 (Minor Low)</strong>：一个低点形成后，价格虽然反弹，但<strong>并没有强势突破前高</strong>。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20251108160332305.png" alt="image.png"></p>
+<p>止损的应用：</p>
+<p>交易者的止损，应该设置在“重要低点”的下方。</p>
+<p>如果你把止损设在“次要低点”的下方，这是非常危险的。因为市场很可能只是进行一次略深的回调，跌破这个“次要低点”（把你止损出局），然后再继续原有的上涨趋势——因为趋势的结构（重要低点）并未被破坏。</p>
+<p><strong>移动止损与趋势的终结</strong></p>
+<ol>
+<li><p>移动止损（Trailing Stop）：</p>
+<p> 当市场上涨，再次形成一个“重要低点”（即强势突破新高）后，你就可以把止损从“前一个重要低点”的下方，移动到这个“新形成的重要低点”的下方。如此反复，让利润奔跑。</p>
+</li>
+<li><p>趋势何时结束？：</p>
+<p> 当一个“重要低点”被向下跌破时，这说明上涨趋势的定义（低点不断抬高）被破坏了。此时，交易者就该思考：上涨趋势是否已经不成立了？市场是否进入了震荡，甚至可能反转？这是多头波段交易者合理的离场位置。</p>
+</li>
+</ol>
+<h1 id="交易的矛盾与最终思考"><a href="#交易的矛盾与最终思考" class="headerlink" title="交易的矛盾与最终思考"></a><strong>交易的矛盾与最终思考</strong></h1><p>作者最后提出了一个交易中的核心矛盾：</p>
+<p>当价格跌破一个“重要低点”时，趋势交易者（多头）会在此止损卖出。但与此同时，这个位置也可能被“逢低买入”的交易者（如短线头皮交易者）视为支撑位，他们的买入行为恰恰可能导致价格反弹，从而“打脸”了那些止损的趋势交易者。</p>
+<p>这就是交易的复杂性与不确定性。</p>
+<p>留给我们的思考：</p>
+<p>视频最后强调，交易不需要做到“完美”，也不可能做到完美。只要“足够好”（Good Enough）就可以了。</p>
+<p>即使你偶尔被这种“不完美”的止损打掉，但只要你能坚持这个原则，在几次大的、流畅的趋势中，通过不断移动“重要低点”的止损来持有一个大波段，你所赚到的钱，将远远覆盖那些小的亏损。</p>
+
+        
+      </div>
+
+         
+    </div>
+    
+     
+  </div>
+  
+    
+<nav id="article-nav">
+  <a class="article-nav-btn left "
+    
+      href="/2025/12/23/%E6%AE%B5%E6%B0%B8%E5%B9%B3%E6%B2%A1%E8%AF%B4%E5%87%BA%E7%9A%84%E8%B4%A2%E5%AF%8C%E7%A7%98%E5%AF%86/"
+      title="段永平没说出的财富秘密"
+     >
+    <i class="fa-solid fa-angle-left"></i>
+    <p class="title-text">
+      
+        段永平没说出的财富秘密
+        
+    </p>
+  </a>
+  <a class="article-nav-btn right "
+    
+      href="/2025/11/02/%E5%88%A4%E6%96%AD%E4%B8%80%E5%8F%AA%E6%9D%A0%E6%9D%86%20ETF%20%E6%98%AF%E5%90%A6%E5%80%BC%E5%BE%97%E7%A2%B0/"
+      title="判断一只杠杆 ETF 是否值得碰"
+     >
+
+    <p class="title-text">
+      
+        判断一只杠杆 ETF 是否值得碰
+        
+    </p>
+    <i class="fa-solid fa-angle-right"></i>
+  </a>
+</nav>
+
+
+  
+</article>
+
+
+
+
+
+    </div>
+    <div id="footer-wrapper">
+      <footer id="footer">
+  
+  <div id="footer-info" class="inner">
+    
+    &copy; 2026 Justin<br>
+    Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & Theme <a target="_blank" rel="noopener" href="https://github.com/saicaca/hexo-theme-vivia">Vivia</a>
+  </div>
+</footer>
+
+    </div>
+    <div class="back-to-top-wrapper">
+    <button id="back-to-top-btn" class="back-to-top-btn hide" onclick="topFunction()">
+        <i class="fa-solid fa-angle-up"></i>
+    </button>
+</div>
+
+<script>
+    function topFunction() {
+        window.scroll({ top: 0, behavior: 'smooth' });
+    }
+    let btn = document.getElementById('back-to-top-btn');
+    function scrollFunction() {
+        if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+            btn.classList.remove('hide')
+        } else {
+            btn.classList.add('hide')
+        }
+    }
+    window.onscroll = function() {
+        scrollFunction();
+    }
+</script>
+
+  </div>
+  <script src="/js/light-dark-switch.js"></script>
+</body>
+</html>
