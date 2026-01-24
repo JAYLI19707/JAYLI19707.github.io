@@ -14,24 +14,55 @@
   
 
   
-  <title>段永平没说出的财富秘密 | Justin的技术博客</title>
+  <title>Nearest Neighbor Classifier | Justin的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
   <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
-  <meta name="description" content="引言：通向世代财富的隐藏蓝图2002 年，传奇投资人段永平向一家陷入困境的互联网公司——网易——投入了 200 万美元。此后 20 年，这笔投资实现了惊人的 10,000 倍增长，最终价值超过 200 亿美元。这一单交易，奠定了他作为全球最伟大投资者之一的地位。 许多人研究他的公开言论和价值投资原则，却常常忽略了支撑其成功的底层真相。他们只看到了收益的摩天大楼，却没有挖掘其下由个人财务结构与制度认">
+  <meta name="description" content="分类问题 图像分类会遇到的问题语义鸿沟 1、低级特征： 低级特征通常是从原始输入数据中提取的，例如图像中的像素值。在计算机视觉中，低级特征可能包括边缘、颜色、纹理等基本信息。这些特征通常在网络的浅层卷积层中提取。 2、高级特征： 高级特征是通过多个卷积层和池化层等深度学习网络的中间层次生成的。这些特征对于更抽象的概念和语义信息更加敏感，如物体、场景、对象关系等。 语义鸿沟的问题在于，尽管高级特">
 <meta property="og:type" content="article">
-<meta property="og:title" content="段永平没说出的财富秘密">
-<meta property="og:url" content="https://jayli19707.github.io/2025/12/23/%E6%AE%B5%E6%B0%B8%E5%B9%B3%E6%B2%A1%E8%AF%B4%E5%87%BA%E7%9A%84%E8%B4%A2%E5%AF%8C%E7%A7%98%E5%AF%86/index.html">
+<meta property="og:title" content="Nearest Neighbor Classifier">
+<meta property="og:url" content="https://jayli19707.github.io/2026/01/24/Nearest%20Neighbor%20Classifier/index.html">
 <meta property="og:site_name" content="Justin的技术博客">
-<meta property="og:description" content="引言：通向世代财富的隐藏蓝图2002 年，传奇投资人段永平向一家陷入困境的互联网公司——网易——投入了 200 万美元。此后 20 年，这笔投资实现了惊人的 10,000 倍增长，最终价值超过 200 亿美元。这一单交易，奠定了他作为全球最伟大投资者之一的地位。 许多人研究他的公开言论和价值投资原则，却常常忽略了支撑其成功的底层真相。他们只看到了收益的摩天大楼，却没有挖掘其下由个人财务结构与制度认">
+<meta property="og:description" content="分类问题 图像分类会遇到的问题语义鸿沟 1、低级特征： 低级特征通常是从原始输入数据中提取的，例如图像中的像素值。在计算机视觉中，低级特征可能包括边缘、颜色、纹理等基本信息。这些特征通常在网络的浅层卷积层中提取。 2、高级特征： 高级特征是通过多个卷积层和池化层等深度学习网络的中间层次生成的。这些特征对于更抽象的概念和语义信息更加敏感，如物体、场景、对象关系等。 语义鸿沟的问题在于，尽管高级特">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-12-23T09:58:31.000Z">
-<meta property="article:modified_time" content="2025-12-23T09:58:54.152Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260122204726925.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260122205232744.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260123142954713.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260122210846475.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260122213922824.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260122214310799.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260122214446917.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260122214516768.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260122214747414.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260122214843206.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260123143351677.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260123144023256.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260123144904172.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260123201310038.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260123201632186.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260123201808492.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260123202232117.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260123202842604.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260123203459807.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260123203513079.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260123203523915.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260123203535988.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260123203732096.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260123203925447.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260123204116329.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260123204259451.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260123204405235.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260123205412390.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260123205613817.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260124131833621.png">
+<meta property="article:published_time" content="2026-01-24T09:12:30.000Z">
+<meta property="article:modified_time" content="2026-01-24T09:12:45.443Z">
 <meta property="article:author" content="Justin">
 <meta property="article:tag" content="人工智能,机器学习,深度学习,量化交易,Python,技术博客">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260122204726925.png">
   
     <link rel="alternate" href="/atom.xml" title="Justin的技术博客" type="application/atom+xml">
   
@@ -369,7 +400,7 @@ mjx-container[display="true"] + br {
        
 
 
-<article id="post-段永平没说出的财富秘密" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+<article id="post-Nearest Neighbor Classifier" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
     
    
@@ -382,7 +413,7 @@ mjx-container[display="true"] + br {
   
     
       <h1 class="p-name article-title" itemprop="headline name">
-        段永平没说出的财富秘密
+        Nearest Neighbor Classifier
       </h1>
     
   
@@ -390,65 +421,116 @@ mjx-container[display="true"] + br {
 
         <div class='meta-info-bar'>
           <div class="meta-info">
-  <time class="dt-published" datetime="2025-12-23T09:58:31.000Z" itemprop="datePublished">2025-12-23</time>
+  <time class="dt-published" datetime="2026-01-24T09:12:30.000Z" itemprop="datePublished">2026-01-24</time>
 </div>
           <div class="need-seperator meta-info">
             <div class="meta-cate-flex">
   
-  <a class="meta-cate-link" href="/categories/%E9%87%91%E8%9E%8D/">金融</a>
+  <a class="meta-cate-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
    
 </div>
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            2.3k 词 
+            1.6k 词 
           </div>
         </div>
         
       </header>
       <div class="e-content article-entry" itemprop="articleBody">
         
-          <h1 id="引言：通向世代财富的隐藏蓝图"><a href="#引言：通向世代财富的隐藏蓝图" class="headerlink" title="引言：通向世代财富的隐藏蓝图"></a>引言：通向世代财富的隐藏蓝图</h1><p>2002 年，传奇投资人段永平向一家陷入困境的互联网公司——网易——投入了 200 万美元。此后 20 年，这笔投资实现了惊人的 10,000 倍增长，最终价值超过 200 亿美元。这一单交易，奠定了他作为全球最伟大投资者之一的地位。</p>
-<p>许多人研究他的公开言论和价值投资原则，却常常忽略了支撑其成功的底层真相。他们只看到了收益的摩天大楼，却没有挖掘其下由个人财务结构与制度认知构成的坚实地基。</p>
-<p>本文揭示了隐藏在其公开建议背后的三条影响深远、却反直觉的经验。这些未被明说的秘密，正是“模仿”与“真正理解”之间的关键差别。</p>
-<h1 id="1-你的“钢铁心态”不是训练出来的，而是被现金流“供养”的"><a href="#1-你的“钢铁心态”不是训练出来的，而是被现金流“供养”的" class="headerlink" title="1. 你的“钢铁心态”不是训练出来的，而是被现金流“供养”的"></a>1. 你的“钢铁心态”不是训练出来的，而是被现金流“供养”的</h1><p>段永平 2002 年投资网易时，公司股价已跌破 1 美元，面临退市风险。他在“接飞刀”的时刻出手并长期持有，最终收获百倍回报。这是一个关于非凡定力与坚固投资心态的故事。</p>
-<p>但多数分析忽略了房间里的“大象”：当时的段永平早已实现财务独立。他先后创办了小霸王与步步高两家极其成功的电子企业；他真正的财务根基不在股市，而在于来自步步高、OPPO、VIVO 等私有资产的巨额、稳定分红——这是他“最稳定、也是最大的现金流来源”。投入网易的 200 万美元，只是其年收入中的一小部分；即便归零，他的生活也不会有任何改变。</p>
-<p>这种结构，正是纳西姆·塔勒布所说的“反脆弱”，以“杠铃策略”的形式被执行：一端是极其稳定、可预测的现金流底座；另一端是经过计算、具备高上行空间的风险押注。他的从容不是情绪状态，而是一种财务架构。</p>
-<p>心态不是训练出来的，而是由一堆“闲钱”搭建的。“冷静的心”本质上是既输得起，也赢得起。</p>
-<p>简言之，就是“赢得起，输得起”。</p>
-<p>对比普通投资者：他们的现金流脆弱，背负房贷与贷款。一次裁员或家人生病，就可能迫使他们在最低点卖出最好的资产来填补缺口。即便挺过危机，心理压力也极其巨大；当一只股票终于翻倍，卖出换车或改善住房的诱惑往往难以抗拒，从而过早终止复利之旅。</p>
-<p><strong>关键结论</strong>（这套真相的第一层级）：对年轻人而言，回报最高的投资不是股市，而是自身的“人力资本”。把精力放在职业进阶、高价值技能的打造或创业上，先建立强大而独立的现金流，这是为坚不可摧的投资心态“供能”的唯一方式。</p>
-<hr>
-<h1 id="2-若缺少这个隐藏前提，“买的是公司”是一条危险的建议"><a href="#2-若缺少这个隐藏前提，“买的是公司”是一条危险的建议" class="headerlink" title="2. 若缺少这个隐藏前提，“买的是公司”是一条危险的建议"></a>2. 若缺少这个隐藏前提，“买的是公司”是一条危险的建议</h1><p>当你拥有能承受波动的财务底座后，才可以开始应用大师们的智慧。但即便如此，仍需一道关键的过滤器。</p>
-<p>“买股票就是买公司的一部分。”这是价值投资的圣言，被巴菲特与段永平共同推崇。然而，这句话隐含了一个危险前提：<strong>法律体系对私有财产与股东权利提供了强有力的保护</strong>。这是一种特权，而非普世真理。</p>
-<h3 id="中国-A-股的制度风险"><a href="#中国-A-股的制度风险" class="headerlink" title="中国 A 股的制度风险"></a>中国 A 股的制度风险</h3><p>中国 A 股市场诞生于 1990 年，早于系统性的证券法律。最初几年几乎是“裸奔”。它并非为富裕公众投资者而生，而是为解决国企巨额债务——“让老百姓来接盘”。这种出身，长期塑造了对中小股东权利不够重视的文化。臭名昭著的“琼民源”造假案中，公司多年财务造假，最终成千上万投资者血本无归且无有效救济。</p>
-<h3 id="中概股与-VIE-架构的“骇人”风险"><a href="#中概股与-VIE-架构的“骇人”风险" class="headerlink" title="中概股与 VIE 架构的“骇人”风险"></a>中概股与 VIE 架构的“骇人”风险</h3><p>在美上市的中概股风险更甚，堪称全球金融中的“皇帝的新衣”。当你在纽交所购买阿里巴巴股票时，你并未直接拥有中国实体公司的股权，而是持有一家开曼群岛壳公司的股份。</p>
-<p>这家壳公司对中国境内的实际运营公司<strong>没有任何直接股权</strong>，双方仅通过一整套复杂的合同相连，即所谓 <strong>VIE（可变利益实体）</strong> 结构。致命缺陷在于：这些合同可能在中国法律下被认定无效，从而使美股上市的股份在一夜之间变得一文不值。</p>
-<p>这并非空谈。2011 年，为获得央行支付牌照，阿里巴巴创始人未经董事会批准，将关键资产支付宝从母公司剥离，激怒了雅虎与软银等大股东，生动展示了合同关系的脆弱性。2021 年对科技与教培行业的监管重拳，更是对此风险的残酷提醒。</p>
-<p>段永平之所以能对这类公司做出计算后的押注，是因为这些仓位可能不到其总资产的 10%；即便归零，也不会被“清零”。但对把毕生积蓄押上的普通人而言，风险画像完全不同。在明智地应用“买公司”理念前，你必须先深刻理解制度性风险。</p>
-<hr>
-<h1 id="3-复利的真正秘密是“三位一体”：本金、收益率与时间"><a href="#3-复利的真正秘密是“三位一体”：本金、收益率与时间" class="headerlink" title="3. 复利的真正秘密是“三位一体”：本金、收益率与时间"></a>3. 复利的真正秘密是“三位一体”：本金、收益率与时间</h1><p>只有在建立了财务底座（真相 1）并完成制度风险过滤（真相 2）之后，你才能有效运用财富创造的终极原则——复利。</p>
-<p>复利公式人人皆知：  </p>
-<p><strong>财富 = 本金 × (1 + 收益率)^时间</strong></p>
-<p>多数人只盯着“收益率”，却忽略了另外两个往往更可控的变量。段永平的投资哲学，正是同时战略性地最大化这三者的范本。</p>
+          <p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260122204726925.png" alt="image.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260122205232744.png" alt="image.png"></p>
+<h1 id="分类问题"><a href="#分类问题" class="headerlink" title="分类问题"></a>分类问题</h1><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260123142954713.png"></p>
+<h1 id="图像分类会遇到的问题"><a href="#图像分类会遇到的问题" class="headerlink" title="图像分类会遇到的问题"></a>图像分类会遇到的问题</h1><h2 id="语义鸿沟"><a href="#语义鸿沟" class="headerlink" title="语义鸿沟"></a>语义鸿沟</h2><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260122210846475.png" alt="image.png"></p>
+<p>1、低级特征： 低级特征通常是从原始输入数据中提取的，例如图像中的像素值。在计算机视觉中，低级特征可能包括边缘、颜色、纹理等基本信息。这些特征通常在网络的浅层卷积层中提取。</p>
+<p>2、高级特征： 高级特征是通过多个卷积层和池化层等深度学习网络的中间层次生成的。这些特征对于更抽象的概念和语义信息更加敏感，如物体、场景、对象关系等。</p>
+<p>语义鸿沟的问题在于，尽管高级特征对于理解图像中的语义信息非常重要，但与低级特征相比，它们的表示更加抽象和难以解释。因此，在高级特征和低级特征之间存在一种差距，这使得计算机在理解和解释这些特征之间的关系时面临挑战。</p>
+<h2 id="视角变化"><a href="#视角变化" class="headerlink" title="视角变化"></a>视角变化</h2><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260122213922824.png" alt="image.png"></p>
+<h2 id="光照"><a href="#光照" class="headerlink" title="光照"></a>光照</h2><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260122214310799.png" alt="image.png"></p>
+<h2 id="背景杂乱"><a href="#背景杂乱" class="headerlink" title="背景杂乱"></a>背景杂乱</h2><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260122214446917.png" alt="image.png"></p>
+<h2 id="遮挡"><a href="#遮挡" class="headerlink" title="遮挡"></a>遮挡</h2><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260122214516768.png" alt="image.png"></p>
+<h2 id="形变"><a href="#形变" class="headerlink" title="形变"></a>形变</h2><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260122214747414.png" alt="image.png"></p>
+<h2 id="类内差异"><a href="#类内差异" class="headerlink" title="类内差异"></a>类内差异</h2><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260122214843206.png" alt="image.png"></p>
+<h1 id="Nearest-Neighbor-Classifier"><a href="#Nearest-Neighbor-Classifier" class="headerlink" title="Nearest Neighbor Classifier"></a>Nearest Neighbor Classifier</h1><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260123143351677.png" alt="image.png"></p>
+<h1 id="K-NN"><a href="#K-NN" class="headerlink" title="K-NN"></a>K-NN</h1><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260123144023256.png" alt="image.png"></p>
+<p>左图 <strong>K = 1（1-NN）</strong> 的含义是：对黑圈里的测试点，只看<strong>离它最近的那一个训练点</strong>，这个最近点是黄色的，于是整个小区域都被判成黄色；哪怕周围其实有很多绿色点，只要最近的那一个是黄色，结果就会被“带偏”，所以边界会被拉出很多<strong>细碎、尖锐的小岛</strong>，看起来非常破碎、对噪声极敏感。</p>
+<p>右图 <strong>K = 3（3-NN）</strong> 则是：对同一个黑圈测试点，看<strong>最近的 3 个训练点</strong>，虽然其中可能有 1 个是黄色，但如果另外 2 个是绿色，那么<strong>绿色 2 票、黄色 1 票</strong>，最终判成绿色；因此单个“异常点”不会轻易改变分类结果，整块区域会更<strong>平滑、稳定</strong>，小噪声点不再产生孤立的分类小块。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260123144904172.png" alt="image.png"><br>当 K 很大时，产生白色地带：</p>
 <ul>
-<li><p><strong>商业模式</strong>：寻找卓越的商业模式，这是产生高且可持续收益率的发动机。好生意不只是赚钱多，更在于时间越往后，赚钱反而越容易。</p>
+<li><p>邻域会同时包含区域颜色越多</p>
 </li>
-<li><p><strong>企业文化</strong>：他极度重视企业文化，并用“本分”概括。即做对的事，也同样重要的是不做错的事。强文化能最大化“时间”变量，确保企业数十年存续，避免把复利时钟重置为零的灾难性错误。</p>
+<li><p>投票比例接近</p>
+</li>
+<li><p>小变化不会立刻改变结果（“平滑”的定义。）</p>
+</li>
+<li><p>但模型也很难“自信地偏向一边”</p>
 </li>
 </ul>
-<p>“本分”包含一些简单却难以长期坚持的原则：不加杠杆、不欺骗客户、守住能力圈。这不是空泛的道德说教，而是为尽可能延长复利过程而设定的严格风控规则。对这些“软因素”的执着，本质上是对复利公式数学结果的硬核优化。</p>
-<hr>
-<h1 id="结语：你的人生，本身就是一条复利公式"><a href="#结语：你的人生，本身就是一条复利公式" class="headerlink" title="结语：你的人生，本身就是一条复利公式"></a>结语：你的人生，本身就是一条复利公式</h1><p>段永平成功背后的未明说真相，并非复杂的交易技巧，而是一座层级分明的原则金字塔：</p>
+<h1 id="Distance"><a href="#Distance" class="headerlink" title="Distance"></a>Distance</h1><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260123201310038.png" alt="image.png"></p>
+<h1 id="pixel-distance"><a href="#pixel-distance" class="headerlink" title="pixel distance"></a>pixel distance</h1><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260123201632186.png" alt="image.png"><br>像素级距离对语义变化不敏感，对非语义变化却极其敏感，因此在像素空间中使用 k-NN 进行图像分类是不可行的；必须先学习具有语义不变性的特征表示，再在该特征空间中使用距离度量</p>
+<h1 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h1><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260123201808492.png" alt="image.png"></p>
+<p>idea1:<strong>把训练数据记住了</strong>，并不代表能预测新数据，overfiting<br>idea2:模拟“未来从未见过的数据”,如果你用它来反复试 K、调参数, 那你已经 “偷偷见过未来”,</p>
+<p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260123202232117.png" alt="image.png"></p>
+<p>对某个 K 值：</p>
+<ol>
+<li><p>第 1 折：</p>
 <ul>
-<li><p><strong>财务反脆弱</strong> 是不可谈判的前提，决定你是否拥有不可破的投资心态；</p>
+<li><p>用 fold 2–5 做近邻库</p>
 </li>
-<li><p><strong>理解制度性风险</strong> 是明智“买公司”的前提；</p>
-</li>
-<li><p><strong>最大化本金并拉长时间</strong>，与追逐最高收益率同样重要，甚至更重要。</p>
+<li><p>在 fold 1 上算 accuracy</p>
 </li>
 </ul>
-<p>复利不仅支配你的投资组合，也支配你的职业、技能与人生。回看这三个变量——<strong>本金</strong>（起始资产与现金流）、<strong>收益率</strong>（成长与学习）、<strong>时间</strong>（持续性与生存）——你把哪一个当成了“次要项”？</p>
+</li>
+<li><p>第 2 折：</p>
+<ul>
+<li><p>用 fold 1,3–5 做近邻库</p>
+</li>
+<li><p>在 fold 2 上算 accuracy</p>
+</li>
+</ul>
+</li>
+<li><p>取 5 次 accuracy 的平均</p>
+</li>
+</ol>
+<p>这就是“<strong>同一个 K，被验证了 5 次</strong>”。</p>
+<h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260123202842604.png" alt="image.png"></p>
+<h1 id="逼近"><a href="#逼近" class="headerlink" title="逼近"></a>逼近</h1><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260123203459807.png" alt="image.png"><br><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260123203513079.png" alt="image.png"><br><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260123203523915.png" alt="image.png"><br><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260123203535988.png" alt="image.png"></p>
+<h1 id="稀疏"><a href="#稀疏" class="headerlink" title="稀疏"></a>稀疏</h1><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260123203732096.png" alt="image.png"></p>
+<p>k-NN 的核心假设是：</p>
+<blockquote>
+<p><strong>附近一定有“足够近、足够像”的点</strong></p>
+</blockquote>
+<p>但在高维空间中：</p>
+<ul>
+<li><p>空间体积急剧增大</p>
+</li>
+<li><p>数据点变得<strong>极度稀疏</strong></p>
+</li>
+<li><p>“最近邻”其实也很远</p>
+</li>
+</ul>
+<p>结果：</p>
+<ul>
+<li><p>k-NN 找到的“邻居”并不相似</p>
+</li>
+<li><p>距离失去区分度（最近和最远差不多远）</p>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260123203925447.png" alt="image.png"></p>
+<h1 id="不同角度分析"><a href="#不同角度分析" class="headerlink" title="不同角度分析"></a>不同角度分析</h1><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260123204116329.png" alt="image.png"><br><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260123204259451.png" alt="image.png"><br><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260123204405235.png" alt="image.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260123205412390.png" alt="image.png"></p>
+<h1 id="线性分类的难点"><a href="#线性分类的难点" class="headerlink" title="线性分类的难点"></a>线性分类的难点</h1><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260123205613817.png" alt="image.png"></p>
+<h1 id="Label-到-索引"><a href="#Label-到-索引" class="headerlink" title="Label 到 索引"></a>Label 到 索引</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">image_labels = images.get_image_labels()</span><br><span class="line">indicies_with_dogs = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i, label <span class="keyword">in</span> <span class="built_in">enumerate</span>(image_labels):</span><br><span class="line">    <span class="keyword">if</span> label == <span class="string">'dog'</span>:</span><br><span class="line">        indicies_with_dogs.append(i)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="索引-得到-图片"><a href="#索引-得到-图片" class="headerlink" title="索引 得到 图片"></a><em>索引</em> 得到 <em>图片</em></h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">paths_of_images_to_display = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> indices_of_kept_images:</span><br><span class="line">    paths_of_images_to_display.append(all_image_paths[i])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h1 id="Matrix"><a href="#Matrix" class="headerlink" title="Matrix"></a>Matrix</h1><p><img src="https://cdn.jsdelivr.net/gh/JAYLI19707/blog-pic@master/20260124131833621.png" alt="image.png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># fill in A and B so that AB = C, where index i,j in matrix C is the cost of your groceries for week i at store j</span></span><br><span class="line">A=np.array([[<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>],</span><br><span class="line"></span><br><span class="line">      [<span class="number">0</span>,<span class="number">2</span>,<span class="number">2</span>],</span><br><span class="line"></span><br><span class="line">      [<span class="number">5</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line"></span><br><span class="line">      [<span class="number">1</span>,<span class="number">4</span>,<span class="number">3</span>]])</span><br><span class="line"></span><br><span class="line">B=np.array([[<span class="number">4</span>,<span class="number">2</span>],</span><br><span class="line"></span><br><span class="line">    [<span class="number">2</span>,<span class="number">3</span>],</span><br><span class="line"></span><br><span class="line">      [<span class="number">0.5</span>,<span class="number">1</span>]])</span><br><span class="line"></span><br><span class="line"><span class="comment"># *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****</span></span><br><span class="line"></span><br><span class="line">C = A @ B</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(C)</span><br></pre></td></tr></table></figure>
+
+
+
 
         
       </div>
@@ -461,27 +543,22 @@ mjx-container[display="true"] + br {
   
     
 <nav id="article-nav">
-  <a class="article-nav-btn left "
-    
-      href="/2025/12/23/NVIDIA/"
-      title="NVIDIA"
+  <a class="article-nav-btn left  disabled "
      >
     <i class="fa-solid fa-angle-left"></i>
     <p class="title-text">
-      
-        NVIDIA
         
     </p>
   </a>
   <a class="article-nav-btn right "
     
-      href="/2025/11/08/%E4%BB%B7%E6%A0%BC%E8%A1%8C%E4%B8%BA%E5%AD%A6-%E6%AD%A2%E6%8D%9F%EF%BC%88%E4%B8%8A%EF%BC%89/"
-      title="价格行为学-止损（上）"
+      href="/2026/01/05/IPCO%E9%87%8D%E7%82%B9/"
+      title="IPCO重点"
      >
 
     <p class="title-text">
       
-        价格行为学-止损（上）
+        IPCO重点
         
     </p>
     <i class="fa-solid fa-angle-right"></i>

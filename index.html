@@ -295,19 +295,14 @@ mjx-container[display="true"] + br {
                 <div class="category-count">22</div>
             </a>
         
-            <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                机器学习
-                <div class="category-count">19</div>
-            </a>
-        
             <a class="category-link" href="/categories/AI/">
                 AI
                 <div class="category-count">3</div>
             </a>
         
-            <a class="category-link" href="/categories/Leetcode/">
-                Leetcode
-                <div class="category-count">19</div>
+            <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                机器学习
+                <div class="category-count">20</div>
             </a>
         
             <a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">
@@ -315,14 +310,19 @@ mjx-container[display="true"] + br {
                 <div class="category-count">1</div>
             </a>
         
-            <a class="category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                计算机
-                <div class="category-count">4</div>
+            <a class="category-link" href="/categories/Leetcode/">
+                Leetcode
+                <div class="category-count">19</div>
             </a>
         
             <a class="category-link" href="/categories/%E8%AE%BF%E8%B0%88/">
                 访谈
                 <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
+                计算机
+                <div class="category-count">4</div>
             </a>
         
             <a class="category-link" href="/categories/%E9%87%91%E8%9E%8D/">
@@ -365,6 +365,92 @@ mjx-container[display="true"] + br {
     </div>
     <div id="content-body">
       
+   
+
+
+<article id="post-Nearest Neighbor Classifier" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2026/01/24/Nearest%20Neighbor%20Classifier/">Nearest Neighbor Classifier</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2026-01-24T09:12:30.000Z" itemprop="datePublished">2026-01-24</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            1.6k 词 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              
+
+分类问题
+图像分类会遇到的问题语义鸿沟
+1、低级特征： 低级特征通常是从原始输入数据中提取的，例如图像中的像素值。在计算机视觉中，低级特征可能包括边缘、颜色、纹理等基本信息。这些特征通常在网络的浅层卷积层中提取。
+2、高级特征： 高级特征是通过多个卷积层和池化层等深度学习网络的中间层次生成的。这些特征对于更抽象的概念和语义信息更加敏感，如物体、场景、对象关系等。
+语义鸿沟的问题在于，尽管高级特征对于理解图像中的语义信息非常重要，但与低级特征相比，它们的表示更加抽象和难以解释。因此，在高级特征和低级特征之间存在一种差距，这使得计算机在理解和解释这些特征之间的关系时面临挑战。
+视角变化
+光照
+背景杂乱
+遮挡
+形变
+类内差异
+Nearest Neighbor Classifier
+K-NN
+左图 K = 1（1-NN） 的含义是：对黑圈里的测试点，只看离它最近的那一个训练点，这个最近点是黄色的，于是整个小区域都被判成黄色；哪怕周围其实有很多绿色点，只要最近的那一个是黄色，结果就会被“带偏”，所以边界会被拉出很多细碎、尖锐的小岛，看起来非常破碎、对噪声极敏感。
+右图 K = 3（3-...
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2026/01/24/Nearest%20Neighbor%20Classifier/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
    
 
 
@@ -1142,121 +1228,6 @@ type class
     <a class="right-panel  non-pic  "
       
       href="/2025/10/31/Types%20and%20Type%20classes/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-   
-
-
-<article id="post-CS224N-Lecture01-Word Vectors" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/10/23/CS224N-Lecture01-Word%20Vectors/">CS224N-Lecture01-Word Vectors</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2025-10-23T12:55:15.000Z" itemprop="datePublished">2025-10-23</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/NLP/">NLP</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            1.8k 词 
-          </div>
-        </div>
-        
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            
-              WordNet
-
-
-
-对比项
-普通字典
-WordNet
-
-
-
-建立方式
-人类写作者为读者编写
-语言学家为计算机编写
-
-
-内容结构
-每个词独立定义、例句
-每个词义（Synset）之间有网络关系
-
-
-主要用途
-查含义、拼写
-计算机进行语义推理、相似度计算
-
-
-数据形式
-文本
-图结构（词义节点 + 语义边）
-
-
-Problems with WordNet
-One-hot
-Problem of similarity
-WordNet 方式失败，因此要“学习向量”而非人工列举。
-Distributional semantics:
-word vector
-word vector=word embedding =word representation
-“分布式”意思是——词义被分布在多个维度上，不是集中在某一个维度。
-
-每一维都反映一部分语义（可能与语法、语境、主题有关）。
-
-例如，“banking”的第 7 维可能反映“金融性”，第 19 维可能反映“机构性”，等等。  因此，语义信息是**分布式编码（distributed encoding）**的。
-
-
-Word2vec
-核心概念Word2...
-            
-          </div>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2025/10/23/CS224N-Lecture01-Word%20Vectors/" 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>
