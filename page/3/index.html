@@ -280,19 +280,19 @@ mjx-container[display="true"] + br {
     <div class="widget">
       <h3 class="widget-title">分类</h3>
       <div class="category-box">
+            <a class="category-link" href="/categories/%E6%95%B0%E5%AD%A6/">
+                数学
+                <div class="category-count">22</div>
+            </a>
+        
             <a class="category-link" href="/categories/%E7%AE%97%E6%B3%95/">
                 算法
-                <div class="category-count">2</div>
+                <div class="category-count">4</div>
             </a>
         
             <a class="category-link" href="/categories/NLP/">
                 NLP
                 <div class="category-count">1</div>
-            </a>
-        
-            <a class="category-link" href="/categories/%E6%95%B0%E5%AD%A6/">
-                数学
-                <div class="category-count">22</div>
             </a>
         
             <a class="category-link" href="/categories/AI/">
@@ -302,7 +302,7 @@ mjx-container[display="true"] + br {
         
             <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
                 机器学习
-                <div class="category-count">20</div>
+                <div class="category-count">24</div>
             </a>
         
             <a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">
@@ -315,19 +315,19 @@ mjx-container[display="true"] + br {
                 <div class="category-count">19</div>
             </a>
         
+            <a class="category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
+                计算机
+                <div class="category-count">5</div>
+            </a>
+        
             <a class="category-link" href="/categories/%E8%AE%BF%E8%B0%88/">
                 访谈
                 <div class="category-count">1</div>
             </a>
         
-            <a class="category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                计算机
-                <div class="category-count">4</div>
-            </a>
-        
             <a class="category-link" href="/categories/%E9%87%91%E8%9E%8D/">
                 金融
-                <div class="category-count">13</div>
+                <div class="category-count">16</div>
             </a>
         
             <a class="category-link" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
@@ -368,7 +368,7 @@ mjx-container[display="true"] + br {
    
 
 
-<article id="post-Information theorem-Entropy" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+<article id="post-CS224N-Lecture01-Word Vectors" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
    
   <div class="article-inner">
     <div class="article-main">
@@ -379,7 +379,7 @@ mjx-container[display="true"] + br {
   
     
       <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/09/21/Information%20theorem-Entropy/">Information theorem-Entropy</a>
+        <a class="p-name article-title" href="/2025/10/23/CS224N-Lecture01-Word%20Vectors/">CS224N-Lecture01-Word Vectors</a>
       </h1>
     
   
@@ -387,18 +387,133 @@ mjx-container[display="true"] + br {
 
         <div class='meta-info-bar'>
           <div class="meta-info">
-  <time class="dt-published" datetime="2025-09-21T08:50:25.000Z" itemprop="datePublished">2025-09-21</time>
+  <time class="dt-published" datetime="2025-10-23T12:55:15.000Z" itemprop="datePublished">2025-10-23</time>
 </div>
           <div class="need-seperator meta-info">
             <div class="meta-cate-flex">
   
-  <a class="meta-cate-link" href="/categories/%E6%95%B0%E5%AD%A6/">数学</a>
+  <a class="meta-cate-link" href="/categories/NLP/">NLP</a>
    
 </div>
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            11k 词 
+            1.8k 词 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              WordNet
+
+
+
+对比项
+普通字典
+WordNet
+
+
+
+建立方式
+人类写作者为读者编写
+语言学家为计算机编写
+
+
+内容结构
+每个词独立定义、例句
+每个词义（Synset）之间有网络关系
+
+
+主要用途
+查含义、拼写
+计算机进行语义推理、相似度计算
+
+
+数据形式
+文本
+图结构（词义节点 + 语义边）
+
+
+Problems with WordNet
+One-hot
+Problem of similarity
+WordNet 方式失败，因此要“学习向量”而非人工列举。
+Distributional semantics:
+word vector
+word vector=word embedding =word representation
+“分布式”意思是——词义被分布在多个维度上，不是集中在某一个维度。
+
+每一维都反映一部分语义（可能与语法、语境、主题有关）。
+
+例如，“banking”的第 7 维可能反映“金融性”，第 19 维可能反映“机构性”，等等。  因此，语义信息是**分布式编码（distributed encoding）**的。
+
+
+Word2vec
+核心概念Word2...
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2025/10/23/CS224N-Lecture01-Word%20Vectors/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
+   
+
+
+<article id="post-整数规划经典问题类型" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2025/10/11/%E6%95%B4%E6%95%B0%E8%A7%84%E5%88%92%E7%BB%8F%E5%85%B8%E9%97%AE%E9%A2%98%E7%B1%BB%E5%9E%8B/">整数规划经典问题类型</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2025-10-11T12:40:18.000Z" itemprop="datePublished">2025-10-11</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+    未分类 
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            1.2k 词 
           </div>
         </div>
         
@@ -408,15 +523,22 @@ mjx-container[display="true"] + br {
           <div class="truncate-text">
             
               
-Self -informationIn information theory and statistics, “surprise” is quantified by self-information. For an event x with probability p(x), the amount of surprise (also called information content) is defined as
+BIP with additional constraints
+ConstraintsIf investment 2 is made, then investment 4 must also be made：it means:  if  then  
+If investment 1 is made, then investment 3 cannot be made, it means:  if  then   
+0-1 Knapsack Problem
+Integer Knapsack Problem
+Assignment problem
 
-This definition has several nice properties:
+Set covering problem
 
-Rarity gives more surprise: If p(x) is small, then I(x) is large — rare events are more surprising.
+注意这里是任意i和任意j都满足。
+Traveling salesman problem
 
-Certainty gives no surprise: If p(x)=1, then I(x)=0. Something guaranteed to happen is not surprising at all.
-
-Additivity for independence...
+注意：因为我们并不知道在求解时，哪个子集 S 会形成独立的小圈(subtour)。为了防止任何这种情况出现，  我们必须“对所有可能的 S”都强制加上限制条件。
+Brute Force
+The Knapsack and Covering Problems
+设 () 是一个人为构造的假设场景这是一个特殊例子，不...
             
           </div>
         
@@ -428,7 +550,7 @@ Additivity for independence...
      
     <a class="right-panel  non-pic  "
       
-      href="/2025/09/21/Information%20theorem-Entropy/" 
+      href="/2025/10/11/%E6%95%B4%E6%95%B0%E8%A7%84%E5%88%92%E7%BB%8F%E5%85%B8%E9%97%AE%E9%A2%98%E7%B1%BB%E5%9E%8B/" 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>
@@ -447,7 +569,7 @@ Additivity for independence...
    
 
 
-<article id="post-Interval estimation and Hypothesis" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+<article id="post-凹凸性的信息" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
    
   <div class="article-inner">
     <div class="article-main">
@@ -458,7 +580,7 @@ Additivity for independence...
   
     
       <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/09/19/Interval%20estimation%20and%20Hypothesis/">Interval estimation and Hypothesis</a>
+        <a class="p-name article-title" href="/2025/10/11/%E5%87%B9%E5%87%B8%E6%80%A7%E7%9A%84%E4%BF%A1%E6%81%AF/">凹凸性的信息</a>
       </h1>
     
   
@@ -466,7 +588,7 @@ Additivity for independence...
 
         <div class='meta-info-bar'>
           <div class="meta-info">
-  <time class="dt-published" datetime="2025-09-19T03:06:20.000Z" itemprop="datePublished">2025-09-19</time>
+  <time class="dt-published" datetime="2025-10-11T12:29:52.000Z" itemprop="datePublished">2025-10-11</time>
 </div>
           <div class="need-seperator meta-info">
             <div class="meta-cate-flex">
@@ -477,7 +599,7 @@ Additivity for independence...
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            247 词 
+            2.8k 词 
           </div>
         </div>
         
@@ -486,13 +608,52 @@ Additivity for independence...
         
           <div class="truncate-text">
             
-              Interval estimation for a single coefficient
-Interval estimation for a linear combination of coefficients
-Hypothesis test
-Hypothesis testing for a linear combination of coefficients
-Polynomial equations and extending the model for KFC
-Measuring goodness-of-fit:  and 
+              Jensen’s inequality注释：函数值的平权大于函数点的平均
+Non-negativity of KL-Distance
+Maximum Entropy Theorem最大熵定理
+用KL-distance 非负性推出KL 散度总是非负：
+展开：
 
+注意 ，所以：
+因此：
+
+等号条件当 P=U即 X 服从均匀分布时），KL 散度为零，上界取到：
+
+严格凹函数 ⇒ 极值唯一我们已经知道
+
+是 严格凹函数（因为每个项  的二阶导数为 ）。
+对一个严格凹函数 f，若在凸约束集上（如概率单纯形）存在驻点，则该驻点是唯一的全局最大值。
+换句话说：
+严格凹+线性约束⟹唯一的最大点。
+这里的 |X|代表什么
+实际上这里的 ∣X∣ 是指 随机变量 X 能取的不同取值的数量，也就是它的样本空间的基数（cardinality）。
+KL散度和互信息的区别：
+
+
+层级
+KL 散度
+互信息
+
+
+
+样本空间
+一维 
+二维 
+
+
+比较对象
+真实分布 vs 模型分布
+真实联合分布 vs 假设独立分布
+
+
+几何意义
+衡量“两个分布的距离”
+衡量“真实相关性偏离独立的程度”
+
+
+信息含义
+模型误差
+变量间...
             
           </div>
         
@@ -504,7 +665,7 @@ Measuring goodness-of-fit:  and
      
     <a class="right-panel  non-pic  "
       
-      href="/2025/09/19/Interval%20estimation%20and%20Hypothesis/" 
+      href="/2025/10/11/%E5%87%B9%E5%87%B8%E6%80%A7%E7%9A%84%E4%BF%A1%E6%81%AF/" 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>
@@ -523,7 +684,7 @@ Measuring goodness-of-fit:  and
    
 
 
-<article id="post-Recursion" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+<article id="post-Generalized least squares estimators" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
    
   <div class="article-inner">
     <div class="article-main">
@@ -534,7 +695,7 @@ Measuring goodness-of-fit:  and
   
     
       <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/09/18/Recursion/">Recursion</a>
+        <a class="p-name article-title" href="/2025/10/01/Generalized%20least%20squares%20estimators/">Generalized least squares estimators</a>
       </h1>
     
   
@@ -542,18 +703,18 @@ Measuring goodness-of-fit:  and
 
         <div class='meta-info-bar'>
           <div class="meta-info">
-  <time class="dt-published" datetime="2025-09-18T07:44:45.000Z" itemprop="datePublished">2025-09-18</time>
+  <time class="dt-published" datetime="2025-10-01T12:35:26.000Z" itemprop="datePublished">2025-10-01</time>
 </div>
           <div class="need-seperator meta-info">
             <div class="meta-cate-flex">
   
-  <a class="meta-cate-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
+  <a class="meta-cate-link" href="/categories/%E6%95%B0%E5%AD%A6/">数学</a>
    
 </div>
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            785 词 
+            66 词 
           </div>
         </div>
         
@@ -562,15 +723,9 @@ Measuring goodness-of-fit:  and
         
           <div class="truncate-text">
             
-              Definition
-Mutiplication - Recursion
-Mutiplication - iteration
-Observation
-类比思路
-TOWERS OF HANOI1234567891011121314151617def tower(n,fro,to,spare):    if n==1:        print("from %c to %c" % (fro,to))    else:        tower(n-1,fro,spare,to)        tower(1,fro,to,spare)        tower(n-1,spare,to,fro)# 测试汉诺塔函数tower(3, 'A', 'B', 'C')
+              Grouped data
+Generalized least squares estimators: Unknown form of variance
 
-fro:起点to：终点spare：空闲的柱子
-123456789101112131415161718192021222324252627def permuation(num):    res=[]    def backtrack(start):        if start==len(num):            re...
             
           </div>
         
@@ -582,7 +737,7 @@ fro:起点to：终点spare：空闲的柱子
      
     <a class="right-panel  non-pic  "
       
-      href="/2025/09/18/Recursion/" 
+      href="/2025/10/01/Generalized%20least%20squares%20estimators/" 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>
@@ -601,7 +756,7 @@ fro:起点to：终点spare：空闲的柱子
    
 
 
-<article id="post-Asymptotic Notations" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+<article id="post-The Goldfeld–Quandt test" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
    
   <div class="article-inner">
     <div class="article-main">
@@ -612,7 +767,7 @@ fro:起点to：终点spare：空闲的柱子
   
     
       <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/09/17/Asymptotic%20Notations/">Asymptotic Notations</a>
+        <a class="p-name article-title" href="/2025/09/29/The%20Goldfeld%E2%80%93Quandt%20test/">The Goldfeld–Quandt test</a>
       </h1>
     
   
@@ -620,7 +775,80 @@ fro:起点to：终点spare：空闲的柱子
 
         <div class='meta-info-bar'>
           <div class="meta-info">
-  <time class="dt-published" datetime="2025-09-17T10:39:58.000Z" itemprop="datePublished">2025-09-17</time>
+  <time class="dt-published" datetime="2025-09-29T13:11:10.000Z" itemprop="datePublished">2025-09-29</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E6%95%B0%E5%AD%A6/">数学</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            105 词 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              The Goldfeld–Quandt test
+How to correct heteroskedasticity
+Generalized least squares estimators: Known form of variance
+
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2025/09/29/The%20Goldfeld%E2%80%93Quandt%20test/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
+   
+
+
+<article id="post-Heteroskedasticity" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2025/09/28/Heteroskedasticity/">Heteroskedasticity</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2025-09-28T14:45:05.000Z" itemprop="datePublished">2025-09-28</time>
 </div>
           <div class="need-seperator meta-info">
             <div class="meta-cate-flex">
@@ -640,44 +868,9 @@ fro:起点to：终点spare：空闲的柱子
         
           <div class="truncate-text">
             
-              O-notation注意：计算机教材的写法 是一个元素， 代表属于，是一个集合
-定义回顾
-例子 1：
-这里
+              Heteroskedasticity come from
 
-要检查是否成立：  
-
-化简：  
-
-当，，所以总能找到 c。  
-  比如选 c=1，那么只要 ，。
-
-
- 所以 
-例子 2：
-这里  
-
-检查是否成立：
-
-化简：  
-
-这要求：
-
-但随着 n 越来越大，不可能存在一个有限常数 c 让不等式一直成立。
-  所以 。
-
-
-Macro substitution第一条：左边元素，右边集合，左边元素一定存在于右边。第二条：两边都是集合，左边整体是右边的子集，左边任意元素都能在右边被找到。
-Operations of 𝑶-notation
-
-
-，
-
-
--notation
--notation and -notation
-Transitivity
-
+The passage is describing heteroskedasticity, a situation where the variance of the error term (  ) is not constant but depends on the explanatory variable (x).In ordinary regression we usually assume homoskedasticity: (), the same for all values of . But here, the idea is that when (x) is large in magnitude, the spread (variance) of the errors is also larger. In probabilistic terms, if () grows with (x), then the probability that () takes on large positive or ne...
             
           </div>
         
@@ -689,7 +882,7 @@ Transitivity
      
     <a class="right-panel  non-pic  "
       
-      href="/2025/09/17/Asymptotic%20Notations/" 
+      href="/2025/09/28/Heteroskedasticity/" 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>
@@ -708,7 +901,7 @@ Transitivity
    
 
 
-<article id="post-Leetcode-148.排序链表" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+<article id="post-Chow-test" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
    
   <div class="article-inner">
     <div class="article-main">
@@ -719,7 +912,7 @@ Transitivity
   
     
       <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/09/17/Leetcode-148.%E6%8E%92%E5%BA%8F%E9%93%BE%E8%A1%A8/">Leetcode-148.排序链表</a>
+        <a class="p-name article-title" href="/2025/09/28/Chow-test/">Chow-test</a>
       </h1>
     
   
@@ -727,12 +920,275 @@ Transitivity
 
         <div class='meta-info-bar'>
           <div class="meta-info">
-  <time class="dt-published" datetime="2025-09-17T08:12:34.000Z" itemprop="datePublished">2025-09-17</time>
+  <time class="dt-published" datetime="2025-09-28T11:15:29.000Z" itemprop="datePublished">2025-09-28</time>
 </div>
           <div class="need-seperator meta-info">
             <div class="meta-cate-flex">
   
-    未分类 
+  <a class="meta-cate-link" href="/categories/%E6%95%B0%E5%AD%A6/">数学</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            1.4k 词 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              
+Main idea of “restriction”A restriction is always about which coefficients we force to equal zero under the null hypothesis. It depends on the question we want to test.
+
+If the question is “Does SOUTH matter?”, then the restrictions only apply to the θ’s (the coefficients that multiply SOUTH and its interactions).
+
+If the question is “Does race (BLACK), gender (FEMALE), or their interaction matter?”, then the restrictions would apply to the δ’s and γ as well.
+
+
+So it’s about the hypothesis, ...
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2025/09/28/Chow-test/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
+   
+
+
+<article id="post-Least squares prediction and Indicator Variables" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2025/09/23/Least%20squares%20prediction%20and%20Indicator%20Variables/">Least squares prediction and Indicator Variables</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2025-09-23T08:02:42.000Z" itemprop="datePublished">2025-09-23</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E6%95%B0%E5%AD%A6/">数学</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            2.9k 词 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              Least squares prediction
+CI and PI
+CI: “Where is the average wage for people with 16 years of education likely to be?”
+
+PI: “If I pick one random person with 16 years of education, what wage will they likely earn?”
+
+
+Confidence Interval (CI)
+Target: The conditional mean    
+
+This is a fixed but unknown number (not random once the data and ​ are fixed).
+
+The randomness comes from the estimation process (sampling variation in ​ ).
+
+So the CI is telling you: “With 95% confidence, the true mean l...
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2025/09/23/Least%20squares%20prediction%20and%20Indicator%20Variables/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
+   
+
+
+<article id="post-What is information theory and coding" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2025/09/22/What%20is%20information%20theory%20and%20coding/">What is information theory and coding</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2025-09-22T14:06:12.000Z" itemprop="datePublished">2025-09-22</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E6%95%B0%E5%AD%A6/">数学</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            2.3k 词 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              goal
+what should we learn
+communication system
+
+Source Encoder
+
+Converts the raw source (text, audio, image) into a sequence of bits .
+
+
+Channel Encoder
+
+Adds redundancy to protect against noise.
+
+
+Modulator
+
+Converts the encoded bits into waveforms/signals that can physically travel through the channel.
+
+
+Channel + Noise
+
+The medium distorts the signal (attenuation, interference, random noise).
+
+
+Demodulator
+
+Recovers the bit sequence from the noisy received signal.
+
+
+Channel Decoder
+
+Uses r...
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2025/09/22/What%20is%20information%20theory%20and%20coding/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
+   
+
+
+<article id="post-Further inference in the multiple linear regression model" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2025/09/22/Further%20inference%20in%20the%20multiple%20linear%20regression%20model/">Further inference in the multiple linear regression model</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2025-09-22T10:17:56.000Z" itemprop="datePublished">2025-09-22</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E6%95%B0%E5%AD%A6/">数学</a>
    
 </div>
   
@@ -745,79 +1201,22 @@ Transitivity
       </header>
       <div class="e-content article-entry" itemprop="articleBody">
         
-          <p>注意归并排序的细节：<br>用快慢指针找到中间的指针。<br>中间指针在慢指针后面<br>注意慢指针要断链</p>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2025/09/17/Leetcode-148.%E6%8E%92%E5%BA%8F%E9%93%BE%E8%A1%A8/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-   
-
-
-<article id="post-费雪的策略" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/09/16/%E8%B4%B9%E9%9B%AA%E7%9A%84%E7%AD%96%E7%95%A5/">费雪的策略</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2025-09-16T13:27:46.000Z" itemprop="datePublished">2025-09-16</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E9%87%91%E8%9E%8D/">金融</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            3.7k 词 
-          </div>
-        </div>
-        
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
           <div class="truncate-text">
             
-              卖出以及何时卖出费雪认为，卖出股票的三个理由：①、当初买进行为犯下错误，某特定公司的实际状况显著不如原先设想那么美好。在某种程度上，要看投资者能否坦诚面对自己。②、当成长股成长潜力消耗殆尽，股票与持有原则严重脱节时，就应该卖出。③、有更加前景远大的成长股可以选择。
-费雪认为投资者不应该因为空头市场的担忧而卖出股票（恐惧熊市的到来）。他认为这样做无异于要求投资者知道空头市场何时出现，以及何时结束（在空头市场底部买回股票）。但通常情况是投资者卖出后，空头市场并未出现，市场继续上扬。等到空头市场真的来临时，却从来没有见过比卖出价格更低的位置买回相同股票的投资者。通常的情况是，股价并没有跌回卖出价，但投资者仍苦苦等待，或者股价真的一路下挫跌过卖出价，他们却又忧虑别的事情而不敢买回。
-费雪提醒：投资者不应该因为手上的股票涨幅过大就卖出股票。因为，“涨幅过大”、“估值过高”，都是非常模糊的概念。没有证据表明多高的估值或者涨幅才是最高。
-投资者的“五不原则”原则一：不买处于创业阶段的公司。（注：中国式创业板其实不属于创业阶段的公司）
-费雪认为创业阶段的公司，投资者只能看到它的运作蓝图，并猜测它...
+              Joint hypothesis testing
+
+Simple null hypothesis → involves a restriction on one  sign (&lt;,=,&gt;)  only 
+
+Joint null hypothesis → involves two or more restrictions at the same time 
+
+
+Testing the effect of advertising: The F-test
+restricted model :  
+
+An unrestricted model is the “full” regression specification, where you estimate all parameters freely without imposing any restrictions. For example, if your regression is  
+  then the unrestricted model estimates   all at once.
+
+A restricte...
             
           </div>
         
@@ -829,332 +1228,7 @@ Transitivity
      
     <a class="right-panel  non-pic  "
       
-      href="/2025/09/16/%E8%B4%B9%E9%9B%AA%E7%9A%84%E7%AD%96%E7%95%A5/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-   
-
-
-<article id="post-Multiple Regression Model" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/09/16/Multiple%20Regression%20Model/">Multiple Regression Model</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2025-09-16T09:27:10.000Z" itemprop="datePublished">2025-09-16</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E6%95%B0%E5%AD%A6/">数学</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            1.2k 词 
-          </div>
-        </div>
-        
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            
-              多元回归
-以 multiple linear regression with two predictors 为例
-$$\tilde{y}i = y_i - \bar{y},\quad \tilde{x}{i2} = x_{i2} - \bar{x}2,\quad \tilde{x}{i3} = x_{i3} - \bar{x}_3 .$$
-important point: In this model, as in many others, it is important to recognize that the model is an approximation to reality in the region for which we have data; including an intercept improves this approximation even when it is not directly interpretable
-• Estimated regression models describe the relationship between the ...
-            
-          </div>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2025/09/16/Multiple%20Regression%20Model/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-   
-
-
-<article id="post-Explainable ML" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/09/16/Explainable%20ML/">Explainable ML</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2025-09-16T08:14:08.000Z" itemprop="datePublished">2025-09-16</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            63 词 
-          </div>
-        </div>
-        
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            
-              Explainable与Interpretable
-心理学：解读解释性的理由
-两大类问题
-蓝色表示判断正确的概率越低
-白色证明比值越大
-
-
-            
-          </div>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2025/09/16/Explainable%20ML/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-   
-
-
-<article id="post-Hypothesis testing and Least squares prediction" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/09/15/Hypothesis%20testing%20and%20Least%20squares%20prediction/">Hypothesis testing and Least squares prediction</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2025-09-15T08:53:17.000Z" itemprop="datePublished">2025-09-15</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E6%95%B0%E5%AD%A6/">数学</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            1.7k 词 
-          </div>
-        </div>
-        
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            
-              Hypothesis testing on a single parametert-test(查表）
-
-补充说明：
-significant leve  = Prob(type I error)In hypothesis testing, the significance level is defined as the probability of committing a Type I error, i.e., rejecting the null hypothesiswhen it is in fact true. In other words, represents the maximum risk of a false positive that the researcher is willing to tolerate.
-Rejection region（拒绝域）
-拒绝域 = 在原假设为真时，观测到的检验统计量落入极端区域（尾部）的区间。
-“极端”是相对于 备择假设所描述的方向 来定义的。
-
-In short, the sign and form of the alter...
-            
-          </div>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2025/09/15/Hypothesis%20testing%20and%20Least%20squares%20prediction/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-   
-
-
-<article id="post-Estimator and Confidence interval" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/09/13/Estimator%20and%20Confidence%20interval/">Estimator and Confidence interval</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2025-09-13T15:13:26.000Z" itemprop="datePublished">2025-09-13</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E6%95%B0%E5%AD%A6/">数学</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            5.4k 词 
-          </div>
-        </div>
-        
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            
-              Coefficient of determination and sample correlation coefficient
-
-
-
-推导：推导 1:  (一元线性回归)在简单线性回归模型中：
-
-$$\hat{y}{i}=b{1}+b_{2}x_{i}\hat{y_{i}}=\bar{y}-b_{2}\bar{x}+b_{2}x_{i}\hat{y_{i}}=\bar{y}+\frac{S_{xy}}{S_{xx}}(x_{i}-\bar{x})$$定义相关系数：
-
-
-
-推导 2:  (一般线性回归)考虑一般线性回归（可能是多元）：
-
-相关系数定义为：
-
-在 OLS 回归中，残差与预测值正交：
-
-因此：
-
-代入得：
-
-Estimating the variance of the error term样本方差无偏性推导
-Estimators are not normally distributed
-1. 两种情况
-情况 A：假设误差   那么  都是  的线性组合，而正态分布的线性组合仍然是正态。  所以此时可以直接得出：
-
-
-
-情况 B：不假设 正态，只要求它们 i.i.d.，有...
-            
-          </div>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2025/09/13/Estimator%20and%20Confidence%20interval/" 
+      href="/2025/09/22/Further%20inference%20in%20the%20multiple%20linear%20regression%20model/" 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>
@@ -1177,7 +1251,7 @@ Estimators are not normally distributed
       <i class="fa-solid fa-angle-left"></i>
     </a>
     <div id="num-bar">
-      <a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a>  
+      <a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a>  
     </div>
     <a id="next-btn" class="page-nav-btn " href="/page/4/">
       <i class="fa-solid fa-angle-right"></i>

@@ -280,19 +280,19 @@ mjx-container[display="true"] + br {
     <div class="widget">
       <h3 class="widget-title">分类</h3>
       <div class="category-box">
+            <a class="category-link" href="/categories/%E6%95%B0%E5%AD%A6/">
+                数学
+                <div class="category-count">22</div>
+            </a>
+        
             <a class="category-link" href="/categories/%E7%AE%97%E6%B3%95/">
                 算法
-                <div class="category-count">2</div>
+                <div class="category-count">4</div>
             </a>
         
             <a class="category-link" href="/categories/NLP/">
                 NLP
                 <div class="category-count">1</div>
-            </a>
-        
-            <a class="category-link" href="/categories/%E6%95%B0%E5%AD%A6/">
-                数学
-                <div class="category-count">22</div>
             </a>
         
             <a class="category-link" href="/categories/AI/">
@@ -302,7 +302,7 @@ mjx-container[display="true"] + br {
         
             <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
                 机器学习
-                <div class="category-count">20</div>
+                <div class="category-count">24</div>
             </a>
         
             <a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">
@@ -315,19 +315,19 @@ mjx-container[display="true"] + br {
                 <div class="category-count">19</div>
             </a>
         
+            <a class="category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
+                计算机
+                <div class="category-count">5</div>
+            </a>
+        
             <a class="category-link" href="/categories/%E8%AE%BF%E8%B0%88/">
                 访谈
                 <div class="category-count">1</div>
             </a>
         
-            <a class="category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                计算机
-                <div class="category-count">4</div>
-            </a>
-        
             <a class="category-link" href="/categories/%E9%87%91%E8%9E%8D/">
                 金融
-                <div class="category-count">13</div>
+                <div class="category-count">16</div>
             </a>
         
             <a class="category-link" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
@@ -368,7 +368,7 @@ mjx-container[display="true"] + br {
    
 
 
-<article id="post-Nearest Neighbor Classifier" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+<article id="post-价格行为学-止损（中）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
    
   <div class="article-inner">
     <div class="article-main">
@@ -379,7 +379,7 @@ mjx-container[display="true"] + br {
   
     
       <h1 itemprop="name">
-        <a class="p-name article-title" href="/2026/01/24/Nearest%20Neighbor%20Classifier/">Nearest Neighbor Classifier</a>
+        <a class="p-name article-title" href="/2026/02/27/%E4%BB%B7%E6%A0%BC%E8%A1%8C%E4%B8%BA%E5%AD%A6-%E6%AD%A2%E6%8D%9F%EF%BC%88%E4%B8%AD%EF%BC%89/">价格行为学-止损（中）</a>
       </h1>
     
   
@@ -387,7 +387,172 @@ mjx-container[display="true"] + br {
 
         <div class='meta-info-bar'>
           <div class="meta-info">
-  <time class="dt-published" datetime="2026-01-24T09:12:30.000Z" itemprop="datePublished">2026-01-24</time>
+  <time class="dt-published" datetime="2026-02-26T16:26:58.000Z" itemprop="datePublished">2026-02-27</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E9%87%91%E8%9E%8D/">金融</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            2.8k 词 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              
+
+
+
+
+
+笔记前言这是“踏上交易之路”系列第四期，也是关于“止损”主题的第二部分。本期视频的核心观点是：止损（或止盈）本质上是“离场”，而离场的唯一标准，应该是你“入场的前提”是否依然成立。
+视频深入探讨了在趋势行情中，我们应该如何设置和移动止损，以及在趋势的什么阶段应该选择主动离场，而不是被动等待止损被触发。
+1. 核心前提：止损点与“重要低点”
+复习： 在一个上涨趋势中，我们寻找的是不断抬高的低点。一个“重要低点”是指，当价格从这个低点反弹后，成功地、强力地突破了前一个高点。
+
+传统止损法： 交易者的保护性止损，就应该放在这个“重要低点”的下方。随着趋势不断创出新高和新的“重要低点”，止损也随之向上移动（追踪止损）。
+
+问题： 这种方法在“完美趋势”中很有效，但如果趋势并不完美，或者你入场的位置很高，价格距离你那个“重要低点”的止损位非常远。如果真的等价格跌到那里，你的利润回撤会非常巨大，甚至由盈转亏。
+
+
+2. 复杂回调与“TBTL”概念
+观点： 大多数回调都不是简单的一根阴线就结束的。市场需要“充分的回调”。
+
+回调结构： 常见的回调结构包括两段式回调（ABC回调）、双...
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2026/02/27/%E4%BB%B7%E6%A0%BC%E8%A1%8C%E4%B8%BA%E5%AD%A6-%E6%AD%A2%E6%8D%9F%EF%BC%88%E4%B8%AD%EF%BC%89/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
+   
+
+
+<article id="post-Dynamic programming" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2026/02/12/Dynamic%20programming/">Dynamic programming</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2026-02-12T14:40:08.000Z" itemprop="datePublished">2026-02-12</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            34 词 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              
+
+
+divide and conquer
+Dynamic Programming
+
+
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2026/02/12/Dynamic%20programming/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
+   
+
+
+<article id="post-Convolutional Neural Networks" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2026/02/12/Convolutional%20Neural%20Networks/">Convolutional Neural Networks</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2026-02-12T14:28:45.000Z" itemprop="datePublished">2026-02-12</time>
 </div>
           <div class="need-seperator meta-info">
             <div class="meta-cate-flex">
@@ -398,7 +563,7 @@ mjx-container[display="true"] + br {
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            1.6k 词 
+            714 词 
           </div>
         </div>
         
@@ -407,23 +572,75 @@ mjx-container[display="true"] + br {
         
           <div class="truncate-text">
             
-              
+              vector derivatives
+Backprop with Vector
+Jocobian用于输出输入均为向量的时候求导
+注意方向问题
+例子
+如果只改变一个元素x影响y的什么
 
-分类问题
-图像分类会遇到的问题语义鸿沟
-1、低级特征： 低级特征通常是从原始输入数据中提取的，例如图像中的像素值。在计算机视觉中，低级特征可能包括边缘、颜色、纹理等基本信息。这些特征通常在网络的浅层卷积层中提取。
-2、高级特征： 高级特征是通过多个卷积层和池化层等深度学习网络的中间层次生成的。这些特征对于更抽象的概念和语义信息更加敏感，如物体、场景、对象关系等。
-语义鸿沟的问题在于，尽管高级特征对于理解图像中的语义信息非常重要，但与低级特征相比，它们的表示更加抽象和难以解释。因此，在高级特征和低级特征之间存在一种差距，这使得计算机在理解和解释这些特征之间的关系时面临挑战。
-视角变化
-光照
-背景杂乱
-遮挡
-形变
-类内差异
-Nearest Neighbor Classifier
-K-NN
-左图 K = 1（1-NN） 的含义是：对黑圈里的测试点，只看离它最近的那一个训练点，这个最近点是黄色的，于是整个小区域都被判成黄色；哪怕周围其实有很多绿色点，只要最近的那一个是黄色，结果就会被“带偏”，所以边界会被拉出很多细碎、尖锐的小岛，看起来非常破碎、对噪声极敏感。
-右图 K = 3（3-...
+改变 
+
+只影响 
+
+所以只用  第一行回传
+
+
+影响多少
+Convolutional Neural NetworksFully Connected Layer
+Convolution Layer
+
+Filter（卷积核）= 一小块可学习的权重参数
+它是一个张量：
+
+
+k×k：空间大小（比如 3×3、5×5）
+
+C：输入通道数
+
+里面全是可训练参数（weight）
+
+
+
+
+
+Fully Connected
+Convolution
+
+
+
+每个神经元看全图
+每个神经元只看局部
+
+
+参数巨大
+参数很少
+
+
+无空间结构
+保留空间结构
+
+
+无权重共享
+权重共享
+
+
+
+
+可视化
+
+convolution（卷积）
+
+有 32 个 5×5 卷积核，一个卷积核是5* 5* 3
+
+每个卷积核都会在整张图上滑动（并行的）
+
+每个卷积核输出 一张特征图
+
+所以得到 32 张 activation maps
+
+
+卷积的计算过...
             
           </div>
         
@@ -435,7 +652,7 @@ K-NN
      
     <a class="right-panel  non-pic  "
       
-      href="/2026/01/24/Nearest%20Neighbor%20Classifier/" 
+      href="/2026/02/12/Convolutional%20Neural%20Networks/" 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>
@@ -454,7 +671,7 @@ K-NN
    
 
 
-<article id="post-IPCO重点" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+<article id="post-Solving Recurrence" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
    
   <div class="article-inner">
     <div class="article-main">
@@ -465,7 +682,7 @@ K-NN
   
     
       <h1 itemprop="name">
-        <a class="p-name article-title" href="/2026/01/05/IPCO%E9%87%8D%E7%82%B9/">IPCO重点</a>
+        <a class="p-name article-title" href="/2026/02/06/Solving%20Recurrence/">Solving Recurrence</a>
       </h1>
     
   
@@ -473,415 +690,12 @@ K-NN
 
         <div class='meta-info-bar'>
           <div class="meta-info">
-  <time class="dt-published" datetime="2026-01-05T13:41:09.000Z" itemprop="datePublished">2026-01-05</time>
+  <time class="dt-published" datetime="2026-02-06T12:10:23.000Z" itemprop="datePublished">2026-02-06</time>
 </div>
           <div class="need-seperator meta-info">
             <div class="meta-cate-flex">
   
-  <a class="meta-cate-link" href="/categories/%E6%95%B0%E5%AD%A6/">数学</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            4.5k 词 
-          </div>
-        </div>
-        
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            
-              formulate a linear problem
-这道题目要求我们将逻辑条件转化为整数规划（Integer Programming）中的线性约束条件。
-
-(ii) Project 4 must be selected if either project 1 or project 2 is selected含义： 如果选择了项目1 或者 选择了项目2，那么必须选择项目4。
-
-写法一（推荐，更清晰）：(解释：如果 ，则  必须为1； 同理。)
-
-写法二（合并写法）：(解释：左边最大可能是2。如果 ，左边必须是0；如果 ，左边可以是0, 1或2，即允许选1或2。)
-
-
-
-(iii) Project 5 is selected if and only if at least one of the projects 1 and 3 is selected 含义： 这是一个“当且仅当”（if and only if）的条件，包含两个方向的逻辑：
-
-如果选了1或3（或都选），则必须选5。
-
-如果选了5，则意味着必然选了1或3其中至少一个。
-
-方向 （至少一个被选则选5）：(如果  或  为...
-            
-          </div>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2026/01/05/IPCO%E9%87%8D%E7%82%B9/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-   
-
-
-<article id="post-SME重点" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/12/28/SME%E9%87%8D%E7%82%B9/">SME复习笔记</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2025-12-28T13:16:31.000Z" itemprop="datePublished">2025-12-28</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E6%95%B0%E5%AD%A6/">数学</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            13k 词 
-          </div>
-        </div>
-        
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            
-              Assumption of linear model
-The simple linear regression model is based on the following assumptions.(i) ​.(ii) The regressor is non-random and takes at least two different values.(iii), equivalently (iv) for all i.(v) for all .(vi) (Optional)  equivalently .
-第二点解析：
-
-解释变量（自变量）非随机性：  假设 是固定的常数，而不是随机变量（即所谓的 fixed in repeated samples）。这样做的好处是，推导估计量的分布时只需要考虑误差项 ​ 的随机性，避免了 自身的不确定性带来的额外复杂性。
-
-解释变量必须有变动性：  至少要有两个不同的取值，否则所有 ​ 都相同，回归模型退化为 ​，根本无法估计斜率 。换句话说， 必须有非零方差，才能保证回归矩阵可逆，估计量 ​ 才能被唯一确定。
-
-
-不需要 6 点都满足才...
-            
-          </div>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2025/12/28/SME%E9%87%8D%E7%82%B9/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-   
-
-
-<article id="post-NVIDIA" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/12/23/NVIDIA/">NVIDIA</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2025-12-23T10:36:30.000Z" itemprop="datePublished">2025-12-23</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E8%AE%BF%E8%B0%88/">访谈</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            5.5k 词 
-          </div>
-        </div>
-        
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            
-              
-总结英伟达（NVIDIA）CEO 黄仁勋（Jensen Huang）与 Cleo Abram 的深度访谈。深入探讨了计算的过去、AI 的现在以及机器人与数字生物学的未来。
-引言很多人都知道英伟达（NVIDIA）是一家市值惊人的公司，但很少有人真正理解，其今日的辉煌是建立在数十年深思熟虑的豪赌之上。最近，其创始人兼CEO黄仁勋接受了一次深度访谈，其中充满了对未来的洞见。我们从中提炼出5个最令人惊讶且影响深远的观点，它们揭示了一个远不止于芯片的故事——这是一个关于彻底重塑计算本身的宏大叙事。这五个观点看似独立，实则环环相扣，共同揭示了黄仁勋基于第一性原理和长期主义的统一世界观，正是这种思想让他能够始终领先于时代，“看见”并创造未来。
-
-1. 一切始于电子游戏，但这并非偶然英伟达的第一个重大洞察，是发现任何软件程序中，往往只有一小部分代码（约10%）承担了绝大部分（约99%）的计算工作，而这些计算工作可以被并行处理。
-他们选择电子游戏作为第一个应用领域，这并非心血来潮，而是一次深思熟虑的战略决策。黄仁勋解释了其中的“飞轮效应”：电子游戏代表了一个潜力巨大的市场，这个市场能够支撑庞大的...
-            
-          </div>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2025/12/23/NVIDIA/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-   
-
-
-<article id="post-段永平没说出的财富秘密" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/12/23/%E6%AE%B5%E6%B0%B8%E5%B9%B3%E6%B2%A1%E8%AF%B4%E5%87%BA%E7%9A%84%E8%B4%A2%E5%AF%8C%E7%A7%98%E5%AF%86/">段永平没说出的财富秘密</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2025-12-23T09:58:31.000Z" itemprop="datePublished">2025-12-23</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E9%87%91%E8%9E%8D/">金融</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            2.3k 词 
-          </div>
-        </div>
-        
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            
-              引言：通向世代财富的隐藏蓝图2002 年，传奇投资人段永平向一家陷入困境的互联网公司——网易——投入了 200 万美元。此后 20 年，这笔投资实现了惊人的 10,000 倍增长，最终价值超过 200 亿美元。这一单交易，奠定了他作为全球最伟大投资者之一的地位。
-许多人研究他的公开言论和价值投资原则，却常常忽略了支撑其成功的底层真相。他们只看到了收益的摩天大楼，却没有挖掘其下由个人财务结构与制度认知构成的坚实地基。
-本文揭示了隐藏在其公开建议背后的三条影响深远、却反直觉的经验。这些未被明说的秘密，正是“模仿”与“真正理解”之间的关键差别。
-1. 你的“钢铁心态”不是训练出来的，而是被现金流“供养”的段永平 2002 年投资网易时，公司股价已跌破 1 美元，面临退市风险。他在“接飞刀”的时刻出手并长期持有，最终收获百倍回报。这是一个关于非凡定力与坚固投资心态的故事。
-但多数分析忽略了房间里的“大象”：当时的段永平早已实现财务独立。他先后创办了小霸王与步步高两家极其成功的电子企业；他真正的财务根基不在股市，而在于来自步步高、OPPO、VIVO 等私有资产的巨额、稳定分红——这是他“最...
-            
-          </div>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2025/12/23/%E6%AE%B5%E6%B0%B8%E5%B9%B3%E6%B2%A1%E8%AF%B4%E5%87%BA%E7%9A%84%E8%B4%A2%E5%AF%8C%E7%A7%98%E5%AF%86/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-   
-
-
-<article id="post-价格行为学-止损（上）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/11/08/%E4%BB%B7%E6%A0%BC%E8%A1%8C%E4%B8%BA%E5%AD%A6-%E6%AD%A2%E6%8D%9F%EF%BC%88%E4%B8%8A%EF%BC%89/">价格行为学-止损（上）</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2025-11-08T08:06:29.000Z" itemprop="datePublished">2025-11-08</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E9%87%91%E8%9E%8D/">金融</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            2.9k 词 
-          </div>
-        </div>
-        
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            
-              “会卖的才是师傅”？ 深入理解止损的本质**大家好，今天我们来深入探讨一个交易中老生常谈但又极其重要的话题：止损。
-许多人进入市场，都被反复告诫“一定要止损”，但实际执行起来却发现异常困难。从“价格行为学”的角度，重新解构“止损”这一概念。作者指出，止损不仅仅是“停止亏损”，它更是一种综合性的“交易管理”艺术。
-
-交易的核心难题：从“入场”到“管理”人们常说“会买的是徒弟，会卖的才是师傅”。作者将其扩展为：“会入场的是徒弟，知道入场以后怎么管理的才是师傅。”
-交易的核心决策只有两个：何时入场，何时离场。但无论入场还是离场，其结果都是不确定的。尤其是离场带来的不确定性，往往会造成更大的痛苦——比如你刚卖出，它就大涨，感觉本该属于你的幸福瞬间消失了。
-
-作者提出了一个交易员需要具备的四种能力框架：
-
-理解市场周期：知道市场在做什么，接下来可能做什么（趋势、震荡）。
-
-入场：何时以及如何入场。
-
-头寸管理：入场后如何处理手中的单子，止损是其中的关键一环。
-
-软实力：情绪控制、纪律等。
-
-
-作者坦言，在这四项中，“入场”反而是最简单的，真正的难点在于“管理”。
-新手的“最优解”：从简单开...
-            
-          </div>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2025/11/08/%E4%BB%B7%E6%A0%BC%E8%A1%8C%E4%B8%BA%E5%AD%A6-%E6%AD%A2%E6%8D%9F%EF%BC%88%E4%B8%8A%EF%BC%89/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-   
-
-
-<article id="post-判断一只杠杆 ETF 是否值得碰" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/11/02/%E5%88%A4%E6%96%AD%E4%B8%80%E5%8F%AA%E6%9D%A0%E6%9D%86%20ETF%20%E6%98%AF%E5%90%A6%E5%80%BC%E5%BE%97%E7%A2%B0/">判断一只杠杆 ETF 是否值得碰</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2025-11-02T13:28:26.000Z" itemprop="datePublished">2025-11-02</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E9%87%91%E8%9E%8D/">金融</a>
+  <a class="meta-cate-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
    
 </div>
   
@@ -896,31 +710,23 @@ The simple linear regression model is based on the following assumptions.(i) ​
         
           <div class="truncate-text">
             
-              杠杆ETF杠杆ETF（Leveraged Exchange-Traded Fund）是一种利用**金融衍生品（如期货、掉期、期权）来放大指数日内涨跌幅的基金。它的目标是让投资者在不直接使用借贷的情况下，获得某一指数1倍以上（通常是2倍或3倍）**的收益或亏损。
-例如：
+              Substitution method (考点)Steps of the substitution method for solving recurrences:i. Guess the form of the solution.ii. Use the mathematical induction to find the constants and show that the solution works.This method is powerful, but we must be able to guess the form of the answer in order to apply it.
+明确上下界
+Example1. 递归式我们从递归式出发：
 
-若标的指数（如标普500）当天上涨1%，
+直觉上，它应该是 O()。
+2. 猜测解的形式猜测 ，其中 c&gt;0 是一个常数。目标：证明这个不等式在合适的 c下对充分大的 n 成立。
+3. 归纳假设与代入假设对于所有比 n 小的正整数 m，不等式成立：
 
-2倍杠杆ETF理论上上涨2%；
+特别地对  使用假设：
 
-3倍杠杆ETF理论上上涨3%；
+4. 代回递归式代入原式：
 
-而反向3倍ETF则下跌3%。
+化简：
 
+只要 ，就有
 
-
-
-这种放大效果只针对单日回报，因为基金会在每天收盘后重新平衡仓位（daily reset），使得长期持有的表现与指数的倍数关系会出现偏离——尤其在震荡行情下会出现“波动损耗（volatility decay）”，导致即使指数不变，杠杆ETF也可能亏损。
-因此，杠杆ETF通常适合短线交易、日内投机或对冲策略，而不宜长期持有。常见的例子包括：
-
-SPXL / SPXS：追踪标普500的3倍多头 / 3倍空头
-
-TQQQ / SQQQ：追踪纳斯达克100的3倍多头 / 3倍空头
-
-UPRO / SDOW：类似的3倍放大产品
-
-
-总结来说，杠杆ETF的本质是“通过衍生品合成倍...
+5. 基例问题如果从 n=1...
             
           </div>
         
@@ -932,7 +738,7 @@ UPRO / SDOW：类似的3倍放大产品
      
     <a class="right-panel  non-pic  "
       
-      href="/2025/11/02/%E5%88%A4%E6%96%AD%E4%B8%80%E5%8F%AA%E6%9D%A0%E6%9D%86%20ETF%20%E6%98%AF%E5%90%A6%E5%80%BC%E5%BE%97%E7%A2%B0/" 
+      href="/2026/02/06/Solving%20Recurrence/" 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>
@@ -951,7 +757,7 @@ UPRO / SDOW：类似的3倍放大产品
    
 
 
-<article id="post-价格行为学-复盘训练" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+<article id="post-信息论-实例" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
    
   <div class="article-inner">
     <div class="article-main">
@@ -962,7 +768,7 @@ UPRO / SDOW：类似的3倍放大产品
   
     
       <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/11/02/%E4%BB%B7%E6%A0%BC%E8%A1%8C%E4%B8%BA%E5%AD%A6-%E5%A4%8D%E7%9B%98%E8%AE%AD%E7%BB%83/">价格行为学-复盘训练</a>
+        <a class="p-name article-title" href="/2026/02/06/%E4%BF%A1%E6%81%AF%E8%AE%BA-%E5%AE%9E%E4%BE%8B/">信息论-实例</a>
       </h1>
     
   
@@ -970,7 +776,192 @@ UPRO / SDOW：类似的3倍放大产品
 
         <div class='meta-info-bar'>
           <div class="meta-info">
-  <time class="dt-published" datetime="2025-11-02T12:47:39.000Z" itemprop="datePublished">2025-11-02</time>
+  <time class="dt-published" datetime="2026-02-06T12:08:16.000Z" itemprop="datePublished">2026-02-06</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/">计算机</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            2.2k 词 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              一 、词汇的编码信的所有内容就是这4个词的组合。第一封信写着”狗猫鱼鸟”，第二封信写”鱼猫鸟狗”。信件需要二进制编码，在互联网传递。两个二进制位就可以表示四个词汇。
+
+
+狗 00
+猫 01
+鱼 10
+鸟 11
+
+
+所以，第一封信”狗猫鱼鸟”的编码是00011011，第二封信”鱼猫鸟狗”的编码是10011100。
+二、词汇的分布最近，小张开始养狗，信里提到狗的次数，多于其他词汇。假定概率分布如下。
+
+
+狗：50%
+猫：25%
+鱼：12.5%
+鸟：12.5%
+
+
+小张的最新一封信是这样的。
+
+狗狗狗狗猫猫鱼鸟
+
+上面这封信，用前一节的方法进行编码。
+
+0000000001011011
+
+一共需要16个二进制。互联网的流量费很贵，有没有可能找到一种更短编码方式？
+很容易想到，”狗”的出现次数最多，给它分配更短的编码，就能减少总的长度。请看下面的编码方式。
+
+
+狗 0
+猫 10
+鱼 110
+鸟 111
+
+
+使用新的编码方式，小张的信”狗狗狗狗猫猫鱼鸟”编码如下。
+
+00001010110111
+
+这时只需要14个二进制位，相当于把原来的编码压缩了12.5%。
+根据新的编码，每个词只需要1...
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2026/02/06/%E4%BF%A1%E6%81%AF%E8%AE%BA-%E5%AE%9E%E4%BE%8B/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
+   
+
+
+<article id="post-Backpropagation" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2026/01/29/Backpropagation/">Backpropagation</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2026-01-29T05:39:15.000Z" itemprop="datePublished">2026-01-29</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            5.8k 词 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              random search
+这页在讲最原始、也最低效的一种“训练模型”的办法：随机搜索（random search），本质上是在用纯暴力试错来最小化损失函数。
+假设你已经有训练数据 、标签 ，以及一个给定参数矩阵 W 就能计算出的损失函数 。代码先把当前最优损失 bestloss 初始化为无穷大，然后重复很多次（这里是 1000 次）：每一次都 随机生成一组模型参数 W（例如线性分类器的权重矩阵），用这组参数在整个训练集上计算一次损失；如果这次的损失比历史最小值还小，就把这组参数保存下来。循环过程中不断打印“第几次尝试、当前损失、目前为止最好的损失”。最终得到的 bestW 只是 1000 次随机采样中表现“相对没那么差”的那一组参数。
+结果大约是 15.5%，为什么幻灯片会说 “not bad”？因为这是一个 10 类问题，纯随机猜测的期望准确率只有 10%，而这个模型虽然是“瞎搜参数”，但已经学到了一点点数据分布的弱结构；不过和 SOTA（≈99.7%）相比，这个差距正好用来强调一个核心结论：不是线性模型不行，而是用“随机搜索”这种不利用梯度信息的优化方法，在高维参数空间里几...
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2026/01/29/Backpropagation/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
+   
+
+
+<article id="post-顶级财富人群选择加拿大" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2026/01/28/%E9%A1%B6%E7%BA%A7%E8%B4%A2%E5%AF%8C%E4%BA%BA%E7%BE%A4%E9%80%89%E6%8B%A9%E5%8A%A0%E6%8B%BF%E5%A4%A7/">顶级财富人群选择加拿大</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2026-01-28T04:02:18.000Z" itemprop="datePublished">2026-01-28</time>
 </div>
           <div class="need-seperator meta-info">
             <div class="meta-cate-flex">
@@ -981,7 +972,7 @@ UPRO / SDOW：类似的3倍放大产品
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            2.9k 词 
+            1.7k 词 
           </div>
         </div>
         
@@ -990,28 +981,17 @@ UPRO / SDOW：类似的3倍放大产品
         
           <div class="truncate-text">
             
-              模块一：为什么复盘是必要的？（尽管它不等于实盘）
-开篇明义，指出了复盘与实盘的三个核心区别：
+              深入地理解关于加拿大的底层逻辑，我们需要跳出表象的“生活便利性”或“经济增速”，进入到身份属性、税务筹划、职业壁垒以及国家战略储备这四个更深层的维度。
+一、 身份的“隐形护城河”：法律保护与领事探视权顶级财富人群选择加拿大，核心看中的是其护照背后的法律底气。
 
-上帝视角： 复盘时，你看到了完整的K线图全貌。
+避圈大佬的生存逻辑： 塑造加密货币行业版图的两位关键人物——以太坊创始人维塔利克（Vitalik）和币安创始人 赵长鹏（CZ）都拥有加拿大背景。在2017年“监管风暴”时， 赵长鹏凭借 加拿大国籍和境外服务器**的优势，在其他交易所老板被约谈时保持“自由之身”，迅速接管市场，实现了对老牌交易所的“弯道超车”。
 
-静态图表： K线是静止的，你有充足的时间分析。
-
-零情绪压力： 你没有资金跳动带来的心理压力和恐惧。
+领事探视权的实质： 对于在高风险、法律灰色地带（如早期的ICO、金融创新）穿梭的人士，加拿大护照意味着第一梯队的领事保护力。这意味着在遭遇司法纠纷时，可以有效避免远扬不捞、行讯逼供等极端情况，这种安全边界在动荡时期是巨大的竞争壁垒。
 
 
-而在实盘中，K线是动态变化的（可能在收盘前几秒钟形态完全走坏），并且你的情绪会随着账户资金的波动而剧烈起伏，导致不理性的决策。
-那么，复盘的意义何在？
-复盘是一种刻意练习，就像篮球运动员在场下进行大量的投篮训练。虽然训练中的命中率远高于赛场（因为没有对手防守和比赛压力），但没有这种高强度的基础训练，赛场上的表现根本无从谈起。
-交易也是如此。两个传奇案例：
+二、 税务制度的降维打击：灵活的“非税务居民”策略加拿大与美国在财富管理上的底层逻辑完全不同，这决定了它对全球化企业家更具吸引力。
 
-Al Brooks（价格行为学大师）： 本身是年入百万美金的眼科医生，靠交易退休。他坚持30多年每天复盘，积累了超过8000张图表的“百科全书”。
-
-马丁·舒华兹（交易冠军）： 每天工作14个小时，每周7天，甚至在功成名就后依然坚持手动画K线图和计算均线。
-
-
-核心观点： 连最顶尖的交易员都在坚持做复盘练习，我们更没有理由跳过这一步。复盘都看不明白，实盘盈利更是天方夜谭。
-模块二...
+对比美国（全球征税）： 美国实行全球征税，且放...
             
           </div>
         
@@ -1023,7 +1003,7 @@ Al Brooks（价格行为学大师）： 本身是年入百万美金的眼科医�
      
     <a class="right-panel  non-pic  "
       
-      href="/2025/11/02/%E4%BB%B7%E6%A0%BC%E8%A1%8C%E4%B8%BA%E5%AD%A6-%E5%A4%8D%E7%9B%98%E8%AE%AD%E7%BB%83/" 
+      href="/2026/01/28/%E9%A1%B6%E7%BA%A7%E8%B4%A2%E5%AF%8C%E4%BA%BA%E7%BE%A4%E9%80%89%E6%8B%A9%E5%8A%A0%E6%8B%BF%E5%A4%A7/" 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>
@@ -1042,7 +1022,7 @@ Al Brooks（价格行为学大师）： 本身是年入百万美金的眼科医�
    
 
 
-<article id="post-夏普比率（Sharpe Ratio）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+<article id="post-Loss function" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
    
   <div class="article-inner">
     <div class="article-main">
@@ -1053,7 +1033,7 @@ Al Brooks（价格行为学大师）： 本身是年入百万美金的眼科医�
   
     
       <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/11/02/%E5%A4%8F%E6%99%AE%E6%AF%94%E7%8E%87%EF%BC%88Sharpe%20Ratio%EF%BC%89/">夏普比率（Sharpe Ratio）</a>
+        <a class="p-name article-title" href="/2026/01/26/Loss%20function/">Loss function</a>
       </h1>
     
   
@@ -1061,107 +1041,18 @@ Al Brooks（价格行为学大师）： 本身是年入百万美金的眼科医�
 
         <div class='meta-info-bar'>
           <div class="meta-info">
-  <time class="dt-published" datetime="2025-11-01T17:45:37.000Z" itemprop="datePublished">2025-11-02</time>
+  <time class="dt-published" datetime="2026-01-26T10:14:06.000Z" itemprop="datePublished">2026-01-26</time>
 </div>
           <div class="need-seperator meta-info">
             <div class="meta-cate-flex">
   
-  <a class="meta-cate-link" href="/categories/%E9%87%91%E8%9E%8D/">金融</a>
+  <a class="meta-cate-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
    
 </div>
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            2.4k 词 
-          </div>
-        </div>
-        
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            
-              Sharpe Ratio 是衡量投资的黄金标准为什么只看“回报率”是危险的？一个核心观点：投资不仅仅是关于回报率。这可能是反直觉的，但却是量化金融（Quant Finance）的基石。
-
-一个经典的例子：
-
-投资A（绿色） 和 投资B（黑色） 最终都获得了40%的相同回报。
-
-但它们的路径截然不同：A（绿色）非常平稳地上涨；而B（黑色）则经历了剧烈的波动，中间甚至有一次大幅的回撤。
-
-
-为什么剧烈波动（Wiggles）是坏事？
-
-持有体验更痛苦：根据交易心理学，损失带来的痛苦远大于同等收益带来的快乐。持有B（黑色）的过程会让人备受煎熬，尤其是在大幅回撤时，你根本不知道它是否还能涨回来。
-
-未来信心更低：B（黑色）的剧烈波动让人感觉它“什么都可能发生”，对它未来的表现缺乏信心。相反，A（绿色）的平稳表现让人更相信它会继续稳步增长。
-
-流动性风险：如果你在B（黑色）处于低谷时突然需要用钱（比如支付账单），你将被迫“割肉”平仓，从而实现永久性亏损。
-
-
-结论很明确：B（黑色）是一个更差的投资，因为它为了获得同样的回报，承担了远高于A（绿色）的风险。
-因此，我们需要一个能够同时衡量回报和...
-            
-          </div>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2025/11/02/%E5%A4%8F%E6%99%AE%E6%AF%94%E7%8E%87%EF%BC%88Sharpe%20Ratio%EF%BC%89/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-   
-
-
-<article id="post-Types and Type classes" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/10/31/Types%20and%20Type%20classes/">Types and Type classes</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2025-10-31T03:12:13.000Z" itemprop="datePublished">2025-10-31</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E6%95%B0%E5%AD%A6/">数学</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            1.2k 词 
+            7.2k 词 
           </div>
         </div>
         
@@ -1171,51 +1062,69 @@ Al Brooks（价格行为学大师）： 本身是年入百万美金的眼科医�
           <div class="truncate-text">
             
               
-举例：type of x :Let X = {1, 2, 3}, a tenary alphabet. Let x = 11321.Then the type of x is  =  ,  =  ,  =  .
-The number of elements in type class T(P) is |T(P)| =  = 20
-三者的核心关系概览可以记成：  
+CIFAR-10
 
-也就是：
+分类器输出的是 scores，不是概率
 
-每个序列 x 属于某个 type class T(P)；
+随机初始化的 W 基本是“瞎猜”，所以大多数列都是 bad
 
-每个 type class (T(P)) 对应某一个 type (P)；
-
-所有这些 P （即所有 type）组成集合 。
-
-
-直觉上：
-
-type 是“某种分布”，type class 是“所有具有这种分布的序列的集合”。 是“所有可能分布的集合”。
-
-定义回顾
-type（经验分布） 
-
-set of types（类型集合） 
-
-type class（类型类） 对某个特定的类型 ()，定义  
- 
-
-
-图示理解
-
-
-概念
-对象
-含义
-举例
+训练的目标，就是调整 W，让 正确类别的 score 永远比其他类别高
 
 
 
-type 
-单个分布
-描述一个序列中0和1出现的频率
+
+score 只是“打分”，没有好坏尺度
+
+loss 把“预测对错 + 错得多严重”压缩成一个数
+
+数据集 loss = 所有样本 loss 的平均
+
+训练 = 调 W，让 loss 变小
+
+
+Multiclass SVM loss深度学习里的 SVM loss ≠ 传统 SVM 模型
+
+
+对不对（classification）
+
+错 → 一定有 loss
+
+
+错得有多离谱（ranking &amp; margin）
+
+错得越多，loss 越大
+
+
+对得是否“有把握”
+
+对了但 margin 不够，也会被罚
 
 
 
-type class 
-一组序列
-所有0...
+看图
+情况 1：
+
+正确类别 明显赢了
+
+蓝线在 0 上
+
+loss = 0
+
+
+不罚，说明模型对这个类别“有把握”
+ 情况 2：
+
+正确类别虽然更大，但 margin 不够
+
+loss 是正的
+
+差得越少，罚得越多
+
+
+ 预测对了，但不自信，也要罚
+ 情况 3：
+
+错...
             
           </div>
         
@@ -1227,7 +1136,164 @@ type class
      
     <a class="right-panel  non-pic  "
       
-      href="/2025/10/31/Types%20and%20Type%20classes/" 
+      href="/2026/01/26/Loss%20function/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
+   
+
+
+<article id="post-揭秘公募行业的 3 大收割潜规则" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2026/01/25/%E6%8F%AD%E7%A7%98%E5%85%AC%E5%8B%9F%E8%A1%8C%E4%B8%9A%E7%9A%84%203%20%E5%A4%A7%E6%94%B6%E5%89%B2%E6%BD%9C%E8%A7%84%E5%88%99/">揭秘公募行业的 3 大收割潜规则</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2026-01-25T10:14:15.000Z" itemprop="datePublished">2026-01-25</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E9%87%91%E8%9E%8D/">金融</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            2.1k 词 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              以下是关于公募基金行业“生存真相”的深度解析：
+一、 制度性陷阱：基金为何沦为“收割对象”？在专业投资者眼中，公募基金往往不是对手，而是 “猎物。其核心原因在于基金背后极其僵化的 制度性约束。
+
+“带血的筹码”与强制平仓：许多基金合同中明确规定了投资范围（例如必须是2A级以上债券）。一旦债券信用评级因突发新闻被下调，即便基本面尚可，基金经理也必须在合规和风控的严厉要求下，不计成本地在最短时间内抛售。这种“为了合规而非为了价值”的抛售，会导致价格瞬间崩盘（如从90元跌至60元），为专业投资者提供了“捡尸体”的无风险套利机会。
+
+“大象难掉头”的流动性困境：散户和游击队式的专业投资者可以秒速清仓，但持有数十亿甚至百亿资金的基金由于规模庞大，一旦大规模减持就会引发股价崩溃。他们如同满载的巨轮，即使看到了冰山（风险），也往往来不及转弯，只能眼睁睁地看着净值沉没。
+
+预测“羊群”的行为：专业投资者利用这些制度性约束，精准预判基金被迫买入或卖出的时间点，提前布局，静待基金经理自己“走过来”被收割。
+
+
+二、 核心商业逻辑的错位：管理费 vs. 收益率基民与基金公司之间存在着天然的利益不一致。...
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2026/01/25/%E6%8F%AD%E7%A7%98%E5%85%AC%E5%8B%9F%E8%A1%8C%E4%B8%9A%E7%9A%84%203%20%E5%A4%A7%E6%94%B6%E5%89%B2%E6%BD%9C%E8%A7%84%E5%88%99/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
+   
+
+
+<article id="post-Fundamentals in ML" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2026/01/24/Fundamentals%20in%20ML/">Fundamentals in ML</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2026-01-24T12:18:54.000Z" itemprop="datePublished">2026-01-24</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            1k 词 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              Batched Matrix Multiplication
+图中前面的 () 表示 批次维度（batch dimensions），也就是“有多少个矩阵同时在做乘法”。在 batched matrix multiplication 中，最后两维 (n,m) 与 (m,p) 按普通矩阵乘法规则相乘，而前面所有维度（这里是 ）并不参与数值运算，只用于索引不同的矩阵批次；它们必须相等或满足广播规则，结果中这些维度会被原样保留下来.
+Broadcasting
+
+我们允许矩阵与向量直接相加，虽然在线性代数的严格定义里这本来是未定义的操作；具体做法是规定结果矩阵 C 的每个元素满足 ​，也就是说向量 b 被当作在行方向上复制，加到矩阵 A 的每一行上，从而得到一个同形状的矩阵，而无需显式构造一个“每一行都等于 b”的大矩阵
+规则第 1 条（右到左比较维度）
+
+If the two arrays differ in their number of dimensions, the shape of the one with fewer dimensions is padded with ones ...
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2026/01/24/Fundamentals%20in%20ML/" 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>
@@ -1250,7 +1316,7 @@ type class
       <i class="fa-solid fa-angle-left"></i>
     </a>
     <div id="num-bar">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a>  
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a>  
     </div>
     <a id="next-btn" class="page-nav-btn " href="/page/2/">
       <i class="fa-solid fa-angle-right"></i>

@@ -280,19 +280,19 @@ mjx-container[display="true"] + br {
     <div class="widget">
       <h3 class="widget-title">分类</h3>
       <div class="category-box">
+            <a class="category-link" href="/categories/%E6%95%B0%E5%AD%A6/">
+                数学
+                <div class="category-count">22</div>
+            </a>
+        
             <a class="category-link" href="/categories/%E7%AE%97%E6%B3%95/">
                 算法
-                <div class="category-count">2</div>
+                <div class="category-count">4</div>
             </a>
         
             <a class="category-link" href="/categories/NLP/">
                 NLP
                 <div class="category-count">1</div>
-            </a>
-        
-            <a class="category-link" href="/categories/%E6%95%B0%E5%AD%A6/">
-                数学
-                <div class="category-count">22</div>
             </a>
         
             <a class="category-link" href="/categories/AI/">
@@ -302,7 +302,7 @@ mjx-container[display="true"] + br {
         
             <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
                 机器学习
-                <div class="category-count">20</div>
+                <div class="category-count">24</div>
             </a>
         
             <a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">
@@ -315,19 +315,19 @@ mjx-container[display="true"] + br {
                 <div class="category-count">19</div>
             </a>
         
+            <a class="category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
+                计算机
+                <div class="category-count">5</div>
+            </a>
+        
             <a class="category-link" href="/categories/%E8%AE%BF%E8%B0%88/">
                 访谈
                 <div class="category-count">1</div>
             </a>
         
-            <a class="category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                计算机
-                <div class="category-count">4</div>
-            </a>
-        
             <a class="category-link" href="/categories/%E9%87%91%E8%9E%8D/">
                 金融
-                <div class="category-count">13</div>
+                <div class="category-count">16</div>
             </a>
         
             <a class="category-link" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
@@ -368,7 +368,7 @@ mjx-container[display="true"] + br {
    
 
 
-<article id="post-总买在顶点" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+<article id="post-Algorithm-Insertion sort, merge sort" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
    
   <div class="article-inner">
     <div class="article-main">
@@ -379,7 +379,7 @@ mjx-container[display="true"] + br {
   
     
       <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/08/20/%E6%80%BB%E4%B9%B0%E5%9C%A8%E9%A1%B6%E7%82%B9/">总买在顶点</a>
+        <a class="p-name article-title" href="/2025/09/11/Algorithm-Insertion%20sort,%20merge%20sort/">Algorithm-Insertion sort, merge sort</a>
       </h1>
     
   
@@ -387,18 +387,18 @@ mjx-container[display="true"] + br {
 
         <div class='meta-info-bar'>
           <div class="meta-info">
-  <time class="dt-published" datetime="2025-08-20T15:21:18.000Z" itemprop="datePublished">2025-08-20</time>
+  <time class="dt-published" datetime="2025-09-11T09:42:59.000Z" itemprop="datePublished">2025-09-11</time>
 </div>
           <div class="need-seperator meta-info">
             <div class="meta-cate-flex">
   
-  <a class="meta-cate-link" href="/categories/%E9%87%91%E8%9E%8D/">金融</a>
+  <a class="meta-cate-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
    
 </div>
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            1.7k 词 
+            1.6k 词 
           </div>
         </div>
         
@@ -407,14 +407,17 @@ mjx-container[display="true"] + br {
         
           <div class="truncate-text">
             
-              普遍规律分析炒股的朋友大概率都经历过这种场景：行情火得不行，身边人都在聊某只股票，抖音、朋友圈、财经博主全在喊多。你一咬牙进去了，结果刚买完，股价就掉头往下。最后只能尴尬地安慰自己一句：是不是我买的姿势不对？
-“当菜市场大妈都在讨论股票的时候，那这波行情就要见顶了”，这句话不是没有道理。
-其实，这不是个例，而是普遍规律。为什么普通人总是买在顶点？今天想跟大家聊聊这个自我实现的陷阱。
-先看点数据，2000 年科网股泡沫最疯狂的时候，美国散户开户量创历史新高，结果没过几个月，纳指腰斩。
-2021 年美股、加密货币大火，Robinhood 下载量在一季度冲到顶峰，Coinbase 新用户数飙升。结果呢？比特币从 6 万跌到 3 万，美股科技股一顿暴杀。
-再看现在：谷歌搜AI 股票，Nvidia的热度在 2025 年 6 月达到顶点，刚好对应 AI 概念股的一波短线见顶。
-这背后，其实就是群体心理：越是价格涨到离谱的时候，越是吸引新玩家蜂拥而入。为什么？因为人性。
-三大陷阱1. 从众效应：别人赚钱=我也要上车人在投资里最典型的心理，就是怕错过。当你发现身边朋友靠 Nvidia 或比特币赚...
+              Insertion sort
+Example
+
+1234567891011121314151617181920def insertion_sort (arr):    n=len(arr)    for i in range(1,n):        key=arr[i]        j=i-1        while j&gt;=0 and key &lt; arr[j]:            arr[j+1]=arr[j]            j-=1          arr[j+1]=key         #这里要j+1的原因是，以第一个位置为例：j=0的时候挪到了j=1位置，j就变成-1了      return arr
+arr[j+1]=key:这里要的原因是，以第一个位置为例：的时候挪到了位置，就变成了
+时间复杂度插入排序在最坏情况下（完全逆序输入）时间复杂度
+最坏情况：完全逆序假设数组是 [n, n-1, ..., 2, 1]，那么：
+
+当 i = 1（第 2 个元素），它要和前面 1 个比较、挪动。
+
+当 i = 2（第 3 个元素），要和前面 2 个...
             
           </div>
         
@@ -426,7 +429,7 @@ mjx-container[display="true"] + br {
      
     <a class="right-panel  non-pic  "
       
-      href="/2025/08/20/%E6%80%BB%E4%B9%B0%E5%9C%A8%E9%A1%B6%E7%82%B9/" 
+      href="/2025/09/11/Algorithm-Insertion%20sort,%20merge%20sort/" 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>
@@ -445,7 +448,7 @@ mjx-container[display="true"] + br {
    
 
 
-<article id="post-Makemore项目拆解" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+<article id="post-SME-OLS" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
    
   <div class="article-inner">
     <div class="article-main">
@@ -456,7 +459,7 @@ mjx-container[display="true"] + br {
   
     
       <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/08/20/Makemore%E9%A1%B9%E7%9B%AE%E6%8B%86%E8%A7%A3/">Makemore项目拆解</a>
+        <a class="p-name article-title" href="/2025/09/09/SME-OLS/">SME-OLS</a>
       </h1>
     
   
@@ -464,18 +467,18 @@ mjx-container[display="true"] + br {
 
         <div class='meta-info-bar'>
           <div class="meta-info">
-  <time class="dt-published" datetime="2025-08-20T12:55:13.000Z" itemprop="datePublished">2025-08-20</time>
+  <time class="dt-published" datetime="2025-09-09T09:36:00.000Z" itemprop="datePublished">2025-09-09</time>
 </div>
           <div class="need-seperator meta-info">
             <div class="meta-cate-flex">
   
-  <a class="meta-cate-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+  <a class="meta-cate-link" href="/categories/%E6%95%B0%E5%AD%A6/">数学</a>
    
 </div>
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            8.5k 词 
+            2.9k 词 
           </div>
         </div>
         
@@ -484,36 +487,63 @@ mjx-container[display="true"] + br {
         
           <div class="truncate-text">
             
-              Python与Pytorch1. enumerate作用：在 遍历一个序列 时，额外提供 元素的索引。
-语法：
-12for i, x in enumerate(sequence, start=0):    ...
+              OLS 三个式子真实值与残差 (residual)
+定义：
+  
+
+：第 i 个样本的真实观测值；
+
+：回归模型给出的预测值；
+
+：残差（residual），是“真实值 - 预测值”。
 
 
-i 是索引（默认从 0 开始，可以用 start 改起始值）；
-
-x 是序列里的元素。
 
 
-例子：
-123chars = ['a', 'b', 'c']for i, ch in enumerate(chars):    print(i, ch)
+总体模型（理论模型）
+形式：  
+：总体的真实参数（未知）；
 
-输出：
-1230 a1 b2 c
-
-用途：常用于 建立索引表（比如你代码里的 stoi），或者当你需要同时知道 位置 和 值 时。
-
-2. zip作用：把 多个可迭代对象（list/tuple/string等）里的元素 一一配对，返回元组。
-语法：
-12for x, y in zip(seq1, seq2):    ...
+：随机误差项，捕捉未观测因素和随机性。
 
 
-第一个序列的第 k 个元素和第二个序列的第 k 个元素配成一对 (x, y)。
-
-会在最短的序列结束时停下。
 
 
-例子：
-1234a = [1, 2, 3]b = ['x', 'y', 'z']fo...
+这是 理想中的经济学/统计学关系，但参数和误差分布我们不知道。
+样本估计模型（回归方程）
+形式：
+  
+
+：由样本数据计算出来的 OLS 估计量（估计）；
+
+：预测值（fitted value）。
+
+
+
+
+ 在样本数据上估计出来的拟合直线。
+三者关系梳理
+总体模型（理论层面） 
+ ——描述数据的真实生成机制。
+
+样本模型（估计层面） 
+ ——用 OLS 得到的估计直线，代替未知的真实直线。
+
+残差（误差的样本体现） 
+ ——衡量预测值与观测值的差距。
+
+
+b和之间的联系二者的关系
+在统计学上,​ 和 是 ​ 的 无偏估计量：
+  
+
+这意味着：如果我们无限次重复抽样并每次计算​，它们的平均值会等于真实参数 。
+
+
+直观理解
+β：真理（总体直线），但我们看不见；
+
+b：猜测（样本直...
             
           </div>
         
@@ -525,7 +555,7 @@ x 是序列里的元素。
      
     <a class="right-panel  non-pic  "
       
-      href="/2025/08/20/Makemore%E9%A1%B9%E7%9B%AE%E6%8B%86%E8%A7%A3/" 
+      href="/2025/09/09/SME-OLS/" 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>
@@ -544,7 +574,7 @@ x 是序列里的元素。
    
 
 
-<article id="post-机器学习概念(面试题库)" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+<article id="post-Pandas-SeriesDataFrame" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
    
   <div class="article-inner">
     <div class="article-main">
@@ -555,7 +585,7 @@ x 是序列里的元素。
   
     
       <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/08/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5(%E9%9D%A2%E8%AF%95%E9%A2%98%E5%BA%93)/">机器学习概念(面试题库)</a>
+        <a class="p-name article-title" href="/2025/09/08/Pandas-SeriesDataFrame/">Pandas-SeriesDataFrame</a>
       </h1>
     
   
@@ -563,351 +593,7 @@ x 是序列里的元素。
 
         <div class='meta-info-bar'>
           <div class="meta-info">
-  <time class="dt-published" datetime="2025-08-19T10:48:31.000Z" itemprop="datePublished">2025-08-19</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            9.2k 词 
-          </div>
-        </div>
-        
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            
-              
-问题1：机器学习的基本分类有哪些？监督学习、无监督学习、半监督学习与强化学习有何区别。机器学习的基本分类主要有 监督学习、无监督学习、半监督学习和强化学习。它们的区别可以从 是否有标注数据、学习目标、训练方式 三个角度理解：
-1. 监督学习（Supervised Learning）- **数据特点**：训练数据包含输入 $X$ 和对应的**输出标签 $Y$**。
-    
-- **目标**：学习一个映射函数 $f:X→Y$，使得预测值尽可能接近真实标签。
-    
-- **典型任务**：分类（如垃圾邮件识别）、回归（如房价预测）。
-    
-- **核心思想**：通过大量“输入-输出”示例来学习规律。
-    
-
-2. 无监督学习（Unsupervised Learning）- **数据特点**：只有输入数据 $X$，没有标签 $Y$。
-    
-- **目标**：发现数据内部的结构或模式。
-    
-- **典型任务**：聚类（如用户分群）、降维（如主成分分析 PCA）。
-    
-- **核心思想**：通过**数据自身的相似性或分布规律来理解结构**，而不依赖标签。
-   ...
-            
-          </div>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2025/08/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5(%E9%9D%A2%E8%AF%95%E9%A2%98%E5%BA%93)/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-   
-
-
-<article id="post-反向传播" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/08/18/%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD/">反向传播</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2025-08-17T21:01:52.000Z" itemprop="datePublished">2025-08-18</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            7.7k 词 
-          </div>
-        </div>
-        
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            
-              通过从零构建一个名为micrograd的微型自动求导引擎，来深入、直观地理解神经网络的训练核心——反向传播算法。
-第一阶段：核心概念与导数直观理解
-Micrograd 简介:
-
-它是一个自动梯度（Autograd）引擎，其核心功能是实现反向传播（Backpropagation）。
-
-反向传播是高效计算损失函数相对于神经网络所有权重和偏置的梯度（Derivatives）的算法。梯度指明了调整参数以减小损失的方向。
-
-这是 PyTorch、JAX 等现代深度学习框架的数学核心。
-
-
-
-核心演示:
-
-Value对象：micrograd中的基本数据单元，可以构建数学表达式图。
-
-前向传播 (Forward Pass)：从输入开始，通过计算图计算出最终的输出值。
-
-反向传播 (Backward Pass)：在最终输出上调用.backward()，micrograd会自动、递归地应用链式法则（Chain Rule），计算出最终输出对每一个输入和中间变量的梯度。
-
-
-
-
-12345678910111213141516171819202122232425262728293031323334353...
-            
-          </div>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2025/08/18/%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-   
-
-
-<article id="post-上下文工程（Context Engineering）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/08/16/%E4%B8%8A%E4%B8%8B%E6%96%87%E5%B7%A5%E7%A8%8B%EF%BC%88Context%20Engineering%EF%BC%89/">上下文工程（Context Engineering）</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2025-08-15T20:48:46.000Z" itemprop="datePublished">2025-08-16</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/AI/">AI</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            1.7k 词 
-          </div>
-        </div>
-        
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            
-              超越提示词：深入理解AI应用的核心——上下文工程当我们与AI大语言模型（LLM）互动时，常常会遇到一个瓶颈：为什么有时AI Agent在处理复杂任务时显得力不从心？答案可能并非模型本身的能力不足，而在于一个常被忽视的关键环节——**上下文工程（Context Engineering）**的失败。这篇笔记将带您深入探讨这一核心概念，理解它如何成为驱动AI Agent高效工作的“内存管理器”。
-什么是“上下文”？它远不止聊天记录首先，我们需要重新定义“上下文”。它并非简单指代我们与AI的对话历史，而是指提供给模型用于推理和生成下一步任务的“全部信息集合”。一个设计良好的上下文，通常包含三大核心类别：
-
-指导性上下文 (Guidance Context)：这是我们最熟悉的领域，主要通过提示词工程（Prompt Engineering）来实现。它负责告诉模型“做什么”和“怎么做”，为任务设定框架、目标和规则，例如系统提示、任务描述和输出格式定义。
-
-信息性上下文 (Informative Context)：这部分内容旨在告诉模型“需要知道什么”，为它提供解决问题所需的关键事实与数据。它涵...
-            
-          </div>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2025/08/16/%E4%B8%8A%E4%B8%8B%E6%96%87%E5%B7%A5%E7%A8%8B%EF%BC%88Context%20Engineering%EF%BC%89/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-   
-
-
-<article id="post-期权策略" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/08/15/%E6%9C%9F%E6%9D%83%E7%AD%96%E7%95%A5/">期权策略</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2025-08-15T10:02:31.000Z" itemprop="datePublished">2025-08-15</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E9%87%91%E8%9E%8D/">金融</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            2.5k 词 
-          </div>
-        </div>
-        
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            
-              解锁期权的力量：量化分析师的战略交易指南**第一部分：期权的基础了股票期权的概念，认为它是构建与量化预测相符的收益的强大工具。概述了四种基本的期权头寸：
-
-
-买入看涨期权：赋予在设***格购买股票的权利，无需预先购买即可从股价上涨中获利。
-
-买入看跌期权：赋予在设***格出售股票的权利，适用于预期股价下跌或作为防范下跌的保险。
-
-卖出看涨期权：出售购买股票的权利，收取权利金，但如果股价上涨，则有义务出售股票。
-
-卖出看跌期权：出售出售股票的权利，收取权利金，如果股价下跌，则有义务购买股票。
-
-
-随后，探讨了如何将这些基本头寸结合起来，创造出更精细的策略，并指出虽然单一期权可能足以应对简单的观点，但复杂的市场预测则受益于期权的组合。
-介绍了两种关键策略：
-
-
-跨式组合：涉及购买具有相同行使价和到期日的看涨和看跌期权。该策略押注于高波动性，从任一方向（上涨或下跌）的显著波动中获利。其收益图呈V形，如果股价保持在行使价，损失仅限于支付的权利金。一个关键细节是，股价必须波动足够大，以覆盖两种权利金，才能实现盈利。
-
-扼式组合：与跨式组合类似，但看涨和看跌期权均为虚值，因此成本更低。这降低...
-            
-          </div>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2025/08/15/%E6%9C%9F%E6%9D%83%E7%AD%96%E7%95%A5/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-   
-
-
-<article id="post-SQL" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/08/14/SQL/">SQL</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2025-08-13T22:57:00.000Z" itemprop="datePublished">2025-08-14</time>
+  <time class="dt-published" datetime="2025-09-08T09:43:21.000Z" itemprop="datePublished">2025-09-08</time>
 </div>
           <div class="need-seperator meta-info">
             <div class="meta-cate-flex">
@@ -918,7 +604,7 @@ Value对象：micrograd中的基本数据单元，可以构建数学表达式图
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            11k 词 
+            1.9k 词 
           </div>
         </div>
         
@@ -927,33 +613,14 @@ Value对象：micrograd中的基本数据单元，可以构建数学表达式图
         
           <div class="truncate-text">
             
-              数据库管理系统
-Selecting literals SQL 中 用 SELECT 直接选取字面值（literals）并用 AS 起列别名，然后用 UNION 把多条 SELECT 的结果合并成一个表。具体解析如下：
+              
+Panel datapandas = “Panel data” (面板数据)。
+它指的是：对多个研究对象（如个人、公司、国家等）在多个时间点上进行观测的数据集合。换句话说，面板数据同时具有 横截面维度（不同个体）和 时间序列维度（不同时间），因此也称 纵向数据（longitudinal data）。
+Series在 pandas 里，Series 对象确实支持 布尔索引（boolean indexing）。原理是：当你对 Series 执行一个逻辑判断（例如 &lt; 2000），它会返回一个与该 Series 等长的布尔序列（True/False），然后你可以用这个布尔序列去筛选数据。
+例子12345678import pandas as pd# 构造一个 Seriess = pd.Series([1500, 1800, 2100, 2500, 3000])# 比较操作：小于2000mask = s &lt; 2000print(mask)
 
-基本语法
-
-SELECT [表达式] AS [列名], [表达式] AS [列名]  这里 [表达式] 可以是字面值（如字符串 "daisy"）、列名或计算式。
-
-如果你直接选字面值，不是从已有表里取数据，那么结果就是**一行一列（或多列）**的临时表。
-
-在这个场景里，expression 就是你“写进去”的值，而 AS name 就是告诉 SQL：把这个值放到结果表里并命名这一列为 name。
-
-
-
-
-举个对应的直观解释：
-1SELECT "daisy" AS parent, "hank" AS child
-
-也就是说：
-
-"daisy" → 写入到 parent 列
-
-"hank" → 写入到 child 列
-
-如果后面有 UNION，就会把下一条 SELECT 的行追加到这个结果表中
-
-
-不过要注意，它并不是向数据库的物理表“插入”数据（那是 INSERT...
+输出：
+1234560     True1     True2    False3    False4    Falsedtype: ...
             
           </div>
         
@@ -965,7 +632,7 @@ SELECT [表达式] AS [列名], [表达式] AS [列名]  这里 [表达式] 可�
      
     <a class="right-panel  non-pic  "
       
-      href="/2025/08/14/SQL/" 
+      href="/2025/09/08/Pandas-SeriesDataFrame/" 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>
@@ -984,7 +651,7 @@ SELECT [表达式] AS [列名], [表达式] AS [列名]  这里 [表达式] 可�
    
 
 
-<article id="post-Leetcode-138. 复制带随机指针的链表" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+<article id="post-SME-Econometrics" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
    
   <div class="article-inner">
     <div class="article-main">
@@ -995,7 +662,7 @@ SELECT [表达式] AS [列名], [表达式] AS [列名]  这里 [表达式] 可�
   
     
       <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/08/12/Leetcode-138.%20%E5%A4%8D%E5%88%B6%E5%B8%A6%E9%9A%8F%E6%9C%BA%E6%8C%87%E9%92%88%E7%9A%84%E9%93%BE%E8%A1%A8/">Leetcode-138. 复制带随机指针的链表</a>
+        <a class="p-name article-title" href="/2025/09/08/SME-Econometrics/">SME-Econometrics</a>
       </h1>
     
   
@@ -1003,84 +670,18 @@ SELECT [表达式] AS [列名], [表达式] AS [列名]  这里 [表达式] 可�
 
         <div class='meta-info-bar'>
           <div class="meta-info">
-  <time class="dt-published" datetime="2025-08-12T14:34:26.000Z" itemprop="datePublished">2025-08-12</time>
+  <time class="dt-published" datetime="2025-09-08T03:48:47.000Z" itemprop="datePublished">2025-09-08</time>
 </div>
           <div class="need-seperator meta-info">
             <div class="meta-cate-flex">
   
-  <a class="meta-cate-link" href="/categories/Leetcode/">Leetcode</a>
+  <a class="meta-cate-link" href="/categories/%E6%95%B0%E5%AD%A6/">数学</a>
    
 </div>
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            1.2k 词 
-          </div>
-        </div>
-        
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <p>我们用哈希表来解决这个问题<br>首先创建一个哈希表，再遍历原链表，遍历的同时再不断创建新节点<br>我们将原节点作为<strong>key</strong>，新节点作为<strong>value</strong>放入哈希表中</p>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2025/08/12/Leetcode-138.%20%E5%A4%8D%E5%88%B6%E5%B8%A6%E9%9A%8F%E6%9C%BA%E6%8C%87%E9%92%88%E7%9A%84%E9%93%BE%E8%A1%A8/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-   
-
-
-<article id="post-基本面分析" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/08/12/%E5%9F%BA%E6%9C%AC%E9%9D%A2%E5%88%86%E6%9E%90/">基本面分析</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2025-08-12T11:17:02.000Z" itemprop="datePublished">2025-08-12</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E9%87%91%E8%9E%8D/">金融</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            2.4k 词 
+            1.3k 词 
           </div>
         </div>
         
@@ -1089,36 +690,34 @@ SELECT [表达式] AS [列名], [表达式] AS [列名]  这里 [表达式] 可�
         
           <div class="truncate-text">
             
-              TTMTTM 是 Trailing Twelve Months 的缩写，意思是过去连续 12 个月
-1. 计算方法TTM 不是按自然年（1 月到 12 月），而是取最近连续的四个季度的数据相加。
-数值最近最近最近最近
-其中 Q表示季度数据，可以是净利润、营收、EPS 等。
-2. 为什么用 TTM
-最新性：比上一完整财年更及时，反映公司最近 12 个月的实际表现。
+              数据的来源
+Experimental data and non-experimental data实验数据（experimental data）
+非实验数据（non-experimental / observational data）
+1. 数据获取方式
+实验数据：研究者可以主动操控自变量（比如设置不同的处理组/对照组），然后观察因变量的反应。
 
-去季节性影响：比如零售业第四季度旺季，TTM 结合四个季度消除了单季波动影响。
-
-可比性：投资分析中常用 TTM 数据来比较不同公司的盈利能力，因为它都是“滚动 12 个月”的概念。
+例子：在实验室里控制肥料用量，比较作物产量差异。
 
 
-3. 例子假设今天是 2025 年 8 月，某公司最近四个季度净利润分别是：
+非实验数据：研究者不能操控自变量，只能记录现实中自然发生的数据。
 
-2025 Q2：280 亿美元
-
-2025 Q1：270 亿美元
-
-2024 Q4：300 亿美元
-
-2024 Q3：260 亿美元
+例子：统计不同收入家庭的消费水平，但无法人为随机分配“收入高低”。
 
 
-则：
-TTM 净利润=280+270+300+260=1110 亿美元
 
-每股收益（EPS, Earnings Per Share）
-公式净利润流通在外普通股股数
+2. 可重复性
+实验数据：可以在相同条件下反复试验，保证结果的可验证性。
 
-其中净利润用过去 12 个月（TTM）或预计未来 12...
+非实验数据：条件不可控，通常不可重复，只能依赖统计方法去控制偏差。
+
+
+Regression 来源（种子）
+the offspring of larger than average size parents tended to be smaller than their parents
+
+翻译：比平均值更大的父母的后代，往往比父母小一些。
+
+
+the offspring...
             
           </div>
         
@@ -1130,7 +729,7 @@ TTM 净利润=280+270+300+260=1110 亿美元
      
     <a class="right-panel  non-pic  "
       
-      href="/2025/08/12/%E5%9F%BA%E6%9C%AC%E9%9D%A2%E5%88%86%E6%9E%90/" 
+      href="/2025/09/08/SME-Econometrics/" 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>
@@ -1149,7 +748,7 @@ TTM 净利润=280+270+300+260=1110 亿美元
    
 
 
-<article id="post-Leetcode-25.K个一组翻转链表" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+<article id="post-进程和线程的区别是什么？" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
    
   <div class="article-inner">
     <div class="article-main">
@@ -1160,7 +759,7 @@ TTM 净利润=280+270+300+260=1110 亿美元
   
     
       <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/08/11/Leetcode-25.K%E4%B8%AA%E4%B8%80%E7%BB%84%E7%BF%BB%E8%BD%AC%E9%93%BE%E8%A1%A8/">Leetcode-25.K个一组翻转链表</a>
+        <a class="p-name article-title" href="/2025/08/31/%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%8C%BA%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F/">进程和线程的区别是什么？</a>
       </h1>
     
   
@@ -1168,25 +767,47 @@ TTM 净利润=280+270+300+260=1110 亿美元
 
         <div class='meta-info-bar'>
           <div class="meta-info">
-  <time class="dt-published" datetime="2025-08-11T11:42:03.000Z" itemprop="datePublished">2025-08-11</time>
+  <time class="dt-published" datetime="2025-08-30T18:03:00.000Z" itemprop="datePublished">2025-08-31</time>
 </div>
           <div class="need-seperator meta-info">
             <div class="meta-cate-flex">
   
-  <a class="meta-cate-link" href="/categories/Leetcode/">Leetcode</a>
+  <a class="meta-cate-link" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a>
    
 </div>
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            1.2k 词 
+            3.2k 词 
           </div>
         </div>
         
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag">面试题</a></li></ul>
+
       </header>
       <div class="e-content article-entry" itemprop="articleBody">
         
-          <p>核心还是掌握链表的反转</p>
+          <div class="truncate-text">
+            
+              进程和线程的区别是什么（面试题）？
+
+本质区别：进程是操作系统资源分配的基本单位，而线程是任务调度和执行的基本单位（CPU调度的最小单位）
+
+在开销方面：每个进程都有独立的代码和数据空间（程序上下文），程序之间的切换会有较大的开销；线程可以看做轻量级的进程，同一类线程共享代码和数据空间，每个线程都有自己独立的运行栈和程序计数器（PC），线程之间切换的开销小
+
+稳定性方面：进程中某个线程如果崩溃了，可能会导致整个进程都崩溃。而进程中的子进程崩溃，并不会影响其他进程。
+
+内存分配方面：系统在运行的时候会为每个进程分配不同的内存空间；而对线程而言，除了CPU外，系统不会为线程分配内存（线程所使用的资源来自其所属进程的资源），线程组之间只能共享资源
+
+包含关系：没有线程的进程可以看做是单线程的，如果一个进程内有多个线程，则执行过程不是一条线的，而是多条线
+
+
+程序的执行过程与进程的诞生
+我们用高级语言（如 C++ 或 Java）编写的程序，在编译后会成为机器可以理解的二进制代码，但此时它仍是一个被动的文件。只有当它被加载到内存并开始执行时，才成为一个“进程”。
+
+核心观点: 程序在被执行...
+            
+          </div>
         
       </div>
 
@@ -1196,7 +817,441 @@ TTM 净利润=280+270+300+260=1110 亿美元
      
     <a class="right-panel  non-pic  "
       
-      href="/2025/08/11/Leetcode-25.K%E4%B8%AA%E4%B8%80%E7%BB%84%E7%BF%BB%E8%BD%AC%E9%93%BE%E8%A1%A8/" 
+      href="/2025/08/31/%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%8C%BA%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
+   
+
+
+<article id="post-gemini 2.5 flash Image -preview" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2025/08/28/gemini%202.5%20flash%20Image%20-preview/">gemini 2.5 flash Image -preview</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2025-08-28T01:41:39.000Z" itemprop="datePublished">2025-08-28</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/AI/">AI</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            694 词 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              AI模型画图体验：速度、细节与画质的权衡使用gemini 2.5 flash Image -preview生成模型，整体体验让人印象深刻，尤其是在速度和细节处理方面。
+首先，最直观的感受是生成速度非常快，比之前用过的GPT-5感觉要迅捷不少，几乎是瞬间出图，大大提升了创作效率。
+其次，在图像质量上，这款模型对脸部和阴影等细节的处理尤为出色。它能精准捕捉复杂的光影变化，让人物面部和环境阴影看起来非常自然且富有层次感，大大增强了图像的真实感和艺术性。
+在不同平台的使用体验上，无论是AI Studio还是Web端，我感觉两者之间并没有明显的区别。这说明模型的核心算法和性能在不同端口都保持了高度的一致性，确保了用户无论在哪里创作，都能得到稳定的高质量输出。
+不过，也有一些可以改进的地方。首先是画质，感觉图像整体的清晰度还有提升空间，有时候会显得不够锐利。其次，目前模型缺少微调工具。如果能提供类似“局部修补”或“定向调整”的功能，允许用户对不满意的地方（比如某个眼神、某个手势）进行精确修改，那将是极大的进步。
+总的来说，这款模型在速度和细节表现上非常突出，但在画质和后期微调的灵活性上还有待...
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2025/08/28/gemini%202.5%20flash%20Image%20-preview/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
+   
+
+
+<article id="post-机器学习-Regression" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2025/08/26/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-Regression/">机器学习-Regression</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2025-08-26T00:29:13.000Z" itemprop="datePublished">2025-08-26</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            4.6k 词 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              
+Homework-baseline Q&amp;A
+作业的 baseline 中看到 loss 在训练过程中不收敛，甚至来回震荡，通常是由以下几个核心原因造成的，其中学习率（Learning Rate）过高是最常见的主谋。
+1. 学习率 (Learning Rate) 过高
+现象：Loss 在训练初期迅速下降，但很快就开始在一个较高的值附近剧烈震荡，甚至可能突然增大（发散）。
+
+原理：想象一下你正在下山（寻找 loss 的最低点）。学习率决定了你每一步迈出去的“步子”有多大。
+
+如果步子太大（学习率过高），你可能一步就迈过了山谷的最低点，跑到了对面更高的山坡上。下一步你再往回迈，又可能再次越过最低点。如此反复，你就在谷底来回“横跳”，永远无法稳定在最低点。
+
+
+解决方案：
+
+调低学习率：这是最直接的方法。尝试将当前的学习率降低一个数量级，例如从 0.01 降到 0.001，或者从 1e-4 降到 1e-5，看看 loss 曲线是否变得平滑并持续下降。
+
+使用学习率衰减 (Learning Rate Decay)：在训练初期使用较大的学习率让模型快速收敛，随着训练的进行，逐渐减小...
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2025/08/26/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-Regression/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
+   
+
+
+<article id="post-MLP" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2025/08/26/MLP/">MLP</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2025-08-26T00:20:54.000Z" itemprop="datePublished">2025-08-26</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            9k 词 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              在 Embedding 里 dim 的意思dim 表示你操作的 维度索引。张量有很多维度（axis），dim 决定了你在哪个维度上做操作。
+举例：  
+1emb.shape = (32, 3, 2)
+
+这里 3 个维度的含义分别是：
+
+dim=0 → batch 维度（32 个样本）
+
+dim=1 → 序列长度（每个样本 3 个索引）
+
+dim=2 → embedding 向量维度（每个索引是 2 维）
+
+
+
+Embedding 查表 (Embedding Lookup)思路拆解
+X 的形状
+
+X.shape = (32, 3)
+
+含义：一共有 32 个样本（batch），每个样本里面有 3 个索引。
+
+
+
+C 的形状
+
+C.shape = (27, 2)
+
+含义：这是一个查找表（embedding table），一共有 27 行，每行是 2 维向量。
+
+
+
+C[X] 的运算
+
+对每个 X[i, j]，用它作为索引，去 C 里取对应的那一行（形状 (2,)）。
+
+所以一行 X [a, b, c] 会变成 C[[a, b, c]]，形状 (3, 2)。
+
+整个 32 个样本就堆叠起...
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2025/08/26/MLP/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
+   
+
+
+<article id="post-机器学习-大语言模型Finetuning vs. Prompting" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2025/08/25/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8BFinetuning%20vs.%20Prompting/">机器学习-大语言模型Finetuning vs. Prompting</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2025-08-25T02:39:49.000Z" itemprop="datePublished">2025-08-25</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+    未分类 
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            7.1k 词 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              微调（Finetuning） vs. 提示（Prompting）：大型语言模型的两种方法探讨了使用大型语言模型（LLM）的两种主要历史期望和由此产生的技术方法：微调（Finetuning） 和 提示（Prompting）。这两种方法会导致大型语言模型的结果和应用截然不同。
+对大型语言模型的两种期望人类历史上对大型语言模型有两种不同的期望：
+
+成为专家（微调）：第一个期望是让大型语言模型成为解决特定类型问题的专家，尤其是在自然语言处理（NLP）任务中。
+
+范例：调整大型语言模型以专门从事翻译（例如，中文到英文）或摘要（缩短文章）。
+
+比喻：这就像训练一头大象（大型语言模型）以高精度执行单一、特定的任务。
+
+
+
+成为通才（提示）：第二个期望是让大型语言模型成为一个多才多艺的“万事通”，能够做任何事情。
+
+范例：给大型语言模型一个句子，然后提供一个人类可读的指令（“提示”），告诉它要翻译还是摘要该句子。
+
+比喻：这就像一头知道很多事情的大象（大型语言模型），但需要一只小老鼠（人类用户）用简单的指令来指导它该做什么。ChatGPT就是这种方法的典型例子。
+
+
+
+
+通才思想的历史背景将大型...
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2025/08/25/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8BFinetuning%20vs.%20Prompting/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
+   
+
+
+<article id="post-Why Some Software Is Written in Multiple Languages" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2025/08/25/Why%20Some%20Software%20Is%20Written%20in%20Multiple%20Languages/">Why Some Software Is Written in Multiple Languages</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2025-08-24T22:43:31.000Z" itemprop="datePublished">2025-08-25</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/">计算机</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            2.7k 词 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              为什么有些软件会用多种编程语言开发？你是否曾好奇，为什么一个软件项目有时会“混搭”使用多种编程语言？这背后其实蕴含着现代软件工程中关于性能、协作与代码复用的深刻智慧。本文将带你深入了解这背后的技术原理。
+前端与后端：天然的“多语言”环境对于我们熟悉的网站和应用，例如使用Django这类全栈框架构建的项目，其本身就是多语言协作的典型。后端逻辑可能由Python处理，而用户直接交互的前端界面则由HTML、CSS和JavaScript构建。这两部分作为独立的进程，通过网络请求等方式进行通信，各自安好。
+然而，当我们需要将不同语言编写的代码编译成一个单一、高效的可执行文件时，事情就变得复杂起来。这正是本次探讨的核心。
+从源代码到可执行文件：编译的艺术要理解多语言如何“融合”，我们首先需要了解代码是如何从人类可读的文本，转变为机器可以执行的指令的。以经典的C语言为例，我们熟知的GCC编译器实际上经历了一个四步流程：
+
+预处理 (Preprocessing): 处理宏定义、头文件等。
+
+编译 (Compilation): 将预处理后的代码转换成汇编语言。这是一个关键的中间步骤，并非直接生成机...
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2025/08/25/Why%20Some%20Software%20Is%20Written%20in%20Multiple%20Languages/" 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>
@@ -1219,7 +1274,7 @@ TTM 净利润=280+270+300+260=1110 亿美元
       <i class="fa-solid fa-angle-left"></i>
     </a>
     <div id="num-bar">
-      <a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a>  
+      <a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a>  
     </div>
     <a id="next-btn" class="page-nav-btn " href="/page/6/">
       <i class="fa-solid fa-angle-right"></i>

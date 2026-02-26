@@ -280,19 +280,19 @@ mjx-container[display="true"] + br {
     <div class="widget">
       <h3 class="widget-title">分类</h3>
       <div class="category-box">
+            <a class="category-link" href="/categories/%E6%95%B0%E5%AD%A6/">
+                数学
+                <div class="category-count">22</div>
+            </a>
+        
             <a class="category-link" href="/categories/%E7%AE%97%E6%B3%95/">
                 算法
-                <div class="category-count">2</div>
+                <div class="category-count">4</div>
             </a>
         
             <a class="category-link" href="/categories/NLP/">
                 NLP
                 <div class="category-count">1</div>
-            </a>
-        
-            <a class="category-link" href="/categories/%E6%95%B0%E5%AD%A6/">
-                数学
-                <div class="category-count">22</div>
             </a>
         
             <a class="category-link" href="/categories/AI/">
@@ -302,7 +302,7 @@ mjx-container[display="true"] + br {
         
             <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
                 机器学习
-                <div class="category-count">20</div>
+                <div class="category-count">24</div>
             </a>
         
             <a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">
@@ -315,19 +315,19 @@ mjx-container[display="true"] + br {
                 <div class="category-count">19</div>
             </a>
         
+            <a class="category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
+                计算机
+                <div class="category-count">5</div>
+            </a>
+        
             <a class="category-link" href="/categories/%E8%AE%BF%E8%B0%88/">
                 访谈
                 <div class="category-count">1</div>
             </a>
         
-            <a class="category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                计算机
-                <div class="category-count">4</div>
-            </a>
-        
             <a class="category-link" href="/categories/%E9%87%91%E8%9E%8D/">
                 金融
-                <div class="category-count">13</div>
+                <div class="category-count">16</div>
             </a>
         
             <a class="category-link" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
@@ -368,7 +368,7 @@ mjx-container[display="true"] + br {
    
 
 
-<article id="post-CS224N-Lecture01-Word Vectors" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+<article id="post-Nearest Neighbor Classifier" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
    
   <div class="article-inner">
     <div class="article-main">
@@ -379,7 +379,7 @@ mjx-container[display="true"] + br {
   
     
       <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/10/23/CS224N-Lecture01-Word%20Vectors/">CS224N-Lecture01-Word Vectors</a>
+        <a class="p-name article-title" href="/2026/01/24/Nearest%20Neighbor%20Classifier/">Nearest Neighbor Classifier</a>
       </h1>
     
   
@@ -387,18 +387,18 @@ mjx-container[display="true"] + br {
 
         <div class='meta-info-bar'>
           <div class="meta-info">
-  <time class="dt-published" datetime="2025-10-23T12:55:15.000Z" itemprop="datePublished">2025-10-23</time>
+  <time class="dt-published" datetime="2026-01-24T09:12:30.000Z" itemprop="datePublished">2026-01-24</time>
 </div>
           <div class="need-seperator meta-info">
             <div class="meta-cate-flex">
   
-  <a class="meta-cate-link" href="/categories/NLP/">NLP</a>
+  <a class="meta-cate-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
    
 </div>
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            1.8k 词 
+            1.6k 词 
           </div>
         </div>
         
@@ -407,52 +407,23 @@ mjx-container[display="true"] + br {
         
           <div class="truncate-text">
             
-              WordNet
+              
 
-
-
-对比项
-普通字典
-WordNet
-
-
-
-建立方式
-人类写作者为读者编写
-语言学家为计算机编写
-
-
-内容结构
-每个词独立定义、例句
-每个词义（Synset）之间有网络关系
-
-
-主要用途
-查含义、拼写
-计算机进行语义推理、相似度计算
-
-
-数据形式
-文本
-图结构（词义节点 + 语义边）
-
-
-Problems with WordNet
-One-hot
-Problem of similarity
-WordNet 方式失败，因此要“学习向量”而非人工列举。
-Distributional semantics:
-word vector
-word vector=word embedding =word representation
-“分布式”意思是——词义被分布在多个维度上，不是集中在某一个维度。
-
-每一维都反映一部分语义（可能与语法、语境、主题有关）。
-
-例如，“banking”的第 7 维可能反映“金融性”，第 19 维可能反映“机构性”，等等。  因此，语义信息是**分布式编码（distributed encoding）**的。
-
-
-Word2vec
-核心概念Word2...
+分类问题
+图像分类会遇到的问题语义鸿沟
+1、低级特征： 低级特征通常是从原始输入数据中提取的，例如图像中的像素值。在计算机视觉中，低级特征可能包括边缘、颜色、纹理等基本信息。这些特征通常在网络的浅层卷积层中提取。
+2、高级特征： 高级特征是通过多个卷积层和池化层等深度学习网络的中间层次生成的。这些特征对于更抽象的概念和语义信息更加敏感，如物体、场景、对象关系等。
+语义鸿沟的问题在于，尽管高级特征对于理解图像中的语义信息非常重要，但与低级特征相比，它们的表示更加抽象和难以解释。因此，在高级特征和低级特征之间存在一种差距，这使得计算机在理解和解释这些特征之间的关系时面临挑战。
+视角变化
+光照
+背景杂乱
+遮挡
+形变
+类内差异
+Nearest Neighbor Classifier
+K-NN
+左图 K = 1（1-NN） 的含义是：对黑圈里的测试点，只看离它最近的那一个训练点，这个最近点是黄色的，于是整个小区域都被判成黄色；哪怕周围其实有很多绿色点，只要最近的那一个是黄色，结果就会被“带偏”，所以边界会被拉出很多细碎、尖锐的小岛，看起来非常破碎、对噪声极敏感。
+右图 K = 3（3-...
             
           </div>
         
@@ -464,7 +435,7 @@ Word2vec
      
     <a class="right-panel  non-pic  "
       
-      href="/2025/10/23/CS224N-Lecture01-Word%20Vectors/" 
+      href="/2026/01/24/Nearest%20Neighbor%20Classifier/" 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>
@@ -483,7 +454,7 @@ Word2vec
    
 
 
-<article id="post-整数规划经典问题类型" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+<article id="post-IPCO重点" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
    
   <div class="article-inner">
     <div class="article-main">
@@ -494,7 +465,7 @@ Word2vec
   
     
       <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/10/11/%E6%95%B4%E6%95%B0%E8%A7%84%E5%88%92%E7%BB%8F%E5%85%B8%E9%97%AE%E9%A2%98%E7%B1%BB%E5%9E%8B/">整数规划经典问题类型</a>
+        <a class="p-name article-title" href="/2026/01/05/IPCO%E9%87%8D%E7%82%B9/">IPCO重点</a>
       </h1>
     
   
@@ -502,12 +473,689 @@ Word2vec
 
         <div class='meta-info-bar'>
           <div class="meta-info">
-  <time class="dt-published" datetime="2025-10-11T12:40:18.000Z" itemprop="datePublished">2025-10-11</time>
+  <time class="dt-published" datetime="2026-01-05T13:41:09.000Z" itemprop="datePublished">2026-01-05</time>
 </div>
           <div class="need-seperator meta-info">
             <div class="meta-cate-flex">
   
-    未分类 
+  <a class="meta-cate-link" href="/categories/%E6%95%B0%E5%AD%A6/">数学</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            4.5k 词 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              formulate a linear problem
+这道题目要求我们将逻辑条件转化为整数规划（Integer Programming）中的线性约束条件。
+
+(ii) Project 4 must be selected if either project 1 or project 2 is selected含义： 如果选择了项目1 或者 选择了项目2，那么必须选择项目4。
+
+写法一（推荐，更清晰）：(解释：如果 ，则  必须为1； 同理。)
+
+写法二（合并写法）：(解释：左边最大可能是2。如果 ，左边必须是0；如果 ，左边可以是0, 1或2，即允许选1或2。)
+
+
+
+(iii) Project 5 is selected if and only if at least one of the projects 1 and 3 is selected 含义： 这是一个“当且仅当”（if and only if）的条件，包含两个方向的逻辑：
+
+如果选了1或3（或都选），则必须选5。
+
+如果选了5，则意味着必然选了1或3其中至少一个。
+
+方向 （至少一个被选则选5）：(如果  或  为...
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2026/01/05/IPCO%E9%87%8D%E7%82%B9/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
+   
+
+
+<article id="post-SME重点" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2025/12/28/SME%E9%87%8D%E7%82%B9/">SME复习笔记</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2025-12-28T13:16:31.000Z" itemprop="datePublished">2025-12-28</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E6%95%B0%E5%AD%A6/">数学</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            13k 词 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              Assumption of linear model
+The simple linear regression model is based on the following assumptions.(i) ​.(ii) The regressor is non-random and takes at least two different values.(iii), equivalently (iv) for all i.(v) for all .(vi) (Optional)  equivalently .
+第二点解析：
+
+解释变量（自变量）非随机性：  假设 是固定的常数，而不是随机变量（即所谓的 fixed in repeated samples）。这样做的好处是，推导估计量的分布时只需要考虑误差项 ​ 的随机性，避免了 自身的不确定性带来的额外复杂性。
+
+解释变量必须有变动性：  至少要有两个不同的取值，否则所有 ​ 都相同，回归模型退化为 ​，根本无法估计斜率 。换句话说， 必须有非零方差，才能保证回归矩阵可逆，估计量 ​ 才能被唯一确定。
+
+
+不需要 6 点都满足才...
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2025/12/28/SME%E9%87%8D%E7%82%B9/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
+   
+
+
+<article id="post-NVIDIA" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2025/12/23/NVIDIA/">NVIDIA</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2025-12-23T10:36:30.000Z" itemprop="datePublished">2025-12-23</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E8%AE%BF%E8%B0%88/">访谈</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            5.5k 词 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              
+总结英伟达（NVIDIA）CEO 黄仁勋（Jensen Huang）与 Cleo Abram 的深度访谈。深入探讨了计算的过去、AI 的现在以及机器人与数字生物学的未来。
+引言很多人都知道英伟达（NVIDIA）是一家市值惊人的公司，但很少有人真正理解，其今日的辉煌是建立在数十年深思熟虑的豪赌之上。最近，其创始人兼CEO黄仁勋接受了一次深度访谈，其中充满了对未来的洞见。我们从中提炼出5个最令人惊讶且影响深远的观点，它们揭示了一个远不止于芯片的故事——这是一个关于彻底重塑计算本身的宏大叙事。这五个观点看似独立，实则环环相扣，共同揭示了黄仁勋基于第一性原理和长期主义的统一世界观，正是这种思想让他能够始终领先于时代，“看见”并创造未来。
+
+1. 一切始于电子游戏，但这并非偶然英伟达的第一个重大洞察，是发现任何软件程序中，往往只有一小部分代码（约10%）承担了绝大部分（约99%）的计算工作，而这些计算工作可以被并行处理。
+他们选择电子游戏作为第一个应用领域，这并非心血来潮，而是一次深思熟虑的战略决策。黄仁勋解释了其中的“飞轮效应”：电子游戏代表了一个潜力巨大的市场，这个市场能够支撑庞大的...
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2025/12/23/NVIDIA/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
+   
+
+
+<article id="post-段永平没说出的财富秘密" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2025/12/23/%E6%AE%B5%E6%B0%B8%E5%B9%B3%E6%B2%A1%E8%AF%B4%E5%87%BA%E7%9A%84%E8%B4%A2%E5%AF%8C%E7%A7%98%E5%AF%86/">段永平没说出的财富秘密</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2025-12-23T09:58:31.000Z" itemprop="datePublished">2025-12-23</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E9%87%91%E8%9E%8D/">金融</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            2.3k 词 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              引言：通向世代财富的隐藏蓝图2002 年，传奇投资人段永平向一家陷入困境的互联网公司——网易——投入了 200 万美元。此后 20 年，这笔投资实现了惊人的 10,000 倍增长，最终价值超过 200 亿美元。这一单交易，奠定了他作为全球最伟大投资者之一的地位。
+许多人研究他的公开言论和价值投资原则，却常常忽略了支撑其成功的底层真相。他们只看到了收益的摩天大楼，却没有挖掘其下由个人财务结构与制度认知构成的坚实地基。
+本文揭示了隐藏在其公开建议背后的三条影响深远、却反直觉的经验。这些未被明说的秘密，正是“模仿”与“真正理解”之间的关键差别。
+1. 你的“钢铁心态”不是训练出来的，而是被现金流“供养”的段永平 2002 年投资网易时，公司股价已跌破 1 美元，面临退市风险。他在“接飞刀”的时刻出手并长期持有，最终收获百倍回报。这是一个关于非凡定力与坚固投资心态的故事。
+但多数分析忽略了房间里的“大象”：当时的段永平早已实现财务独立。他先后创办了小霸王与步步高两家极其成功的电子企业；他真正的财务根基不在股市，而在于来自步步高、OPPO、VIVO 等私有资产的巨额、稳定分红——这是他“最...
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2025/12/23/%E6%AE%B5%E6%B0%B8%E5%B9%B3%E6%B2%A1%E8%AF%B4%E5%87%BA%E7%9A%84%E8%B4%A2%E5%AF%8C%E7%A7%98%E5%AF%86/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
+   
+
+
+<article id="post-价格行为学-止损（上）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2025/11/08/%E4%BB%B7%E6%A0%BC%E8%A1%8C%E4%B8%BA%E5%AD%A6-%E6%AD%A2%E6%8D%9F%EF%BC%88%E4%B8%8A%EF%BC%89/">价格行为学-止损（上）</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2025-11-08T08:06:29.000Z" itemprop="datePublished">2025-11-08</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E9%87%91%E8%9E%8D/">金融</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            2.9k 词 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              “会卖的才是师傅”？ 深入理解止损的本质**大家好，今天我们来深入探讨一个交易中老生常谈但又极其重要的话题：止损。
+许多人进入市场，都被反复告诫“一定要止损”，但实际执行起来却发现异常困难。从“价格行为学”的角度，重新解构“止损”这一概念。作者指出，止损不仅仅是“停止亏损”，它更是一种综合性的“交易管理”艺术。
+
+交易的核心难题：从“入场”到“管理”人们常说“会买的是徒弟，会卖的才是师傅”。作者将其扩展为：“会入场的是徒弟，知道入场以后怎么管理的才是师傅。”
+交易的核心决策只有两个：何时入场，何时离场。但无论入场还是离场，其结果都是不确定的。尤其是离场带来的不确定性，往往会造成更大的痛苦——比如你刚卖出，它就大涨，感觉本该属于你的幸福瞬间消失了。
+
+作者提出了一个交易员需要具备的四种能力框架：
+
+理解市场周期：知道市场在做什么，接下来可能做什么（趋势、震荡）。
+
+入场：何时以及如何入场。
+
+头寸管理：入场后如何处理手中的单子，止损是其中的关键一环。
+
+软实力：情绪控制、纪律等。
+
+
+作者坦言，在这四项中，“入场”反而是最简单的，真正的难点在于“管理”。
+新手的“最优解”：从简单开...
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2025/11/08/%E4%BB%B7%E6%A0%BC%E8%A1%8C%E4%B8%BA%E5%AD%A6-%E6%AD%A2%E6%8D%9F%EF%BC%88%E4%B8%8A%EF%BC%89/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
+   
+
+
+<article id="post-判断一只杠杆 ETF 是否值得碰" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2025/11/02/%E5%88%A4%E6%96%AD%E4%B8%80%E5%8F%AA%E6%9D%A0%E6%9D%86%20ETF%20%E6%98%AF%E5%90%A6%E5%80%BC%E5%BE%97%E7%A2%B0/">判断一只杠杆 ETF 是否值得碰</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2025-11-02T13:28:26.000Z" itemprop="datePublished">2025-11-02</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E9%87%91%E8%9E%8D/">金融</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            2.4k 词 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              杠杆ETF杠杆ETF（Leveraged Exchange-Traded Fund）是一种利用**金融衍生品（如期货、掉期、期权）来放大指数日内涨跌幅的基金。它的目标是让投资者在不直接使用借贷的情况下，获得某一指数1倍以上（通常是2倍或3倍）**的收益或亏损。
+例如：
+
+若标的指数（如标普500）当天上涨1%，
+
+2倍杠杆ETF理论上上涨2%；
+
+3倍杠杆ETF理论上上涨3%；
+
+而反向3倍ETF则下跌3%。
+
+
+
+
+这种放大效果只针对单日回报，因为基金会在每天收盘后重新平衡仓位（daily reset），使得长期持有的表现与指数的倍数关系会出现偏离——尤其在震荡行情下会出现“波动损耗（volatility decay）”，导致即使指数不变，杠杆ETF也可能亏损。
+因此，杠杆ETF通常适合短线交易、日内投机或对冲策略，而不宜长期持有。常见的例子包括：
+
+SPXL / SPXS：追踪标普500的3倍多头 / 3倍空头
+
+TQQQ / SQQQ：追踪纳斯达克100的3倍多头 / 3倍空头
+
+UPRO / SDOW：类似的3倍放大产品
+
+
+总结来说，杠杆ETF的本质是“通过衍生品合成倍...
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2025/11/02/%E5%88%A4%E6%96%AD%E4%B8%80%E5%8F%AA%E6%9D%A0%E6%9D%86%20ETF%20%E6%98%AF%E5%90%A6%E5%80%BC%E5%BE%97%E7%A2%B0/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
+   
+
+
+<article id="post-价格行为学-复盘训练" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2025/11/02/%E4%BB%B7%E6%A0%BC%E8%A1%8C%E4%B8%BA%E5%AD%A6-%E5%A4%8D%E7%9B%98%E8%AE%AD%E7%BB%83/">价格行为学-复盘训练</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2025-11-02T12:47:39.000Z" itemprop="datePublished">2025-11-02</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E9%87%91%E8%9E%8D/">金融</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            2.9k 词 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              模块一：为什么复盘是必要的？（尽管它不等于实盘）
+开篇明义，指出了复盘与实盘的三个核心区别：
+
+上帝视角： 复盘时，你看到了完整的K线图全貌。
+
+静态图表： K线是静止的，你有充足的时间分析。
+
+零情绪压力： 你没有资金跳动带来的心理压力和恐惧。
+
+
+而在实盘中，K线是动态变化的（可能在收盘前几秒钟形态完全走坏），并且你的情绪会随着账户资金的波动而剧烈起伏，导致不理性的决策。
+那么，复盘的意义何在？
+复盘是一种刻意练习，就像篮球运动员在场下进行大量的投篮训练。虽然训练中的命中率远高于赛场（因为没有对手防守和比赛压力），但没有这种高强度的基础训练，赛场上的表现根本无从谈起。
+交易也是如此。两个传奇案例：
+
+Al Brooks（价格行为学大师）： 本身是年入百万美金的眼科医生，靠交易退休。他坚持30多年每天复盘，积累了超过8000张图表的“百科全书”。
+
+马丁·舒华兹（交易冠军）： 每天工作14个小时，每周7天，甚至在功成名就后依然坚持手动画K线图和计算均线。
+
+
+核心观点： 连最顶尖的交易员都在坚持做复盘练习，我们更没有理由跳过这一步。复盘都看不明白，实盘盈利更是天方夜谭。
+模块二...
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2025/11/02/%E4%BB%B7%E6%A0%BC%E8%A1%8C%E4%B8%BA%E5%AD%A6-%E5%A4%8D%E7%9B%98%E8%AE%AD%E7%BB%83/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
+   
+
+
+<article id="post-夏普比率（Sharpe Ratio）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2025/11/02/%E5%A4%8F%E6%99%AE%E6%AF%94%E7%8E%87%EF%BC%88Sharpe%20Ratio%EF%BC%89/">夏普比率（Sharpe Ratio）</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2025-11-01T17:45:37.000Z" itemprop="datePublished">2025-11-02</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E9%87%91%E8%9E%8D/">金融</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            2.4k 词 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              Sharpe Ratio 是衡量投资的黄金标准为什么只看“回报率”是危险的？一个核心观点：投资不仅仅是关于回报率。这可能是反直觉的，但却是量化金融（Quant Finance）的基石。
+
+一个经典的例子：
+
+投资A（绿色） 和 投资B（黑色） 最终都获得了40%的相同回报。
+
+但它们的路径截然不同：A（绿色）非常平稳地上涨；而B（黑色）则经历了剧烈的波动，中间甚至有一次大幅的回撤。
+
+
+为什么剧烈波动（Wiggles）是坏事？
+
+持有体验更痛苦：根据交易心理学，损失带来的痛苦远大于同等收益带来的快乐。持有B（黑色）的过程会让人备受煎熬，尤其是在大幅回撤时，你根本不知道它是否还能涨回来。
+
+未来信心更低：B（黑色）的剧烈波动让人感觉它“什么都可能发生”，对它未来的表现缺乏信心。相反，A（绿色）的平稳表现让人更相信它会继续稳步增长。
+
+流动性风险：如果你在B（黑色）处于低谷时突然需要用钱（比如支付账单），你将被迫“割肉”平仓，从而实现永久性亏损。
+
+
+结论很明确：B（黑色）是一个更差的投资，因为它为了获得同样的回报，承担了远高于A（绿色）的风险。
+因此，我们需要一个能够同时衡量回报和...
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2025/11/02/%E5%A4%8F%E6%99%AE%E6%AF%94%E7%8E%87%EF%BC%88Sharpe%20Ratio%EF%BC%89/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
+   
+
+
+<article id="post-Types and Type classes" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2025/10/31/Types%20and%20Type%20classes/">Types and Type classes</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2025-10-31T03:12:13.000Z" itemprop="datePublished">2025-10-31</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E6%95%B0%E5%AD%A6/">数学</a>
    
 </div>
   
@@ -523,22 +1171,51 @@ Word2vec
           <div class="truncate-text">
             
               
-BIP with additional constraints
-ConstraintsIf investment 2 is made, then investment 4 must also be made：it means:  if  then  
-If investment 1 is made, then investment 3 cannot be made, it means:  if  then   
-0-1 Knapsack Problem
-Integer Knapsack Problem
-Assignment problem
+举例：type of x :Let X = {1, 2, 3}, a tenary alphabet. Let x = 11321.Then the type of x is  =  ,  =  ,  =  .
+The number of elements in type class T(P) is |T(P)| =  = 20
+三者的核心关系概览可以记成：  
 
-Set covering problem
+也就是：
 
-注意这里是任意i和任意j都满足。
-Traveling salesman problem
+每个序列 x 属于某个 type class T(P)；
 
-注意：因为我们并不知道在求解时，哪个子集 S 会形成独立的小圈(subtour)。为了防止任何这种情况出现，  我们必须“对所有可能的 S”都强制加上限制条件。
-Brute Force
-The Knapsack and Covering Problems
-设 () 是一个人为构造的假设场景这是一个特殊例子，不...
+每个 type class (T(P)) 对应某一个 type (P)；
+
+所有这些 P （即所有 type）组成集合 。
+
+
+直觉上：
+
+type 是“某种分布”，type class 是“所有具有这种分布的序列的集合”。 是“所有可能分布的集合”。
+
+定义回顾
+type（经验分布） 
+
+set of types（类型集合） 
+
+type class（类型类） 对某个特定的类型 ()，定义  
+ 
+
+
+图示理解
+
+
+概念
+对象
+含义
+举例
+
+
+
+type 
+单个分布
+描述一个序列中0和1出现的频率
+
+
+
+type class 
+一组序列
+所有0...
             
           </div>
         
@@ -550,685 +1227,7 @@ The Knapsack and Covering Problems
      
     <a class="right-panel  non-pic  "
       
-      href="/2025/10/11/%E6%95%B4%E6%95%B0%E8%A7%84%E5%88%92%E7%BB%8F%E5%85%B8%E9%97%AE%E9%A2%98%E7%B1%BB%E5%9E%8B/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-   
-
-
-<article id="post-凹凸性的信息" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/10/11/%E5%87%B9%E5%87%B8%E6%80%A7%E7%9A%84%E4%BF%A1%E6%81%AF/">凹凸性的信息</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2025-10-11T12:29:52.000Z" itemprop="datePublished">2025-10-11</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E6%95%B0%E5%AD%A6/">数学</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            2.8k 词 
-          </div>
-        </div>
-        
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            
-              Jensen’s inequality注释：函数值的平权大于函数点的平均
-Non-negativity of KL-Distance
-Maximum Entropy Theorem最大熵定理
-用KL-distance 非负性推出KL 散度总是非负：
-展开：
-
-注意 ，所以：
-因此：
-
-等号条件当 P=U即 X 服从均匀分布时），KL 散度为零，上界取到：
-
-严格凹函数 ⇒ 极值唯一我们已经知道
-
-是 严格凹函数（因为每个项  的二阶导数为 ）。
-对一个严格凹函数 f，若在凸约束集上（如概率单纯形）存在驻点，则该驻点是唯一的全局最大值。
-换句话说：
-严格凹+线性约束⟹唯一的最大点。
-这里的 |X|代表什么
-实际上这里的 ∣X∣ 是指 随机变量 X 能取的不同取值的数量，也就是它的样本空间的基数（cardinality）。
-KL散度和互信息的区别：
-
-
-层级
-KL 散度
-互信息
-
-
-
-样本空间
-一维 
-二维 
-
-
-比较对象
-真实分布 vs 模型分布
-真实联合分布 vs 假设独立分布
-
-
-几何意义
-衡量“两个分布的距离”
-衡量“真实相关性偏离独立的程度”
-
-
-信息含义
-模型误差
-变量间...
-            
-          </div>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2025/10/11/%E5%87%B9%E5%87%B8%E6%80%A7%E7%9A%84%E4%BF%A1%E6%81%AF/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-   
-
-
-<article id="post-Generalized least squares estimators" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/10/01/Generalized%20least%20squares%20estimators/">Generalized least squares estimators</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2025-10-01T12:35:26.000Z" itemprop="datePublished">2025-10-01</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E6%95%B0%E5%AD%A6/">数学</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            66 词 
-          </div>
-        </div>
-        
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            
-              Grouped data
-Generalized least squares estimators: Unknown form of variance
-
-            
-          </div>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2025/10/01/Generalized%20least%20squares%20estimators/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-   
-
-
-<article id="post-The Goldfeld–Quandt test" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/09/29/The%20Goldfeld%E2%80%93Quandt%20test/">The Goldfeld–Quandt test</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2025-09-29T13:11:10.000Z" itemprop="datePublished">2025-09-29</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E6%95%B0%E5%AD%A6/">数学</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            105 词 
-          </div>
-        </div>
-        
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            
-              The Goldfeld–Quandt test
-How to correct heteroskedasticity
-Generalized least squares estimators: Known form of variance
-
-            
-          </div>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2025/09/29/The%20Goldfeld%E2%80%93Quandt%20test/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-   
-
-
-<article id="post-Heteroskedasticity" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/09/28/Heteroskedasticity/">Heteroskedasticity</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2025-09-28T14:45:05.000Z" itemprop="datePublished">2025-09-28</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E6%95%B0%E5%AD%A6/">数学</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            1.1k 词 
-          </div>
-        </div>
-        
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            
-              Heteroskedasticity come from
-
-The passage is describing heteroskedasticity, a situation where the variance of the error term (  ) is not constant but depends on the explanatory variable (x).In ordinary regression we usually assume homoskedasticity: (), the same for all values of . But here, the idea is that when (x) is large in magnitude, the spread (variance) of the errors is also larger. In probabilistic terms, if () grows with (x), then the probability that () takes on large positive or ne...
-            
-          </div>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2025/09/28/Heteroskedasticity/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-   
-
-
-<article id="post-Chow-test" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/09/28/Chow-test/">Chow-test</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2025-09-28T11:15:29.000Z" itemprop="datePublished">2025-09-28</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E6%95%B0%E5%AD%A6/">数学</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            1.4k 词 
-          </div>
-        </div>
-        
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            
-              
-Main idea of “restriction”A restriction is always about which coefficients we force to equal zero under the null hypothesis. It depends on the question we want to test.
-
-If the question is “Does SOUTH matter?”, then the restrictions only apply to the θ’s (the coefficients that multiply SOUTH and its interactions).
-
-If the question is “Does race (BLACK), gender (FEMALE), or their interaction matter?”, then the restrictions would apply to the δ’s and γ as well.
-
-
-So it’s about the hypothesis, ...
-            
-          </div>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2025/09/28/Chow-test/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-   
-
-
-<article id="post-Least squares prediction and Indicator Variables" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/09/23/Least%20squares%20prediction%20and%20Indicator%20Variables/">Least squares prediction and Indicator Variables</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2025-09-23T08:02:42.000Z" itemprop="datePublished">2025-09-23</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E6%95%B0%E5%AD%A6/">数学</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            2.9k 词 
-          </div>
-        </div>
-        
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            
-              Least squares prediction
-CI and PI
-CI: “Where is the average wage for people with 16 years of education likely to be?”
-
-PI: “If I pick one random person with 16 years of education, what wage will they likely earn?”
-
-
-Confidence Interval (CI)
-Target: The conditional mean    
-
-This is a fixed but unknown number (not random once the data and ​ are fixed).
-
-The randomness comes from the estimation process (sampling variation in ​ ).
-
-So the CI is telling you: “With 95% confidence, the true mean l...
-            
-          </div>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2025/09/23/Least%20squares%20prediction%20and%20Indicator%20Variables/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-   
-
-
-<article id="post-What is information theory and coding" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/09/22/What%20is%20information%20theory%20and%20coding/">What is information theory and coding</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2025-09-22T14:06:12.000Z" itemprop="datePublished">2025-09-22</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E6%95%B0%E5%AD%A6/">数学</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            2.3k 词 
-          </div>
-        </div>
-        
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            
-              goal
-what should we learn
-communication system
-
-Source Encoder
-
-Converts the raw source (text, audio, image) into a sequence of bits .
-
-
-Channel Encoder
-
-Adds redundancy to protect against noise.
-
-
-Modulator
-
-Converts the encoded bits into waveforms/signals that can physically travel through the channel.
-
-
-Channel + Noise
-
-The medium distorts the signal (attenuation, interference, random noise).
-
-
-Demodulator
-
-Recovers the bit sequence from the noisy received signal.
-
-
-Channel Decoder
-
-Uses r...
-            
-          </div>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2025/09/22/What%20is%20information%20theory%20and%20coding/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-   
-
-
-<article id="post-Further inference in the multiple linear regression model" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/09/22/Further%20inference%20in%20the%20multiple%20linear%20regression%20model/">Further inference in the multiple linear regression model</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2025-09-22T10:17:56.000Z" itemprop="datePublished">2025-09-22</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E6%95%B0%E5%AD%A6/">数学</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            2.2k 词 
-          </div>
-        </div>
-        
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            
-              Joint hypothesis testing
-
-Simple null hypothesis → involves a restriction on one  sign (&lt;,=,&gt;)  only 
-
-Joint null hypothesis → involves two or more restrictions at the same time 
-
-
-Testing the effect of advertising: The F-test
-restricted model :  
-
-An unrestricted model is the “full” regression specification, where you estimate all parameters freely without imposing any restrictions. For example, if your regression is  
-  then the unrestricted model estimates   all at once.
-
-A restricte...
-            
-          </div>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2025/09/22/Further%20inference%20in%20the%20multiple%20linear%20regression%20model/" 
+      href="/2025/10/31/Types%20and%20Type%20classes/" 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>
@@ -1251,7 +1250,7 @@ A restricte...
       <i class="fa-solid fa-angle-left"></i>
     </a>
     <div id="num-bar">
-      <a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a>  
+      <a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a>  
     </div>
     <a id="next-btn" class="page-nav-btn " href="/page/3/">
       <i class="fa-solid fa-angle-right"></i>
